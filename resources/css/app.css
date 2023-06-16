@@ -1,0 +1,25 @@
+@import "_fonts";
+@import "blobz";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bold-text-light-teal strong {
+    @apply text-light-teal;
+    font-weight: inherit !important;
+}
+
+.shadow-button {
+    /* @apply shadow-black; */
+    @apply transition;
+    box-shadow: 0.375rem 0.375rem 0 var(--tw-shadow-color);
+}
+
+.shadow-button:hover {
+    box-shadow: 0.25rem 0.25rem 0 var(--tw-shadow-color);
+}
+
+.shadow-button:active {
+    box-shadow: 0.125rem 0.125rem 0 var(--tw-shadow-color);
+}

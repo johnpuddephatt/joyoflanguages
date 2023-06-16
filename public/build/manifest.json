@@ -1,0 +1,28 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-c5ae1287.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/fonts/BrandonText-Black.woff": {
+    "file": "assets/BrandonText-Black-a7b9b7c0.woff",
+    "src": "resources/fonts/BrandonText-Black.woff"
+  },
+  "resources/fonts/BrandonText-Black.woff2": {
+    "file": "assets/BrandonText-Black-2020a74a.woff2",
+    "src": "resources/fonts/BrandonText-Black.woff2"
+  },
+  "resources/fonts/BrandonText-Medium.woff": {
+    "file": "assets/BrandonText-Medium-82528e87.woff",
+    "src": "resources/fonts/BrandonText-Medium.woff"
+  },
+  "resources/fonts/BrandonText-Medium.woff2": {
+    "file": "assets/BrandonText-Medium-05f32514.woff2",
+    "src": "resources/fonts/BrandonText-Medium.woff2"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-2cfbafb6.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

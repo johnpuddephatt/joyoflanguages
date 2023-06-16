@@ -1,0 +1,16 @@
+@layer base {
+    @font-face {
+        font-family: "Brandon Text";
+        font-weight: 700;
+        font-style: normal;
+        src: url(../fonts/BrandonText-Black.woff) format("woff"),
+            url(../fonts/BrandonText-Black.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "Brandon Text";
+        font-weight: 400;
+        font-style: normal;
+        src: url(../fonts/BrandonText-Medium.woff) format("woff"),
+            url(../fonts/BrandonText-Medium.woff2) format("woff2");
+    }
+}
