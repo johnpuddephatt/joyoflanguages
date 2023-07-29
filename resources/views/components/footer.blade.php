@@ -19,7 +19,7 @@
         @if (isset($secondary_menu))
             <nav :class="!menuOpen && 'max-lg:translate-x-full'" class="-mx-4 mt-6 flex flex-row gap-2">
                 @foreach ($secondary_menu as $menu_item)
-                    @if ($menu_item['data']['type'] == 'button' ?? false)
+                    @if (($menu_item['data']['type'] ?? false) == 'button')
                         <x-button-link :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                     @else
                         <a class="inline-block rounded border-transparent px-4 py-2 transition hover:bg-white hover:bg-opacity-10"

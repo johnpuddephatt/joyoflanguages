@@ -16,7 +16,7 @@
             @foreach ($primary_menu as $menu_item)
                 <div class="group relative">
 
-                    @if ($menu_item['data']['type'] == 'button' ?? false)
+                    @if (($menu_item['data']['type'] ?? false) == 'button')
                         <x-button-link class="shadow-yellow" :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                     @else
                         <a class="inline-block rounded px-6 py-2 transition group-hover:bg-white group-hover:bg-opacity-10"
