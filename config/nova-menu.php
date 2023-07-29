@@ -67,8 +67,7 @@ return [
 
     "menu_item_types" => [
         \App\Nova\Menu\MenuItemPageType::class,
-        \Outl1ne\MenuBuilder\MenuItemTypes\MenuItemTextType::class,
-        \Outl1ne\MenuBuilder\MenuItemTypes\MenuItemStaticURLType::class,
+        \App\Nova\Menu\MenuItemStaticURLType::class,
     ],
 
     /*

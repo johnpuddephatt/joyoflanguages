@@ -104,10 +104,12 @@ class MenuItemPageType extends MenuItemSelectType
     public static function getFields(): array
     {
         return [
-            Select::make("Type")->options([
-                "default" => "Default",
-                "button" => "Button",
-            ]),
+            Select::make("Type")
+                ->options([
+                    "default" => "Default",
+                    "button" => "Button",
+                ])
+                ->default("default"),
         ];
     }
 
