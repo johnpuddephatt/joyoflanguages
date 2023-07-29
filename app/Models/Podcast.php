@@ -32,6 +32,7 @@ class Podcast extends Model
         "guid",
         "title",
         "slug",
+        "language_id",
         "rss_content",
         "episode_number",
         "introduction",
