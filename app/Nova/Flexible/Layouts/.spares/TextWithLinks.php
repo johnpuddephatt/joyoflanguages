@@ -5,7 +5,7 @@ namespace App\Nova\Flexible\Layouts;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Manogi\Tiptap\Tiptap;
 use Laravel\Nova\Fields\Heading;
-use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
+// use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 use Laravel\Nova\Fields\Select;
 
 class TextWithLinks extends Layout
@@ -47,11 +47,11 @@ class TextWithLinks extends Layout
                 "blockquote",
             ]),
             Heading::make("Links"),
-            SimpleRepeatable::make("Links", "links", [
-                Select::make("Page")
-                    ->options(\App\Models\Page::pluck("title", "id"))
-                    ->placeholder("Select a page"),
-            ])->addRowLabel("Add new link"),
+            // SimpleRepeatable::make("Links", "links", [
+            //     Select::make("Page")
+            //         ->options(\App\Models\Page::pluck("title", "id"))
+            //         ->placeholder("Select a page"),
+            // ])->addRowLabel("Add new link"),
         ];
     }
 }

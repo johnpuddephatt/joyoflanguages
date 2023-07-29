@@ -31,27 +31,29 @@ class PageTemplate
                 Flexible::make("", "content")
                     ->addLayout(\App\Nova\Flexible\Layouts\PageHero::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
-                    ->addLayout(
-                        \App\Nova\Flexible\Layouts\TextWithSectionNavigation::class
-                    )
-                    ->addLayout(
-                        \App\Nova\Flexible\Layouts\TextWithSidebar::class
-                    )
-                    ->addLayout(
-                        \App\Nova\Flexible\Layouts\TextWithPullout::class
-                    )
-                    ->addLayout(\App\Nova\Flexible\Layouts\FeatureBanner::class)
-                    ->addLayout(\App\Nova\Flexible\Layouts\TextWithImage::class)
-                    ->addLayout(
-                        \App\Nova\Flexible\Layouts\TextWithRoundImage::class
-                    )
-                    ->addLayout(\App\Nova\Flexible\Layouts\Image::class)
-                    ->addLayout(\App\Nova\Flexible\Layouts\ImagePair::class)
-                    ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Team::class)
                     ->addLayout(
-                        \App\Nova\Flexible\Layouts\ContactDetails::class
+                        \App\Nova\Flexible\Layouts\TextWithImages::class
                     )
+                    ->addLayout(
+                        \App\Nova\Flexible\Layouts\TextWithChecklist::class
+                    )
+                    ->addLayout(\App\Nova\Flexible\Layouts\JumpCTA::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Features::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Feature::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Squares::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock2::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Subscriptions::class)
+                    ->addLayout(
+                        \App\Nova\Flexible\Layouts\CoursesAndCurriculum::class
+                    )
+                    ->addLayout(
+                        \App\Nova\Flexible\Layouts\VoiceOfCustomer::class
+                    )
+                    ->addLayout(\App\Nova\Flexible\Layouts\Faqs::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\SignOff::class)
+
                     ->enablePreview(
                         \Illuminate\Support\Facades\Vite::asset(
                             "resources/css/app.css"

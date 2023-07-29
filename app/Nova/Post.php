@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Nova\Traits\RedirectsToIndexOnSave;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Jdp\Gutentap\Gutentap;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
@@ -14,6 +15,9 @@ use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
+use Spatie\TagsField\Tags;
+use Illuminate\Support\Str;
+use Laravel\Nova\Fields\Tag;
 
 class Post extends Resource
 {
@@ -57,55 +61,83 @@ class Post extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()
-                ->sortable()
-                ->hideFromIndex(),
-            MediaHubField::make("Image"),
-            Text::make("Title")
-                ->rules("required", "string", "max:50")
-                ->maxlength(50)
-                ->enforceMaxlength(),
-            Slug::make("Slug")
-                ->from("Title")
-                ->hideFromIndex(),
-            Text::make("Introduction")
-                ->rules("required", "string", "max:150")
-                ->hideFromIndex()
-                ->maxlength(150)
-                ->enforceMaxlength(),
-            Date::make("Publish date", "published_at")->help(
-                "Leave the date blank to mark this post as a draft."
-            ),
-            Badge::make("Status", "status", function () {
-                return $this->published_at ? "published" : "draft";
-            })->types([
-                "draft" => ["font-bold", "bg-primary-100", "text-primary-600"],
-                "published" => ["font-bold", "bg-green-100", "text-green-600"],
+            new Panel("Overview", [
+                ID::make()
+                    ->sortable()
+                    ->hideFromIndex(),
+                MediaHubField::make("Image"),
+                Tag::make("Languages"),
+
+                Text::make("Title")
+                    ->rules("required", "string", "max:50")
+                    ->maxlength(50)
+                    ->enforceMaxlength(),
+                Slug::make("Slug")
+                    ->from("Title")
+                    ->hideFromIndex(),
+                Text::make("Introduction")
+                    ->rules("required", "string", "max:150")
+                    ->hideFromIndex()
+                    ->maxlength(150)
+                    ->enforceMaxlength(),
+                Tags::make("Tags")->fillUsing(function (
+                    $request,
+                    $model,
+                    $attribute,
+                    $requestAttribute
+                ) {
+                    if ($request->input($requestAttribute)) {
+                        $model->{$attribute} = explode(
+                            "-----",
+                            Str::of($request->input($requestAttribute))->lower()
+                        );
+                    }
+                }),
+
+                Date::make("Publish date", "published_at")->help(
+                    "Leave the date blank to mark this post as a draft."
+                ),
+                Badge::make("Status", "status", function () {
+                    return $this->published_at ? "published" : "draft";
+                })->types([
+                    "draft" => [
+                        "font-bold",
+                        "bg-primary-100",
+                        "text-primary-600",
+                    ],
+                    "published" => [
+                        "font-bold",
+                        "bg-green-100",
+                        "text-green-600",
+                    ],
+                ]),
+                BelongsTo::make("Author", "author", User::class)->nullable(),
             ]),
 
-            BelongsTo::make("Author", "author", User::class)->nullable(),
-            Panel::make("Content", [
-                Flexible::make("Flexible content", "content")
-                    // ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
-                    // ->addLayout(
-                    //     \App\Nova\Flexible\Layouts\TextWithSidebar::class
-                    // )
-                    // ->addLayout(
-                    //     \App\Nova\Flexible\Layouts\TextWithPullout::class
-                    // )
-                    // ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
-                    // ->addLayout(\App\Nova\Flexible\Layouts\Image::class)
-                    // ->addLayout(\App\Nova\Flexible\Layouts\ImagePair::class)
-                    // ->addLayout(\App\Nova\Flexible\Layouts\WatchVideo::class)
-                    ->enablePreview(
-                        \Illuminate\Support\Facades\Vite::asset(
-                            "resources/css/app.css"
-                        )
-                    )
-                    ->stacked()
-                    ->defaultLayouts(["text"])
-                    ->button("Add content"),
-            ]),
+            new Panel("Content", [Gutentap::make("Content")->hideFromIndex()]),
+
+            // Panel::make("Content", [
+            //     Flexible::make("Flexible content", "content")
+            //         // ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
+            //         // ->addLayout(
+            //         //     \App\Nova\Flexible\Layouts\TextWithSidebar::class
+            //         // )
+            //         // ->addLayout(
+            //         //     \App\Nova\Flexible\Layouts\TextWithPullout::class
+            //         // )
+            //         // ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
+            //         // ->addLayout(\App\Nova\Flexible\Layouts\Image::class)
+            //         // ->addLayout(\App\Nova\Flexible\Layouts\ImagePair::class)
+            //         // ->addLayout(\App\Nova\Flexible\Layouts\WatchVideo::class)
+            //         ->enablePreview(
+            //             \Illuminate\Support\Facades\Vite::asset(
+            //                 "resources/css/app.css"
+            //             )
+            //         )
+            //         ->stacked()
+            //         ->defaultLayouts(["text"])
+            //         ->button("Add content"),
+            // ]),
         ];
     }
 

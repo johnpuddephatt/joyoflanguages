@@ -4,29 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Page;
+use App\Models\Language;
 
 class PageController extends Controller
 {
-    public function home()
-    {
-        $page = Page::where(
-            "template",
-            "App\Nova\Templates\HomePageTemplate"
-        )->firstOrFail();
+    // public function home(Language $language = null)
+    // {
+    //     dd($language);
+    //     $page = $language
+    //         ->pages()
+    //         ->where("template", "App\Nova\Templates\HomePageTemplate")
+    //         ->firstOrFail();
 
-        return view("templates.home-page", [
-            "page" => $page->resolveContent(),
-        ]);
-    }
+    //     return view("templates.home-page", [
+    //         "page" => $page->resolveContent(),
+    //         "language" => $language,
+    //     ]);
+    // }
 
-    // public function show(Page $page1, Page $page2 = null, Page $page3 = null)
-    public function show($slug)
+    public function show(Language $language = null, $slug = null)
     {
         $slug_parts = explode("/", $slug);
-        $page = Page::where("slug", end($slug_parts))->first();
 
-        if (!$page) {
-            abort(404);
+        if ($language) {
+            $page = $language
+                ->pages()
+                ->where("slug", end($slug_parts) ?: "/")
+                ->firstOrFail();
+        } else {
+            $page = Page::doesntHave("language")
+                ->where("slug", end($slug_parts) ?: "/")
+                ->firstOrFail();
         }
 
         if (
@@ -38,6 +46,7 @@ class PageController extends Controller
 
         return view("templates." . (new $page->template())->name(), [
             "page" => $page->resolveContent(),
+            "language" => $language,
         ]);
     }
 }

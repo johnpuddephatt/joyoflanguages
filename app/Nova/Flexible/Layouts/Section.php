@@ -52,16 +52,16 @@ class Section extends Layout
     //     return $value;
     // }
 
-    public function getFieldsAttribute($value)
-    {
-        if ($value && is_string($value) && $value !== "") {
-            return $this->toFlexible(json_decode($value));
-        }
-        return $this->flexible("fields", [
-            "podcast-link" => \App\Nova\Flexible\Layouts\PodcastLink::class,
-            "blog-link" => \App\Nova\Flexible\Layouts\BlogLink::class,
-        ]);
-    }
+    // public function getFieldsAttribute($value)
+    // {
+    //     if ($value && is_string($value) && $value !== "") {
+    //         return $this->toFlexible(json_decode($value));
+    //     }
+    //     return $this->flexible("fields", [
+    //         "podcast-link" => \App\Nova\Flexible\Layouts\PodcastLink::class,
+    //         "blog-link" => \App\Nova\Flexible\Layouts\BlogLink::class,
+    //     ]);
+    // }
 
     /**
      * Get the fields displayed by the layout.
@@ -70,6 +70,11 @@ class Section extends Layout
      */
     public function fields()
     {
-        return [Text::make("Title")];
+        return [
+            Text::make("Pre-title"),
+            Text::make("Title"),
+            Textarea::make("Subtitle"),
+            5,
+        ];
     }
 }

@@ -4,28 +4,28 @@ namespace App\Nova\Flexible\Layouts;
 
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Image;
-use Manogi\Tiptap\Tiptap;
 
 use Trin4ik\NovaSwitcher\NovaSwitcher;
 
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 
-class TextWithImage extends Layout
+class TextWithIcon extends Layout
 {
     /**
      * The layout's unique identifier
      *
      * @var string
      */
-    protected $name = "text-with-image";
+    protected $name = "text-with-icon";
 
     /**
      * The displayed title
      *
      * @var string
      */
-    protected $title = "Text With Image";
+    protected $title = "Text With Icon";
 
     /**
      * Enable preview for this layout
@@ -33,10 +33,6 @@ class TextWithImage extends Layout
      * @var string
      */
     protected $preview = true;
-
-    protected $casts = [
-        "image" => \App\Casts\NovaMediaLibraryCast::class,
-    ];
 
     /**
      * Get the fields displayed by the layout.
@@ -50,14 +46,9 @@ class TextWithImage extends Layout
 
             Text::make("Title")->stacked(),
 
-            Tiptap::make("Main")
-                ->stacked()
-                ->buttons(["bold", "italic", "link"])
-                ->withMeta([
-                    "extraAttributes" => [
-                        "placeholder" => "Start writing...",
-                    ],
-                ]),
+            Textarea::make("Main")
+                ->help("Supports Markdown")
+                ->stacked(),
 
             Image::make("Image")
                 ->stacked()

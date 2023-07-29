@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Casts\MyFlexibleCast;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class Podcast extends Model
 {
     use HasFactory;
+    use \Spatie\Tags\HasTags;
 
     protected static function booted()
     {
-        static::addGlobalScope("published_at", function (Builder $builder) {
-            $builder->whereNotNull("published_at");
+        static::addGlobalScope("published", function (Builder $builder) {
+            $builder->where("published", true);
         });
 
         static::addGlobalScope("episode_number", function (Builder $builder) {
@@ -28,13 +28,19 @@ class Podcast extends Model
      * @var array
      */
     protected $fillable = [
-        "author_id",
+        "id",
+        "guid",
         "title",
         "slug",
+        "rss_content",
         "episode_number",
         "introduction",
         "content",
         "published_at",
+        "published",
+        "file",
+        "duration",
+        "synced",
     ];
 
     /**
@@ -43,21 +49,20 @@ class Podcast extends Model
      * @var array
      */
     protected $casts = [
-        "id" => "integer",
-        "author_id" => "integer",
-        "published_at" => "timestamp",
-        "episode_number" => "integer",
-        "content" => MyFlexibleCast::class,
         "published_at" => "date",
+        "episode_number" => "integer",
+        "content" => "json",
+        "published" => "boolean",
+        "synced" => "boolean",
     ];
-
-    public function author()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     public function getUrlAttribute()
     {
         return route("podcast.show", ["podcast" => $this->slug]);
+    }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class);
     }
 }

@@ -2,23 +2,25 @@
 
 namespace App\Nova\Flexible\Layouts;
 
+use Laravel\Nova\Fields\KeyValue;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
+use Laravel\Nova\Fields\Number;
 
-class Team extends Layout
+class Squares extends Layout
 {
     /**
      * The layout's unique identifier
      *
      * @var string
      */
-    protected $name = "team";
+    protected $name = "squares";
 
     /**
      * The displayed title
      *
      * @var string
      */
-    protected $title = "Team";
+    protected $title = "Squares";
 
     /**
      * Enable preview for this layout
@@ -27,11 +29,6 @@ class Team extends Layout
      */
     protected $preview = true;
 
-    public function getTeamAttribute()
-    {
-        return \App\Models\User::where("show_in_staff_directory", true)->get();
-    }
-
     /**
      * Get the fields displayed by the layout.
      *
@@ -39,6 +36,11 @@ class Team extends Layout
      */
     public function fields()
     {
-        return [];
+        return [
+            KeyValue::make("Squares")
+
+                ->keyLabel("Title")
+                ->valueLabel("Description"),
+        ];
     }
 }

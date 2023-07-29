@@ -1,5 +1,5 @@
 <footer class="relative overflow-hidden bg-blue py-36 text-center lg:text-left">
-    <div class="container">
+    <div class="container mx-auto">
         @if (isset($settings['mission']))
             <p class="text-gray mx-auto max-w-lg lg:mx-0">{{ $settings['mission'] }}</p>
         @endif

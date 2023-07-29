@@ -19,6 +19,7 @@ class SaveAndResizeImage
         $storagePath
     ) {
         $conversions = config("images." . $model::$imageSizes[$attribute]);
+
         $storagePath =
             $storagePath == "/"
                 ? "images/page/" .
@@ -49,7 +50,7 @@ class SaveAndResizeImage
             Storage::disk($disk)->put(
                 $default_path,
                 InterventionImage::make($request->$requestAttribute)
-                    ->fit(
+                    ->{$conversions["DEFAULT"][1] ? "fit" : "widen"}(
                         $conversions["DEFAULT"][0],
                         $conversions["DEFAULT"][1]
                     )
@@ -78,12 +79,17 @@ class SaveAndResizeImage
             }
 
             $sizes_paths[$size[0] . "w"] =
-                $storagePath . $request->$requestAttribute->hashName() . ".jpg";
+                $storagePath .
+                $request->$requestAttribute->hashName() .
+                "__" .
+                $size[0] .
+                "w" .
+                ".jpg";
 
             Storage::disk($disk)->put(
                 $sizes_paths[$size[0] . "w"],
                 InterventionImage::make($request->$requestAttribute)
-                    ->fit($size[0], $size[1])
+                    ->{$size[1] ? "fit" : "widen"}($size[0], $size[1])
                     ->encode("jpg", 75)
             );
         }

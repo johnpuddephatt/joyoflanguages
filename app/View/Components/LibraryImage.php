@@ -26,6 +26,11 @@ class LibraryImage extends Component
     {
         if (is_object($this->image)) {
             return view("components.library-image");
+        } elseif (is_numeric($this->image)) {
+            $this->image = \Outl1ne\NovaMediaHub\Models\Media::find(
+                $this->image
+            );
+            return view("components.library-image");
         }
     }
 
@@ -53,7 +58,7 @@ class LibraryImage extends Component
     {
         $conversions = \Illuminate\Support\Arr::where(
             $this->image->conversions,
-            fn($value, $key) => str_starts_with($key, $this->conversion)
+            fn($value, $key) => str_starts_with($key, $this->conversion . "__")
         );
 
         $configs =

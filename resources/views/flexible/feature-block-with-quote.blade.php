@@ -4,7 +4,7 @@
 
     <div class="p-24">
         <h2 class="mb-8 text-4xl font-bold">{{ $layout->title }}</h2>
-        <div class="max-w-lg">{!! $layout->description !!}
+        <div class="max-w-lg">@markdown($layout->description) !!}
             @if ($layout->button_url)
                 <x-button-link class="mt-16" :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif

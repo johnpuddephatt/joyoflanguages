@@ -97,25 +97,45 @@ return [
                 "height" => 627,
                 "fit" => Manipulations::FIT_CROP,
             ],
+
+            "uncropped" => [
+                "format" => "jpg",
+                "width" => 300,
+                "height" => 5000,
+                "fit" => Manipulations::FIT_CONTAIN,
+            ],
+            "uncropped__sm" => [
+                "format" => "jpg",
+                "width" => 600,
+                "height" => 5000,
+                "fit" => Manipulations::FIT_CONTAIN,
+            ],
+            "uncropped__md" => [
+                "format" => "jpg",
+                "width" => 1200,
+                "height" => 5000,
+                "fit" => Manipulations::FIT_CONTAIN,
+            ],
+
             "3x2" => [
                 "format" => "jpg",
                 "width" => 300,
                 "height" => 200,
                 "fit" => Manipulations::FIT_CROP,
             ],
-            "3x2-sm" => [
+            "3x2__sm" => [
                 "format" => "jpg",
                 "width" => 600,
                 "height" => 400,
                 "fit" => Manipulations::FIT_CROP,
             ],
-            "3x2-md" => [
+            "3x2__md" => [
                 "format" => "jpg",
                 "width" => 1200,
                 "height" => 800,
                 "fit" => Manipulations::FIT_CROP,
             ],
-            "3x2-lg" => [
+            "3x2__lg" => [
                 "format" => "jpg",
                 "width" => 2400,
                 "height" => 1600,
@@ -127,13 +147,13 @@ return [
                 "height" => 600,
                 "fit" => Manipulations::FIT_CROP,
             ],
-            "portrait-md" => [
+            "portrait__md" => [
                 "format" => "jpg",
                 "width" => 450,
                 "height" => 900,
                 "fit" => Manipulations::FIT_CROP,
             ],
-            "portrait-lg" => [
+            "portrait__lg" => [
                 "format" => "jpg",
                 "width" => 600,
                 "height" => 1200,

@@ -51,7 +51,7 @@
 
                     @include('flexible.' . $layout->name(), [
                         'layout' => $layout,
-                        'class' => 'max-w-4xl lg:pl-24',
+                        'class' => 'text-left max-w-4xl lg:pl-24',
                     ])
 
                     @if ($layout->name() === 'section' && $loop->last)

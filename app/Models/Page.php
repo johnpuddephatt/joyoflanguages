@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Casts\MyFlexibleCast;
+use Whitecube\NovaFlexibleContent\Concerns\HasFlexible;
 
 class Page extends Model
 {
     use HasFactory;
+    use HasFlexible;
 
     /**
      * The attributes that are mass assignable.
@@ -18,6 +20,7 @@ class Page extends Model
     protected $fillable = [
         "title",
         "content",
+        "introduction",
         "image",
         "parent_id",
         "template",
@@ -37,12 +40,16 @@ class Page extends Model
     public function getURLAttribute()
     {
         $path = "";
+
         if ($this->parent) {
             $path .= $this->parent->URL;
+        } else {
+            $path .= "//";
+            $path .= $this->language ? $this->language->slug . "." : "";
+            $url = explode("://", config("app.url"));
+            $path .= end($url);
         }
-        if ($this->slug !== "/") {
-            $path .= "/";
-        }
+
         return $path .= $this->slug;
     }
 
@@ -54,6 +61,11 @@ class Page extends Model
     public function children()
     {
         return $this->hasMany(\App\Models\Page::class, "parent_id");
+    }
+
+    public function language()
+    {
+        return $this->belongsTo(\App\Models\Language::class, "language_id");
     }
 
     public function indented_title()
@@ -74,9 +86,9 @@ class Page extends Model
         $ids_ordered = implode(
             ",",
             \App\Models\Page::withoutGlobalScopes()
-                ->select("id", "title", "parent_id", "slug")
+                ->select("id", "title", "parent_id", "slug", "language_id")
                 ->get()
-                ->sortBy("URL")
+                ->sortBy([["language_id", "asc"], ["URL", "asc"]])
                 ->pluck("id")
                 ->toArray()
         );
@@ -108,9 +120,12 @@ class Page extends Model
         return $templateArray;
     }
 
-    public static function getTemplateUrl($template)
+    public static function getTemplateUrl($template, $language_id = null)
     {
-        return \App\Models\Page::firstWhere("template", $template)->url;
+        return \App\Models\Page::where("language_id", $language_id)->firstWhere(
+            "template",
+            $template
+        )?->url;
     }
 
     public function resolveContent()

@@ -4,7 +4,6 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Http\Requests\ResourceIndexRequest;
@@ -17,6 +16,8 @@ use Laravel\Nova\Fields\Image;
 use App\Nova\Actions\SaveAndResizeImage;
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 use App\Nova\Traits\RedirectsToIndexOnSave;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Textarea;
 
 class Page extends Resource
 {
@@ -65,9 +66,9 @@ class Page extends Resource
     public function fields(Request $request)
     {
         $fields = [
-            ID::make()
-                ->sortable()
-                ->hideFromIndex(),
+            ID::make()->hideFromIndex(),
+
+            BelongsTo::make("Language")->nullable(),
 
             Text::make("Title")
                 ->rules("required", "string", "max:200")
@@ -85,6 +86,12 @@ class Page extends Resource
                 }),
 
             Slug::make("Slug")->from("Title"),
+
+            Textarea::make("Introduction")->rules(
+                "required",
+                "string",
+                "max:300"
+            ),
 
             MediaHubField::make("Image", "image"),
 

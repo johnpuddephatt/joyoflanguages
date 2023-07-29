@@ -35,7 +35,7 @@ class SectionedPageTemplate
                 ->addLayout(\App\Nova\Flexible\Layouts\Section::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
-                ->addLayout(\App\Nova\Flexible\Layouts\TextWithImage::class)
+                ->addLayout(\App\Nova\Flexible\Layouts\TextWithIcon::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\PodcastLink::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\BlogLink::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock::class)

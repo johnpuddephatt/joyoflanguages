@@ -58,9 +58,7 @@ class User extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()
-                ->sortable()
-                ->hideFromIndex(),
+            ID::make()->hideFromIndex(),
 
             Boolean::make("Enable login"),
             Boolean::make("Show in staff directory"),

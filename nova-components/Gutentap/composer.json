@@ -1,0 +1,37 @@
+{
+    "name": "jdp/gutentap",
+    "description": "A Laravel Nova field.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "wysiwyg",
+        "editor",
+        "text"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "laravel/nova": "^4.0",
+        "ueberdosis/tiptap-php": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jdp\\Gutentap\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jdp\\Gutentap\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

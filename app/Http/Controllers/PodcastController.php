@@ -11,4 +11,14 @@ class PodcastController extends Controller
     {
         return view("podcast.show", compact("podcast"));
     }
+
+    public static function audio(Podcast $podcast)
+    {
+        $string = file_get_contents($podcast->file);
+        header("Content-Type: audio/mpeg");
+        header("Content-length: " . strlen($string));
+        header("Connection: keep-alive");
+        header("Accept-Ranges: bytes ");
+        echo $string;
+    }
 }

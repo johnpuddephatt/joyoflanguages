@@ -20,7 +20,7 @@ class HomePageTemplate
 
     public static function unique(): bool
     {
-        return true;
+        return false;
     }
 
     // Fields displayed in CMS
@@ -30,6 +30,7 @@ class HomePageTemplate
             Panel::make("Page content", [
                 Flexible::make("", "content")
                     ->addLayout(\App\Nova\Flexible\Layouts\Hero::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\HeroWithVideo::class)
                     ->addLayout(
                         \App\Nova\Flexible\Layouts\TextWithBullets::class
                     )
@@ -40,9 +41,16 @@ class HomePageTemplate
                     ->addLayout(
                         \App\Nova\Flexible\Layouts\LatestPodcasts::class
                     )
+                    ->addLayout(
+                        \App\Nova\Flexible\Layouts\LanguagesPostsLinks::class
+                    )
                     ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Newsletter::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\LatestPosts::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\TaggedPosts::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Faqs::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\SignOff::class)
+
                     // ->addLayout(\App\Nova\Flexible\Layouts\Statement::class)
                     // ->addLayout(\App\Nova\Flexible\Layouts\FeatureBanner::class)
                     // ->addLayout(\App\Nova\Flexible\Layouts\TextWithLinks::class)

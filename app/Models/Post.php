@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Language;
 use App\Casts\MyFlexibleCast;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class Post extends Model
 {
     use HasFactory;
+    use \Spatie\Tags\HasTags;
 
     protected static function booted()
     {
@@ -45,7 +47,7 @@ class Post extends Model
         "author_id" => "integer",
         "published_at" => "timestamp",
         "image" => \App\Casts\NovaMediaLibraryCast::class,
-        "content" => MyFlexibleCast::class,
+        "content" => "json",
         "published_at" => "date",
     ];
 
@@ -57,5 +59,10 @@ class Post extends Model
     public function getUrlAttribute()
     {
         return route("post.show", ["post" => $this->slug]);
+    }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class);
     }
 }

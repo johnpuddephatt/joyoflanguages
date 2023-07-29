@@ -19,6 +19,11 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string("title", 200);
             $table->string("slug");
+            $table
+                ->foreignId("language_id")
+                ->constrained("languages")
+                ->nullable();
+            $table->text("introduction")->nullable();
             $table->string("image")->nullable();
             $table->json("content")->nullable();
             $table->string("template");

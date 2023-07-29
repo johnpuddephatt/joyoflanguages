@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('templatecontent')
-    <x-header />
+    <x-header :$page />
 
     <main class="relative">
         @yield('content')

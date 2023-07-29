@@ -12,7 +12,6 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use Laravel\Nova\Panel;
 use Outl1ne\NovaSettings\NovaSettings;
-use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 
 use Illuminate\Support\Facades\Storage;
 use Laravel\Nova\Fields\Code;

@@ -22,7 +22,7 @@ class PodcastsPageTemplate
 
     public static function unique(): bool
     {
-        return true;
+        return false;
     }
 
     // Fields displayed in CMS

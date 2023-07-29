@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Nova\Flexible\Layouts;
 
 use Laravel\Nova\Fields\Text;
-use Manogi\Tiptap\Tiptap;
-use Whitecube\NovaFlexibleContent\Flexible;
+use Laravel\Nova\Fields\Textarea;
+// use Whitecube\NovaFlexibleContent\Flexible;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use NormanHuth\Values\Values;
 
@@ -35,14 +34,10 @@ class TextWithBullets extends Layout
     {
         return [
             Text::make("Title")->stacked(),
-            Tiptap::make("Description")
-                ->buttons(["bold", "italic", "link", "blockquote"])
-                ->withMeta([
-                    "extraAttributes" => [
-                        "placeholder" => "Start writing...",
-                    ],
-                ])
+            Textarea::make("Description")
+                ->help("Supports Markdown")
                 ->stacked(),
+
             Values::make("Bullets")
                 ->valueLabel("")
                 ->stacked(),

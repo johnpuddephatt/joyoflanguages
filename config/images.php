@@ -1,6 +1,17 @@
 <?php
 
 return [
+    "uncropped" => [
+        "DEFAULT" => [1200, null],
+        "sizes" => [
+            [600, null],
+            [900, null],
+            [1200, null],
+            [1800, null],
+            [2400, null],
+        ],
+    ],
+
     "landscape" => [
         "DEFAULT" => [1200, 800],
         "sizes" => [

@@ -20,6 +20,8 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('head')
+    @livewireStyles
+
 </head>
 
 <body class="text-[0.875rem] leading-[157.1%] tracking-normal lg:text-[1rem] lg:leading-[162.5%]">
@@ -27,6 +29,8 @@
         @yield('templatecontent')
     </div>
     @stack('footer')
+    @livewireScripts
+
 </body>
 
 </html>

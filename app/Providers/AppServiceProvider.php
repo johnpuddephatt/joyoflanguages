@@ -65,5 +65,13 @@ class AppServiceProvider extends ServiceProvider
 
             return "{!! str_replace('<svg ', '<svg class=\"{$class}\" ', $string) !!}";
         });
+
+        \Blade::directive("markdown", function (string $expression) {
+            return "{!! \Illuminate\Support\Str::markdown($expression ?? '') !!}";
+        });
+
+        \Blade::directive("inlineMarkdown", function (string $expression) {
+            return "{!! \Illuminate\Support\Str::inlineMarkdown($expression ?? '') !!}";
+        });
     }
 }

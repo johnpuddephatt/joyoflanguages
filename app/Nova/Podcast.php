@@ -5,19 +5,32 @@ namespace App\Nova;
 use App\Nova\Traits\RedirectsToIndexOnSave;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Jdp\Gutentap\Gutentap;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Panel;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Support\Str;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\Trix;
+use ShuvroRoy\NovaTabs\Tab;
+use ShuvroRoy\NovaTabs\Tabs;
+use ShuvroRoy\NovaTabs\Traits\HasActionsInTabs;
+use ShuvroRoy\NovaTabs\Traits\HasTabs;
+use Naif\ToggleSwitchField\ToggleSwitchField;
+use Spatie\TagsField\Tags;
+use Laravel\Nova\Fields\Tag;
 
 class Podcast extends Resource
 {
+    use HasTabs;
     /**
      * The model the resource corresponds to.
      *
@@ -39,16 +52,16 @@ class Podcast extends Resource
      *
      * @var array
      */
-    public static $search = ["id", "title"];
+    public static $search = ["title", "episode_number"];
 
     public static $clickAction = "edit";
 
     use RedirectsToIndexOnSave;
 
-    // public static function indexQuery(NovaRequest $request, $query)
-    // {
-    //     return $query->withoutGlobalScopes(["published_at"]);
-    // }
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->withoutGlobalScopes(["published"]);
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -59,59 +72,79 @@ class Podcast extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()
-                ->sortable()
-                ->hideFromIndex(),
-            Number::make("Episode", "episode_number")->default(
-                \App\Nova\Podcast::max("episode_number") + 1
-            ),
+            ID::make()->hideFromIndex(),
+            Tag::make("Languages")->hideFromIndex(),
+
+            Text::make("Languages", "languages", function () {
+                return "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$this->languages()->first()->name}</span>";
+            })
+                ->asHtml()
+                ->onlyOnIndex(),
+
+            Number::make("Episode", "episode_number")
+                ->default(\App\Nova\Podcast::max("episode_number") + 1)
+                ->readonly(),
             Text::make("Title")
                 ->rules("required", "string", "max:100")
                 ->maxlength(100)
-                ->enforceMaxlength(),
+                ->enforceMaxlength()
+                ->readonly(),
             Slug::make("Slug")
                 ->from("Title")
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->readonly(),
             Textarea::make("Introduction")
                 ->rules("required", "string", "max:250")
                 ->hideFromIndex()
                 ->maxlength(250)
                 ->enforceMaxlength()
                 ->rows(2),
-            Date::make("Publish date", "published_at")->help(
-                "Leave the date blank to mark this podcast as a draft."
-            ),
-            Badge::make("Status", "status", function () {
-                return $this->published_at ? "published" : "draft";
-            })->types([
-                "draft" => ["font-bold", "bg-primary-100", "text-primary-600"],
-                "published" => ["font-bold", "bg-green-100", "text-green-600"],
-            ]),
+            Tags::make("Tags")->fillUsing(function (
+                $request,
+                $model,
+                $attribute,
+                $requestAttribute
+            ) {
+                if ($request->input($requestAttribute)) {
+                    $model->{$attribute} = explode(
+                        "-----",
+                        Str::of($request->input($requestAttribute))->lower()
+                    );
+                }
+            }),
 
-            BelongsTo::make("Author", "author", User::class)->nullable(),
+            // Date::make("Date", "published_at")->readonly(),
 
-            Panel::make("Content", [
-                Flexible::make("Flexible content", "content")
-                    // ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
-                    // ->addLayout(
-                    //     \App\Nova\Flexible\Layouts\TextWithSidebar::class
-                    // )
-                    // ->addLayout(
-                    //     \App\Nova\Flexible\Layouts\TextWithPullout::class
-                    // )
-                    // ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
-                    // ->addLayout(\App\Nova\Flexible\Layouts\Image::class)
-                    // ->addLayout(\App\Nova\Flexible\Layouts\ImagePair::class)
-                    // ->addLayout(\App\Nova\Flexible\Layouts\WatchVideo::class)
-                    ->enablePreview(
-                        \Illuminate\Support\Facades\Vite::asset(
-                            "resources/css/app.css"
-                        )
-                    )
-                    ->stacked()
-                    ->defaultLayouts(["text"])
-                    ->button("Add content"),
+            \Trin4ik\NovaSwitcher\NovaSwitcher::make("Published"),
+
+            Tabs::make("Content", [
+                Tab::make(__("Article"), [
+                    Gutentap::make(
+                        "Content",
+                        "content->article"
+                    )->hideFromIndex(),
+                ]),
+                Tab::make(__("Transcript"), [
+                    Gutentap::make(
+                        "Content",
+                        "content->transcript"
+                    )->hideFromIndex(),
+                ]),
+                Tab::make(__("Bonus materials"), [
+                    Gutentap::make(
+                        "Content",
+                        "content->bonus_materials"
+                    )->hideFromIndex(),
+                ]),
+                Tab::make(__("RSS Content"), [
+                    Heading::make(
+                        "The content below was fetched automatically from the podcast RSS feed. If no article is provided this content will be shown on the podcast page. This is good for older podcast episodes."
+                    )->asHtml(),
+
+                    Trix::make("RSS Content")->readonly(),
+                ]),
             ]),
+            BelongsToMany::make("Languages")->filterable(),
         ];
     }
 

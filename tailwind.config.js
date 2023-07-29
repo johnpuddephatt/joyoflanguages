@@ -20,6 +20,7 @@ module.exports = {
         colors: {
             white: "#ffffff",
             black: "#181919",
+            gray: "#414141",
             transparent: "#ffffff00",
             current: "currentColor",
             yellow: "#ffd800",
@@ -32,6 +33,7 @@ module.exports = {
         },
         fontFamily: {
             sans: ['"Brandon Text"', ...defaultTheme.fontFamily.sans],
+            logo: ["Labours", ...defaultTheme.fontFamily.sans],
         },
         extend: {
             maxWidth: {

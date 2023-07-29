@@ -7,17 +7,25 @@
 
         <div
             class="{{ $layout->reverse ? 'order-first' : null }} relative z-10 flex flex-col items-start justify-center py-8 px-8">
-            <h1 class="mb-8 max-w-lg text-2xl font-bold lg:text-4xl">{!! $layout->title !!}</h1>
+            <h2 class="mb-8 max-w-lg text-2xl font-bold lg:text-4xl">{!! $layout->title !!}</h2>
             @if ($layout->subtitle)
                 <div class="text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
             @endif
             @if ($layout->description)
-                <div class="mt-8 max-w-sm">{!! Str::of($layout->description)->markdown() !!}</div>
+                <div class="mt-8 max-w-sm">@markdown($layout->description)</div>
             @endif
-            @if ($layout->button_url)
-                <x-button-link class="mt-8 shadow-white"
-                    :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
-            @endif
+
+            <div class="flex flex-row gap-2">
+                @if ($layout->button_url)
+                    <x-button-link class="mt-8 shadow-white"
+                        :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
+                @endif
+
+                @if ($layout->button_2_url)
+                    <x-button-link class="mt-8 shadow-white"
+                        :href="$layout->button_2_url">{{ $layout->button_2_text ?? 'Read more' }}</x-button-link>
+                @endif
+            </div>
         </div>
 
         @if ($layout->show_sun)

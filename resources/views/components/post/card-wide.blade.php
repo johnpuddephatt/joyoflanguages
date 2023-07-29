@@ -1,10 +1,18 @@
 @props(['post'])
-<a href="{{ $post->url }}" {{ $attributes->class(['relative flex items-center flex-row gap-16 py-8']) }}>
-    <x-library-image conversion="square" :image="$post->image" class="relative block h-auto w-64 rounded-xl" />
+<a href="{{ $post->url }}" {{ $attributes->class(['relative w-full flex items-center flex-row gap-16 py-8']) }}>
+    @if ($post->image)
+        <x-library-image conversion="square" :image="$post->image" class="relative block h-auto w-48 rounded-xl" />
+    @else
+        <div class="aspect-square w-48 rounded-xl bg-teal bg-opacity-10"></div>
+    @endif
     <div class="flex max-w-lg flex-grow flex-col items-start">
-        <div class="mt-8 mb-2 text-xl">{{ $post->created_at->format('M Y') }}</div>
-        <h3 class="mb-2 text-2xl font-bold">{{ $post->title }}</h3>
+        <div class="mb-2 text-xl font-semibold">{{ $post->created_at->format('M Y') }}</div>
+        <h3 class="mb-2 text-2xl font-semibold">{{ $post->title }}</h3>
         <p class="mb-8 text-sm">{{ $post->introduction }}</p>
-        <div>#asdfasdf</div>
+        <div class="font-semibold">
+            @foreach ($post->tags as $tag)
+                #{{ $tag->name }}
+            @endforeach
+        </div>
     </div>
 </a>

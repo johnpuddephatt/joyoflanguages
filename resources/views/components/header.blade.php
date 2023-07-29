@@ -1,10 +1,11 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
     class="absolute top-0 left-0 z-40 w-full py-12 text-white lg:py-12 lg:text-teal">
-    <div class="container flex flex-row items-start justify-center lg:justify-between">
-        <a class="relative z-20 flex flex-col items-end gap-0 overflow-hidden text-lg font-bold lg:flex-row lg:gap-2"
-            href="/">
+    <div class="container mx-auto flex flex-row items-start justify-center lg:justify-between">
+        <a class="relative z-20 flex flex-col items-center gap-0 overflow-hidden lg:flex-row lg:gap-2" href="/">
             @svg('jol-logo', 'lg:ml-0 h-10 lg:h-12 w-auto')
-            @svg('jol-italian-logo', '-mt-5 mr-2.5 lg:mr-0 lg:mt-0 h-10 lg:h-12 w-auto')
+
+            <span class="font-logo text-2xl uppercase tracking-widest text-light-teal">
+                {{ $page->language?->name }}</span>
         </a>
 
         <div class="relative z-50 max-lg:absolute max-lg:top-6 max-lg:right-4 max-lg:hidden">

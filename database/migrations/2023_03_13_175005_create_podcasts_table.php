@@ -17,15 +17,21 @@ class CreatePodcastsTable extends Migration
 
         Schema::create("podcasts", function (Blueprint $table) {
             $table->id();
+            $table->string("guid");
             $table
-                ->integer("author_id")
-                ->unsigned()
+                ->foreignId("language_id")
+                ->constrained("languages")
                 ->nullable();
-            $table->unsignedInteger("episode_number");
-            $table->string("title", 100);
+            $table->unsignedInteger("episode_number")->nullable();
+            $table->boolean("published")->default(false);
+            $table->boolean("synced")->default(false);
+            $table->string("title", 300);
+            $table->string("file");
+            $table->string("duration")->nullable();
             $table->string("slug");
-            $table->string("introduction", 250)->nullable();
+            $table->text("introduction")->nullable();
             $table->json("content")->nullable();
+            $table->text("rss_content")->nullable();
             $table->timestamp("published_at")->nullable();
             $table->timestamps();
         });

@@ -22,7 +22,7 @@ class PostsPageTemplate
 
     public static function unique(): bool
     {
-        return true;
+        return false;
     }
 
     // Fields displayed in CMS
@@ -34,7 +34,7 @@ class PostsPageTemplate
     // Resolve data for serialization
     public function resolve($page)
     {
-        $page->content->posts = \App\Models\Post::all();
+        // $page->content->posts = \App\Models\Post::all();
 
         return $page->content;
     }
