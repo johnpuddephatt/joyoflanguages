@@ -52,42 +52,38 @@ class FetchPodcasts implements ShouldQueue
         );
 
         foreach ($feed->xpath("channel/item") as $podcast) {
-            $model = $language
-                ->podcasts()
-                ->withoutGlobalScopes()
-                ->updateOrCreate(
-                    ["guid" => $podcast->guid],
-                    [
-                        "synced" => true,
-                        "published_at" => date(
-                            "Y-m-d H:i:s",
-                            strtotime($podcast->pubDate)
-                        ),
-                        "rss_content" => (string) $podcast->xpath(
-                            "content:encoded"
-                        )[0],
-                        "title" =>
-                            explode(": ", $podcast->title)[1] ??
-                            $podcast->title,
-                        "slug" => \Illuminate\Support\Str::slug(
-                            explode(": ", $podcast->title)[1] ?? $podcast->title
-                        ),
-                        "episode_number" =>
-                            preg_replace(
-                                "/[^0-9]/",
-                                "",
-                                explode(": ", $podcast->title)[0]
-                            ) ?:
-                            null,
-                        "introduction" =>
-                            (string) $podcast->xpath("itunes:subtitle")[0] ??
-                            null,
-                        "duration" => (string) $podcast->xpath(
-                            "itunes:duration"
-                        )[0],
-                        "file" => $podcast->enclosure["url"],
-                    ]
-                );
+            \App\Models\Podcast::withoutGlobalScopes()->updateOrCreate(
+                ["guid" => $podcast->guid],
+                [
+                    "language_id" => $language->id,
+                    "synced" => true,
+                    "published_at" => date(
+                        "Y-m-d H:i:s",
+                        strtotime($podcast->pubDate)
+                    ),
+                    "rss_content" => (string) $podcast->xpath(
+                        "content:encoded"
+                    )[0],
+                    "title" =>
+                        explode(": ", $podcast->title)[1] ?? $podcast->title,
+                    "slug" => \Illuminate\Support\Str::slug(
+                        explode(": ", $podcast->title)[1] ?? $podcast->title
+                    ),
+                    "episode_number" =>
+                        preg_replace(
+                            "/[^0-9]/",
+                            "",
+                            explode(": ", $podcast->title)[0]
+                        ) ?:
+                        null,
+                    "introduction" =>
+                        (string) $podcast->xpath("itunes:subtitle")[0] ?? null,
+                    "duration" => (string) $podcast->xpath(
+                        "itunes:duration"
+                    )[0],
+                    "file" => $podcast->enclosure["url"],
+                ]
+            );
         }
     }
 

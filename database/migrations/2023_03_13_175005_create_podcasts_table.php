@@ -20,8 +20,8 @@ class CreatePodcastsTable extends Migration
             $table->string("guid");
             $table
                 ->foreignId("language_id")
-                ->constrained("languages")
-                ->nullable();
+                ->nullable()
+                ->constrained("languages");
             $table->unsignedInteger("episode_number")->nullable();
             $table->boolean("published")->default(false);
             $table->boolean("synced")->default(false);
