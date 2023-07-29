@@ -76,9 +76,11 @@ class Podcast extends Resource
             Tag::make("Languages")->hideFromIndex(),
 
             Text::make("Languages", "languages", function () {
-                if ($this->languages()->first()) {
-                    return "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$this->languages()->first()->name}</span>";
+                $str = "";
+                foreach ($this->languages as $language) {
+                    $str .= "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$language->name}</span>";
                 }
+                return $str;
             })
                 ->asHtml()
                 ->onlyOnIndex(),

@@ -34,8 +34,6 @@ class FetchPodcasts implements ShouldQueue
         // you cannot serialize `simplexml_load_string`, so we convert it after
         $feed = simplexml_load_string($data);
 
-        $language->podcasts()->update(["synced" => false]);
-
         $feed->registerXPathNamespace(
             "itunes",
             "http://www.itunes.com/dtds/podcast-1.0.dtd"
@@ -47,10 +45,9 @@ class FetchPodcasts implements ShouldQueue
         );
 
         foreach ($feed->xpath("channel/item") as $podcast) {
-            \App\Models\Podcast::withoutGlobalScopes()->updateOrCreate(
+            $podcast = \App\Models\Podcast::withoutGlobalScopes()->updateOrCreate(
                 ["guid" => $podcast->guid],
                 [
-                    "language_id" => $language->id,
                     "synced" => true,
                     "published_at" => date(
                         "Y-m-d H:i:s",
@@ -79,6 +76,8 @@ class FetchPodcasts implements ShouldQueue
                     "file" => $podcast->enclosure["url"],
                 ]
             );
+
+            $language->podcasts()->attach($podcast->id);
         }
     }
 
@@ -89,6 +88,8 @@ class FetchPodcasts implements ShouldQueue
      */
     public function handle()
     {
+        \App\Models\Podcast::query()->update(["synced" => false]);
+
         foreach (\App\Models\Language::all() as $language) {
             if ($language->podcast_rss_url) {
                 $this->fetchPodcasts($language);
