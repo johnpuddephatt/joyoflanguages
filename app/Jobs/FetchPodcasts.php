@@ -20,11 +20,6 @@ class FetchPodcasts implements ShouldQueue
      */
     public function __construct()
     {
-        foreach (\App\Models\Language::all() as $language) {
-            if ($language->podcast_rss_url) {
-                $this->fetchPodcasts($language);
-            }
-        }
     }
 
     public function fetchPodcasts(\App\Models\Language $language)
@@ -94,6 +89,10 @@ class FetchPodcasts implements ShouldQueue
      */
     public function handle()
     {
-        //
+        foreach (\App\Models\Language::all() as $language) {
+            if ($language->podcast_rss_url) {
+                $this->fetchPodcasts($language);
+            }
+        }
     }
 }
