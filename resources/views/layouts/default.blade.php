@@ -3,7 +3,7 @@
 @section('templatecontent')
     <x-header :$page />
 
-    <main class="relative">
+    <main class="relative min-h-screen">
         @yield('content')
     </main>
 
