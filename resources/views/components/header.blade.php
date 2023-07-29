@@ -17,10 +17,11 @@
                 <div class="group relative">
 
                     @if (($menu_item['data']['type'] ?? false) == 'button')
-                        <x-button-link class="shadow-yellow" :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
+                        <x-button-link target="{{ $menu_item['target'] ?? '_self' }}" class="shadow-yellow"
+                            :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                     @else
                         <a class="inline-block rounded px-6 py-2 transition group-hover:bg-white group-hover:bg-opacity-10"
-                            href="{{ $menu_item['value'] }}">
+                            href="{{ $menu_item['value'] }}" target="{{ $menu_item['target'] ?? '_self' }}">
                             {{ $menu_item['name'] }}
                         </a>
                     @endif
@@ -32,7 +33,8 @@
 
                                 @foreach ($menu_item['children'] as $child_item)
                                     <a class="block truncate px-6 py-2 text-sm text-teal transition lg:text-black lg:hover:bg-white"
-                                        href="{{ $child_item['value'] }}">
+                                        href="{{ $child_item['value'] }}"
+                                        target="{{ $menu_item['target'] ?? '_self' }}">
                                         {{ $child_item['name'] }}
                                     </a>
                                 @endforeach
