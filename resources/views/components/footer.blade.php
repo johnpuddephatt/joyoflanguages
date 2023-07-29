@@ -1,7 +1,7 @@
 <footer class="relative overflow-hidden bg-blue py-36 text-center lg:text-left">
     <div class="container mx-auto">
         @if (isset($settings['mission']))
-            <p class="text-gray mx-auto max-w-lg lg:mx-0">{{ $settings['mission'] }}</p>
+            <p class="mx-auto max-w-lg text-gray lg:mx-0">{{ $settings['mission'] }}</p>
         @endif
 
         <div class="mt-12 flex flex-col items-center gap-4 lg:flex-row lg:gap-6">
@@ -19,7 +19,7 @@
         @if (isset($secondary_menu))
             <nav :class="!menuOpen && 'max-lg:translate-x-full'" class="-mx-4 mt-6 flex flex-row gap-2">
                 @foreach ($secondary_menu as $menu_item)
-                    @if ($menu_item['data']['type'] == 'button')
+                    @if ($menu_item['data']['type'] == 'button' ?? false)
                         <x-button-link :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                     @else
                         <a class="inline-block rounded border-transparent px-4 py-2 transition hover:bg-white hover:bg-opacity-10"

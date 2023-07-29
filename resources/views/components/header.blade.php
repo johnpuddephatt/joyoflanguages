@@ -1,5 +1,5 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
-    class="absolute top-0 left-0 z-40 w-full py-12 text-white lg:py-12 lg:text-teal">
+    class="absolute left-0 top-0 z-40 w-full py-12 text-white lg:py-12 lg:text-teal">
     <div class="container mx-auto flex flex-row items-start justify-center lg:justify-between">
         <a class="relative z-20 flex flex-col items-center gap-0 overflow-hidden lg:flex-row lg:gap-2" href="/">
             @svg('jol-logo', 'lg:ml-0 h-10 lg:h-12 w-auto')
@@ -8,7 +8,7 @@
                 {{ $page->language?->name }}</span>
         </a>
 
-        <div class="relative z-50 max-lg:absolute max-lg:top-6 max-lg:right-4 max-lg:hidden">
+        <div class="relative z-50 max-lg:absolute max-lg:right-4 max-lg:top-6 max-lg:hidden">
             <x-button class="max-lg:px-2 lg:hidden" @click="menuOpen = !menuOpen">Menu</x-button>
         </div>
         <nav :class="!menuOpen && 'max-lg:translate-x-full'"
@@ -16,10 +16,10 @@
             @foreach ($primary_menu as $menu_item)
                 <div class="group relative">
 
-                    @if ($menu_item['data']['type'] == 'button')
+                    @if ($menu_item['data']['type'] == 'button' ?? false)
                         <x-button-link class="shadow-yellow" :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                     @else
-                        <a class="inline-block rounded py-2 px-6 transition group-hover:bg-white group-hover:bg-opacity-10"
+                        <a class="inline-block rounded px-6 py-2 transition group-hover:bg-white group-hover:bg-opacity-10"
                             href="{{ $menu_item['value'] }}">
                             {{ $menu_item['name'] }}
                         </a>
@@ -45,5 +45,5 @@
     </div>
 </header>
 
-<x-login-link class="fixed bottom-4 z-10 mt-2 ml-6" redirect-url="{{ route('nova.pages.dashboard') }}"
+<x-login-link class="fixed bottom-4 z-10 ml-6 mt-2" redirect-url="{{ route('nova.pages.dashboard') }}"
     label="Admin login" />
