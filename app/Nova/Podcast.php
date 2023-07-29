@@ -19,6 +19,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Trix;
 use ShuvroRoy\NovaTabs\Tab;
 use ShuvroRoy\NovaTabs\Tabs;
@@ -73,14 +74,20 @@ class Podcast extends Resource
     {
         return [
             ID::make()->hideFromIndex(),
-            Tag::make("Languages")->hideFromIndex(),
+            Select::make("Language", "language_id")
+                ->options(
+                    \App\Models\Language::all()
+                        ->pluck("name", "id")
+                        ->toArray()
+                )
+                ->displayUsingLabels()
+                ->hideFromIndex()
+                ->nullable(),
 
             Text::make("Languages", "languages", function () {
-                $str = "";
-                foreach ($this->languages as $language) {
-                    $str .= "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$language->name}</span>";
+                if ($this->language) {
+                    return "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$this->language->name}</span>";
                 }
-                return $str;
             })
                 ->asHtml()
                 ->onlyOnIndex(),

@@ -41,6 +41,7 @@ class Podcast extends Model
         "file",
         "duration",
         "synced",
+        "language_id",
     ];
 
     /**
@@ -51,6 +52,7 @@ class Podcast extends Model
     protected $casts = [
         "published_at" => "date",
         "episode_number" => "integer",
+        "language_id" => "integer",
         "content" => "json",
         "published" => "boolean",
         "synced" => "boolean",
@@ -61,8 +63,8 @@ class Podcast extends Model
         return route("podcast.show", ["podcast" => $this->slug]);
     }
 
-    public function languages()
+    public function language()
     {
-        return $this->belongsToMany(Language::class);
+        return $this->belongsTo(Language::class);
     }
 }
