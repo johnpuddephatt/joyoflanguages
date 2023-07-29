@@ -86,7 +86,7 @@ class Podcast extends Resource
 
             Text::make("Languages", "languages", function () {
                 if ($this->language) {
-                    return "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$this->language->name}</span>";
+                    return "<span class='inline-flex items-center whitespace-nowrap min-h-6 px-2 rounded-full uppercase text-xs font-bold bg-primary-50 dark:bg-primary-500 text-primary-600 dark:text-gray-900 space-x-1 !pl-2 !pr-1'>{$this->language->flag} {$this->language->name}</span>";
                 }
             })
                 ->asHtml()
