@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\URL;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -43,6 +44,16 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 URL::make("Twitter"),
                 URL::make("Instagram"),
                 URL::make("LinkedIn"),
+            ]),
+            Panel::make("Debug", [
+                File::make("Wordpress XML", "wordpress_xml")
+                    ->path("feed")
+                    ->storeAs(function () {
+                        return "wordpress.xml";
+                    })
+                    ->help(
+                        "Upload the Wordpress XML file before running the import command through Artisan (php artisan fetch:wordpress)"
+                    ),
             ]),
         ]);
 

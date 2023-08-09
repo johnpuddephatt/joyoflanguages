@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Exception;
+use Illuminate\Support\Facades\Storage;
 
 class FetchWordpress implements ShouldQueue
 {
@@ -33,6 +34,7 @@ class FetchWordpress implements ShouldQueue
     public function handle()
     {
         $this->fetchPosts();
+        $this->fetchImages();
     }
 
     public function remove_cdata($string)
@@ -43,10 +45,11 @@ class FetchWordpress implements ShouldQueue
     public function fetchPosts()
     {
         $file = file_get_contents(
-            storage_path("/app/public/feeds/wordpress.xml")
+            Storage::disk("public")->path("/feed/wordpress.xml")
         );
 
         if (!$file) {
+            echo "XML file not found. Please upload it first.";
             exit();
         }
         $feed = simplexml_load_string($file);
@@ -67,9 +70,6 @@ class FetchWordpress implements ShouldQueue
             } elseif (
                 \Illuminate\Support\Str::of($post->title)->startsWith("#")
             ) {
-                // echo \Illuminate\Support\Str::of($post->title)
-                //     ->before(": ")
-                //     ->replace("#", "") . "\n";
                 $podcast = Podcast::withoutGlobalScopes()
                     ->where(
                         "episode_number",
@@ -149,6 +149,56 @@ class FetchWordpress implements ShouldQueue
             //         "file" => $podcast->enclosure["url"],
             //     ]
             // );
+        }
+    }
+
+    public function fetchImages()
+    {
+        $options = [
+            "http" => [
+                "ignore_errors" => true,
+                "header" => "Content-Type: application/json\r\n",
+            ],
+        ];
+        $context = stream_context_create($options);
+        $file = file_get_contents(
+            "http://joyoflanguages.com/thispagedoesntexist",
+            false,
+            $context
+        );
+
+        foreach (json_decode($file) as $post_id => $url) {
+            if (!$url) {
+                continue;
+            }
+            $info = pathinfo($url);
+
+            $contents = file_get_contents($url);
+            $file = "/tmp/" . $info["basename"];
+            file_put_contents($file, $contents);
+            $file = new \Illuminate\Http\UploadedFile($file, $info["basename"]);
+
+            $collectionName = "default";
+
+            try {
+                $uploadedMedia = \Outl1ne\NovaMediaHub\MediaHub::fileHandler()
+                    ->withFile($file)
+                    ->deleteOriginal()
+                    ->withCollection($collectionName)
+                    ->save();
+            } catch (Exception $e) {
+                $exceptions[] = $e;
+                report($e);
+            }
+
+            $post = \App\Models\Post::withoutGlobalScopes()->firstWhere(
+                "wp_id",
+                $post_id
+            );
+
+            if ($post) {
+                $post->update(["image" => $uploadedMedia->id]);
+            }
         }
     }
 }

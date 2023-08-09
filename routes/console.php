@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command("fetch:wordpress", function () {
+    dispatch(new \App\Jobs\FetchWordpress());
+})->describe("Fetch Wordpress posts from uploaded XML");
+
+Artisan::command("fetch:podcasts", function () {
+    dispatch(new \App\Jobs\FetchPodcasts());
+})->describe("Fetch Podcasts from RSS");
