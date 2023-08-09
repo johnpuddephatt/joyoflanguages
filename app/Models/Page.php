@@ -57,7 +57,10 @@ class Page extends Model
 
     public function parent()
     {
-        return $this->belongsTo(\App\Models\Page::class, "parent_id");
+        return $this->belongsTo(\App\Models\Page::class, "parent_id")->where(
+            "language_id",
+            $this->language_id
+        );
     }
 
     public function children()

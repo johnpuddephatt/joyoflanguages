@@ -50,7 +50,8 @@
                     @endif
         </section>
 
-        <section id="{{ Str::of($layout->title)->slug() }}" class="odd:bg-light-teal odd:bg-opacity-[0.05]"
+        <section id="{{ Str::of($layout->title)->slug() }}" class="<odd:bg-opacity- 0.05= odd:bg-light-teal"">
+            </odd:bg-opacity->"
             x-intersect:enter="activeSection = '{{ Str::of($layout->title)->slug() }}'">
             @endif
 
@@ -59,5 +60,6 @@
             ])
             @endforeach
         </section>
+
     </div>
 @endsection

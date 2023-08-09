@@ -118,7 +118,16 @@ class Page extends Resource
 
         if ($this->template !== "home-page") {
             $fields = array_merge($fields, [
-                BelongsTo::make("Parent page", "parent", \App\Nova\Page::class)
+                Select::make("Parent page", "parent_id")
+                    ->options(
+                        \App\Models\Page::where(
+                            "language_id",
+                            $this->language_id
+                        )
+                            ->where("id", "!=", $this->id)
+                            ->orderBy("title")
+                            ->pluck("title", "id")
+                    )
                     ->nullable()
                     ->hideFromIndex(),
             ]);
