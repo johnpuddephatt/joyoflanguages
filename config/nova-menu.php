@@ -44,13 +44,13 @@ return [
     "menus" => [
         "header" => [
             "name" => "Header",
-            "unique" => true,
+            "unique" => false,
             "max_depth" => 2,
             "menu_item_types" => [],
         ],
         "footer" => [
             "name" => "Footer",
-            "unique" => true,
+            "unique" => false,
             "max_depth" => 1,
             "menu_item_types" => [],
         ],
