@@ -5,6 +5,7 @@ namespace App\Nova\Flexible\Layouts;
 use App\Casts\MyFlexibleCast;
 use App\Nova\Actions\SaveAndResizeImage;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Nova\Fields\Boolean;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -31,7 +32,7 @@ class Section extends Layout
      *
      * @var string
      */
-    protected $title = "Section title";
+    protected $title = "Section";
 
     public static $imageSizes = [
         // "image" => "wide",
@@ -71,10 +72,10 @@ class Section extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title"),
+            Text::make("Pre-title", "pre_title"),
             Text::make("Title"),
             Textarea::make("Subtitle"),
-            5,
+            Boolean::make("Show as button?", "show_as_button"),
         ];
     }
 }

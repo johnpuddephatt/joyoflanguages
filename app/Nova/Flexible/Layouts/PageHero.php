@@ -45,9 +45,19 @@ class PageHero extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pretitle"),
-            Text::make("Title"),
-            Textarea::make("Description"),
+            Text::make("Pre-title", "pretitle")
+                ->maxLength(30)
+                ->enforceMaxLength(),
+            Textarea::make("Title")
+                ->maxLength(65)
+                ->enforceMaxLength()
+                ->rows(2)
+                ->help("Supports line breaks"),
+            Textarea::make("Description")
+                ->rows(2)
+                ->maxLength(250)
+                ->enforceMaxLength()
+                ->help("Supports Markdown"),
             Image::make("Image")
                 ->store(new SaveAndResizeImage())
                 ->preview(function ($value, $disk) {

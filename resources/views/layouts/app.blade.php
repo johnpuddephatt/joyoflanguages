@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth antialiased 2xl:text-lg">
+<html class="scroll-smooth leading-snug antialiased 2xl:text-lg 2xl:leading-snug">
 
 <head>
 
@@ -24,7 +24,7 @@
 
 </head>
 
-<body class="text-[0.875rem] leading-[157.1%] tracking-normal lg:text-[1rem] lg:leading-[162.5%]">
+<body>
     <div class="w-screen">
         @yield('templatecontent')
     </div>

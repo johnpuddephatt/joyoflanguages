@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Heading;
-
+use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 
 class Features extends Layout
@@ -71,6 +71,10 @@ class Features extends Layout
     {
         $fields = [];
 
+        $fields[] = Text::make("Pre-title", "pre_title");
+        $fields[] = Text::make("Title");
+        $fields[] = Textarea::make("Intro")->rows(2);
+
         foreach ([1, 2, 3, 4] as $i) {
             $fields[] = Heading::make(
                 "<div class='p-3 font-bold bg-gray-200'>Feature {$i}</div>",
@@ -85,15 +89,11 @@ class Features extends Layout
                 ->help("Supports Markdown")
                 ->stacked();
 
-            $fields[] = Image::make("Image", "image_{$i}")
-                ->store(new SaveAndResizeImage())
-                ->preview(function ($value, $disk) {
-                    return isset($value->image)
-                        ? Storage::disk($disk)->url($value->image)
-                        : null;
-                })
-                ->stacked();
+            $fields[] = MediaHubField::make("Image", "image_{$i}")->stacked();
         }
+
+        $fields[] = Textarea::make("Outro")->rows(2);
+
         return $fields;
     }
 }

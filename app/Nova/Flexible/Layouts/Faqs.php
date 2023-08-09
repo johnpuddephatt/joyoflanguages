@@ -3,9 +3,11 @@
 namespace App\Nova\Flexible\Layouts;
 
 use Advoor\NovaEditorJs\NovaEditorJsField;
+use Laravel\Nova\Fields\Boolean;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Textarea;
 use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 use Whitecube\NovaFlexibleContent\Flexible;
@@ -63,6 +65,8 @@ class Faqs extends Layout
                     ->stacked()
                     ->help("Accepts Markdown"),
             ]),
+            Boolean::make("Show in menu"),
+            Number::make("Number shown"),
         ];
     }
 }

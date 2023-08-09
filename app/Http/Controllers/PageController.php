@@ -32,9 +32,13 @@ class PageController extends Controller
                 ->where("slug", end($slug_parts) ?: "/")
                 ->firstOrFail();
         } else {
-            $page = Page::doesntHave("language")
-                ->where("slug", end($slug_parts) ?: "/")
-                ->firstOrFail();
+            if (\App\Models\Post::where("slug", $slug)->first()) {
+                return redirect()->route("post.show", ["post" => $slug]);
+            } else {
+                $page = Page::doesntHave("language")
+                    ->where("slug", end($slug_parts) ?: "/")
+                    ->firstOrFail();
+            }
         }
 
         if (

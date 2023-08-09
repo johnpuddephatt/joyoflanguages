@@ -23,3 +23,11 @@
 .shadow-button:active {
     box-shadow: 0.125rem 0.125rem 0 var(--tw-shadow-color);
 }
+
+.prose iframe[src*="youtube.com"] {
+    @apply my-8 w-full h-auto aspect-video;
+}
+
+.text-balance {
+    text-wrap: balance;
+}

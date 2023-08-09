@@ -182,6 +182,35 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     height: auto;
                     padding: 0;
                 }
+
+                .fields .simple-repeatable.form-field .simple-repeatable-row {
+                    position: relative;
+                    z-index: 10;
+                    margin-left: 0;
+                    padding-left: 0;
+                    width: 100%;
+                    border: 1px solid #ddd;
+                    padding: 4px;
+                    margin: 8px 0;
+                }
+
+                 .fields .simple-repeatable.form-field .simple-repeatable-row::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left:0;
+                    width: 100%;
+                    height: 40px;
+                    background-color: #f0f0f0;
+                    z-index: -10;
+                
+                 }
+                
+
+                .fields .simple-repeatable-fields-wrapper {
+                    padding-top:16px;
+                }
             </style>";
         });
     }

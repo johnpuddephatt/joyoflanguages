@@ -36,11 +36,14 @@ class Squares extends Layout
      */
     public function fields()
     {
-        return [
-            KeyValue::make("Squares")
+        return array_merge(
+            (new \App\Nova\Flexible\Layouts\TextWithImage())->fields(),
+            [
+                KeyValue::make("Squares")
 
-                ->keyLabel("Title")
-                ->valueLabel("Description"),
-        ];
+                    ->keyLabel("Title")
+                    ->valueLabel("Description"),
+            ]
+        );
     }
 }

@@ -1,16 +1,14 @@
-<div x-data="{}" class="overflow-hidden py-16">
-    <div
-        class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $class ?? 'mx-auto max-w-7xl' }} container relative mb-24 block py-8 md:grid md:grid-cols-2 lg:py-16">
+    <div x-data="{}"
+        class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $class ?? 'mx-auto max-w-6xl' }} container relative mb-24 block py-8 md:grid md:grid-cols-2 lg:py-16">
 
-        <x-library-image :image="$layout->image" conversion="square"
-            class="{{ $layout->reverse ? '-mr-24' : '-ml-24' }} w-[calc(100%+4rem)] max-w-none" />
+        <x-library-image :image="$layout->image" conversion="uncropped" class="w-full max-w-none" />
 
         <div
-            class="{{ $layout->reverse ? 'order-first' : null }} relative z-10 flex flex-col items-start justify-center py-8 px-8">
-            <h1 class="mb-8 max-w-lg text-2xl font-bold lg:text-4xl">{!! $layout->title !!}</h1>
+            class="{{ $layout->reverse ? 'order-first' : null }} relative z-10 flex flex-col items-start justify-center px-8 py-8">
+            <h1 class="mb-4 max-w-lg text-2xl font-bold lg:text-2xl">{!! $layout->title !!}</h1>
 
             @if ($layout->text)
-                <div class="mt-8 max-w-sm">@markdown($layout->text)</div>
+                <div class="mb-8 max-w-sm">@markdown($layout->text)</div>
             @endif
 
             @if ($layout->content)
@@ -20,7 +18,7 @@
 
         @if ($layout->content)
             <dialog
-                class="z-50 w-full max-w-md rounded-3xl border-2 border-black p-8 backdrop:bg-teal backdrop:bg-opacity-20 backdrop:backdrop-blur-md"
+                class="z-50 w-full max-w-md rounded-3xl border-2 border-black p-8 backdrop:bg-beige backdrop:bg-opacity-20 backdrop:backdrop-blur-md"
                 x-ref="modal_{{ Str::of($layout->title)->snake() }}">
                 <form method="dialog">
                     <button
@@ -35,6 +33,3 @@
             </dialog>
         @endif
     </div>
-
-</div>
-</div>

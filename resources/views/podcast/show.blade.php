@@ -1,9 +1,9 @@
 @section('image', $podcast->image?->getUrl('thumbnail'))
 @section('title', $podcast->title)
-@extends('layouts.default') @section('content')
+@extends('layouts.default', ['language' => $podcast->language]) @section('content')
 
     <div class="container mx-auto max-w-6xl">
-        <div class="flex flex-col items-end gap-8 pt-40 pb-16 lg:flex-row">
+        <div class="flex flex-col items-end gap-8 pb-16 pt-40 lg:flex-row">
             <div class="">
                 <div class="mb-4 text-lg">
 
@@ -15,10 +15,10 @@
                 <h1 class="max-w-5xl text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">
                     {!! nl2br($podcast->title) !!}</h1>
                 <div>
-                    <p class="text-gray mt-4 text-lg lg:mt-6">{{ $podcast->published_at->format('jS F Y') }}
+                    <p class="mt-4 text-lg text-gray lg:mt-6">{{ $podcast->published_at->format('jS F Y') }}
                     </p>
                     <p
-                        class="text-gray max-whttps://joyoflanguages.test/podcasts%20?tags=wow-xl mt-12 text-xl font-semibold lg:mt-16">
+                        class="max-whttps://joyoflanguages.test/podcasts%20?tags=wow-xl mt-12 text-xl font-semibold text-gray lg:mt-16">
                         {{ $podcast->introduction }}
                     </p>
                     @if ($podcast->author)
@@ -49,7 +49,7 @@
                     <div class="relative">
                         @if ($podcast->episode_number)
                             <div
-                                class="absolute top-0 left-0 z-10 flex h-16 w-16 flex-row items-center justify-center rounded-full bg-yellow p-1 text-center font-bold leading-none">
+                                class="absolute left-0 top-0 z-10 flex h-16 w-16 flex-row items-center justify-center rounded-full bg-yellow p-1 text-center font-bold leading-none">
                                 No.{{ $podcast->episode_number }}</div>
                         @endif
 

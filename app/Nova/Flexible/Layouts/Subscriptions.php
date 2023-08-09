@@ -2,6 +2,7 @@
 
 namespace App\Nova\Flexible\Layouts;
 
+use Laravel\Nova\Fields\Boolean;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -49,6 +50,8 @@ class Subscriptions extends Layout
             Textarea::make("Outro")
                 ->help("Accepts Markdown")
                 ->stacked(),
+            Boolean::make("Show in menu"),
+            Boolean::make("Show as button"),
         ];
     }
 }

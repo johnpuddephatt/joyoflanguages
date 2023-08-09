@@ -35,6 +35,8 @@ class Post extends Model
         "introduction",
         "content",
         "published_at",
+        "wp_id",
+        "wordpress_content",
     ];
 
     /**
@@ -64,5 +66,30 @@ class Post extends Model
     public function languages()
     {
         return $this->belongsToMany(Language::class);
+    }
+
+    public function getWordpressContentAttribute($content)
+    {
+        // YouTube embeds
+        $search =
+            "/(http|https):\/\/(?:www.youtube\.com\/watch\?v=|youtu.be\/)([a-zA-Z0-9_&;-]+)/smi";
+        $replace =
+            "<iframe loading='lazy' class='w-full h-auto aspect-video' width='560' height='315' src='https://youtube.com/embed/$1' frameborder='0' allowfullscreen></iframe>";
+        $content = preg_replace($search, $replace, $content);
+
+        // Image links
+        $search = "/(?:src=\")(?:http|https):\/\/joyoflanguages\.com(.*?)/smi";
+        $replace =
+            "src=\"https://joyoflanguages-legacymedia.ams3.digitaloceanspaces.com";
+
+        $content = preg_replace($search, $replace, $content);
+
+        // [captions]
+        $search = "/\[(?:\/?)caption(.*?)\]/smi";
+        $replace = "<br/><br>";
+
+        $content = preg_replace($search, $replace, $content);
+
+        return $content;
     }
 }

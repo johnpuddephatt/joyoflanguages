@@ -1,6 +1,8 @@
 @section('image', $post->image?->getUrl('thumbnail'))
 @section('title', $post->title)
-@extends('layouts.default') @section('content')
+@extends('layouts.default', [
+    'language' => $post->language,
+]) @section('content')
 
     <div class="container mx-auto flex min-h-[80vmin] max-w-6xl flex-col items-center lg:flex-row">
         <div class="">
@@ -13,11 +15,11 @@
             <h1 class="max-w-5xl text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">
                 {!! nl2br($post->title) !!}</h1>
             <div>
-                <p class="text-gray mt-4 text-lg lg:mt-6">{{ $post->published_at->format('jS F Y') }}
+                <p class="mt-4 text-lg text-gray lg:mt-6">{{ $post->published_at->format('jS F Y') }}
                 </p>
-                <p class="text-gray mt-12 max-w-xl text-xl font-semibold lg:mt-16">{{ $post->introduction }}
+                <p class="mt-12 max-w-xl text-xl font-semibold text-gray lg:mt-16">{{ $post->introduction }}
                 </p>
-                @if ($post->author)
+                {{-- @if ($post->author)
                     <a href="{{ route('user.show', ['user' => $post->author->slug]) }}"
                         class="mt-6 flex flex-row items-center gap-4">
                         @if ($post->author->photo)
@@ -34,7 +36,7 @@
                             </p>
                         </div>
                     </a>
-                @endif
+                @endif --}}
             </div>
         </div>
         <div class="ml-auto w-96">
@@ -46,18 +48,27 @@
 
         @svg('squiggle', 'mb-8 h-auto w-64')
 
-        @foreach ($post->content as $block)
-            @includeIf('blocks.' . $block['type'], [
-                ...$block,
-                'class' => match ($block['attrs']['blockWidth'] ?? 'normal') {
-                    'normal' => 'max-w-2xl',
-                    'wide' => 'max-w-4xl mx-auto clear-both',
-                    'full' => 'left-1/2 relative -translate-x-1/2 w-screen max-w-none w-full clear-both',
-                    'sidebar' => 'px-4 lg:float-right lg:w-[calc(100%-42rem-4rem)]',
-                },
-            ])
-        @endforeach
+        @if ($post->content)
+
+            @foreach ($post->content as $block)
+                @includeIf('blocks.' . $block['type'], [
+                    ...$block,
+                    'class' => match ($block['attrs']['blockWidth'] ?? 'normal') {
+                        'normal' => 'max-w-2xl',
+                        'wide' => 'max-w-4xl mx-auto clear-both',
+                        'full' => 'left-1/2 relative -translate-x-1/2 w-screen max-w-none w-full clear-both',
+                        'sidebar' => 'px-4 lg:float-right lg:w-[calc(100%-42rem-4rem)]',
+                    },
+                ])
+            @endforeach
+        @else
+            <div class="max-w-2xl">
+                {!! $post->wordpress_content !!}
+            </div>
+        @endif
     </article>
+
+    <x-disqus :id="$post->wp_id ? $post->wp_id . ' http:\/\/joyoflanguages.com\/?p=' . $post->wp_id : 'jol_' . $post->id" />
 
     <div class="container clear-both mt-12 lg:mt-16">
         <div class="mb-12 flex flex-col items-end justify-between lg:flex-row">

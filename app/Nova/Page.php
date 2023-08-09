@@ -87,11 +87,7 @@ class Page extends Resource
 
             Slug::make("Slug")->from("Title"),
 
-            Textarea::make("Introduction")->rules(
-                "required",
-                "string",
-                "max:300"
-            ),
+            Textarea::make("Introduction")->rules("string", "max:300"),
 
             MediaHubField::make("Image", "image"),
 
@@ -110,6 +106,14 @@ class Page extends Resource
                     "The template value cannot be changed after page creation to prevent data loss. Some templates can only be used once."
                 )
                 ->required(),
+
+            Text::make("Visit", null, function () {
+                return "<a href='" .
+                    $this->url .
+                    "' target='_blank' class='font-semibold px-4 border-2 rounded text-slate-500 border-slate-500'>Visit</a>";
+            })
+                ->onlyOnIndex()
+                ->asHtml(),
         ];
 
         if ($this->template !== "home-page") {

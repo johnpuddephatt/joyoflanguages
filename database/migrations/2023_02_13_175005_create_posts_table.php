@@ -17,16 +17,17 @@ class CreatePostsTable extends Migration
 
         Schema::create("posts", function (Blueprint $table) {
             $table->id();
+            $table->string("wp_id")->nullable();
             $table
                 ->foreignId("author_id")
                 ->nullable()
                 ->constrained("users");
             $table->string("image")->nullable();
-
-            $table->string("title", 50);
+            $table->string("title", 255);
             $table->string("slug");
-            $table->string("introduction", 150)->nullable();
+            $table->string("introduction", 600)->nullable();
             $table->json("content")->nullable();
+            $table->mediumText("wordpress_content")->nullable();
             $table->timestamp("published_at")->nullable();
             $table->timestamps();
         });

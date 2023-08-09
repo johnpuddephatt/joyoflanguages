@@ -39,6 +39,18 @@ module.exports = {
             maxWidth: {
                 "8xl": "90rem",
             },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        lineHeight: "1.3",
+                    },
+                },
+                lg: {
+                    css: {
+                        lineHeight: "1.3",
+                    },
+                },
+            },
         },
     },
 };

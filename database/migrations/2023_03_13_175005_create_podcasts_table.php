@@ -18,6 +18,7 @@ class CreatePodcastsTable extends Migration
         Schema::create("podcasts", function (Blueprint $table) {
             $table->id();
             $table->string("guid");
+            $table->string("wp_id")->nullable();
             $table
                 ->foreignId("language_id")
                 ->nullable()
@@ -31,7 +32,8 @@ class CreatePodcastsTable extends Migration
             $table->string("slug");
             $table->text("introduction")->nullable();
             $table->json("content")->nullable();
-            $table->text("rss_content")->nullable();
+            $table->mediumText("rss_content")->nullable();
+            $table->mediumText("wordpress_content")->nullable();
             $table->timestamp("published_at")->nullable();
             $table->timestamps();
         });

@@ -4,8 +4,10 @@
         <a class="relative z-20 flex flex-col items-center gap-0 overflow-hidden lg:flex-row lg:gap-2" href="/">
             @svg('jol-logo', 'lg:ml-0 h-10 lg:h-12 w-auto')
 
-            <span class="font-logo text-2xl uppercase tracking-widest text-light-teal">
-                {{ $page->language?->name }}</span>
+            @if ($language)
+                <span class="font-logo text-2xl uppercase tracking-widest text-light-teal">
+                    {{ $language->name }}</span>
+            @endif
         </a>
 
         <div class="relative z-50 max-lg:absolute max-lg:right-4 max-lg:top-6 max-lg:hidden">

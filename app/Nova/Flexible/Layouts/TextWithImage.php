@@ -16,21 +16,21 @@ use Trin4ik\NovaSwitcher\NovaSwitcher;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 
-class TextWithImages extends Layout
+class TextWithImage extends Layout
 {
     /**
      * The layout's unique identifier
      *
      * @var string
      */
-    protected $name = "text-with-images";
+    protected $name = "text-with-image";
 
     /**
      * The displayed title
      *
      * @var string
      */
-    protected $title = "Text With Images";
+    protected $title = "Text With Image";
 
     /**
      * Enable preview for this layout
@@ -56,9 +56,7 @@ class TextWithImages extends Layout
                 ->help("Supports Markdown")
                 ->stacked(),
 
-            MediaHubField::make("Images", "images")
-                ->multiple()
-                ->stacked(),
+            MediaHubField::make("Image", "image")->stacked(),
 
             Select::make("Squiggle?")
                 ->options([
@@ -67,8 +65,6 @@ class TextWithImages extends Layout
                     2 => "Squiggle 2",
                 ])
                 ->stacked(),
-
-            Boolean::make("Show shapes?", "show_shape")->stacked(),
         ];
     }
 }

@@ -22,10 +22,6 @@ Route::domain(
         ->name("page.show");
 });
 
-Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
-    ->where("page", "^(?!nova).*")
-    ->name("page.show");
-
 Route::get("/posts/{post:slug}", [
     \App\Http\Controllers\PostController::class,
     "show",
@@ -40,6 +36,10 @@ Route::get("/podcast/{podcast:slug}/audio", [
     \App\Http\Controllers\PodcastController::class,
     "audio",
 ])->name("podcast.audio");
+
+Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
+    ->where("page", "^(?!nova).*")
+    ->name("page.show");
 
 Route::get("/password/reset", function (Request $request) {
     return redirect("/nova/password/reset/" . $request->token);

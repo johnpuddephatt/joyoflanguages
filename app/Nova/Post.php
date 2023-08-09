@@ -112,6 +112,14 @@ class Post extends Resource
                     ],
                 ]),
                 BelongsTo::make("Author", "author", User::class)->nullable(),
+
+                Text::make("Visit", null, function () {
+                    return "<a href='" .
+                        $this->url .
+                        "' target='_blank' class='font-semibold px-4 border-2 rounded text-slate-500 border-slate-500'>Visit</a>";
+                })
+                    ->onlyOnIndex()
+                    ->asHtml(),
             ]),
 
             new Panel("Content", [Gutentap::make("Content")->hideFromIndex()]),

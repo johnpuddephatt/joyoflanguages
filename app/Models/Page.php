@@ -50,7 +50,9 @@ class Page extends Model
             $path .= end($url);
         }
 
-        return $path .= $this->slug;
+        $path .= "/" . $this->slug;
+
+        return rtrim($path, "/");
     }
 
     public function parent()

@@ -37,7 +37,7 @@ class FeatureBlock2 extends Layout
      *
      * @var string
      */
-    protected $title = "Feature banner (alternative)";
+    protected $title = "Feature pullout";
 
     public static $imageSizes = [
         "image" => "square",
@@ -66,14 +66,7 @@ class FeatureBlock2 extends Layout
                 ])
                 ->stacked(),
             NovaSwitcher::make("Reverse")->stacked(),
-            Image::make("Image")
-                ->store(new SaveAndResizeImage())
-                ->preview(function ($value, $disk) {
-                    return isset($value->image)
-                        ? Storage::disk($disk)->url($value->image)
-                        : null;
-                })
-                ->stacked(),
+            Image::make("Image")->stacked(),
             Text::make("Title")->stacked(),
             Textarea::make("Description")
                 ->maxLength(250)
@@ -94,6 +87,10 @@ class FeatureBlock2 extends Layout
             SimpleRepeatable::make("Images", "images", [
                 MediaHubField::make("Image")->stacked(),
                 Text::make("Caption")->stacked(),
+                // SimpleRepeatable::make("Notes", "images", [
+                //     Text::make("Note author")->stacked(),
+                //     Textarea::make("Note text")->stacked(),
+                // ])->stacked(),
             ])->stacked(),
         ];
     }

@@ -33,6 +33,7 @@ class Podcast extends Model
         "title",
         "slug",
         "rss_content",
+        "wordpress_content",
         "episode_number",
         "introduction",
         "content",
@@ -42,6 +43,7 @@ class Podcast extends Model
         "duration",
         "synced",
         "language_id",
+        "wp_id",
     ];
 
     /**

@@ -41,16 +41,19 @@ class VoiceOfCustomer extends Layout
 
             Textarea::make("Intro")
                 ->help("Accepts Markdown")
+                ->rows(2)
                 ->stacked(),
 
             SimpleRepeatable::make("Quotes", "quotes", [
                 Textarea::make("Quote", "quote")
                     ->stacked()
+                    ->rows(2)
                     ->help("Accepts Markdown"),
             ]),
 
             Textarea::make("Outro")
                 ->help("Accepts Markdown")
+                ->rows(3)
                 ->stacked(),
         ];
     }

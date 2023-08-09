@@ -6,4 +6,5 @@ return [
     \App\Nova\Templates\PostsPageTemplate::class,
     \App\Nova\Templates\PodcastsPageTemplate::class,
     \App\Nova\Templates\SectionedPageTemplate::class,
+    \App\Nova\Templates\LandingPageTemplate::class,
 ];
