@@ -87,7 +87,7 @@ class Page extends Resource
 
             Slug::make("Slug")->from("Title"),
 
-            Textarea::make("Introduction")->rules("string", "max:300"),
+            Textarea::make("Introduction")->rules("max:300"),
 
             MediaHubField::make("Image", "image"),
 
