@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->rememberToken();
             $table->boolean("enable_login")->default(false);
             $table->boolean("show_in_staff_directory")->default(false);
+            $table->integer("sort_order");
 
             $table->string("photo")->nullable();
             $table->string("role")->nullable();

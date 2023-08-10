@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->boolean("is_active")->default(true);
             $table->string("podcast_rss_url")->nullable();
             $table->string("image")->nullable();
-            $table->json("menus")->nullable();
+            $table->foreignId("menu_id")->constrained(table: "nova_menu_menus");
         });
     }
 

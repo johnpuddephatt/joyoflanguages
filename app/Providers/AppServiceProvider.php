@@ -31,14 +31,14 @@ class AppServiceProvider extends ServiceProvider
                     return nova_get_settings();
                 })
             );
+
             $view->with(
                 "primary_menu",
-                \Cache::rememberForever("primaryMenu", function () {
-                    return nova_get_menu_by_slug("header")
-                        ? nova_get_menu_by_slug("header")["menuItems"]
-                        : [];
-                })
+                $view->language
+                    ? nova_get_menu_by_id($view->language->menu->id)
+                    : nova_get_menu_by_slug("primary")
             );
+
             $view->with(
                 "secondary_menu",
                 \Cache::rememberForever("secondaryMenu", function () {

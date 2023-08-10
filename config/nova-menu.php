@@ -42,15 +42,21 @@ return [
     */
 
     "menus" => [
-        "header" => [
-            "name" => "Header",
+        "default" => [
+            "name" => "Language specific",
             "unique" => false,
             "max_depth" => 2,
             "menu_item_types" => [],
         ],
-        "footer" => [
-            "name" => "Footer",
-            "unique" => false,
+        "primary" => [
+            "name" => "Primary (default)",
+            "unique" => true,
+            "max_depth" => 2,
+            "menu_item_types" => [],
+        ],
+        "secondary" => [
+            "name" => "Secondary",
+            "unique" => true,
             "max_depth" => 1,
             "menu_item_types" => [],
         ],

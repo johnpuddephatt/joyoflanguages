@@ -35,4 +35,9 @@ class Language extends Model
             $this->id
         );
     }
+
+    public function menu()
+    {
+        return $this->belongsTo(\Outl1ne\MenuBuilder\Models\Menu::class);
+    }
 }

@@ -9,9 +9,10 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Fields\Slug;
-use App\Nova\Repeater\MenuItem;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Outl1ne\MenuBuilder\Nova\Resources\MenuResource;
 
 class Language extends Resource
 {
@@ -54,9 +55,7 @@ class Language extends Resource
             Image::make("Image"),
             Boolean::make("Is Active"),
             Text::make("Podcast RSS URL"),
-            Repeater::make("Menus")
-                ->repeatables([MenuItem::make()])
-                ->asJson(),
+            BelongsTo::make("Menu", "menu", MenuResource::class)->nullable(),
         ];
     }
 
