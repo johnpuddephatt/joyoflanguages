@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with(
                 "primary_menu",
-                $view->language
+                $view->language && $view->language->menu
                     ? nova_get_menu_by_id($view->language->menu->id)
                     : nova_get_menu_by_slug("primary")
             );
