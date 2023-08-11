@@ -55,14 +55,6 @@ class FeatureBlock extends Layout
     public function fields()
     {
         return [
-            Select::make("Colour")
-                ->options([
-                    "blue" => "Blue",
-                    "light-teal" => "Teal",
-                    "beige" => "Beige",
-                ])
-                ->stacked(),
-            NovaSwitcher::make("Show sun?", "show_sun")->stacked(),
             NovaSwitcher::make("Reverse")->stacked(),
             Image::make("Image")
                 ->store(new SaveAndResizeImage())
@@ -89,6 +81,17 @@ class FeatureBlock extends Layout
             Heading::make("Button 2"),
             Text::make("Button URL", "button_2_url")->stacked(),
             Text::make("Button text", "button_2_text")->stacked(),
+
+            Heading::make("Settings"),
+            Select::make("Colour")
+                ->options([
+                    "blue" => "Blue",
+                    "light-teal" => "Teal",
+                    "beige" => "Beige",
+                ])
+                ->stacked(),
+            NovaSwitcher::make("Show sun?", "show_sun")->stacked(),
+            NovaSwitcher::make("Show thumb?", "show_thumb")->stacked(),
         ];
     }
 }
