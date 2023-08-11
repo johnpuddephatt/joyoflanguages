@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Laravel\Nova\Fields\Textarea;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 
@@ -34,7 +35,7 @@ class Hero extends Layout
     protected $preview = true;
 
     public static $imageSizes = [
-        "image" => "portrait",
+        "image" => "uncropped",
     ];
 
     /**
@@ -54,10 +55,13 @@ class Hero extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
+            Text::make("Button text")->nullable(),
+            Text::make("Button URL")->nullable(),
             \Trin4ik\NovaSwitcher\NovaSwitcher::make(
                 "Show shapes?",
                 "show_shapes"
             ),
+
             Select::make("Background colour")->options([
                 "bg-white" => "White",
                 "bg-teal" => "Teal",

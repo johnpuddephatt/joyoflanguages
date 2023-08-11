@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Language;
 
 class PostController extends Controller
 {
-    public static function show(Post $post)
+    public static function show(Language $language = null, Post $post)
     {
         $related_posts = \App\Models\Post::latest()
             ->where("id", "!=", $post->id)

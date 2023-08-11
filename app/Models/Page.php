@@ -46,8 +46,11 @@ class Page extends Model
         } else {
             $path .= "//";
             $path .= $this->language ? $this->language->slug . "." : "";
-            $url = explode("://", config("app.url"));
-            $path .= end($url);
+            // $url = explode("://", config("app.url"));
+            // $path .= end($url);
+
+            $path .= parse_url(config("app.url"), PHP_URL_HOST);
+            // dd($path);
         }
 
         $path .= "/" . $this->slug;

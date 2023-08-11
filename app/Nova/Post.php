@@ -66,17 +66,23 @@ class Post extends Resource
                     ->sortable()
                     ->hideFromIndex(),
                 MediaHubField::make("Image"),
-                Tag::make("Languages"),
+                BelongsTo::make("Language"),
 
                 Text::make("Title")
-                    ->rules("required", "string", "max:50")
-                    ->maxlength(50)
-                    ->enforceMaxlength(),
+                    ->rules("required", "string", "max:250")
+                    ->maxlength(250)
+                    ->enforceMaxlength()
+                    ->hideFromIndex(),
+
+                Text::make("Title", function ($value) {
+                    return \Illuminate\Support\Str::limit($this->title, 50);
+                })->onlyOnIndex(),
+
                 Slug::make("Slug")
                     ->from("Title")
                     ->hideFromIndex(),
                 Text::make("Introduction")
-                    ->rules("required", "string", "max:150")
+                    ->rules("nullable", "string", "max:150")
                     ->hideFromIndex()
                     ->maxlength(150)
                     ->enforceMaxlength(),

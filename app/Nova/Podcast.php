@@ -99,7 +99,12 @@ class Podcast extends Resource
                 ->rules("required", "string", "max:100")
                 ->maxlength(100)
                 ->enforceMaxlength()
-                ->readonly(),
+                ->readonly()
+                ->hideFromIndex(),
+
+            Text::make("Title", function ($value) {
+                return \Illuminate\Support\Str::limit($this->title, 50);
+            })->onlyOnIndex(),
             Slug::make("Slug")
                 ->from("Title")
                 ->hideFromIndex()

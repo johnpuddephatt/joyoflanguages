@@ -20,12 +20,12 @@ class Language extends Model
 
     public function posts()
     {
-        return $this->belongsToMany(\App\Models\Post::class);
+        return $this->hasMany(\App\Models\Post::class);
     }
 
     public function podcasts()
     {
-        return $this->belongsToMany(\App\Models\Podcast::class);
+        return $this->hasMany(\App\Models\Podcast::class);
     }
 
     public function getBlogLinkAttribute()

@@ -5,14 +5,17 @@
         <div class="mt-16 lg:w-1/2">
             <h1 class="mb-6 text-4xl font-bold lg:text-5xl">{!! nl2br($layout->title) !!}</h1>
             <p class="max-w-xl lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
-            <x-button class="mt-6 text-lg after:bg-white" href="/">Sign up</x-button>
+            @if ($layout->button_url)
+                <x-button class="mt-6 text-lg after:bg-white"
+                    href="{{ $layout->button_url }}">{{ $button_text ?? 'Read more' }}</x-button>
+            @endif
         </div>
     </div>
 
-    <div class="inset-0 mt-8 flex flex-row items-center lg:absolute lg:mt-0 lg:ml-auto lg:h-full lg:w-1/2">
+    <div class="inset-0 mt-8 flex flex-row items-center lg:absolute lg:ml-auto lg:mt-0 lg:h-full lg:w-1/2">
 
         @if ($layout->show_shapes)
-            <div class="absolute top-1/2 right-0 -z-10 w-[50%] -translate-y-1/2">
+            <div class="absolute right-0 top-1/2 -z-10 w-[50%] -translate-y-1/2">
                 <div class="tk-blob" style="--time: 120s; --amount: 5;">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.4 374.7">
                         <path fill="#ffd800"
@@ -29,7 +32,7 @@
 
     @if ($layout->show_shapes)
         <!-- top right turquoise circle -->
-        <svg class="absolute top-0 right-0 hidden w-[20vw] translate-x-1/3 -translate-y-1/3 transform lg:block"
+        <svg class="absolute right-0 top-0 hidden w-[20vw] -translate-y-1/3 translate-x-1/3 transform lg:block"
             xmlns="http://www.w3.org/2000/svg" width="565.69" height="539.98" viewBox="0 0 565.69 539.98">
             <path fill="#4badb8"
                 d="M565.6 260.08c-.13-5.15-.12-10.3-.05-15.45 1.23-100-194.35-293.55-357.54-233.19-95.62 35.37-166.7 60.11-201.7 189.27-16.51 61-10.47 211 138.42 292.09 0 0 195.27 123.38 350.53-28.88 68.26-66.91 71.11-172.49 70.34-203.84Z" />

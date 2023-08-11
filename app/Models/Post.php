@@ -47,6 +47,7 @@ class Post extends Model
     protected $casts = [
         "id" => "integer",
         "author_id" => "integer",
+        "language_id" => "integer",
         "published_at" => "timestamp",
         "image" => \App\Casts\NovaMediaLibraryCast::class,
         "content" => "json",
@@ -60,12 +61,21 @@ class Post extends Model
 
     public function getUrlAttribute()
     {
-        return route("post.show", ["post" => $this->slug]);
+        if ($this->language) {
+            return route("language.post.show", [
+                "post" => $this->slug,
+                "language" => $this->language?->slug,
+            ]);
+        } else {
+            return route("post.show", [
+                "post" => $this->slug,
+            ]);
+        }
     }
 
-    public function languages()
+    public function language()
     {
-        return $this->belongsToMany(Language::class);
+        return $this->belongsTo(Language::class);
     }
 
     public function getWordpressContentAttribute($content)

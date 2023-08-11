@@ -46,7 +46,7 @@ class SaveAndResizeImage
             $default_path = $sizes_paths[$conversions["DEFAULT"][0] . "w"];
         } else {
             $default_path =
-                $storagePath . $request->$requestAttribute->hashName() . ".jpg";
+                $storagePath . $request->$requestAttribute->hashName();
             Storage::disk($disk)->put(
                 $default_path,
                 InterventionImage::make($request->$requestAttribute)
@@ -54,7 +54,7 @@ class SaveAndResizeImage
                         $conversions["DEFAULT"][0],
                         $conversions["DEFAULT"][1]
                     )
-                    ->encode("jpg", 75)
+                    ->encode($request->$requestAttribute->extension(), 75)
             );
         }
 

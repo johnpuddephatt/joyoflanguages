@@ -77,7 +77,10 @@ class Page extends Resource
                 }),
 
             Text::make("Title", function () {
-                return $this->indented_title();
+                return \Illuminate\Support\Str::limit(
+                    $this->indented_title(),
+                    50
+                );
             })
                 ->asHtml()
                 ->hideFromDetail()

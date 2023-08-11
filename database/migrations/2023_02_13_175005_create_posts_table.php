@@ -22,6 +22,10 @@ class CreatePostsTable extends Migration
                 ->foreignId("author_id")
                 ->nullable()
                 ->constrained("users");
+            $table
+                ->foreignId("language_id")
+                ->nullable()
+                ->constrained("languages");
             $table->string("image")->nullable();
             $table->string("title", 255);
             $table->string("slug");
