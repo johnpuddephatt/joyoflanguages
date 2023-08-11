@@ -54,8 +54,8 @@
         @endif
 
         @if ($layout->show_thumb)
-            <svg class="absolute -bottom-8 left-1/2 -translate-x-1/2" xmlns="http://www.w3.org/2000/svg" width="267.14"
-                height="300.62" viewBox="0 0 267.14 300.62">
+            <svg class="absolute left-1/2 top-full w-32 -translate-x-1/2 -translate-y-12"
+                xmlns="http://www.w3.org/2000/svg" width="267.14" height="300.62" viewBox="0 0 267.14 300.62">
                 <defs>
                     <style>
                         .ajas82jda__cls-2 {
