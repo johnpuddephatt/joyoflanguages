@@ -33,7 +33,12 @@ class Language extends Model
         return \App\Models\Page::getTemplateUrl(
             \App\Nova\Templates\PostsPageTemplate::class,
             $this->id
-        );
+        ) ??
+            \App\Models\Page::getTemplateUrl(
+                \App\Nova\Templates\PostsPageTemplate::class
+            ) .
+                "?language=" .
+                $this->slug;
     }
 
     public function menu()

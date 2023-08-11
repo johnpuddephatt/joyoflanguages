@@ -44,7 +44,7 @@ class LanguagesPostsLinks extends Layout
     {
         return [
             Text::make("Title"),
-            MultiSelect::make("Languages_ids")->options(
+            MultiSelect::make("Languages", "languages_ids")->options(
                 \App\Models\Language::all()
                     ->pluck("name", "id")
                     ->toArray()
