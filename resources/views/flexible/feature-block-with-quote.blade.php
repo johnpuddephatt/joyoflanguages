@@ -15,10 +15,10 @@
 <div class="-mt-24 grid grid-cols-2">
     <div class="mx-auto my-auto max-w-xl py-24">
 
-        @svg('quote-open', 'w-12')
+        @svg('quote-open', 'w-12 text-teal')
 
         <div class="text-xl font-bold">{!! $layout->quote !!}</div>
-        @svg('quote-close', 'ml-auto block w-12')
+        @svg('quote-close', 'ml-auto text-teal block w-12')
 
         <div class="flex items-center gap-4">
             <x-responsive-image class="w-16 rounded-full" :image="$layout->quote_image" />
