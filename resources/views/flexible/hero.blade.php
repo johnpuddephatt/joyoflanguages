@@ -26,7 +26,7 @@
             </div>
         @endif
 
-        <x-responsive-image class="h-[43rem] w-full object-cover" :image="$layout->image" />
+        <x-responsive-image class="h-[43rem] w-full" :image="$layout->image" />
 
     </div>
 
