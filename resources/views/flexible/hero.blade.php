@@ -7,7 +7,7 @@
             <p class="max-w-xl lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
             @if ($layout->button_url)
                 <x-button class="mt-6 text-lg after:bg-white"
-                    href="{{ $layout->button_url }}">{{ $button_text ?? 'Read more' }}</x-button>
+                    href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button>
             @endif
         </div>
     </div>
