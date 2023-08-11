@@ -84,13 +84,13 @@ class SaveAndResizeImage
                 "__" .
                 $size[0] .
                 "w" .
-                ".jpg";
+                $request->$requestAttribute->extension();
 
             Storage::disk($disk)->put(
                 $sizes_paths[$size[0] . "w"],
                 InterventionImage::make($request->$requestAttribute)
                     ->{$size[1] ? "fit" : "widen"}($size[0], $size[1])
-                    ->encode("jpg", 75)
+                    ->encode($request->$requestAttribute->extension(), 75)
             );
         }
 
