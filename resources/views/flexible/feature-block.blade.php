@@ -15,7 +15,7 @@
                 <div class="mt-8 max-w-sm">@markdown($layout->description)</div>
             @endif
 
-            <div class="flex flex-row gap-2">
+            <div class="flex flex-row gap-6">
                 @if ($layout->button_url)
                     <x-button-link class="mt-8 shadow-light-teal"
                         :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
@@ -54,7 +54,7 @@
         @endif
 
         @if ($layout->show_thumb)
-            <svg class="absolute left-1/2 top-full h-auto w-32 -translate-x-1/2 -translate-y-12"
+            <svg class="absolute left-1/2 top-full h-auto w-32 -translate-x-1/2 -translate-y-16"
                 xmlns="http://www.w3.org/2000/svg" width="267.14" height="300.62" viewBox="0 0 267.14 300.62">
                 <defs>
                     <style>

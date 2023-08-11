@@ -58,6 +58,10 @@ class TaggedPosts extends Layout
 
     public function getPostsAttribute()
     {
+        if (!$this->__get("tag")) {
+            return false;
+        }
+
         if ($this->model->language) {
             return $this->model->language
                 ->posts()
