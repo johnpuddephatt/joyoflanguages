@@ -66,7 +66,7 @@ class Post extends Resource
                     ->sortable()
                     ->hideFromIndex(),
                 MediaHubField::make("Image"),
-                BelongsTo::make("Language"),
+                BelongsTo::make("Language")->nullable(),
 
                 Text::make("Title")
                     ->rules("required", "string", "max:250")
