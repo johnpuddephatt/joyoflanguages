@@ -13,7 +13,7 @@
                         <div
                             class="relative h-8 w-8 rounded-full border-2 after:absolute after:inset-0 after:-z-10 after:translate-x-0.5 after:translate-y-0.5 after:rounded-full after:bg-yellow">
                         </div>
-                        <p>@dump($bullet)</p>
+                        <p>{{ $bullet }}</p>
                     </div>
                 @endforeach
             </div>
