@@ -6,8 +6,8 @@
             <h1 class="mb-6 text-4xl font-bold lg:text-5xl">{!! nl2br($layout->title) !!}</h1>
             <p class="max-w-xl lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
             @if ($layout->button_url)
-                <x-button class="mt-6 text-lg after:bg-white"
-                    href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button>
+                <x-button-link class="mt-6 text-lg after:bg-white"
+                    href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
     </div>
