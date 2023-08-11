@@ -9,9 +9,9 @@
         </div>
     </div>
 
-    <div class="inset-0 mt-8 flex translate-x-8 flex-row items-end lg:absolute lg:mt-0 lg:ml-auto lg:h-full lg:w-1/2">
+    <div class="inset-0 mt-8 flex translate-x-8 flex-row items-end lg:absolute lg:ml-auto lg:mt-0 lg:h-full lg:w-1/2">
 
-        <div class="absolute top-1/2 right-0 -z-10 w-[50%] -translate-y-1/2">
+        <div class="absolute right-0 top-1/2 -z-10 w-[50%] -translate-y-1/2">
             <div class="tk-blob" style="--time: 120s; --amount: 5;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.4 374.7">
                     <path fill="#ffd800"
@@ -21,7 +21,6 @@
             </div>
         </div>
 
-        @dump($layout->image)
         <svg class="block aspect-square h-auto w-full lg:max-h-[85%] lg:translate-y-16"
             xmlns="http://www.w3.org/2000/svg" width="1172.89" height="1107.97" viewBox="0 0 1172.89 1107.97">
             <defs>
@@ -77,7 +76,7 @@
     </div>
 
     <!-- top right turquoise circle -->
-    <svg class="absolute top-0 right-0 hidden w-[20vw] translate-x-1/3 -translate-y-1/3 transform lg:block"
+    <svg class="absolute right-0 top-0 hidden w-[20vw] -translate-y-1/3 translate-x-1/3 transform lg:block"
         xmlns="http://www.w3.org/2000/svg" width="565.69" height="539.98" viewBox="0 0 565.69 539.98">
         <path fill="#4badb8"
             d="M565.6 260.08c-.13-5.15-.12-10.3-.05-15.45 1.23-100-194.35-293.55-357.54-233.19-95.62 35.37-166.7 60.11-201.7 189.27-16.51 61-10.47 211 138.42 292.09 0 0 195.27 123.38 350.53-28.88 68.26-66.91 71.11-172.49 70.34-203.84Z" />

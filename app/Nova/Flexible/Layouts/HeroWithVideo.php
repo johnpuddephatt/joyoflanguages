@@ -53,19 +53,6 @@ class HeroWithVideo extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
-            Flexible::make("Images")
-                ->button("Add image")
-                ->limit(4)
-                ->addLayout("Image", "Image", [
-                    Image::make(null, "image")
-                        ->store(new SaveAndResizeImage())
-                        ->preview(function ($value, $disk) {
-                            return isset($value->image)
-                                ? Storage::disk($disk)->url($value->image)
-                                : null;
-                        })
-                        ->stacked(),
-                ]),
         ];
     }
 }
