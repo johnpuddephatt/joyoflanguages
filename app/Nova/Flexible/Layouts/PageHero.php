@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Boolean;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -37,6 +38,10 @@ class PageHero extends Layout
         "image" => "landscape",
     ];
 
+    public static $videoSizes = [
+        "video" => [250, 530],
+    ];
+
     /**
      * Get the fields displayed by the layout.
      *
@@ -65,6 +70,10 @@ class PageHero extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
+
+            Boolean::make("Show shape 1", "show_shape_1")->default(true),
+            Boolean::make("Show shape 2", "show_shape_2")->default(true),
+            Boolean::make("Show shape 3", "show_shape_3")->default(true),
         ];
     }
 }

@@ -110,6 +110,13 @@ class Page extends Resource
                 )
                 ->required(),
 
+            Select::make("Theme")
+                ->options([
+                    "default" => "Default",
+                    "alternative_header" => "Alternative header",
+                ])
+                ->hideFromIndex(),
+
             Text::make("Visit", null, function () {
                 return "<a href='" .
                     $this->url .

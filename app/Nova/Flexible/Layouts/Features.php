@@ -2,13 +2,19 @@
 
 namespace App\Nova\Flexible\Layouts;
 
+use App\Casts\MyFlexibleCast;
 use App\Nova\Actions\SaveAndResizeImage;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
+use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
+use Trin4ik\NovaSwitcher\NovaSwitcher;
+use Whitecube\NovaFlexibleContent\Flexible;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 
 class Features extends Layout
@@ -34,34 +40,6 @@ class Features extends Layout
      */
     protected $preview = true;
 
-    public static $imageSizes = [
-        "image_1" => "landscape",
-        "image_2" => "landscape",
-        "image_3" => "landscape",
-        "image_4" => "landscape",
-    ];
-
-    public function getFeaturesAttribute()
-    {
-        $features = [];
-
-        foreach ([1, 2, 3, 4] as $i) {
-            if (
-                $this->__get("title_{$i}") ||
-                $this->__get("description_{$i}") ||
-                $this->__get("image_{$i}")
-            ) {
-                $features[] = (object) [
-                    "title" => $this->__get("title_{$i}"),
-                    "description" => $this->__get("description_{$i}"),
-                    "image" => $this->__get("image_{$i}"),
-                ];
-            }
-        }
-
-        return $features;
-    }
-
     /**
      * Get the fields displayed by the layout.
      *
@@ -69,31 +47,23 @@ class Features extends Layout
      */
     public function fields()
     {
-        $fields = [];
+        return array_merge(
+            (new \App\Nova\Flexible\Layouts\TextWithImage())->fields(),
 
-        $fields[] = Text::make("Pre-title", "pre_title");
-        $fields[] = Text::make("Title");
-        $fields[] = Textarea::make("Intro")->rows(2);
-
-        foreach ([1, 2, 3, 4] as $i) {
-            $fields[] = Heading::make(
-                "<div class='p-3 font-bold bg-gray-200'>Feature {$i}</div>",
-                "heading_{$i}"
-            )
-                ->stacked()
-                ->asHtml();
-
-            $fields[] = Text::make("Title", "title_{$i}")->stacked();
-
-            $fields[] = Textarea::make("Description", "description_{$i}")
-                ->help("Supports Markdown")
-                ->stacked();
-
-            $fields[] = MediaHubField::make("Image", "image_{$i}")->stacked();
-        }
-
-        $fields[] = Textarea::make("Outro")->rows(2);
-
-        return $fields;
+            [
+                SimpleRepeatable::make("Features", "features", [
+                    Text::make("Title")->stacked(),
+                    Textarea::make("Description")
+                        ->help("Supports Markdown")
+                        ->stacked(),
+                    MediaHubField::make("Image", "image")->stacked(),
+                    MediaHubField::make("Video", "video")
+                        ->stacked()
+                        ->help(
+                            "If both image and video are set, video will be used"
+                        ),
+                ])->addRowLabel("Add feature"),
+            ]
+        );
     }
 }

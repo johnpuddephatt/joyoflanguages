@@ -92,6 +92,9 @@ class FeatureBlock extends Layout
                 ->stacked(),
             NovaSwitcher::make("Show sun?", "show_sun")->stacked(),
             NovaSwitcher::make("Show thumb?", "show_thumb")->stacked(),
+            Text::make("Speech bubble")
+                ->stacked()
+                ->help("Leave blank to hide"),
         ];
     }
 }

@@ -1,6 +1,11 @@
 bg-light-teal
+bg-pink
+bg-beige
+bg-opacity-50
 aspect-video
-
+row-start-1
+row-start-2
+row-start-3
 delay-[250ms]
 delay-[500ms]
 delay-[750ms]

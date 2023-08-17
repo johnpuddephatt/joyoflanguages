@@ -24,6 +24,7 @@ class Page extends Model
         "image",
         "parent_id",
         "template",
+        "theme",
     ];
 
     /**

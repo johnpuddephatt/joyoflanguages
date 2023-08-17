@@ -4,7 +4,9 @@ namespace App\Nova\Flexible\Layouts;
 
 use Laravel\Nova\Fields\KeyValue;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
-use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Text;
+use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 
 class Squares extends Layout
 {
@@ -39,10 +41,10 @@ class Squares extends Layout
         return array_merge(
             (new \App\Nova\Flexible\Layouts\TextWithImage())->fields(),
             [
-                KeyValue::make("Squares")
-
-                    ->keyLabel("Title")
-                    ->valueLabel("Description"),
+                SimpleRepeatable::make("Squares", "squares", [
+                    Text::make("Title"),
+                    Textarea::make("Description")->rows(2),
+                ]),
             ]
         );
     }

@@ -18,6 +18,7 @@ class MyFlexibleCast extends FlexibleCast
         "latest-posts" => \App\Nova\Flexible\Layouts\LatestPosts::class,
         "latest-podcasts" => \App\Nova\Flexible\Layouts\LatestPodcasts::class,
         "tagged-posts" => \App\Nova\Flexible\Layouts\TaggedPosts::class,
+        "publications" => \App\Nova\Flexible\Layouts\Publications::class,
         "languages-posts-links" =>
             \App\Nova\Flexible\Layouts\LanguagesPostsLinks::class,
 
@@ -34,8 +35,8 @@ class MyFlexibleCast extends FlexibleCast
             \App\Nova\Flexible\Layouts\TextWithBullets::class,
         "team" => \App\Nova\Flexible\Layouts\Team::class,
         "jump-cta" => \App\Nova\Flexible\Layouts\JumpCTA::class,
+        "features-row" => \App\Nova\Flexible\Layouts\FeaturesRow::class,
         "features" => \App\Nova\Flexible\Layouts\Features::class,
-        "feature" => \App\Nova\Flexible\Layouts\Feature::class,
         "squares" => \App\Nova\Flexible\Layouts\Squares::class,
         "courses-and-curriculum" =>
             \App\Nova\Flexible\Layouts\CoursesAndCurriculum::class,
@@ -46,5 +47,6 @@ class MyFlexibleCast extends FlexibleCast
             \App\Nova\Flexible\Layouts\VoiceOfCustomer::class,
         "subscriptions" => \App\Nova\Flexible\Layouts\Subscriptions::class,
         "sign-off" => \App\Nova\Flexible\Layouts\SignOff::class,
+        "embedded-video" => \App\Nova\Flexible\Layouts\EmbeddedVideo::class,
     ];
 }

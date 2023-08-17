@@ -2,17 +2,18 @@
 
     <x-responsive-image class="block w-full" :image="$layout->main_image" />
 
-    <div class="p-24">
+    <div class="flex flex-col justify-center p-24">
         <h2 class="mb-8 text-4xl font-bold">{{ $layout->title }}</h2>
-        <div class="max-w-lg">@markdown($layout->description)
+        <div class="max-w-md">@markdown($layout->description)
             @if ($layout->button_url)
-                <x-button-link class="mt-16" :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
+                <x-button-link class="mt-16 shadow-yellow"
+                    :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
     </div>
 </div>
 
-<div class="-mt-24 grid grid-cols-2">
+<div class="container mx-auto -mt-24 grid grid-cols-2 gap-16">
     <div class="mx-auto my-auto max-w-xl py-24">
 
         @svg('quote-open', 'w-12 text-teal')

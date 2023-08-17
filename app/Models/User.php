@@ -35,6 +35,11 @@ class User extends Authenticatable implements Sortable
         "role",
         "photo",
         "biography",
+        "video",
+    ];
+
+    public static $videoSizes = [
+        "video" => [720, 480],
     ];
 
     protected static function boot()
@@ -61,6 +66,7 @@ class User extends Authenticatable implements Sortable
         "email_verified_at" => "datetime",
         "enable_login" => "boolean",
         "show_in_staff_directory" => "boolean",
+        "video" => "object",
         "photo" => \App\Casts\NovaMediaLibraryCast::class,
     ];
 

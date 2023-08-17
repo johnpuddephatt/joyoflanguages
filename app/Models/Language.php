@@ -41,6 +41,14 @@ class Language extends Model
                 $this->slug;
     }
 
+    public function getPodcastsLinkAttribute()
+    {
+        return \App\Models\Page::getTemplateUrl(
+            \App\Nova\Templates\PodcastsPageTemplate::class,
+            $this->id
+        );
+    }
+
     public function menu()
     {
         return $this->belongsTo(\Outl1ne\MenuBuilder\Models\Menu::class);

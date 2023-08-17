@@ -5,12 +5,13 @@
 
             <div class="space-y-2">
                 @foreach ($layout->podcasts as $podcast)
-                    <div class="flex max-w-lg justify-between gap-2 border-b border-teal py-3">
+                    <div class="relative flex max-w-lg justify-between gap-2 border-b border-light-teal pb-4 pt-2">
                         <div>
-                            <div class="mb-0.5 text-sm">Episode {{ $podcast->episode_number }}</div>
+                            <div class="mb-0.5 text-sm font-semibold">Episode {{ $podcast->episode_number }}</div>
                             <p class="font-bold leading-tight">{{ $podcast->title }}</p>
                         </div>
-                        <x-button-link class="my-auto px-4 shadow-yellow">
+                        <x-button-link class="my-auto px-4 shadow-yellow after:absolute after:inset-0"
+                            href="{{ $podcast->url }}">
                             <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="53.66" height="66.6"
                                 viewBox="0 0 53.66 66.6">
                                 <path vector-effect="non-scaling-stroke" fill="#ffd800" stroke="#12171e"
@@ -23,10 +24,8 @@
                 @endforeach
             </div>
 
-            @if ($layout->button_url)
-                <x-button-link class="mt-16 shadow-light-teal"
-                    :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
-            @endif
+            <x-button-link class="mt-16 shadow-light-teal"
+                :href="$layout->button_url ?? $language->podcasts_link">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
     </div>
     <div class="">
 

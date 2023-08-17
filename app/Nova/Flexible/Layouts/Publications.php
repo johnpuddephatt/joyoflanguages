@@ -10,23 +10,24 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Image;
 use Manogi\Tiptap\Tiptap;
+use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 use Trin4ik\NovaSwitcher\NovaSwitcher;
 
-class Publication extends Layout
+class Publications extends Layout
 {
     /**
      * The layout's unique identifier
      *
      * @var string
      */
-    protected $name = "publication";
+    protected $name = "publications";
 
     /**
      * The displayed title
      *
      * @var string
      */
-    protected $title = "Publication";
+    protected $title = "Publications";
 
     /**
      * The preview Blade view for this layout
@@ -43,16 +44,18 @@ class Publication extends Layout
     public function fields()
     {
         return [
-            Text::make("Title")->stacked(),
-            Text::make("Publication name")->stacked(),
-            Select::make("Type")
-                ->options([
-                    "radio" => "Radio",
-                    "article" => "Article",
-                    "video" => "Video",
-                ])
-                ->stacked(),
-            Text::make("Link")->stacked(),
+            SimpleRepeatable::make("Publications", "publications", [
+                Text::make("Title")->stacked(),
+                Text::make("Publication name")->stacked(),
+                Select::make("Type")
+                    ->options([
+                        "radio" => "Radio",
+                        "article" => "Article",
+                        "video" => "Video",
+                    ])
+                    ->stacked(),
+                Text::make("Link")->stacked(),
+            ])->addRowLabel("Add new publication"),
         ];
     }
 }

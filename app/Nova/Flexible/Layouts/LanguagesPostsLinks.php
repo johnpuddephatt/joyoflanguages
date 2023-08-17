@@ -49,11 +49,27 @@ class LanguagesPostsLinks extends Layout
                     ->pluck("name", "id")
                     ->toArray()
             ),
+            Text::make("Button URL")->help(
+                "Leave blank to generate automatically"
+            ),
         ];
+    }
+
+    public function getLanguagesIdsAttribute($value)
+    {
+        return array_map("intval", $value ?? []);
     }
 
     public function getLanguagesAttribute()
     {
         return \App\Models\Language::find($this->__get("languages_ids"));
+    }
+
+    public function getPostsLinkAttribute()
+    {
+        return \App\Models\Page::getTemplateUrl(
+            \App\Nova\Templates\PostsPageTemplate::class,
+            null
+        );
     }
 }

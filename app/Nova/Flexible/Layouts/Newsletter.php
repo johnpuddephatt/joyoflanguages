@@ -5,6 +5,7 @@ namespace App\Nova\Flexible\Layouts;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
 
 class Newsletter extends Layout
 {
@@ -44,6 +45,7 @@ class Newsletter extends Layout
             Text::make("Placeholder"),
             Text::make("Form action"),
             Text::make("Button text"),
+            Text::make("Sticker", "sticker")->help("Leave blank to hide"),
         ];
     }
 }

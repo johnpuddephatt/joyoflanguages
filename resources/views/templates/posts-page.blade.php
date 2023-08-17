@@ -1,11 +1,11 @@
 @section('image', $page->image?->getUrl('thumbnail'))
 
 @section('title', $page->title)
-@extends('layouts.default') @section('content')
+@extends('layouts.default', ['language' => $page->language, 'theme' => $page->theme]) @section('content')
 
     <div class="relative pt-48">
 
-        <svg class="pointer-events-none absolute top-0 left-0 right-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
+        <svg class="pointer-events-none absolute left-0 right-0 top-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
             width="2560" height="1297" viewBox="0 0 2560 1297">
             <path fill="#4caeb8"
                 d="M2793.46 126.11c-.14-5.6-.12-11.18-.06-16.78 1.35-108.61-211-318.68-388.15-253.15-103.81 38.4-180.95 65.26-218.92 205.48-17.92 66.18-11.37 229.07 150.26 317.1 0 0 212 134 380.55-31.36 74.07-72.64 77.16-187.25 76.32-221.29Z" />
@@ -17,7 +17,7 @@
 
         <div class="container relative mx-auto flex max-w-6xl flex-row items-center justify-between bg-blue p-12">
             <div class="max-w-lg flex-1">
-                <h1 class="text-7xl font-bold">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
+                <h1 class="text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="mt-6 text-xl font-bold leading-tight text-white">{{ $page->introduction }}</p>
             </div>
             <x-library-image :image="$page->image" class="relative block h-auto w-96" />

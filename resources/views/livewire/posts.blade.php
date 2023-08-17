@@ -27,7 +27,7 @@
             @endforeach
         </div>
         @foreach ($posts as $post)
-            <x-post.card-wide :post="$post" />
+            <x-post.card-wide-alt :post="$post" />
         @endforeach
 
     </div>

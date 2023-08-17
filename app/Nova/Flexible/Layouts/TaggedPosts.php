@@ -6,9 +6,14 @@ use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\File;
 use ShuvroRoy\NovaTabs\Traits\HasTabs;
 use Spatie\Tags\Tag;
 use Spatie\TagsField\Tags;
+use App\Nova\Actions\SaveAndResizeVideo;
+use App\Nova\Actions\SaveAndResizeImage;
+use Laravel\Nova\Fields\Image;
+use Illuminate\Support\Facades\Storage;
 
 class TaggedPosts extends Layout
 {
@@ -34,6 +39,14 @@ class TaggedPosts extends Layout
      */
     protected $preview = true;
 
+    public static $imageSizes = [
+        "image" => "portrait",
+    ];
+
+    public static $videoSizes = [
+        "video" => [375, 795],
+    ];
+
     /**
      * Get the fields displayed by the layout.
      *
@@ -53,6 +66,16 @@ class TaggedPosts extends Layout
                 )
                 ->placeholder("Select tag")
                 ->stacked(),
+            Image::make("Image")
+                ->store(new SaveAndResizeImage())
+                ->preview(function ($value, $disk) {
+                    return isset($value->image)
+                        ? Storage::disk($disk)->url($value->image)
+                        : null;
+                }),
+            File::make("Video", "video")
+                ->store(new SaveAndResizeVideo())
+                ->acceptedTypes(".mp4"),
         ];
     }
 
@@ -72,14 +95,16 @@ class TaggedPosts extends Layout
         }
     }
 
-    public function getViewAllPostsLinkAttribute()
+    public function getPostsLinkAttribute()
     {
-        return \App\Models\Page::getTemplateUrl(
+        return (\App\Models\Page::getTemplateUrl(
             \App\Nova\Templates\PostsPageTemplate::class,
             $this->model->language_id
         ) ??
             \App\Models\Page::getTemplateUrl(
                 \App\Nova\Templates\PostsPageTemplate::class
-            );
+            )) .
+            "?tag=" .
+            $this->__get("tag");
     }
 }

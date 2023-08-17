@@ -31,8 +31,8 @@ class Image extends Layout
      */
     protected $preview = true;
 
-    protected $casts = [
-        "image" => \App\Casts\NovaMediaLibraryCast::class,
+    public static $imageSizes = [
+        "image" => "uncropped",
     ];
 
     /**
@@ -43,7 +43,7 @@ class Image extends Layout
     public function fields()
     {
         return [
-            ImageField::make("Quote image")
+            ImageField::make("Image")
                 ->stacked()
                 ->store(new SaveAndResizeImage())
                 ->preview(function ($value, $disk) {

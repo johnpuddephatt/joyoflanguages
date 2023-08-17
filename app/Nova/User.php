@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -20,6 +21,7 @@ use App\Nova\Traits\RedirectsToIndexOnSave;
 use Illuminate\Support\Facades\Storage;
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 use Outl1ne\NovaSortable\Traits\HasSortableRows;
+use App\Nova\Actions\SaveAndResizeVideo;
 
 class User extends Resource
 {
@@ -86,6 +88,9 @@ class User extends Resource
                 Text::make("Role"),
                 MediaHubField::make("Photo")->defaultCollection("users"),
                 Tiptap::make("Biography"),
+                File::make("Video", "video")
+                    ->store(new SaveAndResizeVideo())
+                    ->acceptedTypes(".mp4"),
             ]),
         ];
     }

@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-c06b870c.css",
+    "file": "assets/app-13cd5915.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -36,8 +36,15 @@
     "file": "assets/Labours-Regular-11711f72.woff2",
     "src": "resources/fonts/Labours-Regular.woff2"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-fde5849c.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-2cfbafb6.js",
+    "css": [
+      "assets/app-fde5849c.css"
+    ],
+    "file": "assets/app-c9e7e743.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

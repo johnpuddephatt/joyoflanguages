@@ -1,22 +1,18 @@
-    <div class="relative py-4 lg:py-8">
-
-        <div class="{{ $class ?? 'max-w-2xl mx-auto' }}">
+    <div class="relative pt-12 lg:pt-16">
+        <div class="{{ $class ?? 'max-w-7xl px-4' }} container lg:pr-0">
             <div
-                class="{{ $layout->reverse ? 'pr-[25%]' : 'pl-[25%] justify-between' }} container relative flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-8">
-                <div class="{{ $layout->reverse ? 'order-last' : '' }} prose max-w-lg">
+                class="{{ $layout->reverse ? 'lg:pl-[calc(25%-1rem)]' : 'lg:pr-[calc(25%-1rem)]' }} relative flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-8">
+                <img src="{{ $layout->image }}"
+                    class="{{ $layout->reverse ? 'lg:order-last' : '' }} flex-0 block w-1/4 max-w-none object-cover" />
+                <div class="{{ $layout->reverse ? 'lg:order-first' : '' }} w-full">
                     @if ($layout->title)
-                        <h2 class="mt-0 mb-0 text-xl font-bold lg:text-2xl">{{ $layout->title }}</h2>
+                        <h2 class="mb-0 mt-0 text-xl font-bold lg:text-2xl">{{ $layout->title }}</h2>
                     @endif
-
                     <div class="mt-4">
-                        @markdown($layout->description)
+                        @markdown($layout->main)
                     </div>
                 </div>
 
-                <img src="{{ $layout->image }}"
-                    class="{{ $layout->reverse ? 'order-first' : '' }} block w-full max-w-none object-cover lg:w-1/4" />
-
             </div>
         </div>
-
     </div>

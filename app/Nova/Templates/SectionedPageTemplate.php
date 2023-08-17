@@ -35,11 +35,12 @@ class SectionedPageTemplate
                 ->addLayout(\App\Nova\Flexible\Layouts\Section::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
+                ->addLayout(\App\Nova\Flexible\Layouts\Image::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\TextWithIcon::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\PodcastLink::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\BlogLink::class)
                 ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock::class)
-                ->addLayout(\App\Nova\Flexible\Layouts\Publication::class)
+                ->addLayout(\App\Nova\Flexible\Layouts\Publications::class)
                 ->button("Add section")
                 ->enablePreview(
                     \Illuminate\Support\Facades\Vite::asset(

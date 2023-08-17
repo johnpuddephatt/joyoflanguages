@@ -54,10 +54,10 @@ class LatestPodcasts extends Layout
             Text::make("Title"),
             Textarea::make("Description"),
             Text::make("Button text"),
-            Text::make("Button URL"),
-
+            Text::make("Button URL")->help(
+                "Leave blank to generate automatically based on page language"
+            ),
             Number::make("Limit"),
-
             Image::make("Image", "image")
                 ->store(new SaveAndResizeImage())
                 ->preview(function ($value, $disk) {

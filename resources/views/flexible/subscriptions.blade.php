@@ -1,6 +1,6 @@
 <div class="relative py-32">
-    <svg xmlns="http://www.w3.org/2000/svg" width="272.39" height="209.79" class="absolute -top-px left-16 h-auto w-96"
-        viewBox="0 0 272.39 209.79">
+    <svg xmlns="http://www.w3.org/2000/svg" width="272.39" height="209.79"
+        class="absolute -top-px left-4 h-auto w-40 lg:left-16 lg:w-96" viewBox="0 0 272.39 209.79">
 
         <path fill="#4ba3ae"
             d="M35.23.7c-.38 10.3 1 21.89 4.55 35.38 6.67 25.25 39.79 77.78 109.88 76.11 0 0 95.45 3.91 119.66-82.7A93 93 0 0 0 272.22 0" />
@@ -19,7 +19,8 @@
     @include('components.block-intro', ['layout' => $layout])
 
     @if ($layout->subscriptions)
-        <div class="container mx-auto flex max-w-xl flex-col items-center gap-2 py-16 lg:flex-row">
+        <div
+            class="container mx-auto flex max-w-3xl flex-col-reverse items-center justify-center gap-8 pt-16 lg:flex-row lg:gap-3">
             @foreach ($layout->subscriptions as $subscription)
                 <div
                     class="@if ($subscription->sticker) flex-[55%] @else flex-[50%] @endif relative min-h-[12rem] bg-beige p-8">
@@ -51,10 +52,10 @@
     @endif
 
     @if ($layout->outro)
-        <div class="prose relative mx-auto max-w-3xl rounded-3xl bg-light-teal bg-opacity-20 p-12 px-16 pb-8 pr-24">
+        <x-hint>
             @markdown($layout->outro)
 
-            <svg class="absolute left-full top-full h-auto w-36 -translate-x-1/2 -translate-y-1/2"
+            <svg class="absolute right-0 top-full h-auto w-36 -translate-y-1/4 lg:-translate-y-1/2 lg:translate-x-1/2"
                 xmlns="http://www.w3.org/2000/svg" width="100.43" height="103.26" viewBox="0 0 100.43 103.26">
 
                 <path fill="#ffce00"
@@ -67,7 +68,7 @@
                     d="M48.54 44.81s-2.6 10.92.79 11.57 4.05-11.05 4.05-11.05m-8.62 13.32s6.58 4.69 10.14-.17" />
             </svg>
 
-        </div>
+        </x-hint>
     @endif
 
     <svg class="absolute bottom-1/4 right-0 h-auto w-24 2xl:w-48" xmlns="http://www.w3.org/2000/svg" width="132.93"

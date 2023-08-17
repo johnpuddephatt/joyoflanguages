@@ -1,11 +1,11 @@
 @section('image', $page->image?->getUrl('thumbnail'))
 
 @section('title', $page->title)
-@extends('layouts.default') @section('content')
+@extends('layouts.default', ['language' => $page->language, 'theme' => $page->theme]) @section('content')
 
     <div class="relative">
 
-        <svg class="pointer-events-none absolute top-0 left-0 right-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
+        <svg class="pointer-events-none absolute left-0 right-0 top-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" x="0" y="0"
             enable-background="new 0 0 2563.4 1676.3" version="1.1" viewBox="0 0 2563.4 1676.3">
             <defs>
@@ -27,7 +27,9 @@
 
         <div class="container relative mx-auto flex max-w-6xl flex-row items-center justify-between pt-48">
             <div class="max-w-lg flex-1">
-                <h1 class="bold-text-light-teal text-7xl font-bold text-teal">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
+
+                <h1 class="bold-text-light-teal text-4xl font-bold !tracking-normal text-teal lg:text-5xl 2xl:text-6xl">
+                    {!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="mt-6 text-xl font-bold leading-tight text-gray">{{ $page->introduction }}</p>
             </div>
             <x-image-mask class="h-auto w-96"> <x-library-image conversion="square" :image="$page->image"

@@ -213,14 +213,21 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     left:0;
                     width: 100%;
                     height: 40px;
-                    background-color: #f0f0f0;
+                    background-color: rgba(var(--colors-slate-100));
                     z-index: -10;
+                    border-bottom: 1px solid #ddd;
                 
                  }
                 
 
                 .fields .simple-repeatable-fields-wrapper {
-                    padding-top:16px;
+                    padding-top: 28px;
+                    margin: 0 -24px;
+                }
+
+                .group  .simple-repeatable.form-field .simple-repeatable-row>.simple-repeatable-fields-wrapper>*>:first-child:not(:only-child) {
+                    display: block;
+                    padding-left: 0;
                 }
             </style>";
         });

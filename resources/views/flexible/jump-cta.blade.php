@@ -1,8 +1,8 @@
-<div class="py-16 text-center">
+<div class="{{ $layout->background_colour ?? null }} border-b-[3px] pt-16 text-center lg:border-b-4">
     @if ($layout->title)
-        <h3 class="mb-6 text-2xl font-bold text-light-teal">{{ $layout->title }}</h2>
+        <h3 class="text-2xl font-bold lg:text-3xl">{{ $layout->title }}</h2>
     @endif
 
     <x-button-link target="{{ $layout->new_tab ? '_parent' : null }}" href="{{ $layout->button_link }}"
-        class="relative w-full max-w-sm bg-yellow shadow-transparent after:absolute after:left-1/2 after:top-1/2 after:-z-10 after:block after:h-[3px] after:w-screen after:-translate-x-1/2 after:bg-black">{{ $layout->button_text ?? 'Sign up now' }}</x-button-link>
+        class="{{ $layout->background_colour == 'bg-yellow' ? '!bg-light-teal' : 'bg-yellow' }} relative z-10 max-w-sm translate-y-[calc(50%-1px)] text-xl shadow-transparent lg:w-full lg:translate-y-[calc(50%-2px)] lg:!border-4 lg:text-2xl">{{ $layout->button_text ?? 'Sign up now!' }}</x-button-link>
 </div>

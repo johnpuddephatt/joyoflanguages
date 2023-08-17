@@ -1,28 +1,40 @@
-<div class="overflow-hidden py-16">
-    <div
-        class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $class ?? 'mx-auto max-w-7xl' }} container relative mb-24 block py-8 md:grid md:grid-cols-2 lg:py-16">
+<div class="py-16">
 
-        <x-responsive-image :image="$layout->image"
-            class="{{ $layout->reverse ? 'lg:-mr-24' : 'lg:-ml-24' }} max-w-none lg:w-[calc(100%+4rem)]" />
+    <div
+        class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $class ?? 'mx-auto max-w-6xl' }} container relative flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
 
         <div
-            class="{{ $layout->reverse ? 'order-first' : null }} relative z-10 flex flex-col items-start justify-center px-8 py-8">
-            <h2 class="mb-8 max-w-lg text-2xl font-bold lg:text-4xl">{!! $layout->title !!}</h2>
-            @if ($layout->subtitle)
-                <div class="text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
-            @endif
-            @if ($layout->description)
-                <div class="mt-8 max-w-sm">@markdown($layout->description)</div>
+            class="{{ $layout->reverse ? '-mr-12 xl:-mr-32 2xl:-mr-36' : '-ml-12 xl:-ml-32 2xl:-ml-36' }} relative h-auto w-full max-w-none flex-1 lg:w-1/2">
+            <x-responsive-image :image="$layout->image" class="h-auto w-full" />
+            @if ($layout->speech_bubble)
+                <svg xmlns="http://www.w3.org/2000/svg" width="192.89" height="201.61"
+                    class="absolute right-0 top-0 w-20 -translate-y-1/2 translate-x-1/3" viewBox="0 0 192.89 201.61">
+                    <path fill="#fff"
+                        d="M189.43 105.93q10.14-39.69-9.44-69.37T120.71 1.15Q81.02-4.58 47.06 18.37T3.13 80.72q-10 39.4 11.83 68.59t61.85 35a106.38 106.38 0 0 0 28.28.46c40.29 28.31 61.89 15 49.49 3.14-4.21-4-4.67-12.61-3.36-22.38q28.56-21.96 38.21-59.6Z" />
+                    <text fill="#181919" font-family="Brandon Text" font-size="52.18" font-weight="800"
+                        transform="rotate(-13.45 556.845 -104.29)">{{ $layout->speech_bubble }}</text>
+                </svg>
             @endif
 
-            <div class="flex flex-row gap-6">
+        </div>
+        <div
+            class="{{ $layout->reverse ? 'order-first' : null }} relative z-10 flex flex-col items-start justify-center px-0 md:w-1/2">
+            <h2 class="mb-8 max-w-lg text-2xl font-bold lg:text-4xl">{!! $layout->title !!}</h2>
+            @if ($layout->subtitle)
+                <div class="-mt-4 mb-8 text-xl font-bold lg:text-xl">{{ $layout->subtitle }}</div>
+            @endif
+            @if ($layout->description)
+                <div class="mb-8 max-w-sm">@markdown($layout->description)</div>
+            @endif
+
+            <div class="flex flex-col gap-3 lg:flex-row lg:gap-6">
                 @if ($layout->button_url)
-                    <x-button-link class="mt-8 shadow-light-teal"
+                    <x-button-link class="shadow-white"
                         :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
                 @endif
 
                 @if ($layout->button_2_url)
-                    <x-button-link class="mt-8 shadow-yellow"
+                    <x-button-link class="shadow-yellow"
                         :href="$layout->button_2_url">{{ $layout->button_2_text ?? 'Read more' }}</x-button-link>
                 @endif
             </div>
@@ -30,7 +42,8 @@
 
         @if ($layout->show_sun)
             <svg xmlns="http://www.w3.org/2000/svg" width="648.05" height="519.42"
-                class="absolute right-0 top-0 block w-72 -translate-y-1/4 translate-x-1/3" viewBox="0 0 648.05 519.42">
+                class="absolute right-0 top-0 block w-72 -translate-y-1/4 lg:translate-x-1/3"
+                viewBox="0 0 648.05 519.42">
                 <defs>
                     <style>
                         .cls-2fetgdfdf {

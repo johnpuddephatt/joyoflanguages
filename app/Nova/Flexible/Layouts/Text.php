@@ -25,7 +25,7 @@ class Text extends Layout
      *
      * @var string
      */
-    protected $preview = false;
+    protected $preview = true;
 
     /**
      * Get the fields displayed by the layout.

@@ -1,8 +1,12 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
-    class="absolute left-0 top-0 z-40 w-full py-12 text-white lg:py-12 lg:text-teal">
-    <div class="container mx-auto flex flex-row items-start justify-center lg:justify-between">
+    class="{{ $theme == 'alternative_header' ? 'text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-white lg:py-12">
+    <div class="container mx-auto flex max-w-none flex-row items-start justify-center lg:justify-between">
         <a class="relative z-20 flex flex-col items-center gap-0 overflow-hidden lg:flex-row lg:gap-2" href="/">
-            @svg('jol-logo', 'lg:ml-0 h-10 lg:h-12 w-auto')
+            @if ($theme == 'alternative_header')
+                @svg('jol-logo-alt', 'lg:ml-0 h-10 lg:h-12 w-auto')
+            @else
+                @svg('jol-logo', 'lg:ml-0 h-10 lg:h-12 w-auto')
+            @endif
 
             @if ($language)
                 <span class="font-logo text-2xl uppercase tracking-widest text-light-teal">
@@ -17,7 +21,7 @@
             </div>
 
             <nav :class="!menuOpen && 'max-lg:translate-x-full'"
-                class="inset-0 z-10 flex flex-col items-start gap-2 text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:justify-center max-lg:bg-orange max-lg:p-8 lg:flex-row">
+                class="inset-0 z-10 flex flex-col items-start text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:justify-center max-lg:bg-orange max-lg:p-8 lg:flex-row lg:gap-6">
 
                 @foreach ($primary_menu['menuItems'] as $menu_item)
                     <div class="group relative">
@@ -54,5 +58,5 @@
     </div>
 </header>
 
-<x-login-link class="fixed bottom-4 z-10 ml-6 mt-2" redirect-url="{{ route('nova.pages.dashboard') }}"
-    label="Admin login" />
+<x-login-link class="fixed bottom-4 right-4 z-10 ml-6 mt-2 rounded bg-blue bg-opacity-20 p-4"
+    redirect-url="{{ route('nova.pages.dashboard') }}" label="Admin login" />

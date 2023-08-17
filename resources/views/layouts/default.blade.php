@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('templatecontent')
-    <x-header :$language />
+    <x-header :$language :$theme />
 
     <main class="relative min-h-screen">
         @yield('content')

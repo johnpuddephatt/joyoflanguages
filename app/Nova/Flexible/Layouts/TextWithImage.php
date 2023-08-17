@@ -47,8 +47,6 @@ class TextWithImage extends Layout
     public function fields()
     {
         return [
-            NovaSwitcher::make("Reverse")->stacked(),
-
             Text::make("Title")->stacked(),
 
             Textarea::make("Text")
@@ -58,11 +56,21 @@ class TextWithImage extends Layout
 
             MediaHubField::make("Image", "image")->stacked(),
 
-            Select::make("Squiggle?")
+            NovaSwitcher::make("Reverse")->stacked(),
+
+            Select::make("Squiggle?", "squiggle")
                 ->options([
                     null => "Disabled",
                     1 => "Squiggle 1",
                     2 => "Squiggle 2",
+                ])
+                ->stacked(),
+
+            Select::make("Background colour")
+                ->options([
+                    "" => "White",
+                    "bg-opacity-30 bg-pink" => "Pink",
+                    "bg-beige bg-opacity-50" => "Beige",
                 ])
                 ->stacked(),
         ];

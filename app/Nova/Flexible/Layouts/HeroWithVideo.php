@@ -3,10 +3,12 @@
 namespace App\Nova\Flexible\Layouts;
 
 use App\Nova\Actions\SaveAndResizeImage;
+use App\Nova\Actions\SaveAndResizeVideo;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Nova\Fields\Textarea;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\File;
 use Whitecube\NovaFlexibleContent\Flexible;
 
 class HeroWithVideo extends Layout
@@ -36,6 +38,10 @@ class HeroWithVideo extends Layout
         "image" => "portrait",
     ];
 
+    public static $videoSizes = [
+        "video" => [375, 795],
+    ];
+
     /**
      * Get the fields displayed by the layout.
      *
@@ -53,6 +59,10 @@ class HeroWithVideo extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
+
+            File::make("Video", "video")
+                ->store(new SaveAndResizeVideo())
+                ->acceptedTypes(".mp4"),
         ];
     }
 }

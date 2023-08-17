@@ -1,4 +1,4 @@
-<div class="container mx-auto max-w-4xl py-16" x-data="{ showing: {{ $layout->number_shown ?? 5 }} }">
+<div class="container mx-auto max-w-6xl pb-16 pt-32" x-data="{ showing: {{ $layout->number_shown ?? 5 }} }">
     @include('components.block-intro', ['layout' => $layout])
 
     <div class="mt-16 flex flex-col border-b border-teal" x-data="{ current: null }">

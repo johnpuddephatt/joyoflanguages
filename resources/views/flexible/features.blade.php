@@ -1,25 +1,22 @@
-<div class="container mx-auto max-w-6xl py-16">
+    @include('flexible.text-with-image', ['layout' => $layout])
+    <div class="{{ $layout->background_colour }} flex flex-col gap-8 pb-16 lg:gap-16">
 
-    @include('components.block-intro', ['layout' => $layout])
-
-    <div class="my-16 flex flex-col gap-4 lg:flex-row">
         @foreach ($layout->features as $feature)
-            <div class="flex-1 bg-beige">
-                @if ($feature->image)
-                    <x-library-image :image="$feature->image" conversion="3x2" class="mx-auto block w-full" />
-                @endif
-                <div class="px-4 py-6">
-                    @if ($feature->title)
-                        <h3 class="mb-2 mr-8 text-2xl font-bold leading-tight">{{ $feature->title }}</h3>
-                    @endif
+            <div class="{{ $class ?? 'mx-auto max-w-6xl' }} container relative block md:grid md:grid-cols-2">
+
+                <x-library-image :image="$feature->image" conversion="uncropped" class="w-full max-w-none" />
+
+                <div
+                    class="{{ $loop->even ? 'lg:order-first' : null }} relative z-10 flex flex-col items-start justify-center pt-4 lg:px-8 lg:py-8">
+                    <h3 class="mb-2 max-w-lg text-2xl font-bold lg:mb-4 lg:text-4xl">{!! $feature->title !!}</h3>
+
                     @if ($feature->description)
-                        <p class="text-sm">{{ $feature->description }}</p>
+                        <div class="max-w-sm lg:mb-8">@markdown($feature->description)</div>
                     @endif
+
                 </div>
+
             </div>
         @endforeach
+
     </div>
-
-    <div class="prose mx-auto max-w-lg rounded-3xl bg-light-teal bg-opacity-20 p-8 lg:px-16">@markdown($layout->outro)</div>
-
-</div>

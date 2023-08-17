@@ -3,12 +3,12 @@ namespace App\Nova\Flexible\Layouts;
 
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-// use Whitecube\NovaFlexibleContent\Flexible;
+use Laravel\Nova\Fields\Select;
+
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
-use NormanHuth\Values\Values;
+
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
-use Whitecube\NovaFlexibleContent\Flexible;
 
 class TextWithChecklist extends Layout
 {
@@ -36,6 +36,14 @@ class TextWithChecklist extends Layout
     public function fields()
     {
         return [
+            Select::make("Background colour")
+                ->options([
+                    "" => "None",
+                    "bg-opacity-30 bg-pink" => "Pink",
+                    "bg-beige bg-opacity-50" => "Beige",
+                    "bg-yellow" => "Yellow",
+                ])
+                ->stacked(),
             MediaHubField::make("Image")->stacked(),
             Text::make("Title")->stacked(),
             Textarea::make("Description")

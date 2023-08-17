@@ -50,6 +50,7 @@ class HomePageTemplate
                     ->addLayout(\App\Nova\Flexible\Layouts\TaggedPosts::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Faqs::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\SignOff::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\EmbeddedVideo::class)
 
                     // ->addLayout(\App\Nova\Flexible\Layouts\Statement::class)
                     // ->addLayout(\App\Nova\Flexible\Layouts\FeatureBanner::class)

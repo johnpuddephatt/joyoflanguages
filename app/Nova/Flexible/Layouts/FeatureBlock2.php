@@ -60,17 +60,33 @@ class FeatureBlock2 extends Layout
         return [
             Select::make("Colour")
                 ->options([
-                    "blue" => "Blue",
-                    "light-teal" => "Teal",
-                    "beige" => "Beige",
+                    "" => "None",
+                    "bg-white" => "White",
+                    "bg-blue bg-opacity-20 " => "Blue",
+                    "bg-light-teal bg-opacity-20 " => "Teal",
+                    "bg-beige" => "Beige",
+                ])
+                ->stacked(),
+            Select::make("Background colour")
+                ->options([
+                    "" => "None",
+                    "bg-opacity-30 bg-pink" => "Pink",
+                    "bg-beige bg-opacity-50" => "Beige",
+                    "bg-yellow" => "Yellow",
                 ])
                 ->stacked(),
             NovaSwitcher::make("Reverse")->stacked(),
+            Select::make("Squiggle?", "squiggle")
+                ->options([
+                    null => "Disabled",
+                    1 => "Squiggle 1",
+                    2 => "Squiggle 2",
+                ])
+                ->stacked(),
             Image::make("Image")->stacked(),
             Text::make("Title")->stacked(),
             Textarea::make("Description")
-                ->maxLength(250)
-                ->enforceMaxLength()
+
                 ->help("Supports Markdown")
                 ->stacked(),
 

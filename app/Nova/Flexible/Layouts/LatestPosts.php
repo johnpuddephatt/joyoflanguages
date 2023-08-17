@@ -4,6 +4,7 @@ namespace App\Nova\Flexible\Layouts;
 
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Text;
 
 class LatestPosts extends Layout
 {
@@ -41,6 +42,6 @@ class LatestPosts extends Layout
      */
     public function fields()
     {
-        return [Number::make("Limit")];
+        return [Text::make("Title"), Number::make("Limit")];
     }
 }

@@ -1,8 +1,8 @@
 @section('image', $podcast->image?->getUrl('thumbnail'))
 @section('title', $podcast->title)
-@extends('layouts.default', ['language' => $podcast->language]) @section('content')
+@extends('layouts.default', ['language' => $podcast->language, 'theme' => null]) @section('content')
 
-    <div class="container mx-auto max-w-6xl">
+    <div class="container mx-auto">
         <div class="flex flex-col items-end gap-8 pb-16 pt-40 lg:flex-row">
             <div class="">
                 <div class="mb-4 text-lg">
@@ -273,50 +273,52 @@
             \Illuminate\Support\Arr::where($podcast->content ?? [], function ($value) {
                 return $value;
             }) ?? []))
-        <article x-data="{ tab: '{{ array_key_first($podcast->content) }}' }" x-init="tab = window.location.hash ? window.location.hash.substr(1) : '{{ array_key_first($podcast->content) }}'"
-            class="prose prose-gray mx-auto max-w-6xl overflow-hidden px-4 pb-24">
+        <article x-data="{ tab: '{{ array_key_first($podcast->content) }}' }" x-init="tab = window.location.hash ? window.location.hash.substr(1) : '{{ array_key_first($podcast->content) }}'" class="container mx-auto overflow-hidden pb-24">
+            <div class="prose prose-lg prose-gray">
+                @if (count(
+                        \Illuminate\Support\Arr::where($podcast->content, function ($value) {
+                            return $value;
+                        })) > 1)
 
-            @if (count(
-                    \Illuminate\Support\Arr::where($podcast->content, function ($value) {
-                        return $value;
-                    })) > 1)
-
-                <div class="flex flex-col items-center gap-4 lg:float-right lg:w-[calc(100%-42rem-4rem)] lg:px-4">
-                    @foreach ($podcast->content as $tabName => $tab)
-                        @if ($tab)
-                            <button @click="tab = '{{ $tabName }}'; window.location.hash = '{{ $tabName }}'"
-                                :class="{ 'bg-yellow': tab == '{{ $tabName }}' }"
-                                class="w-full max-w-[16rem] rounded-full border-4 px-6 py-2 text-left text-xl font-bold">{{ Str::of($tabName)->replace('_', ' ')->ucfirst() }}</button>
-                        @endif
-                    @endforeach
-                </div>
-            @endif
-
-            @foreach ($podcast->content as $tabName => $tab)
-                @if ($tab)
-                    <div x-show="tab == '{{ $tabName }}'" x-transition id="{{ $tabName }}">
-
-                        @foreach ($tab as $block)
-                            @includeIf('blocks.' . $block['type'], [
-                                ...$block,
-                                'class' => match ($block['attrs']['blockWidth'] ?? 'normal') {
-                                    'normal' => 'max-w-2xl',
-                                    'wide' => 'max-w-4xl mx-auto clear-both',
-                                    'full'
-                                        => 'left-1/2 relative -translate-x-1/2 w-screen max-w-none w-full clear-both',
-                                    'sidebar' => 'lg:px-4 lg:float-right lg:w-[calc(100%-42rem-4rem)]',
-                                },
-                            ])
+                    <div class="flex flex-col items-center gap-4 lg:float-right lg:w-[calc(100%-42rem-4rem)] lg:px-4">
+                        @foreach ($podcast->content as $tabName => $tab)
+                            @if ($tab)
+                                <button
+                                    @click="tab = '{{ $tabName }}'; window.location.hash = '{{ $tabName }}'"
+                                    :class="{ 'bg-yellow': tab == '{{ $tabName }}' }"
+                                    class="w-full max-w-[16rem] rounded-full border-4 px-6 py-2 text-left text-xl font-bold">{{ Str::of($tabName)->replace('_', ' ')->ucfirst() }}</button>
+                            @endif
                         @endforeach
                     </div>
-                @endif
-            @endforeach
+            </div>
+    @endif
 
-        </article>
-    @else
-        <article class="prose prose-gray mx-auto max-w-6xl px-4 pb-24">
+    @foreach ($podcast->content as $tabName => $tab)
+        @if ($tab)
+            <div x-show="tab == '{{ $tabName }}'" x-transition id="{{ $tabName }}">
+
+                @foreach ($tab as $block)
+                    @includeIf('blocks.' . $block['type'], [
+                        ...$block,
+                        'class' => match ($block['attrs']['blockWidth'] ?? 'normal') {
+                            'normal' => 'max-w-2xl',
+                            'wide' => 'max-w-4xl mx-auto clear-both',
+                            'full' => 'left-1/2 relative -translate-x-1/2 w-screen max-w-none w-full clear-both',
+                            'sidebar' => 'lg:px-4 lg:float-right lg:w-[calc(100%-42rem-4rem)]',
+                        },
+                    ])
+                @endforeach
+            </div>
+        @endif
+    @endforeach
+
+    </article>
+@else
+    <article class="container mx-auto pb-24 pt-8">
+        <div class="prose prose-lg prose-gray">
             {!! $podcast->rss_content !!}
-        </article>
+        </div>
+    </article>
     @endif
 
 @endsection

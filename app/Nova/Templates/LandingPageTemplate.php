@@ -29,9 +29,7 @@ class LandingPageTemplate
         return [
             Panel::make("Content", [
                 Flexible::make("", "content")
-                    ->addLayout(\App\Nova\Flexible\Layouts\Section::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\PageHero::class)
-
                     ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\TextWithImage::class)
@@ -42,8 +40,8 @@ class LandingPageTemplate
                         \App\Nova\Flexible\Layouts\TextWithChecklist::class
                     )
                     ->addLayout(\App\Nova\Flexible\Layouts\JumpCTA::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\FeaturesRow::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Features::class)
-                    ->addLayout(\App\Nova\Flexible\Layouts\Feature::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Squares::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock2::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Subscriptions::class)
@@ -55,6 +53,7 @@ class LandingPageTemplate
                     )
                     ->addLayout(\App\Nova\Flexible\Layouts\Faqs::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\SignOff::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\EmbeddedVideo::class)
 
                     ->enablePreview(
                         \Illuminate\Support\Facades\Vite::asset(
