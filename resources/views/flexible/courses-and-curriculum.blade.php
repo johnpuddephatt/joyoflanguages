@@ -7,7 +7,7 @@
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
             </div>
-            <img src="{{ $layout->image }}" class="mx-auto block w-full flex-1 lg:w-1/2" />
+            <img src="{{ Storage::disk('public')->url($layout->image) }}" class="mx-auto block w-full flex-1 lg:w-1/2" />
         </div>
 
         <div class="container mx-auto">
