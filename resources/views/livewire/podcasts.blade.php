@@ -31,7 +31,9 @@
             <x-podcast.card :page="$parentPage" :podcast="$podcast" />
         @endforeach
 
-        {{ $podcasts->links() }}
+        <div class="pt-16">
+            {{ $podcasts->links() }}
+        </div>
     </div>
 
 </div>
