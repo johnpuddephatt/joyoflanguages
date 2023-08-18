@@ -10,9 +10,7 @@
             <div class="mb-1 font-semibold">{{ $post->created_at->format('M Y') }}</div>
         @endif
         <h3 class="mb-2 text-xl font-semibold">{{ $post->title }}</h3>
-        @if ($post->introduction)
-            <p class="mb-8 text-sm">{{ $post->introduction }}</p>
-        @endif
+
         @if (!$hide_tags && $post->tags)
             <div class="font-semibold">
                 @foreach ($post->tags as $tag)

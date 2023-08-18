@@ -39,7 +39,7 @@
             </g>
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="487.84" height="528.68"
-            class="absolute bottom-0 left-24 h-auto w-64" viewBox="0 0 487.84 528.68">
+            class="absolute bottom-0 left-24 h-auto w-64 2xl:w-72" viewBox="0 0 487.84 528.68">
             <defs>
                 <style>
                     .prefix__newsletter__cls-1 {

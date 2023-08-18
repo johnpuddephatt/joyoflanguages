@@ -29,7 +29,8 @@
         @foreach ($posts as $post)
             <x-post.card-wide-alt :post="$post" />
         @endforeach
-
+        <div class="pt-16">
+            {{ $posts->links() }}
+        </div>
     </div>
-    {{ $posts->links() }}
 </div>
