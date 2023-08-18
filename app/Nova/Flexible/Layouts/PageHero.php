@@ -50,7 +50,7 @@ class PageHero extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pretitle")
+            Text::make("Short title", "pretitle")
                 ->maxLength(30)
                 ->enforceMaxLength(),
             Textarea::make("Title")

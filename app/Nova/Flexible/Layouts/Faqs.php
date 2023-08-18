@@ -46,7 +46,7 @@ class Faqs extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pre_title")
+            Text::make("Short title", "pre_title")
                 ->default("Information & FAQs")
                 ->hideFromIndex(),
             Text::make("Title", "title")

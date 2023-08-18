@@ -36,7 +36,7 @@ class VoiceOfCustomer extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pre_title")->hideFromIndex(),
+            Text::make("Short title", "pre_title")->hideFromIndex(),
             Text::make("Title", "title")->hideFromIndex(),
 
             Textarea::make("Intro")

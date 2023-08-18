@@ -43,7 +43,7 @@ class FeaturesRow extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pre_title"),
+            Text::make("Short title", "pre_title"),
             Text::make("Title"),
             Textarea::make("Intro")->rows(2),
 

@@ -72,7 +72,7 @@ class Section extends Layout
     public function fields()
     {
         return [
-            // Text::make("Pre-title", "pre_title"),
+            // Text::make("Short title", "pre_title"),
             Text::make("Title"),
             // Textarea::make("Subtitle"),
             // Boolean::make("Show as button?", "show_as_button"),

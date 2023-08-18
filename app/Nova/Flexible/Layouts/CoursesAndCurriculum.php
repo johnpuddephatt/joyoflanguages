@@ -38,7 +38,7 @@ class CoursesAndCurriculum extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pre_title")->stacked(),
+            Text::make("Short title", "pre_title")->stacked(),
             Text::make("Title")->stacked(),
             Textarea::make("Introduction")
                 ->stacked()

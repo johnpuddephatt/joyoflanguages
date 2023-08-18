@@ -45,7 +45,7 @@ class WatchVideo extends Layout
     {
         return [
             MediaHubField::make("Image", "image"),
-            Text::make("Pretitle")->default("Pre-title (optional)"),
+            Text::make("Pretitle")->default("Short title (optional)"),
             Text::make("Title")->default("Video title"),
             Text::make("Subtitle")->default("e.g. year"),
             Textarea::make("Badge")->rows(2),

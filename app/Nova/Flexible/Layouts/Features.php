@@ -53,6 +53,7 @@ class Features extends Layout
 
             [
                 SimpleRepeatable::make("Features", "features", [
+                    Text::make("Short title", "pre_title")->stacked(),
                     Text::make("Title")->stacked(),
                     Textarea::make("Description")
                         ->help("Supports Markdown")
@@ -66,7 +67,6 @@ class Features extends Layout
                 ])->addRowLabel("Add feature"),
 
                 Boolean::make("Show in menu"),
-                Number::make("Number shown"),
             ]
         );
     }

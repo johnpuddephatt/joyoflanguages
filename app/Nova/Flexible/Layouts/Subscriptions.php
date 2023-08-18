@@ -34,11 +34,11 @@ class Subscriptions extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pre_title"),
+            Text::make("Short title", "pre_title"),
             Text::make("Title", "title"),
             Text::make("Intro", "intro"),
             SimpleRepeatable::make("Subscriptions", "subscriptions", [
-                Text::make("Pre-title", "pre_title")->stacked(),
+                Text::make("Short title", "pre_title")->stacked(),
                 Text::make("Title", "title")->stacked(),
                 Text::make("Sticker", "sticker")->stacked(),
                 Text::make("Price", "price")->stacked(),
