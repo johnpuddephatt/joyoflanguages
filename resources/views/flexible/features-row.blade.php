@@ -1,7 +1,7 @@
 <div class="py-16">
     @include('components.block-intro', ['layout' => $layout])
 
-    <div class="lg:container-lg container relative mx-auto pb-16 pt-24">
+    <div class="lg:container-lg container relative mx-auto pt-24">
 
         <x-swiper :item_count="count($layout->features)">
 
