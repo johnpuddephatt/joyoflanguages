@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .type-xl {
-    @apply text-balance text-4xl font-bold !leading-[0.95] lg:text-5xl xl:text-6xl;
+    @apply text-balance text-4xl font-bold !leading-[0.95] lg:text-5xl xl:text-6xl !tracking-normal;
 }
 
 .bold-text-light-teal strong {

@@ -2,10 +2,13 @@
 
     <div class="container relative z-10 mx-auto w-full max-w-7xl">
         <div class="mt-16 lg:w-1/2">
-            <h1 class="mb-6 text-4xl text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">
+            <h1 class="type-xl mb-6">
                 {!! nl2br($layout->title) !!}</h1>
             <p class="max-w-xl lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
-            <x-button class="mt-6 text-lg" href="/">Sign up</x-button>
+
+            @if ($layout->button_url)
+                <x-button-link class="mt-6 text-lg" :href="$layout->button_url">{{ $layout->button_text ?? 'Sign up' }}</x-button>
+            @endif
         </div>
     </div>
 

@@ -63,6 +63,9 @@ class HeroWithVideo extends Layout
             File::make("Video", "video")
                 ->store(new SaveAndResizeVideo())
                 ->acceptedTypes(".mp4"),
+
+            Text::make("Button URL"),
+            Text::make("Button text"),
         ];
     }
 }
