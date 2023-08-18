@@ -46,13 +46,13 @@
                     src="{{ Storage::disk('public')->url($language->image) }}" />
                 <h3 class="mb-auto pb-16 text-3xl font-bold">{{ $language->name }}</h3>
 
-                <x-button-link href="{{ $language->blog_link }}" class="shadow-white">Read
-                    posts</x-button-link>
+                <x-button-link href="{{ $language->blog_link }}" class="mx-auto max-w-sm shadow-white">Read
+                    articles</x-button-link>
             </div>
         @endforeach
     </div>
     <div class="text-center">
-        <x-button-link class="shadow-pink" href="{{ $layout->button_url ?? $layout->posts_link }}">View all
+        <x-button-link class="shadow-pink" href="{{ $layout->button_url ?? $layout->posts_link }}">See all
             articles</x-button-link>
     </div>
 </div>

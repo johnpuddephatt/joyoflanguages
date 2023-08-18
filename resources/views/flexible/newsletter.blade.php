@@ -1,5 +1,5 @@
 <div class="py-12">
-    <div class="relative flex min-h-[50vh] flex-col justify-center overflow-hidden bg-yellow py-16">
+    <div class="relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden bg-yellow py-16">
         <div class="container relative z-10 mx-auto text-center">
             <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">{{ $layout->title }}</h2>
             <div class="mx-auto mb-12 max-w-xl font-semibold">{!! $layout->description !!}</div>
@@ -9,7 +9,7 @@
 
             <x-button class="after:!bg-light-teal" type="submit">{{ $layout->button_text }}</x-button>
             @if ($layout->sticker)
-                <div class="absolute bottom-0 right-24 z-10 w-40">
+                <div class="absolute bottom-0 right-24 z-10 w-48">
                     <svg xmlns="http://www.w3.org/2000/svg" width="276.93" height="270.49" class="block h-auto w-full"
                         viewBox="0 0 276.93 270.49">
                         <path fill="#4ba7b2"
@@ -17,7 +17,7 @@
                     </svg>
 
                     <p
-                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[10deg] text-lg font-bold text-white">
+                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[10deg] text-lg font-bold leading-none text-white">
                         {{ $layout->sticker }}
                     </p>
 
