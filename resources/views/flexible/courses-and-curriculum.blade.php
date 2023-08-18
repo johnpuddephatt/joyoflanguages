@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="">
-                                        @if ($course->modules)
+                                        @if ($course->modules && count($course->modules))
                                             <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden">
                                                 <div
                                                     class="flex flex-row items-center gap-3 border-b-[3px] border-gray bg-beige bg-opacity-50 px-8 py-4">
