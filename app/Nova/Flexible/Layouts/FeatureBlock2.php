@@ -86,10 +86,8 @@ class FeatureBlock2 extends Layout
             Image::make("Image")->stacked(),
             Text::make("Title")->stacked(),
             Textarea::make("Description")
-
                 ->help("Supports Markdown")
                 ->stacked(),
-
             Heading::make("Button 1")->withMeta([
                 "class" => "bg-gray-200",
             ]),

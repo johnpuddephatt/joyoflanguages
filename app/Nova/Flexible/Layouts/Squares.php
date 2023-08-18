@@ -42,8 +42,10 @@ class Squares extends Layout
             (new \App\Nova\Flexible\Layouts\TextWithImage())->fields(),
             [
                 SimpleRepeatable::make("Squares", "squares", [
-                    Text::make("Title"),
-                    Textarea::make("Description")->rows(2),
+                    Text::make("Title")->stacked(),
+                    Textarea::make("Description")
+                        ->rows(2)
+                        ->stacked(),
                 ]),
             ]
         );
