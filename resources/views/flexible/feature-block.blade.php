@@ -1,7 +1,7 @@
 <div class="py-16">
 
     <div
-        class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $class ?? 'mx-auto max-w-6xl' }} container relative flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
+        class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb) !pb-24 lg:!pb-32 @endif container relative flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
 
         <div
             class="{{ $layout->reverse ? '-mr-12 xl:-mr-32 2xl:-mr-36' : '-ml-12 xl:-ml-32 2xl:-ml-36' }} relative h-auto w-full max-w-none flex-1 lg:w-1/2">
