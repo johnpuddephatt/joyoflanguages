@@ -11,7 +11,7 @@
                         class="{{ $loop->odd ? 'lg:order-first' : null }} relative z-10 flex flex-col items-start justify-center pt-4 lg:px-8 lg:py-8">
                         <h3 class="mb-2 max-w-lg text-2xl font-bold lg:mb-4 lg:text-4xl">{!! $feature->title !!}</h3>
                         @if ($feature->description)
-                            <div class="max-w-sm lg:mb-8">@markdown($feature->description)</div>
+                            <div class="prose max-w-sm lg:prose-lg lg:mb-8">@markdown($feature->description)</div>
                         @endif
                     </div>
                 </div>
