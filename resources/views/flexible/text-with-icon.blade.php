@@ -2,7 +2,7 @@
         <div class="{{ $class ?? 'max-w-7xl px-4' }} container lg:pr-0">
             <div
                 class="{{ $layout->reverse ? 'lg:pl-[calc(25%-1rem)]' : 'lg:pr-[calc(25%-1rem)]' }} relative flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-8">
-                <img src="{{ $layout->image }}"
+                <img src="{{ Storage::get($layout->image) }}"
                     class="{{ $layout->reverse ? 'lg:order-last' : '' }} flex-0 block w-1/4 max-w-none object-cover" />
                 <div class="{{ $layout->reverse ? 'lg:order-first' : '' }} w-full">
                     @if ($layout->title)
