@@ -99,19 +99,19 @@ return [
             ],
 
             "uncropped" => [
-                "format" => "jpg",
+                // "format" => "jpg",
                 "width" => 300,
                 "height" => 5000,
                 "fit" => Manipulations::FIT_CONTAIN,
             ],
             "uncropped__sm" => [
-                "format" => "jpg",
+                // "format" => "jpg",
                 "width" => 600,
                 "height" => 5000,
                 "fit" => Manipulations::FIT_CONTAIN,
             ],
             "uncropped__md" => [
-                "format" => "jpg",
+                // "format" => "jpg",
                 "width" => 1200,
                 "height" => 5000,
                 "fit" => Manipulations::FIT_CONTAIN,
