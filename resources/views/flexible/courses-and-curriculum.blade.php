@@ -52,7 +52,7 @@
                                     @click="$refs.modal_course_{{ $course->number }}.close()"
                                     aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
                                 <div>
-                                    <div class="bg-beige bg-opacity-50 p-8 pb-0 pr-16">
+                                    <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
                                         {{-- <h2>{{ $course->number }}</h2> --}}
                                         <h2 class="mb-2 text-2xl font-bold !leading-none">{{ $course->title }}
                                             curriculum</h2>
@@ -64,7 +64,7 @@
                                         @if ($course->modules && count($course->modules))
                                             <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden">
                                                 <div
-                                                    class="flex flex-row items-center gap-3 border-b-[3px] border-gray bg-beige bg-opacity-50 px-8 py-4">
+                                                    class="flex flex-row items-center gap-3 border-b-[3px] border-gray bg-beige bg-opacity-50 px-8 pb-4">
                                                     @foreach ($course->modules as $key => $module)
                                                         @if ($module instanceof stdClass)
                                                             @php($module = $module->attributes)
