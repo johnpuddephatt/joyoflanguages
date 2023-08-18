@@ -1,4 +1,4 @@
-<div class="container mx-auto my-24">
+<div class="container mx-auto my-16">
     <div class="mb-12 flex flex-row items-end justify-center">
         <div class="relative mb-24">
             <h2 class="ml-auto block text-4xl font-bold"">{{ $layout->title }}
