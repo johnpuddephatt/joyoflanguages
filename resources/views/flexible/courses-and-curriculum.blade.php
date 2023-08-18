@@ -1,5 +1,5 @@
 @if ($layout->courses)
-    <div class="pb-16 pt-32">
+    <div class="pb-16 pt-24">
         @include('components.block-intro', ['layout' => $layout])
 
         <div class="container mx-auto flex flex-col items-center gap-16 py-16 lg:flex-row">
