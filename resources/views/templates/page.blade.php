@@ -4,7 +4,7 @@
     @foreach ($page->content as $layout)
         @include('flexible.' . $layout->name(), [
             'layout' => $layout,
-            'class' => 'text-left max-w-6xl mx-auto',
+            'class' => 'text-left mx-auto',
         ])
     @endforeach
 @endsection
