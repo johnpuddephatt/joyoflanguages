@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Textarea;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Text;
 use Whitecube\NovaFlexibleContent\Flexible;
 
 class HeroWithVideo extends Layout
