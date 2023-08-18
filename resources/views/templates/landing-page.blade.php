@@ -37,6 +37,11 @@
                 @if ($layout->show_in_menu)
                     @php($jump_target = $page->content->filter(fn($layout) => $layout->show_in_menu && $layout->show_as_button)->first())
 
+                    @if (!$jump_target)
+                        <p>A jump link was added but no jump target was found. Try setting a block to display in the menu as
+                            a button</p>
+                    @endif
+
                     @if (Str::of($jump_target->title)->slug() != Str::of($layout->title)->slug())
                         @include('flexible.jump-cta', [
                             'layout' => (object) [
