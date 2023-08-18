@@ -2,9 +2,9 @@
     <div class="relative flex min-h-[50vh] flex-col justify-center overflow-hidden bg-yellow py-16">
         <div class="container relative z-10 mx-auto text-center">
             <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">{{ $layout->title }}</h2>
-            <div class="mx-auto mb-8 max-w-xl">{!! $layout->description !!}</div>
+            <div class="mx-auto mb-12 max-w-xl font-semibold">{!! $layout->description !!}</div>
 
-            <input class="mx-auto mb-4 block w-full max-w-sm px-8 py-3 text-center" type="email"
+            <input class="mx-auto mb-8 block w-full max-w-sm px-8 py-3 text-center" type="email"
                 placeholder="{{ $layout->placeholder }}">
 
             <x-button class="after:!bg-light-teal" type="submit">{{ $layout->button_text }}</x-button>
