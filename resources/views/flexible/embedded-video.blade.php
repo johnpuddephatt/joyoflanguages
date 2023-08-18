@@ -1,7 +1,7 @@
 <div class="{{ $layout->background_colour }} relative pb-16 pt-32">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="102.76" height="257.94"
-        class="absolute -bottom-36 right-0 z-10 h-auto w-48" viewBox="0 0 102.76 257.94">
+        class="absolute -bottom-36 right-0 z-20 h-auto w-48" viewBox="0 0 102.76 257.94">
         <path fill="#4ba3ae"
             d="M102.52 0C73.3 1.66 32.42 13 9.87 59.12c-16.56 33.9-3.7 73.56.72 85.13.73 1.9 1.4 3.81 2.06 5.74 7.83 23 48 49.34 90.11 56" />
         <path fill="#ffce00"
