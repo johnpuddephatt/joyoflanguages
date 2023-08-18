@@ -63,15 +63,7 @@ class SignOff extends Layout
                     "yellow" => "Yellow",
                 ])
                 ->stacked(),
-            NovaSwitcher::make("Reverse")->stacked(),
-            Image::make("Image")
-                ->store(new SaveAndResizeImage())
-                ->preview(function ($value, $disk) {
-                    return isset($value->image)
-                        ? Storage::disk($disk)->url($value->image)
-                        : null;
-                })
-                ->stacked(),
+
             Text::make("Title")->stacked(),
         ];
     }

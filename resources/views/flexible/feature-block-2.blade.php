@@ -1,4 +1,5 @@
-<div class="{{ $layout->background_colour ?? '' }} relative overflow-hidden pb-20 pt-16">
+<div
+    class="{{ $layout->background_colour ?? '' }} {{ $layout->images ? 'pb-20' : 'pb-16' }} relative overflow-hidden pt-16">
 
     <div class="{{ $class ?? 'mx-auto' }} container">
         <div

@@ -49,7 +49,7 @@ class Quote extends Layout
             Select::make("Background colour", "background_colour")
                 ->options([
                     "" => "None",
-                    "bg-beige" => "Beige",
+                    "bg-beige bg-opacity-50" => "Beige",
                     "bg-yellow" => "Yellow",
                     "bg-pink bg-opacity-30" => "Pink",
                 ])
