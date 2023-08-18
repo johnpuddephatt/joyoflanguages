@@ -17,7 +17,7 @@
         </div>
 
         @if (isset($secondary_menu))
-            <nav :class="!menuOpen && 'max-lg:translate-x-full'" class="-mx-4 mt-6 flex flex-row gap-2">
+            <nav class="-mx-4 mt-6 flex flex-row gap-2">
                 @foreach ($secondary_menu as $menu_item)
                     @if (($menu_item['data']['type'] ?? false) == 'button')
                         <x-button-link target="{{ $menu_item['target'] ?? '_self' }}"

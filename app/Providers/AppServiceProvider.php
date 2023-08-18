@@ -42,8 +42,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with(
                 "secondary_menu",
                 \Cache::rememberForever("secondaryMenu", function () {
-                    return nova_get_menu_by_slug("footer")
-                        ? nova_get_menu_by_slug("footer")["menuItems"]
+                    return nova_get_menu_by_slug("secondary")
+                        ? nova_get_menu_by_slug("secondary")["menuItems"]
                         : [];
                 })
             );
