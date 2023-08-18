@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="flex-grow lg:py-24">
+            <div class="flex-grow py-8 lg:pb-16">
 
                 @foreach ($page->content as $layout)
                     @if ($layout->name() === 'section' && !$loop->first)
