@@ -72,10 +72,15 @@ class Section extends Layout
     public function fields()
     {
         return [
-            Text::make("Pre-title", "pre_title"),
+            // Text::make("Pre-title", "pre_title"),
             Text::make("Title"),
-            Textarea::make("Subtitle"),
-            Boolean::make("Show as button?", "show_as_button"),
+            // Textarea::make("Subtitle"),
+            // Boolean::make("Show as button?", "show_as_button"),
+            // Select::make("Background color")->options([
+            //     'bg-pink bg-opacity-30' => "Pink",
+            //     'bg-beige bg-opacity-50' => "Beige",
+            //     'bg-yellow' => "Yellow",
+            // ])
         ];
     }
 }
