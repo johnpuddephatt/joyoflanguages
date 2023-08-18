@@ -1,6 +1,6 @@
 <div class="relative">
     <div
-        class="2xl:container-lg container mx-auto flex min-h-[80vh] flex-col-reverse items-center py-8 pt-48 lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
+        class="2xl:container-lg @if ($layout->image) min-h-[80vh] @endif container mx-auto flex flex-col-reverse items-center py-8 pt-48 lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
         <div class="lg:w-1/2">
 
             <div class="mb-4 text-2xl font-bold text-light-teal">{{ $layout->pretitle }}</div>
