@@ -52,8 +52,9 @@ class Features extends Layout
             (new \App\Nova\Flexible\Layouts\TextWithImage())->fields(),
 
             [
+                Text::make("Short title", "pre_title")->stacked(),
+
                 SimpleRepeatable::make("Features", "features", [
-                    Text::make("Short title", "pre_title")->stacked(),
                     Text::make("Title")->stacked(),
                     Textarea::make("Description")
                         ->help("Supports Markdown")
