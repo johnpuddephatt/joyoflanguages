@@ -40,7 +40,7 @@ class PageTemplate
                     )
                     ->addLayout(\App\Nova\Flexible\Layouts\JumpCTA::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Features::class)
-                    ->addLayout(\App\Nova\Flexible\Layouts\Feature::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\FeaturesRow::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Squares::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\FeatureBlock2::class)
