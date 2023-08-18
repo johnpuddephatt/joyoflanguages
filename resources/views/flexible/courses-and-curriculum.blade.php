@@ -44,48 +44,58 @@
                             curriculum</x-button>
 
                         <dialog
-                            class="z-50 max-h-[48rem] w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black p-8 backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-70 backdrop:backdrop-blur-md"
+                            class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-70 backdrop:backdrop-blur-md"
                             x-ref="modal_course_{{ $course->number }}">
                             <form method="dialog">
                                 <button
-                                    class="ml-auto block w-10 rounded-full before:fixed before:inset-0 before:-z-10 before:overscroll-contain before:bg-white before:bg-opacity-50"
+                                    class="absolute right-4 top-4 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 before:overscroll-contain before:bg-white before:bg-opacity-50"
                                     @click="$refs.modal_course_{{ $course->number }}.close()"
                                     aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
-                                <div class="flex flex-col gap-4">
-                                    {{-- <h2>{{ $course->number }}</h2> --}}
-                                    <h2 class="text-4xl font-bold">{{ $course->title }} curriculum</h2>
+                                <div>
+                                    <div class="p-8 pb-0 pr-16">
+                                        {{-- <h2>{{ $course->number }}</h2> --}}
+                                        <h2 class="mb-2 text-4xl font-bold !leading-tight">{{ $course->title }}
+                                            curriculum</h2>
 
-                                    <p class="prose">{{ $course->description }}</p>
-                                    @if ($course->modules)
-                                        <article x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden pb-24">
-                                            <div class="mb-6 flex flex-row items-center gap-3">
+                                        <p class="type-subtitle">{{ $course->description }}</p>
+                                    </div>
+
+                                    <div class="">
+                                        @if ($course->modules)
+                                            <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden pb-24">
+                                                <div
+                                                    class="flex flex-row items-center gap-3 border-b-[3px] border-gray p-8 pb-4">
+                                                    @foreach ($course->modules as $key => $module)
+                                                        @if ($module instanceof stdClass)
+                                                            @php($module = $module->attributes)
+                                                        @endif
+
+                                                        <button @click.prevent="tab = {{ $key }}"
+                                                            :class="{ 'bg-yellow': tab == {{ $key }} }"
+                                                            class="rounded-full border-[3px] px-6 py-1.5 text-left font-semibold">
+                                                            Module {{ $module->title }}</button>
+                                                    @endforeach
+                                                </div>
+
                                                 @foreach ($course->modules as $key => $module)
                                                     @if ($module instanceof stdClass)
                                                         @php($module = $module->attributes)
                                                     @endif
-
-                                                    <button @click.prevent="tab = {{ $key }}"
-                                                        :class="{ 'bg-yellow': tab == {{ $key }} }"
-                                                        class="rounded-full border-[3px] px-6 py-1.5 text-left font-semibold">
-                                                        Module {{ $module->title }}</button>
+                                                    <div class="max-h-[48rem] overflow-y-auto p-8 pt-0"
+                                                        x-show="tab == {{ $key }}">
+                                                        <h3 class="text-xl font-bold text-blue">Module
+                                                            {{ $module->title }}
+                                                        </h3>
+                                                        <div>@markdown($module->description)</div>
+                                                    </div>
                                                 @endforeach
+
                                             </div>
+                                        @endif
 
-                                            @foreach ($course->modules as $key => $module)
-                                                @if ($module instanceof stdClass)
-                                                    @php($module = $module->attributes)
-                                                @endif
-                                                <div x-show="tab == {{ $key }}">
-                                                    <h3 class="text-xl font-bold text-blue">Module {{ $module->title }}
-                                                    </h3>
-                                                    <div>@markdown($module->description)</div>
-                                                </div>
-                                            @endforeach
+                                        <div>
 
-                                        </article>
-                                    @endif
-
-                                </div>
+                                        </div>
                             </form>
                         </dialog>
                     </div>
