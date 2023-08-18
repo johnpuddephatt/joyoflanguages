@@ -91,6 +91,10 @@ class FeatureBlock extends Layout
                 ])
                 ->stacked(),
             NovaSwitcher::make("Show sun?", "show_sun")->stacked(),
+            NovaSwitcher::make(
+                "Show sun speech bubble?",
+                "show_sun_speech_bubble"
+            )->stacked(),
             NovaSwitcher::make("Show thumb?", "show_thumb")->stacked(),
             Text::make("Speech bubble")
                 ->stacked()
