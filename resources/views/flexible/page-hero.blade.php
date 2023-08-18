@@ -7,7 +7,7 @@
             <h1 class="type-xl mb-4 lg:mb-8">
                 {!! nl2br($layout->title) !!}
             </h1>
-            <div class="text-lg font-semibold">@markdown($layout->description)</div>
+            <div class="max-w-lg text-lg font-semibold">@markdown($layout->description)</div>
         </div>
         <div class="relative w-full lg:w-1/2 lg:pl-8">
 
