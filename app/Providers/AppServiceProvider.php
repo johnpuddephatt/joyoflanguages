@@ -73,5 +73,9 @@ class AppServiceProvider extends ServiceProvider
         \Blade::directive("inlineMarkdown", function (string $expression) {
             return "{!! \Illuminate\Support\Str::inlineMarkdown($expression ?? '') !!}";
         });
+
+        \Blade::directive("removeMarkdown", function (string $expression) {
+            return "{!! strip_tags(\Illuminate\Support\Str::inlineMarkdown($expression ?? '')) !!}";
+        });
     }
 }

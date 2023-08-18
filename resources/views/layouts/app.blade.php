@@ -8,7 +8,7 @@
     @endproduction
 
     <title>
-        @yield('title', config('app.description')) | {{ config('app.name') }}
+        @removeMarkdown(app()->view->getSections()['title']) | {{ config('app.name') }}
     </title>
     <meta name="description" content="@yield('description', config('app.description'))" />
     <meta charset="utf-8" />
