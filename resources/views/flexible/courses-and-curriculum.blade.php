@@ -81,7 +81,7 @@
                                                     @if ($module instanceof stdClass)
                                                         @php($module = $module->attributes)
                                                     @endif
-                                                    <div class="max-h-[48rem] overflow-y-auto p-8 pt-0"
+                                                    <div class="max-h-[24rem] overflow-y-auto p-8 pt-0"
                                                         x-show="tab == {{ $key }}">
                                                         <h3 class="text-xl font-bold text-blue">Module
                                                             {{ $module->title }}
