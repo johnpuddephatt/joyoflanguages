@@ -14,6 +14,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@alpinejs/focus": "^3.12.3",
         "@alpinejs/intersect": "^3.12.3",
         "@shufo/prettier-plugin-blade": "^1.8.8",
         "@tailwindcss/typography": "^0.5.9",

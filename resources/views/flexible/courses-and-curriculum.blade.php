@@ -21,8 +21,7 @@
 
                     <div @click="$refs.modal_course_{{ $course->number }}.showModal()"
                         class="swiper-slide !duration-250 group flex cursor-pointer flex-col items-start border p-6 !transition hover:border-black hover:bg-beige hover:bg-opacity-20 hover:opacity-40 lg:w-1/4 lg:border-transparent lg:p-4"
-                        @click="if(!shown) { swiper.slideTo({{ $loop->index }}); $event.preventDefault(); }"
-                        x-data="{ shown: false }"
+                        x-data="{ modalOpen: false, shown: false }"
                         :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
                         x-intersect:enter.half="shown = true" x-intersect:leave.half="shown = false">
 
@@ -43,52 +42,53 @@
                         <x-button class="mt-auto !w-auto !px-4 !py-1.5 !text-sm"
                             @click.stop="$refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
-                    </div>
 
-                    <dialog
-                        class="z-50 w-full max-w-xl rounded-3xl border-[3px] border-black p-8 backdrop:bg-teal backdrop:bg-opacity-20 backdrop:backdrop-blur-md"
-                        x-ref="modal_course_{{ $course->number }}">
-                        <form method="dialog">
-                            <button
-                                class="ml-auto block w-10 before:fixed before:inset-0 before:-z-10 before:bg-white before:bg-opacity-50"
-                                @click="$refs.modal_course_{{ $course->number }}.close()"
-                                aria-label="Close modal window">@svg('plus', ' rotate-45 border-[3px] p-2 rounded-full w-10 h-10')</button>
-                            <div class="flex flex-col gap-4">
-                                {{-- <h2>{{ $course->number }}</h2> --}}
-                                <h2 class="text-4xl font-bold">{{ $course->title }} curriculum</h2>
+                        <dialog
+                            class="z-50 max-h-[48rem] w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black p-8 backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-70 backdrop:backdrop-blur-md"
+                            x-ref="modal_course_{{ $course->number }}">
+                            <form method="dialog">
+                                <button
+                                    class="ml-auto block w-10 rounded-full before:fixed before:inset-0 before:-z-10 before:overscroll-contain before:bg-white before:bg-opacity-50"
+                                    @click="$refs.modal_course_{{ $course->number }}.close()"
+                                    aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
+                                <div class="flex flex-col gap-4">
+                                    {{-- <h2>{{ $course->number }}</h2> --}}
+                                    <h2 class="text-4xl font-bold">{{ $course->title }} curriculum</h2>
 
-                                <p class="prose">{{ $course->description }}</p>
-                                @if ($course->modules)
-                                    <article x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden pb-24">
-                                        <div class="mb-6 flex flex-row items-center gap-3">
+                                    <p class="prose">{{ $course->description }}</p>
+                                    @if ($course->modules)
+                                        <article x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden pb-24">
+                                            <div class="mb-6 flex flex-row items-center gap-3">
+                                                @foreach ($course->modules as $key => $module)
+                                                    @if ($module instanceof stdClass)
+                                                        @php($module = $module->attributes)
+                                                    @endif
+
+                                                    <button @click.prevent="tab = {{ $key }}"
+                                                        :class="{ 'bg-yellow': tab == {{ $key }} }"
+                                                        class="rounded-full border-[3px] px-6 py-1.5 text-left font-semibold">
+                                                        Module {{ $module->title }}</button>
+                                                @endforeach
+                                            </div>
+
                                             @foreach ($course->modules as $key => $module)
                                                 @if ($module instanceof stdClass)
                                                     @php($module = $module->attributes)
                                                 @endif
-
-                                                <button @click.prevent="tab = {{ $key }}"
-                                                    :class="{ 'bg-yellow': tab == {{ $key }} }"
-                                                    class="rounded-full border-[3px] px-6 py-1.5 text-left font-semibold">
-                                                    Module {{ $module->title }}</button>
+                                                <div x-show="tab == {{ $key }}">
+                                                    <h3 class="text-xl font-bold text-blue">Module {{ $module->title }}
+                                                    </h3>
+                                                    <div>@markdown($module->description)</div>
+                                                </div>
                                             @endforeach
-                                        </div>
 
-                                        @foreach ($course->modules as $key => $module)
-                                            @if ($module instanceof stdClass)
-                                                @php($module = $module->attributes)
-                                            @endif
-                                            <div x-show="tab == {{ $key }}">
-                                                <h3 class="text-xl font-bold text-blue">{{ $module->title }}</h3>
-                                                <div>@markdown($module->description)</div>
-                                            </div>
-                                        @endforeach
+                                        </article>
+                                    @endif
 
-                                    </article>
-                                @endif
-
-                            </div>
-                        </form>
-                    </dialog>
+                                </div>
+                            </form>
+                        </dialog>
+                    </div>
                 @endforeach
             </x-swiper>
 
