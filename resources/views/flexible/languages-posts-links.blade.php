@@ -5,7 +5,7 @@
         @foreach ($layout->languages as $language)
             <div class="flex w-1/3 flex-col rounded-3xl bg-beige p-8 text-center">
 
-                <img class="mx-auto mb-4 h-36 w-36" src="{{ $language->image }}" />
+                <img class="mx-auto mb-4 h-36 w-36" src="{{ Storage::disk('public')->url($language->image) }}" />
                 <h3 class="mb-auto pb-16 text-3xl font-bold">{{ $language->name }}</h3>
 
                 <x-button-link href="{{ $language->blog_link }}" class="shadow-white">Read {{ $language->name }}
