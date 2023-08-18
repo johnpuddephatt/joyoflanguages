@@ -71,8 +71,8 @@
                                                         @endif
 
                                                         <button @click.prevent="tab = {{ $key }}"
-                                                            :class="{ 'bg-yellow': tab == {{ $key }} }"
-                                                            class="rounded-full border-[3px] px-6 py-1.5 text-left font-semibold">
+                                                            :class="{ '!bg-yellow': tab == {{ $key }} }"
+                                                            class="rounded-full border-[3px] bg-white px-6 py-1.5 text-left font-semibold">
                                                             Module {{ $module->title }}</button>
                                                     @endforeach
                                                 </div>
