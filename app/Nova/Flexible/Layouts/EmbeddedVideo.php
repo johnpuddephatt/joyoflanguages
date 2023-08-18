@@ -3,6 +3,7 @@ namespace App\Nova\Flexible\Layouts;
 
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 
 class EmbeddedVideo extends Layout
 {
