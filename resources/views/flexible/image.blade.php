@@ -1,4 +1,4 @@
-<div class="relative py-8 lg:py-32">
+<div class="relative py-8 lg:pb-32 lg:pt-16">
     <div class="container relative max-w-5xl">
         <x-responsive-image class="block w-full max-w-none" :image="$layout->image" />
     </div>
