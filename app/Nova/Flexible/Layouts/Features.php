@@ -6,6 +6,7 @@ use App\Casts\MyFlexibleCast;
 use App\Nova\Actions\SaveAndResizeImage;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Image;
@@ -63,6 +64,9 @@ class Features extends Layout
                             "If both image and video are set, video will be used"
                         ),
                 ])->addRowLabel("Add feature"),
+
+                Boolean::make("Show in menu"),
+                Number::make("Number shown"),
             ]
         );
     }
