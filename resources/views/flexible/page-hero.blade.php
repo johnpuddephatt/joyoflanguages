@@ -13,12 +13,14 @@
 
             <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full" />
 
-            <svg class="absolute -bottom-8 -left-12 -right-4 top-8 block h-auto w-[111%] max-w-none"
-                xmlns="http://www.w3.org/2000/svg" width="367.14" height="223.72" viewBox="0 0 367.14 223.72">
-                <path
-                    d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
-                    style="fill:none;stroke:#ffce00;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3.84px" />
-            </svg>
+            @if ($layout->show_squiggles)
+                <svg class="absolute -bottom-8 -left-12 -right-4 top-8 block h-auto w-[111%] max-w-none"
+                    xmlns="http://www.w3.org/2000/svg" width="367.14" height="223.72" viewBox="0 0 367.14 223.72">
+                    <path
+                        d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
+                        style="fill:none;stroke:#ffce00;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3.84px" />
+                </svg>
+            @endif
 
         </div>
     </div>

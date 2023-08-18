@@ -70,7 +70,7 @@ class PageHero extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
-
+            Boolean::make("Show squiggles", "show_squiggles")->default(true),
             Boolean::make("Show shape 1", "show_shape_1")->default(true),
             Boolean::make("Show shape 2", "show_shape_2")->default(true),
             Boolean::make("Show shape 3", "show_shape_3")->default(true),
