@@ -1,7 +1,7 @@
 <div class="{{ $class ?? 'mx-auto max-w-6xl' }} container grid grid-cols-2 py-16">
     <div>
         <h2 class="bold-text-light-teal mb-8 text-3xl font-bold text-teal">{!! Str::inlineMarkdown($layout->title) !!}</h1>
-            <div class="mb-8 max-w-lg">{!! $layout->description !!}</div>
+            <div class="mb-12 max-w-lg">{!! $layout->description !!}</div>
 
             <div class="space-y-2">
                 @foreach ($layout->podcasts as $podcast)
