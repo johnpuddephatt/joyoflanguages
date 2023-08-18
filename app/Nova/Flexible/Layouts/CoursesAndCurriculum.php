@@ -47,6 +47,7 @@ class CoursesAndCurriculum extends Layout
             Flexible::make("Courses")
                 ->addLayout(\App\Nova\Flexible\Layouts\Sublayouts\Course::class)
                 ->stacked()
+                ->collapsed()
                 ->button("Add Course"),
             Boolean::make("Show in menu"),
             Textarea::make("Outro")

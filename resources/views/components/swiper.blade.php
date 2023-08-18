@@ -1,6 +1,6 @@
 @props(['item_count', 'mobile_view_count' => 1.25, 'centered_slides' => 'true'])
 
-<div x-cloak x-data="{ swiper: null, showControls: false, showPreviousControl: true, showNextControl: true }" x-init="swiper = new Swiper($refs.container, {
+<div x-cloak x-data="{ swiper: null, showControls: false, showPreviousControl: false, showNextControl: false }" x-init="swiper = new Swiper($refs.container, {
     loop: false,
     slidesPerView: Math.min({{ $item_count }}, {{ $mobile_view_count }}),
     spaceBetween: 15,

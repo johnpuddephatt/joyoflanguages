@@ -43,6 +43,7 @@ class Course extends Layout
             Flexible::make("Modules")
                 ->addLayout(\App\Nova\Flexible\Layouts\Sublayouts\Module::class)
                 ->stacked()
+                ->collapsed()
                 ->button("Add Module"),
         ];
     }
