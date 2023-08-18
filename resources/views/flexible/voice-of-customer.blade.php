@@ -91,7 +91,7 @@
                          </g>
                      </svg>
 
-                     <div class="prose lg:p-6">
+                     <div class="prose p-6 lg:p-10">
                          @markdown($layout->outro)
                      </div>
                  </div>

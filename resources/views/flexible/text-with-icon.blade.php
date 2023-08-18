@@ -8,7 +8,7 @@
                     @if ($layout->title)
                         <h2 class="mb-0 mt-0 text-xl font-bold lg:text-2xl">{{ $layout->title }}</h2>
                     @endif
-                    <div class="mt-4">
+                    <div class="prose mt-4">
                         @markdown($layout->main)
                     </div>
                 </div>
