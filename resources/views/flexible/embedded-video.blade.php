@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="{{ $layout->background_color }} relative">
 
     <div class="{{ $class ?? 'mx-auto max-w-6xl' }} container pb-16 pt-32">
         @if ($layout->sticker)
