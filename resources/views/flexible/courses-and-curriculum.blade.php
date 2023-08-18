@@ -62,7 +62,7 @@
 
                                     <div class="">
                                         @if ($course->modules)
-                                            <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden pb-24">
+                                            <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden">
                                                 <div
                                                     class="flex flex-row items-center gap-3 border-b-[3px] border-gray bg-beige bg-opacity-50 px-8 py-4">
                                                     @foreach ($course->modules as $key => $module)
