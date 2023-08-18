@@ -40,20 +40,20 @@
                     @if (!$jump_target)
                         <p>A jump link was added but no jump target was found. Try setting a block to display in the menu as
                             a button</p>
-                    @endif
-
-                    @if (Str::of($jump_target->title)->slug() != Str::of($layout->title)->slug())
-                        @include('flexible.jump-cta', [
-                            'layout' => (object) [
-                                'title' => 'Ready to join?',
-                                'new_tab' => false,
-                                'button_text' => 'Sign up now!',
-                                'button_link' => '#' . Str::of($jump_target->title)->slug(),
-                                'background_colour' => $page->content[$loop->index - 1]?->background_colour,
-                            ],
-                        ])
                     @else
-                        <hr class="border-t-[3px] border-black">
+                        @if (Str::of($jump_target->title)->slug() != Str::of($layout->title)->slug())
+                            @include('flexible.jump-cta', [
+                                'layout' => (object) [
+                                    'title' => 'Ready to join?',
+                                    'new_tab' => false,
+                                    'button_text' => 'Sign up now!',
+                                    'button_link' => '#' . Str::of($jump_target->title)->slug(),
+                                    'background_colour' => $page->content[$loop->index - 1]?->background_colour,
+                                ],
+                            ])
+                        @else
+                            <hr class="border-t-[3px] border-black">
+                        @endif
                     @endif
 
         </section>
