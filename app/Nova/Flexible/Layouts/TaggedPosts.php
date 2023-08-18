@@ -90,12 +90,12 @@ class TaggedPosts extends Layout
                 ->posts()
                 ->withAnyTags([$this->__get("tag")])
                 ->inRandomOrder()
-                ->take(3)
+                ->take(2)
                 ->get();
         } else {
             return \App\Models\Post::withAnyTags([$this->__get("tag")])
                 ->inRandomOrder()
-                ->take(3)
+                ->take(2)
                 ->get();
         }
     }
