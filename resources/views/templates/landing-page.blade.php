@@ -2,18 +2,18 @@
 @section('title', $page->title)
 @extends('layouts.app', ['language' => $page->language, 'theme' => $page->theme]) @section('templatecontent')
     <div x-data="{ activeSection: null, stuck: false }">
-        <div class="-top-4 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
+        <div class="-top-8 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
             <header :class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
-                class="w-full bg-white bg-opacity-0 pt-4 transition duration-500">
+                class="w-full bg-white bg-opacity-0 pt-8 transition duration-500">
                 <div class="container mx-auto flex max-w-none flex-row items-center">
-                    <a href="#home" class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'my-4 h-8 lg:h-10 w-auto')
+                    <a href="#home" class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'my-3 h-10 lg:h-12 w-auto')
                         @if ($language)
-                            <span class="font-logo uppercase tracking-widest text-light-teal lg:text-xl">
+                            <span class="font-logo uppercase tracking-widest text-light-teal lg:text-2xl">
                                 {{ $language->name }}</span>
                         @endif
                     </a>
 
-                    <nav class="ml-auto hidden flex-row items-center gap-6 lg:flex 2xl:gap-12">
+                    <nav class="ml-auto hidden flex-row items-center gap-6 text-lg lg:flex 2xl:gap-12">
 
                         @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu) as $layout)
                             @if ($layout->show_as_button)
