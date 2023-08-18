@@ -274,7 +274,7 @@
                 return $value;
             }) ?? []))
         <article x-data="{ tab: '{{ array_key_first($podcast->content) }}' }" x-init="tab = window.location.hash ? window.location.hash.substr(1) : '{{ array_key_first($podcast->content) }}'" class="container mx-auto overflow-hidden pb-24">
-            <div class="prose prose-lg prose-gray">
+            <div class="prose prose-lg prose-gray max-w-none">
                 @if (count(
                         \Illuminate\Support\Arr::where($podcast->content, function ($value) {
                             return $value;
