@@ -32,7 +32,13 @@ class LatestPosts extends Layout
     // Define your accessors here
     public function getPostsAttribute()
     {
-        return \App\Models\Post::take($this->__get("limit") ?? 9999)->get();
+        if ($this->model->language) {
+            return $this->model->language->posts->take(
+                $this->__get("limit") ?? 9999
+            );
+        } else {
+            return \App\Models\Post::take($this->__get("limit") ?? 9999)->get();
+        }
     }
 
     /**
