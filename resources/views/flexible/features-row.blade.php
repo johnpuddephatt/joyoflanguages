@@ -16,12 +16,12 @@
                     @endif
                     <div class="px-4 py-6">
                         @if ($feature->title)
-                            <h3 class="mb-2 mr-8 text-2xl font-bold !leading-[0.95] lg:text-3xl">
+                            <h3 class="mb-4 mr-8 text-2xl font-bold !leading-[0.95] lg:text-3xl">
                                 {{ $feature->title }}
                             </h3>
                         @endif
                         @if ($feature->description)
-                            <p class="text-sm">{{ $feature->description }}</p>
+                            <p class="prose">{{ $feature->description }}</p>
                         @endif
                     </div>
                 </div>

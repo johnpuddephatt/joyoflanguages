@@ -25,7 +25,7 @@
                 <div
                     class="@if ($subscription->sticker) flex-[55%] @else flex-[50%] @endif relative min-h-[12rem] bg-beige p-8">
                     <div
-                        class="@if ($subscription->pre_title) bg-light-teal @endif mb-3 inline-block rounded-full px-2 font-bold text-white">
+                        class="@if ($subscription->pre_title) bg-light-teal @endif mb-3 inline-block rounded-full px-3 py-0.5 text-sm font-semibold text-white">
                         {!! $subscription->pre_title ?? '&nbsp;' !!}
                     </div>
 
@@ -41,7 +41,7 @@
                         <div class="mb-6 text-lg font-bold">{{ $subscription->price }}</div>
                     @endif
                     @if ($subscription->description)
-                        <div class="text-sm">{{ $subscription->description }}</div>
+                        <div class="prose">{{ $subscription->description }}</div>
                     @endif
                     @if ($subscription->url)
                         <x-button-link class="mt-8 shadow-yellow" :href="$subscription->url">Subscribe</x-button-link>

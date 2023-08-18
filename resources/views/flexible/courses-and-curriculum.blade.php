@@ -38,7 +38,7 @@
 
                         {{-- <div class="font-semibold">Level {{ $course->number }}:</div> --}}
                         <h2 class="mb-2 text-lg font-bold">{{ $course->title }}</h2>
-                        <p class="mb-6">{{ $course->description }}</p>
+                        <p class="prose mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !px-4 !py-1.5 !text-sm"
                             @click.stop="$refs.modal_course_{{ $course->number }}.showModal()">View
@@ -56,7 +56,8 @@
                             <div class="flex flex-col gap-4">
                                 {{-- <h2>{{ $course->number }}</h2> --}}
                                 <h2 class="text-4xl font-bold">{{ $course->title }} curriculum</h2>
-                                <p>{{ $course->description }}</p>
+
+                                <p class="prose">{{ $course->description }}</p>
                                 @if ($course->modules)
                                     <article x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden pb-24">
                                         <div class="mb-6 flex flex-row items-center gap-3">

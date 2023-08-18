@@ -11,7 +11,7 @@
                         :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
                         x-intersect:enter.half="shown = true" x-intersect:leave.half="shown = false">
                         <h3 class="mb-2 text-2xl font-bold">{{ $square->title }}</h3>
-                        {{ $square->description }}
+                        <div class="prose !leading-tight">{{ $square->description }}</div>
                     </div>
                 @endforeach
 

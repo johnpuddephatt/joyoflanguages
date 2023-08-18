@@ -9,6 +9,10 @@
     @apply text-balance text-4xl font-bold !leading-[0.95] lg:text-5xl xl:text-6xl !tracking-normal;
 }
 
+.type-subtitle {
+    @apply text-xl font-semibold;
+}
+
 .bold-text-light-teal strong {
     @apply text-light-teal;
     font-weight: inherit !important;

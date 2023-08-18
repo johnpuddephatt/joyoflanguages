@@ -34,6 +34,16 @@ class EmbeddedVideo extends Layout
      */
     public function fields()
     {
-        return [Text::make("Video embed code"), Text::make("Sticker")];
+        return [
+            Text::make("Video embed code"),
+            Text::make("Sticker"),
+            Select::make("Background colour")
+                ->options([
+                    "" => "White",
+                    "bg-opacity-30 bg-pink" => "Pink",
+                    "bg-beige bg-opacity-50" => "Beige",
+                ])
+                ->stacked(),
+        ];
     }
 }

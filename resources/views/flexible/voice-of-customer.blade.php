@@ -35,7 +35,7 @@
                          @inlineMarkdown($layout->title)
                      </h2>
                      @if ($layout->intro)
-                         <div class="mt-6 max-w-lg font-semibold">@markdown($layout->intro)</div>
+                         <div class="type-subtitle mt-6 max-w-lg">@markdown($layout->intro)</div>
                      @endif
 
                  </div>
