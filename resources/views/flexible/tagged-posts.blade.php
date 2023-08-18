@@ -231,17 +231,19 @@
                   stroke-miterlimit="10" stroke-width="3.5" />
 
           </svg>
-          <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
-              class="absolute left-[15%] top-[47.5%] w-[23%]">
-              <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
-                  viewBox="0 0 291.37 282.94">
-                  <path fill="#4badb8"
-                      d="M2.89 116.52a204.6 204.6 0 0 1-1.7 7.81c-11.78 50.42 65.46 170 154.66 157.73 52.27-7.21 90.94-11.78 123-73.15 15.15-29 28.84-105.45-37.35-163 0 0-84.92-84.14-180.36-24.51C19.22 47.56 6 100.59 2.89 116.52Z" />
-                  <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="3.5"
-                      d="M220.3 136.28a5.44 5.44 0 0 1 0 9.42l-53.06 30.63-53.05 30.63a5.44 5.44 0 0 1-8.16-4.7V79.72a5.44 5.44 0 0 1 8.16-4.7l53.05 30.63Z" />
-              </svg>
-          </button>
+          @if ($layout->video)
+              <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
+                  class="absolute left-[15%] top-[47.5%] w-[23%]">
+                  <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
+                      viewBox="0 0 291.37 282.94">
+                      <path fill="#4badb8"
+                          d="M2.89 116.52a204.6 204.6 0 0 1-1.7 7.81c-11.78 50.42 65.46 170 154.66 157.73 52.27-7.21 90.94-11.78 123-73.15 15.15-29 28.84-105.45-37.35-163 0 0-84.92-84.14-180.36-24.51C19.22 47.56 6 100.59 2.89 116.52Z" />
+                      <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="3.5"
+                          d="M220.3 136.28a5.44 5.44 0 0 1 0 9.42l-53.06 30.63-53.05 30.63a5.44 5.44 0 0 1-8.16-4.7V79.72a5.44 5.44 0 0 1 8.16-4.7l53.05 30.63Z" />
+                  </svg>
+              </button>
+          @endif
 
       </div>
       <div class="w-1/2 flex-1">

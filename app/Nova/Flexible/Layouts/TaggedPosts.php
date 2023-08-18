@@ -89,9 +89,14 @@ class TaggedPosts extends Layout
             return $this->model->language
                 ->posts()
                 ->withAnyTags([$this->__get("tag")])
+                ->shuffle()
+                ->take(3)
                 ->get();
         } else {
-            return \App\Models\Post::withAnyTags([$this->__get("tag")])->get();
+            return \App\Models\Post::withAnyTags([$this->__get("tag")])
+                ->shuffle()
+                ->take(3)
+                ->get();
         }
     }
 
