@@ -1,4 +1,3 @@
-@dd($layout->courses)
 @if (count($layout->courses))
     <div class="pb-16 pt-32">
         @include('components.block-intro', ['layout' => $layout])
