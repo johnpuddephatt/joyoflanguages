@@ -79,7 +79,7 @@ class Page extends Resource
             Text::make("Title", function () {
                 return \Illuminate\Support\Str::limit(
                     $this->indented_title(),
-                    50
+                    96
                 );
             })
                 ->asHtml()
