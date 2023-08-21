@@ -37,7 +37,7 @@ class FeatureBlock extends Layout
     protected $title = "Feature banner";
 
     public static $imageSizes = [
-        "image" => "wide",
+        "image" => "landscape",
     ];
 
     /**

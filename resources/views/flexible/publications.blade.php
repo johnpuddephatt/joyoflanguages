@@ -1,23 +1,22 @@
 <div class="relative py-8 pb-48 lg:pb-16">
-    <div class="{{ $class ?? 'max-w-6xl ' }}">
+    <div class="{{ $class ?? 'max-w-4xl ' }}">
 
         @foreach ($layout->publications as $publication)
             <div
-                class="relative mb-8 flex w-full flex-row gap-6 bg-light-teal p-6 lg:items-center lg:gap-12 lg:bg-opacity-80 lg:p-12">
+                class="relative mb-4 flex w-full max-w-[65ch] flex-row items-center gap-6 bg-light-teal p-6 lg:items-center lg:bg-opacity-80">
                 @if ($publication->type == 'radio')
-                    @svg('radio', 'w-16 h-auto')
+                    @svg('radio', 'w-20 h-auto')
                 @endif
                 @if ($publication->type == 'article')
-                    @svg('article', 'w-16 h-auto')
+                    @svg('article', 'w-20 h-auto')
                 @endif
 
-                <div>
-                    <p class="text-xl font-bold">{{ $publication->publication_name }}</p>
-
-                    <h2 class="mb-4 text-3xl font-bold">{{ $publication->title }}</h2>
-                    <x-button-link class="shadow-yellow" href="{{ $publication->link }}">
-                        {{ $publication->button_text ?? 'Read more' }}</x-button-link>
+                <div class="flex-1">
+                    <p class="mb-0 text-lg font-bold leading-tight">{{ $publication->publication_name }}</p>
+                    <h3 class="text-2xl font-bold leading-tight">{{ $publication->title }}</h3>
                 </div>
+                <x-button-link class="shadow-yellow" href="{{ $publication->link }}">
+                    {{ $publication->button_text ?? 'Read more' }}</x-button-link>
 
             </div>
         @endforeach

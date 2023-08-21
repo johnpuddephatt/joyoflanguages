@@ -33,7 +33,8 @@
 
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
                             <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" @click="sectionMenuOpen = false; activeSection = section"
-                                class="inline-block p-2 px-4 text-3xl font-bold lg:max-w-md" :href="`#${section}`"
+                                class="inline-block p-2 px-4 text-2xl font-bold lg:max-w-md 2xl:text-3xl"
+                                :href="`#${section}`"
                                 :class="{ 'bg-white bg-opacity-30 rounded': activeSection == section }">{{ $layout->title }}
                             </a>
                         @endforeach

@@ -1,11 +1,12 @@
 @if ($layout->podcast)
-    <div class="py-12">
-        <div class="relative bg-yellow py-16">
-            <div class="container relative z-10 text-center">
-                <x-library-image conversion="3x2" class="mx-auto mb-4 max-w-2xl" :image="$layout->podcast->image" />
-                <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold"> {{ $layout->podcast->title }}</h2>
+    <div class="{{ $class ?? 'mx-auto max-w-5xl' }} py-12">
+        <div class="relative ml-16 flex flex-row items-center bg-yellow py-6">
+            <x-library-image conversion="3x2" class="mx-auto mb-4 max-w-2xl" :image="$layout->podcast->image" />
 
-                <x-button-link href="{{ $layout->podcast->url }}" class="mx-auto">
+            <div class="container relative pl-16">
+                <h3 class="mb-8 max-w-2xl text-2xl font-bold leading-tight"> {{ $layout->podcast->title }}</h3>
+
+                <x-button-link href="{{ $layout->podcast->url }}" class="mx-auto shadow-white">
                     Listen now</x-button-link>
             </div>
         </div>

@@ -3,7 +3,7 @@
 @extends('layouts.default', ['language' => $podcast->language, 'theme' => null]) @section('content')
 
     <div class="container mx-auto">
-        <div class="flex flex-col items-end gap-8 pb-16 pt-40 lg:flex-row">
+        <div class="flex flex-col items-end gap-12 pb-16 pt-40 lg:flex-row">
             <div class="">
                 <div class="mb-4 text-lg">
 

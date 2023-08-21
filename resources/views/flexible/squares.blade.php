@@ -1,7 +1,18 @@
     @include('flexible.text-with-image', ['layout' => $layout])
     <div class="{{ $layout->background_colour ?? '' }}">
 
-        <div class="container mx-auto w-full max-w-6xl overflow-hidden py-12">
+        <div class="container relative mx-auto w-full max-w-6xl overflow-hidden py-12">
+            <div
+                class="absolute -left-4 top-1/2 z-10 flex h-24 w-24 items-center justify-center rounded-full p-4 text-center font-bold leading-none">
+
+                <svg class="absolute inset-0 -z-10 h-full w-full max-w-none" xmlns="http://www.w3.org/2000/svg"
+                    width="62.93" height="57.46" viewBox="0 0 62.93 57.46">
+                    <path class="fill-beige"
+                        d="M4.98 44.73c.28.49.56 1 .82 1.48 5.2 9.68 34.27 17.87 46.74 3.4 7.3-8.48 12.81-14.63 9.31-28.89C60.2 13.98 51.64-.11 33.03.02c0 0-25.31-1.48-32.13 21.4-3 10.05 2.34 20.34 4.08 23.31Z" />
+                </svg>
+                {{ $image->caption }}
+
+            </div>
             <x-swiper :mobile_view_count="2.25" :item_count="count($layout->squares)" centered_slides="false">
 
                 @foreach ($layout->squares as $square)

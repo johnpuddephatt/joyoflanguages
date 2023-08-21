@@ -47,6 +47,7 @@ class Squares extends Layout
                         ->rows(2)
                         ->stacked(),
                 ]),
+                Text::make("Sticker"),
             ]
         );
     }
