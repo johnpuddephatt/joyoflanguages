@@ -13,9 +13,9 @@
 
                 <div class="flex-1">
                     <p class="mb-0 text-lg font-bold leading-tight">{{ $publication->publication_name }}</p>
-                    <h3 class="text-2xl font-bold leading-tight">{{ $publication->title }}</h3>
+                    <h3 class="text-2xl font-bold leading-none">{{ $publication->title }}</h3>
                 </div>
-                <x-button-link class="shadow-yellow" href="{{ $publication->link }}">
+                <x-button-link class="shadow-yellow" target="_blank" href="{{ $publication->link }}">
                     {{ $publication->button_text ?? 'Read more' }}</x-button-link>
 
             </div>

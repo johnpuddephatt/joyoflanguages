@@ -1,4 +1,6 @@
-@php($embed = isset($layout->video_embed_url) ? OEmbed::get($layout->video_embed_url) : null)
+@php
+    $embed = isset($layout->video_embed_url) ? OEmbed::get($layout->video_embed_url) : null;
+@endphp
 
 <div class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
