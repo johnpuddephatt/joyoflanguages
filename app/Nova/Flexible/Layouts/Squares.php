@@ -48,6 +48,9 @@ class Squares extends Layout
                         ->stacked(),
                 ]),
                 Text::make("Sticker"),
+                Text::make("Addendum")->help(
+                    "**Bold** text will appear as a badge"
+                ),
             ]
         );
     }

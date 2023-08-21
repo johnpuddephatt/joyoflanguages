@@ -55,8 +55,7 @@ class Hero extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
-            Text::make("Button text")->nullable(),
-            Text::make("Button URL")->nullable(),
+
             \Trin4ik\NovaSwitcher\NovaSwitcher::make(
                 "Show shapes?",
                 "show_shapes"

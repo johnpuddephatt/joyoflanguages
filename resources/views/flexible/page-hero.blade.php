@@ -1,5 +1,7 @@
+@php($embed = isset($layout->video_embed_url) ? OEmbed::get($layout->video_embed_url) : null)
+
 <div class="relative">
-    <div
+    <div x-data="{ trailerOpen: false, trailerLoaded: false }"
         class="2xl:container-lg @if ($layout->image) min-h-[80vh] @endif container mx-auto flex flex-col-reverse items-center py-8 pt-48 lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
         <div class="lg:w-1/2">
 
@@ -8,6 +10,10 @@
                 {!! nl2br($layout->title) !!}
             </h1>
             <div class="type-subtitle max-w-lg">@markdown($layout->description)</div>
+            @if ($layout->button_url)
+                <x-button-link class="mt-6 text-lg shadow-yellow"
+                    href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
+            @endif
         </div>
         <div class="relative w-full lg:w-1/2 lg:pl-8">
 
@@ -20,6 +26,38 @@
                         d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
                         style="fill:none;stroke:#ffce00;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3.84px" />
                 </svg>
+            @endif
+
+            @if ($embed)
+                <button @click="trailerOpen = true" aria-label="Play video"
+                    class="absolute left-1/2 top-1/2 z-20 w-1/5 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
+                    <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
+                        viewBox="0 0 291.37 282.94">
+                        <path fill="#4badb8"
+                            d="M2.89 116.52a204.6 204.6 0 0 1-1.7 7.81c-11.78 50.42 65.46 170 154.66 157.73 52.27-7.21 90.94-11.78 123-73.15 15.15-29 28.84-105.45-37.35-163 0 0-84.92-84.14-180.36-24.51C19.22 47.56 6 100.59 2.89 116.52Z" />
+                        <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="3.5"
+                            d="M220.3 136.28a5.44 5.44 0 0 1 0 9.42l-53.06 30.63-53.05 30.63a5.44 5.44 0 0 1-8.16-4.7V79.72a5.44 5.44 0 0 1 8.16-4.7l53.05 30.63Z" />
+                    </svg>
+                </button>
+
+                <template x-if="trailerOpen">
+                    <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
+                        <div class="w-full max-w-5xl">
+
+                            <div class="shadow-black-light relative shadow-2xl"
+                                style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
+                                {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'autoplay']) !!}
+                            </div>
+
+                        </div>
+                        <x-button x-on:click="trailerOpen = false"
+                            class="!absolute bottom-0.5 left-1/2 -translate-x-1/2 !pl-2 !pr-6">
+                            @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
+                        </x-button>
+
+                    </div>
+                </template>
             @endif
 
         </div>

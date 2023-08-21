@@ -29,6 +29,10 @@
     z-index: 1;
 }
 
+.bold-badged strong {
+    @apply px-2  bg-yellow rounded-full text-sm font-semibold;
+}
+
 .underline-bold strong::after {
     content: "";
     display: block;

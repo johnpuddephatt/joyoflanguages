@@ -70,6 +70,11 @@ class PageHero extends Layout
                         ? Storage::disk($disk)->url($value->image)
                         : null;
                 }),
+
+            Text::make("Button text")->nullable(),
+            Text::make("Button URL")->nullable(),
+            Text::make("Video embed URL", "video_embed_url"),
+
             Boolean::make("Show squiggles", "show_squiggles")->default(true),
             Boolean::make("Show shape 1", "show_shape_1")->default(true),
             Boolean::make("Show shape 2", "show_shape_2")->default(true),

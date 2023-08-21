@@ -11,7 +11,7 @@
         "php": "^8.0.2",
         "advoor/nova-editor-js": "^3.1",
         "blade-ui-kit/blade-icons": "^1.5",
-        "cohensive/oembed": "^0.16.0",
+        "cohensive/oembed": "^0.17.0",
         "efrontsa/blueprint-nova-addon": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",

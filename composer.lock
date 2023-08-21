@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24bb7f759db4873d63ce70eb6efacce9",
+    "content-hash": "81352ae29c8bffb6bd8cc022c9709661",
     "packages": [
         {
             "name": "advoor/nova-editor-js",
@@ -303,16 +303,16 @@
         },
         {
             "name": "cohensive/oembed",
-            "version": "v0.16.0",
+            "version": "v0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KaneCohen/oembed.git",
-                "reference": "5a12ae8861feef4aba68a5d61cb603d008c204c0"
+                "reference": "42006e220142a3774718351e2994ad5857f5ab04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KaneCohen/oembed/zipball/5a12ae8861feef4aba68a5d61cb603d008c204c0",
-                "reference": "5a12ae8861feef4aba68a5d61cb603d008c204c0",
+                "url": "https://api.github.com/repos/KaneCohen/oembed/zipball/42006e220142a3774718351e2994ad5857f5ab04",
+                "reference": "42006e220142a3774718351e2994ad5857f5ab04",
                 "shasum": ""
             },
             "require": {
@@ -356,9 +356,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KaneCohen/oembed/issues",
-                "source": "https://github.com/KaneCohen/oembed/tree/v0.16.0"
+                "source": "https://github.com/KaneCohen/oembed/tree/v0.17"
             },
-            "time": "2022-05-11T08:22:53+00:00"
+            "time": "2023-07-14T09:29:52+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
