@@ -13,7 +13,8 @@
         </div>
     </div>
 
-    <div class="inset-0 mt-8 flex translate-x-8 flex-row items-end lg:absolute lg:ml-auto lg:mt-0 lg:h-full lg:w-1/2">
+    <div x-data="{ playing: false }"
+        class="inset-0 mt-8 flex translate-x-8 flex-row items-end lg:absolute lg:ml-auto lg:mt-0 lg:h-full lg:w-1/2">
 
         <svg class="block aspect-square h-auto w-full lg:max-h-[85%] lg:translate-y-16" xmlns="http://www.w3.org/2000/svg"
             width="1172.89" height="1107.97" viewBox="0 0 1172.89 1107.97">
@@ -44,13 +45,13 @@
                 <x-responsive-image class="absolute inset-0 h-full w-full object-cover" :image="$layout->image" />
 
                 @if ($layout->video)
-                    <video x-data="{ playing: false }" x-transition x-show="playing"
+                    <video x-transition x-show="playing"
                         @canplaythrough="playing = true; $el.play()" loop muted class="absolute inset-0 h-full w-full object-cover">
                         @if (isset($layout->video->mp4))
-                        <source src="{{ $layout->video->mp4 }}" type="video/mp4">
+                        <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
                         @endif
                         @if (isset($layout->video->webm))
-                        <source src="{{ $layout->video->webm }}" type="video/webm">
+                        <source src="{{ Storage::disk('public')->url($layout->video->webm) }}" type="video/webm">
                         @endif
                     </video> @endif
                         </foreignObject>

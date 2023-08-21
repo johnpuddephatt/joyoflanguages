@@ -219,8 +219,9 @@
                       @if ($layout->video)
                           <video x-ref="video" x-transition x-show="playing" loop
                               class="absolute inset-0 h-full w-full object-cover">
-                              <source src="{{ $layout->video->mp4 }}" type="video/mp4">
-                              <source src="{{ $layout->video->webm }}" type="video/webm">
+                              <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
+                              <source src="{{ Storage::disk('public')->url($layout->video->webm) }}"
+                                  type="video/webm">
                           </video>
                       @endif
                   </foreignObject>
