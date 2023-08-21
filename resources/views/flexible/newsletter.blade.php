@@ -5,7 +5,7 @@
             'description' => nova_get_setting('newsletter_description', 'Get the latest news and updates from us, straight to your inbox.'),
             'placeholder' => nova_get_setting('newsletter_placeholder', 'Your email address'),
             'form_action' => nova_get_setting('newsletter_form_action'),
-            'button_text' => nova_get_setting('newsletter_button_text'),
+            'button_text' => nova_get_setting('newsletter_button_text', 'Subscribe'),
             'sticker' => nova_get_setting('newsletter_sticker'),
         ];
     }
