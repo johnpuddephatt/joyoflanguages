@@ -45,6 +45,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 URL::make("Instagram"),
                 URL::make("LinkedIn"),
             ]),
+            Panel::make("Newsletter signup", [
+                Text::make("Title", "newsletter_title"),
+                Textarea::make("Description", "newsletter_description")
+                    ->maxLength(250)
+                    ->enforceMaxLength(),
+                Text::make("Placeholder", "newsletter_placeholder"),
+                Text::make("Form action", "newsletter_form_action"),
+                Text::make("Button text", "newsletter_button_text"),
+                Text::make("Sticker", "newsletter_sticker")->help(
+                    "Leave blank to hide"
+                ),
+            ]),
             Panel::make("Debug", [
                 File::make("Wordpress XML", "wordpress_xml")
                     ->path("feed")

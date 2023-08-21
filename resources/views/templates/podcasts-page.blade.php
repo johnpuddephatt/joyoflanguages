@@ -40,5 +40,5 @@
     </div>
 
     <livewire:podcasts :parentPage="$page" :language="$language" />
-
+    @include('flexible.newsletter')
 @endsection

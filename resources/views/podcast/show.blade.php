@@ -322,4 +322,6 @@
     </article>
     @endif
 
+    @include('flexible.newsletter')
+
 @endsection

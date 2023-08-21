@@ -88,4 +88,7 @@
             @endforeach
         </div>
     </div>
+
+    @include('flexible.newsletter')
+
 @endsection

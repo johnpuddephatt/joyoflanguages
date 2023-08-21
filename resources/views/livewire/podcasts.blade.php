@@ -13,7 +13,7 @@
             @endif
 
             <div
-                class="mr-auto flex w-full max-w-sm flex-row items-center rounded-full border-2 py-2 pl-4 pr-6 ring-light-teal focus-within:ring-2">
+                class="mr-auto flex w-full max-w-sm flex-row items-center rounded-full border-2 border-light-teal border-opacity-20 py-2 pl-4 pr-6 ring-light-teal focus-within:ring-2">
                 @svg('search', 'w-5 h-5 inline-block align-middle mr-3')
                 <input class="flex-1 appearance-none focus:outline-none" wire:model="search" type="search"
                     placeholder="Search podcasts by title...">
@@ -21,7 +21,7 @@
 
             @foreach (['asc' => 'Oldest first', 'desc' => 'Newest first'] as $orderValue => $orderLabel)
                 <button
-                    class="{{ $order == $orderValue ? '!bg-opacity-100' : 'bg-opacity-0' }} rounded-full border-2 bg-yellow px-6 py-2 hover:bg-opacity-20"
+                    class="{{ $order == $orderValue ? '!bg-opacity-100' : 'bg-opacity-0' }} flex-none rounded-full border-2 bg-yellow px-6 py-2 hover:bg-opacity-20"
                     wire:click="$set('order', '{{ $orderValue }}')">
                     {{ $orderLabel }}
                 </button>
