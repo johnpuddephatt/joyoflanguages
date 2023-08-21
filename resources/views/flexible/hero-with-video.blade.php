@@ -7,7 +7,8 @@
             <p class="max-w-xl lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
 
             @if ($layout->button_url)
-                <x-button-link class="mt-6 text-lg" :href="$layout->button_url">{{ $layout->button_text ?? 'Sign up' }}</x-button>
+                <x-button-link class="mt-6 text-lg shadow-yellow"
+                    :href="$layout->button_url">{{ $layout->button_text ?? 'Sign up' }}</x-button>
             @endif
         </div>
     </div>
@@ -78,18 +79,17 @@
 
     </div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="3107" height="1785.73" viewBox="0 0 3107 1785.73"
-        class="absolute inset-0 left-0 right-0 top-0" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 2563.4 1676.3">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+        class="absolute inset-0 left-0 right-0 top-0 w-full" viewBox="0 0 2730.7 1785.7">
         <defs>
-            <path id="a" d="M0 0h2563.4v1676.3H0z" />
+            <path id="a" d="M0 0h2730.7v1785.7H0z" />
         </defs>
         <clipPath id="b">
             <use xlink:href="#a" overflow="visible" />
         </clipPath>
-        <path
-            d="M2796.9 128.5c-.1-5.6-.1-11.2-.1-16.8 1.3-108.6-211-318.7-388.2-253.2-103.8 38.4-181 65.3-218.9 205.5-17.9 66.2-11.4 229.1 150.3 317.1 0 0 212 133.9 380.6-31.4 74-72.5 77.1-187.2 76.3-221.2zM260.4 1184.8c-2.9-4.8-5.7-9.6-8.4-14.5-53-94.8-341.9-170.9-462.7-25.7-70.8 85.1-124.2 146.9-87.2 287.3 17.5 66.3 104.5 204.2 288.5 199.8 0 0 250.6 10.3 314.1-217.1 27.9-99.8-26.6-200.7-44.3-229.8z"
-            style="clip-path:url(#b);fill:#4ea8b2" />
+        <path fill="#4ea8b2"
+            d="M2979.5 136.9c-.1-6-.1-11.9-.1-17.9 1.4-115.7-224.8-339.5-413.5-269.7-110.6 40.9-192.8 69.6-233.2 218.9-19.1 70.5-12.1 244.1 160.1 337.8 0 0 225.8 142.6 405.4-33.4 78.8-77.3 82.1-199.5 81.3-235.7zM277.4 1262.1c-3.1-5.1-6.1-10.2-8.9-15.4-56.5-101-364.2-182.1-492.9-27.4-75.4 90.7-132.3 156.5-92.9 306.1C-298.7 1596-206 1742.9-10 1738.2c0 0 267 11 334.6-231.3 29.7-106.3-28.3-213.8-47.2-244.8z"
+            clip-path="url(#b)" />
     </svg>
 
 </div>

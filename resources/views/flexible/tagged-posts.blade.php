@@ -260,8 +260,6 @@
               </div>
           @endif
 
-          @if ($layout->posts_link)
-              <x-button-link class="shadow-pink" href="{{ $layout->posts_link }}">View all articles</x-button-link>
-          @endif
+          <x-button-link class="shadow-pink" href="{{ $layout->posts_link }}">View all articles</x-button-link>
       </div>
   </div>
