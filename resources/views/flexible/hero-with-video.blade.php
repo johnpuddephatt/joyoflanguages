@@ -46,8 +46,12 @@
                 @if ($layout->video)
                     <video x-data="{ playing: false }" x-transition x-show="playing"
                         @canplaythrough="playing = true; $el.play()" loop muted class="absolute inset-0 h-full w-full object-cover">
+                        @if (isset($layout->video->mp4))
                         <source src="{{ $layout->video->mp4 }}" type="video/mp4">
+                        @endif
+                        @if (isset($layout->video->webm))
                         <source src="{{ $layout->video->webm }}" type="video/webm">
+                        @endif
                     </video> @endif
                         </foreignObject>
                         <!-- <path fill="#ffd800"
