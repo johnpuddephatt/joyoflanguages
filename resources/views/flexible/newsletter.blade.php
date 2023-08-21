@@ -1,4 +1,4 @@
-<div class="py-12">
+<div>
     <div class="relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden bg-yellow py-16">
         <div class="container relative z-10 mx-auto text-center">
             <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">{{ $layout->title }}</h2>
@@ -28,11 +28,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="2840.93" height="770.14"
             class="absolute bottom-3 left-0 right-0 h-auto w-full" viewBox="0 0 2840.93 770.14">
             <defs>
-                <clipPath id="a" transform="translate(90.38 -19.89)">
+                <clipPath id="d82kfghdf8" transform="translate(90.38 -19.89)">
                     <path fill="none" d="M0 0h2565.05v811.82H0z" />
                 </clipPath>
             </defs>
-            <g clip-path="url(#a)">
+            <g clip-path="url(#d82kfghdf8)">
                 <path
                     d="M757.64 395.19c-.17-6.9-.15-13.79-.06-20.69 1.65-134.02-260.34-393.23-478.94-312.39-128.1 47.4-223.26 80.54-270.14 253.56-22.11 81.66-14 282.65 185.42 391.27 0 0 261.58 165.28 469.56-38.69 91.39-89.63 95.2-231.05 94.16-273.06Zm2053.2 41.11c2.8-4.52 5.73-8.95 8.7-13.36 57.7-85.59-1.46-363.19-176.38-403.5-102.49-23.62-177.78-42.51-281.06 49.1-48.74 43.23-128.47 176.05-46 330.27 0 0 98.59 217 318.69 173.5 96.75-19.08 158.97-108.53 176.05-136.01Z"
                     style="fill:#fff" />
