@@ -1,8 +1,8 @@
 @props(['id'])
 
-<div class="my-16 bg-beige bg-opacity-20">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-        <h2 class="text-2xl font-bold">Comments</h2>
+<div class="bg-beige bg-opacity-20">
+    <div class="container mx-auto py-16">
+        <h2 class="text-2xl font-bold lg:text-3xl">Comments</h2>
         <div class="max-w-2xl">
             <div id="disqus_thread"></div>
             <script>

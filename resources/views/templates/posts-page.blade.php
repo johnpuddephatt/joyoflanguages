@@ -15,12 +15,12 @@
                 d="M2613.23 899.06c-.16-6.53-.14-13-.06-19.58 1.56-126.77-246.26-372-453-295.47-121.16 44.82-211.21 76.17-255.52 239.83-20.96 77.24-13.31 267.36 175.35 370.16 0 0 247.43 156.33 444.17-36.61 86.43-84.82 90.04-218.6 89.06-258.33Z" />
         </svg>
 
-        <div class="container relative mx-auto flex max-w-6xl flex-row items-center justify-between bg-blue p-12">
+        <div class="max-w-5wl container relative mx-auto flex flex-row items-center justify-between bg-blue py-12">
             <div class="max-w-lg flex-1">
                 <h1 class="text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="mt-6 text-xl font-bold leading-tight text-white">{{ $page->introduction }}</p>
             </div>
-            <x-library-image :image="$page->image" class="relative block h-auto w-96" />
+            <x-library-image :image="$page->image" class="relative block h-auto w-72 2xl:w-96" />
 
         </div>
 

@@ -89,6 +89,16 @@ return [
                 "crop" => Manipulations::CROP_TOP,
             ],
 
+            "square__lg" => [
+                // Image format, null for same as original
+                // Other options: jpg, pjpg, png, gif, webp, avif, tiff
+                "format" => "jpg",
+                "width" => 800,
+                "height" => 800,
+                "fit" => Manipulations::FIT_CROP,
+                "crop" => Manipulations::CROP_TOP,
+            ],
+
             "thumbnail" => [
                 // Image format, null for same as original
                 // Other options: jpg, pjpg, png, gif, webp, avif, tiff

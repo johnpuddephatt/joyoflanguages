@@ -1,5 +1,5 @@
 <div>
-    <div class="container mx-auto max-w-5xl divide-y divide-light-teal py-24">
+    <div class="container mx-auto max-w-5xl divide-y divide-light-teal divide-opacity-70 py-24">
         <div class="flex flex-row gap-1 py-6">
             @if ($tags)
                 @foreach (explode(',', $tags) as $tag)
@@ -19,11 +19,11 @@
             </div>
 
             @foreach (['asc' => 'Oldest first', 'desc' => 'Newest first'] as $orderValue => $orderLabel)
-                <button
-                    class="{{ $order == $orderValue ? '!bg-opacity-100' : 'bg-opacity-0' }} flex-none rounded-full border-2 bg-yellow px-6 py-2 hover:bg-opacity-20"
+                <x-button
+                    class="{{ $order == $orderValue ? '!bg-light-teal !text-black !bg-opacity-70' : '' }} flex-none border-transparent border-opacity-20 !font-semibold text-gray"
                     wire:click="$set('order', '{{ $orderValue }}')">
                     {{ $orderLabel }}
-                </button>
+                </x-button>
             @endforeach
         </div>
         @foreach ($posts as $post)

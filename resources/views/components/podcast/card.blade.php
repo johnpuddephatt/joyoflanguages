@@ -5,7 +5,7 @@
 
      <div>
          <p class="text-xl font-semibold">Episode {{ $podcast->episode_number }}</p>
-         <h2 class="mb-2 text-2xl font-semibold">{{ $podcast->title }}</h2>
+         <h3 class="mb-2 text-2xl font-semibold leading-tight">{{ $podcast->title }}</h3>
          <p class="mb-4 max-w-xl text-sm">{{ $podcast->introduction }}</p>
          <div class="flex flex-row items-center gap-4 font-semibold">
              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="46.93" height="46.93"
