@@ -1,16 +1,18 @@
 @if ($layout->courses)
-    <div class="pb-16 pt-24">
-        @include('components.block-intro', ['layout' => $layout])
-
-        <div class="container mx-auto flex flex-col items-center gap-16 py-16 lg:flex-row">
+    <div class="py-16 lg:pt-24">
+        <div class="lg:text-center">
+            @include('components.block-intro', ['layout' => $layout])
+        </div>
+        <div class="container mx-auto flex-col items-center gap-16 pb-8 pt-4 lg:flex lg:flex-row lg:py-16">
             <div class="prose flex-1 lg:prose-lg lg:w-1/2">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
             </div>
-            <img src="{{ Storage::disk('public')->url($layout->image) }}" class="mx-auto block w-full flex-1 lg:w-1/2" />
+            <img src="{{ Storage::disk('public')->url($layout->image) }}"
+                class="mx-auto hidden w-full flex-1 lg:block lg:w-1/2" />
         </div>
 
-        <div class="container mx-auto">
+        <div class="">
 
             <x-swiper :mobile_view_count="1.25" :item_count="count($layout->courses)" centered_slides="true">
 
@@ -39,7 +41,7 @@
                         <h2 class="mb-2 text-lg font-bold">{{ $course->title }}</h2>
                         <p class="prose mb-6">{{ $course->description }}</p>
 
-                        <x-button class="mt-auto !w-auto !px-4 !py-1.5 !text-sm"
+                        <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 !text-sm shadow-yellow"
                             @click.stop="$refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
 
@@ -107,7 +109,7 @@
                     @markdown($layout->outro)
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="40.76" height="43.06"
-                        class="absolute right-0 top-0 h-auto w-16 -translate-y-1/3 lg:translate-x-1/3"
+                        class="right-0 top-0 hidden h-auto w-16 -translate-y-1/3 lg:absolute lg:translate-x-1/3"
                         viewBox="0 0 40.76 43.06">
                         <path fill="#fff"
                             d="M1.54 32.2c.12.33.24.66.35 1 2.18 6.41 19 14.34 28.1 6.79 5.3-4.42 9.27-7.6 8.59-16.64A18 18 0 0 0 23.13 7.84S7.88 4.38 1.41 17.61c-2.84 5.81-.63 12.61.13 14.59Z" />

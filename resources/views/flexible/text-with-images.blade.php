@@ -1,6 +1,6 @@
 <div class="relative">
     <div class="{{ $class ?? 'container w-full max-w-6xl mx-auto' }}">
-        <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-12">
+        <div class="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-12">
             <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-1/2">
                 @if ($layout->title)
                     <h2 class="mb-4 text-2xl font-bold lg:text-4xl">{{ $layout->title }}</h2>
@@ -32,7 +32,7 @@
         </div>
     </div>
     @if ($layout->show_shape)
-        <svg class="-bottom-48 left-0 -mb-16 mt-6 h-auto w-16 lg:absolute lg:w-48 2xl:w-60"
+        <svg class="-bottom-48 left-0 -mb-16 mt-6 hidden h-auto w-16 lg:absolute lg:block lg:w-48 2xl:w-60"
             xmlns="http://www.w3.org/2000/svg" width="119.23" height="234.55" viewBox="0 0 119.23 234.55">
             <path fill="#eca76b"
                 d="M.24 234.55c29.22-1.65 70.1-13 92.65-59.12 16.56-33.9 3.7-73.56-.72-85.12-.73-1.9-1.41-3.82-2.06-5.75-7.83-23-48-49.34-90.11-56" />

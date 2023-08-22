@@ -4,8 +4,8 @@
 
 <div class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
-        class="2xl:container-lg @if ($layout->image) min-h-[80vh] @endif container mx-auto flex flex-col-reverse items-center py-8 pt-48 lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
-        <div class="lg:w-1/2">
+        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-24 lg:container lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
+        <div class="pb-4 max-lg:container lg:w-1/2">
 
             <div class="mb-4 text-2xl font-bold text-light-teal">{{ $layout->pretitle }}</div>
             <h1 class="type-xl mb-4 lg:mb-8">
@@ -17,7 +17,7 @@
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
-        <div class="relative w-full lg:w-1/2 lg:pl-8">
+        <div class="relative w-full pb-12 max-lg:overflow-hidden lg:w-1/2 lg:pl-8">
 
             <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full" />
 
@@ -32,15 +32,19 @@
 
             @if ($embed)
                 <button @click="trailerOpen = true" aria-label="Play video"
-                    class="absolute left-1/2 top-1/2 z-20 w-1/5 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
-                    <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
-                        viewBox="0 0 291.37 282.94">
-                        <path fill="#4badb8"
-                            d="M2.89 116.52a204.6 204.6 0 0 1-1.7 7.81c-11.78 50.42 65.46 170 154.66 157.73 52.27-7.21 90.94-11.78 123-73.15 15.15-29 28.84-105.45-37.35-163 0 0-84.92-84.14-180.36-24.51C19.22 47.56 6 100.59 2.89 116.52Z" />
+                    class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65" class="block h-auto w-full"
+                        viewBox="0 0 72.41 66.65">
+                        <path fill="#e9abb0"
+                            d="M69.21 19.57c-.25-.6-.48-1.21-.7-1.83C64.17 5.82 32.3-8.35 15.65 6.13 5.9 14.61-1.42 20.73.23 37.61c.77 8 8.22 25.49 29.51 28.43 0 0 28.69 5.88 40.27-19.14 5.09-11 .7-23.64-.8-27.33Z" />
+                        <circle cx="38.5" cy="37.03" r="27.69" fill="#fff" opacity=".6" />
+                        <circle cx="35.64" cy="32.97" r="27.69" fill="none" stroke="#12171e"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2.03" />
                         <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="3.5"
-                            d="M220.3 136.28a5.44 5.44 0 0 1 0 9.42l-53.06 30.63-53.05 30.63a5.44 5.44 0 0 1-8.16-4.7V79.72a5.44 5.44 0 0 1 8.16-4.7l53.05 30.63Z" />
+                            stroke-width="2.03"
+                            d="M49.56 29.75a3.38 3.38 0 0 1 0 5.49l-9.87 6.41-9.87 6.41c-1.88 1.22-4.23-.3-4.23-2.74V19.67c0-2.44 2.35-4 4.23-2.74l9.87 6.41Z" />
                     </svg>
+
                 </button>
 
                 <template x-if="trailerOpen">
@@ -72,7 +76,7 @@
                 d="M2393 1047.2c-1.9-3.2-3.8-6.4-5.6-9.7-35.5-63.4-228.6-114.3-309.4-17.2-47.3 56.9-83.1 98.2-58.3 192.2 11.7 44.3 69.9 136.5 192.9 133.6 0 0 167.6 6.9 210.1-145.2 18.6-66.8-17.8-134.3-29.7-153.7z" />
         @endif
         @if ($layout->show_shape_2)
-            <path fill="#4dacb7"
+            <path class="hidden lg:block" fill="#4dacb7"
                 d="M2852.4 158c-.1-5.6-.1-11.2-.1-16.9 1.3-109.2-212-320.3-390.1-254.4-104.3 38.6-181.9 65.6-220 206.5-18 66.5-11.4 230.2 151 318.7 0 0 213 134.6 382.4-31.5 74.5-73 77.7-188.2 76.8-222.4z" />
         @endif
         @if ($layout->show_shape_3)

@@ -4,11 +4,11 @@
     <div x-data="{ activeSection: null, stuck: false }">
         <div class="-top-8 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
             <header :class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
-                class="w-full bg-white bg-opacity-0 pt-8 transition duration-500">
-                <div class="container mx-auto flex max-w-none flex-row items-center">
-                    <a href="#home" class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'my-3 h-10 lg:h-12 w-auto')
+                class="w-full bg-white bg-opacity-0 pt-4 transition duration-500 lg:pt-8">
+                <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center">
+                    <a href="#home" class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'my-3 h-12 w-auto')
                         @if ($language)
-                            <span class="font-logo uppercase tracking-widest text-light-teal lg:text-2xl">
+                            <span class="font-logo text-xl uppercase tracking-widest text-light-teal lg:text-2xl">
                                 {{ $language->name }}</span>
                         @endif
                     </a>
@@ -32,6 +32,7 @@
                 </div>
             </header>
         </div>
+
         <section id="home" x-intersect:enter="activeSection = 'home'">
             @foreach ($page->content as $layout)
                 @if ($layout->show_in_menu)
@@ -67,6 +68,39 @@
             ])
             @endforeach
         </section>
+
+        <nav class="sticky bottom-0 z-20 bg-yellow pb-3.5 pt-2 text-lg shadow-lg lg:hidden">
+            <div class="container flex flex-row items-center justify-between gap-6">
+                <button class="flex flex-row items-center gap-1 font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-12" width="26.04" height="25.71"
+                        viewBox="0 0 26.04 25.71">
+                        <defs>
+                            <style>
+                                .prefix__cls-2djajs786 {
+                                    fill: #fff;
+                                    stroke: #12171e;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-width: 1.17px
+                                }
+                            </style>
+                        </defs>
+                        <circle cx="14.44" cy="14.12" r="11.6" fill="#fff" />
+                        <circle cx="12.18" cy="12.18" r="11.6" class="prefix__cls-2djajs786" />
+                        <path d="M6.03 8.86h12.3M6.03 12.36h12.3M6.03 15.87h12.3" class="prefix__cls-2djajs786" />
+                    </svg>
+
+                    Menu</button>
+
+                @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu && $layout->show_as_button) as $layout)
+                    <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="sectionMenuOpen = false;" ::href="`#${section}`"
+                        class="shadow-white">
+                        {{ $layout->pre_title ?? $layout->title }}
+                    </x-button-link>
+                @endforeach
+
+            </div>
+        </nav>
 
     </div>
 @endsection

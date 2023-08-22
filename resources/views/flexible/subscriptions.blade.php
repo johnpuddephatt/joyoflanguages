@@ -1,6 +1,6 @@
-<div class="relative py-32">
+<div class="relative pb-16 pt-32 lg:pb-32">
     <svg xmlns="http://www.w3.org/2000/svg" width="272.39" height="209.79"
-        class="absolute -top-px left-4 h-auto w-40 lg:left-16 lg:w-96" viewBox="0 0 272.39 209.79">
+        class="absolute -top-px left-4 h-auto w-48 lg:left-16 lg:w-96" viewBox="0 0 272.39 209.79">
 
         <path fill="#4ba3ae"
             d="M35.23.7c-.38 10.3 1 21.89 4.55 35.38 6.67 25.25 39.79 77.78 109.88 76.11 0 0 95.45 3.91 119.66-82.7A93 93 0 0 0 272.22 0" />
@@ -16,14 +16,16 @@
         </g>
     </svg>
 
-    @include('components.block-intro', ['layout' => $layout])
+    <div class="text-center">
+        @include('components.block-intro', ['layout' => $layout])
+    </div>
 
     @if ($layout->subscriptions)
         <div
             class="container mx-auto flex max-w-3xl flex-col-reverse items-center justify-center gap-8 pt-16 lg:flex-row lg:gap-3">
             @foreach ($layout->subscriptions as $subscription)
                 <div
-                    class="@if ($subscription->sticker) flex-[55%] @else flex-[50%] @endif relative min-h-[12rem] bg-beige p-8">
+                    class="@if ($subscription->sticker) lg:flex-[55%] @else lg:flex-[50%] @endif relative min-h-[12rem] w-full bg-beige p-8">
                     <div
                         class="@if ($subscription->pre_title) bg-light-teal @endif mb-3 inline-block rounded-full px-3 py-0.5 text-sm font-semibold text-white">
                         {!! $subscription->pre_title ?? '&nbsp;' !!}
@@ -34,7 +36,7 @@
                     @endif
                     @if ($subscription->sticker)
                         <div
-                            class="absolute left-full top-0 flex aspect-square w-min -translate-x-2/3 -translate-y-1/3 items-center justify-center rounded-full bg-black p-6 text-center text-xl font-bold leading-none text-white">
+                            class="absolute left-full top-0 flex aspect-square w-min -translate-x-full -translate-y-1/3 items-center justify-center rounded-full bg-black p-6 text-center text-xl font-bold leading-none text-white lg:-translate-x-2/3">
                             {{ $subscription->sticker }}</div>
                     @endif
                     @if ($subscription->price)
@@ -71,8 +73,8 @@
         </x-hint>
     @endif
 
-    <svg class="absolute bottom-1/4 right-0 h-auto w-24 2xl:w-48" xmlns="http://www.w3.org/2000/svg" width="132.93"
-        height="242.18" viewBox="0 0 132.93 242.18">
+    <svg class="absolute bottom-1/4 right-0 hidden h-auto w-24 lg:block 2xl:w-48" xmlns="http://www.w3.org/2000/svg"
+        width="132.93" height="242.18" viewBox="0 0 132.93 242.18">
         <path fill="#eca76b"
             d="M132.68 36.23c-29.21 1.66-70.09 13-92.64 59.13-16.56 33.89-3.7 73.55.72 85.12.73 1.9 1.4 3.81 2.06 5.74 7.83 23 48 49.34 90.11 56" />
         <path fill="#ffce00"

@@ -1,9 +1,9 @@
-<div class="bg-{{ $layout->colour ?? 'teal-light' }} relative pt-16">
-    <div class="absolute left-0 right-0 top-0 pt-36">
+<div class="bg-{{ $layout->colour ?? 'teal-light' }} relative pt-8 lg:pt-16">
+    <div class="left-0 right-0 top-0 lg:absolute lg:pt-36">
         <div class="container-lg relative mx-auto block">
 
-            <div class="{{ $layout->reverse ? 'order-first' : null }} max-w-xl pb-64 pt-8">
-                <h2 class="text-balance mb-12 text-2xl font-bold !leading-[0.95] lg:text-5xl">
+            <div class="{{ $layout->reverse ? 'order-first' : null }} max-w-xl py-8 lg:pb-64">
+                <h2 class="text-balance mb-8 text-2xl font-bold !leading-[0.95] lg:mb-12 lg:text-5xl">
                     {!! $layout->title !!}
                 </h2>
                 <svg xmlns="http://www.w3.org/2000/svg" width="130.32" height="41.8" class="ml-auto mr-12 h-auto w-48"
@@ -19,7 +19,7 @@
 
     <picture>
         <source srcset="{{ asset('images/sign-off.webp') }}" type="image/webp">
-        <img class="ml-auto mr-8 w-3/5" src="{{ asset('images/sign-off.png') }}">
+        <img class="ml-auto mr-8 w-full lg:w-3/5" src="{{ asset('images/sign-off.png') }}">
     </picture>
 
 </div>

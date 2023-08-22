@@ -4,5 +4,5 @@
     @endif
 
     <x-button-link target="{{ $layout->new_tab ? '_parent' : null }}" href="{{ $layout->button_link }}"
-        class="{{ $layout->background_colour == 'bg-yellow' ? '!bg-light-teal' : 'bg-yellow' }} relative z-10 max-w-sm translate-y-[calc(50%-1px)] text-xl shadow-transparent lg:w-full lg:translate-y-[calc(50%-2px)] lg:!border-4 lg:text-2xl">{{ $layout->button_text ?? 'Sign up now!' }}</x-button-link>
+        class="{{ $layout->background_colour == 'bg-yellow' ? '!bg-light-teal' : 'bg-yellow' }} relative z-10 w-full max-w-xs translate-y-[calc(50%-1px)] text-xl shadow-transparent lg:max-w-sm lg:translate-y-[calc(50%-2px)] lg:!border-4 lg:text-2xl">{{ $layout->button_text ?? 'Sign up now!' }}</x-button-link>
 </div>

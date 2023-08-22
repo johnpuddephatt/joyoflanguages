@@ -4,7 +4,7 @@
              ->shuffle()
              ->chunk(3);
      @endphp
-     <section class="pb-16">
+     <section class="lg:pb-16">
          <div class="bg-yellow">
              <div x-data="{
                  rowCount: {{ $quotes->count() }},
@@ -40,7 +40,7 @@
 
                  </div>
                  <template x-if="shown">
-                     <div class="relative z-10 grid grid-cols-2 grid-rows-2 py-8 lg:w-1/2">
+                     <div class="relative z-10 grid grid-cols-2 grid-rows-2 pt-6 lg:w-1/2">
                          @foreach ($quotes as $row => $quoteRow)
                              @php($bubbles = collect([1, 2, 3])->shuffle())
                              @foreach ($quoteRow->shuffle() as $key => $quote)
@@ -50,7 +50,7 @@
                                      x-transition:enter-end="opacity-100 scale-100"
                                      x-transition:leave="transition ease-out duration-[500ms] delay-[{{ $bubbles[$key] * 250 }}ms] -z-10"
                                      x-transition:leave-end="scale-0"
-                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex aspect-video items-center justify-center p-4 text-center font-bold !leading-none lg:text-2xl">
+                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex aspect-video items-center justify-center p-4 text-center text-xl font-bold !leading-none lg:text-2xl">
                                      {{ $quote->quote }}
                                      @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 left-0 right-0 h-auto top-1/2 -translate-y-1/2 max-w-none w-full')
                                  </div>
@@ -63,9 +63,9 @@
 
              <div class="container mx-auto max-w-3xl">
                  <div
-                     class="prose relative mb-16 mt-0 flex w-full translate-y-1/2 flex-col rounded-3xl bg-blue p-4 lg:flex-row lg:items-center lg:p-0 lg:pl-8">
+                     class="prose relative mb-16 mt-0 flex w-full translate-y-1/2 flex-row rounded-3xl bg-blue px-3 py-4 lg:items-center lg:px-8">
 
-                     <svg class="h-auto w-32 flex-none" xmlns="http://www.w3.org/2000/svg" width="104.23"
+                     <svg class="h-auto w-20 flex-none lg:w-32" xmlns="http://www.w3.org/2000/svg" width="104.23"
                          height="121.75" viewBox="0 0 104.23 121.75">
                          <path fill="#ffffff"
                              d="M91.21 53.61a51.2 51.2 0 0 1-.47-2.47c-2.78-16-39.78-41.12-64.06-26.63C12.45 33.01 1.83 39.07.08 60.75c-.82 10.23 4.6 34 30.8 42.56 0 0 34.87 13.91 55.16-15 8.91-12.76 6.22-29.71 5.17-34.7Z" />
@@ -91,7 +91,7 @@
                          </g>
                      </svg>
 
-                     <div class="prose p-6 lg:p-10 lg:pl-6">
+                     <div class="prose pl-2 !leading-tight max-lg:prose-sm lg:pl-6">
                          @markdown($layout->outro)
                      </div>
                  </div>

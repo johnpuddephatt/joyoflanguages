@@ -87,7 +87,7 @@
     <div class="clear-both bg-pink py-16">
         <div class="container-lg mx-auto">
             <div class="mb-12 flex flex-col items-end justify-between lg:flex-row">
-                <h2 class="text-3xl font-bold lg:text-3xl">More of our latest news</h2>
+                <h2 class="text-2xl font-bold lg:text-3xl">More of our latest news</h2>
 
             </div>
             <div class="mt-8 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-16">

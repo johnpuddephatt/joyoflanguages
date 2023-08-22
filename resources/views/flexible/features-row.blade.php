@@ -1,9 +1,11 @@
 <div class="py-16">
-    @include('components.block-intro', ['layout' => $layout])
+    <div class="mx-auto max-w-2xl text-center">
 
-    <div class="lg:container-lg container relative mx-auto pt-24">
+        @include('components.block-intro', ['layout' => $layout])
+    </div>
+    <div class="lg:container-lg relative mx-auto pt-12 lg:pt-24">
 
-        <x-swiper :item_count="count($layout->features)">
+        <x-swiper centered_slides="true" :item_count="count($layout->features)">
 
             @foreach ($layout->features as $feature)
                 <div class="swiper-slide !h-auto cursor-default bg-beige !transition !duration-500 hover:opacity-40"
@@ -16,7 +18,7 @@
                     @endif
                     <div class="px-4 py-6">
                         @if ($feature->title)
-                            <h3 class="mb-4 mr-8 text-2xl font-bold !leading-[0.95] lg:text-3xl">
+                            <h3 class="mb-4 mr-8 text-3xl font-bold !leading-none lg:text-3xl">
                                 {{ $feature->title }}
                             </h3>
                         @endif
