@@ -10,18 +10,16 @@
 
     <div class="{{ $class ?? 'mx-auto max-w-6xl' }} relative lg:container">
         @if ($layout->sticker)
-            <div class="relative">
-                <div class="absolute left-4 -translate-y-1/3 lg:right-full lg:translate-x-1/4">
-                    <svg class="block h-auto w-32 lg:w-48" xmlns="http://www.w3.org/2000/svg" width="129.27"
-                        height="123.5" viewBox="0 0 129.27 123.5">
-                        <path fill="#ffce00"
-                            d="M0 63.34v3.53C-.52 89.73 43.69 134.43 81.13 121c21.94-7.84 38.24-13.32 46.55-42.75 3.92-13.85 2.91-48.15-30.91-67.05 0 0-44.32-28.67-80.17 5.74C.84 32.06-.07 56.18 0 63.34Z" />
-                    </svg>
+            <div class="absolute left-4 w-32 -translate-y-1/3 lg:right-full lg:w-48 lg:translate-x-1/4">
+                <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="129.27" height="123.5"
+                    viewBox="0 0 129.27 123.5">
+                    <path fill="#ffce00"
+                        d="M0 63.34v3.53C-.52 89.73 43.69 134.43 81.13 121c21.94-7.84 38.24-13.32 46.55-42.75 3.92-13.85 2.91-48.15-30.91-67.05 0 0-44.32-28.67-80.17 5.74C.84 32.06-.07 56.18 0 63.34Z" />
+                </svg>
 
-                    <div
-                        class="absolute inset-0 z-10 flex max-w-full flex-col items-center justify-center p-4 text-center font-bold leading-none lg:text-xl">
-                        {{ $layout->sticker }}</div>
-                </div>
+                <div
+                    class="absolute inset-0 z-10 flex max-w-full flex-col items-center justify-center p-4 text-center font-bold leading-none lg:text-xl">
+                    {{ $layout->sticker }}</div>
             </div>
         @endif
         {!! $layout->video_embed_code !!}
