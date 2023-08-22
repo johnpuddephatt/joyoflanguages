@@ -5,10 +5,11 @@
     'theme' => null,
 ]) @section('content')
 
-    <div class="container mx-auto flex min-h-[65vmin] flex-col-reverse gap-8 pt-36 lg:flex-row lg:items-center lg:gap-16">
+    <div
+        class="container mx-auto flex min-h-[65vmin] flex-col-reverse gap-8 pb-8 pt-36 lg:flex-row lg:items-center lg:gap-16">
 
-        <svg class="pointer-events-none absolute left-0 right-0 top-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
-            width="2560" height="1297" viewBox="0 0 2560 1297">
+        <svg class="pointer-events-none absolute left-0 right-0 top-0 hidden h-auto w-screen lg:block"
+            xmlns="http://www.w3.org/2000/svg" width="2560" height="1297" viewBox="0 0 2560 1297">
             <path fill="#4caeb8"
                 d="M2793.46 126.11c-.14-5.6-.12-11.18-.06-16.78 1.35-108.61-211-318.68-388.15-253.15-103.81 38.4-180.95 65.26-218.92 205.48-17.92 66.18-11.37 229.07 150.26 317.1 0 0 212 134 380.55-31.36 74.07-72.64 77.16-187.25 76.32-221.29Z" />
             <path fill="#f4b6bb"
@@ -86,11 +87,11 @@
 
     <div class="clear-both bg-pink py-16">
         <div class="container-lg mx-auto">
-            <div class="mb-12 flex flex-col items-end justify-between lg:flex-row">
-                <h2 class="text-2xl font-bold lg:text-3xl">More of our latest news</h2>
+            <div class="mb-12 flex flex-col justify-between lg:flex-row">
+                <h2 class="text-3xl font-bold">More of our latest news</h2>
 
             </div>
-            <div class="mt-8 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-16">
+            <div class="mt-8 grid gap-6 lg:mt-16 lg:grid-cols-3 lg:gap-16">
                 @foreach ($related_posts as $related_post)
                     <x-post.card :post="$related_post" />
                 @endforeach

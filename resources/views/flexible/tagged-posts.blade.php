@@ -1,5 +1,5 @@
-  <div class="container-lg mx-auto flex flex-row items-center gap-8 py-16">
-      <div x-data="{ canPlay: false, playing: false }" class="relative w-1/2 flex-1">
+  <div class="container-lg mx-auto flex flex-col items-center py-16 lg:flex-row lg:gap-8">
+      <div x-data="{ canPlay: false, playing: false }" class="relative flex-1 lg:w-1/2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42" class="mb-16 h-auto w-full"
               viewBox="0 0 1360.37 1301.42">
               <defs>
@@ -247,7 +247,7 @@
           @endif
 
       </div>
-      <div class="w-1/2 flex-1">
+      <div class="flex-1 lg:w-1/2">
           <h2 class="mb-8 max-w-md text-2xl font-bold lg:text-4xl">{!! $layout->title !!}</h2>
           @if ($layout->subtitle)
               <div class="mt-8 max-w-md">{!! Str::of($layout->subtitle)->markdown() !!}</div>

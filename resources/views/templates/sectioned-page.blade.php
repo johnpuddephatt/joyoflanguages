@@ -26,11 +26,9 @@
                             sectionMenuOpen
                     }"
                         class="fixed inset-0 z-[999] flex flex-col justify-center bg-yellow text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
-
                         <button class="lg:hidden" @click="sectionMenuOpen = false">
                             @svg('plus', 'mb-8 rotate-45 w-6 h-6 ml-auto mr-4')
                         </button>
-
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
                             <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" @click="sectionMenuOpen = false; activeSection = section"
                                 class="inline-block p-2 px-4 text-2xl font-bold lg:max-w-md 2xl:text-3xl"
@@ -44,21 +42,30 @@
             </div>
 
             <div class="flex-grow py-8 lg:pb-16">
-
+                <div class="sticky top-0 z-20">
+                    <x-button class="!absolute right-2 top-2 !px-6 lg:hidden" @click="sectionMenuOpen = true">
+                        Jump to a section
+                    </x-button>
+                </div>
                 @foreach ($page->content as $layout)
                     @if ($layout->name() === 'section' && !$loop->first)
                         </section>
                     @endif
 
                     @if ($layout->name() === 'section')
+                        @include('flexible.' . $layout->name(), [
+                            'layout' => $layout,
+                            'class' => 'text-left max-w-4xl lg:pl-24 mx-auto lg:mx-0',
+                        ])
+
                         <section
                             x-intersect:enter="activeSection = '{{ Illuminate\Support\Str::of($layout->title)->kebab() }}'">
+                        @else
+                            @include('flexible.' . $layout->name(), [
+                                'layout' => $layout,
+                                'class' => 'text-left max-w-4xl lg:pl-24 mx-auto lg:mx-0',
+                            ])
                     @endif
-
-                    @include('flexible.' . $layout->name(), [
-                        'layout' => $layout,
-                        'class' => 'text-left max-w-4xl lg:pl-24 mx-auto lg:mx-0',
-                    ])
 
                     @if ($layout->name() === 'section' && $loop->last)
                         </section>

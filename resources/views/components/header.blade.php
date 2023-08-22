@@ -1,15 +1,15 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
     class="{{ $theme == 'alternative_header' ? 'text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-white lg:py-12">
     <div class="container mx-auto flex max-w-none flex-row items-start justify-center lg:justify-between">
-        <a class="relative z-20 flex flex-col items-center gap-0 overflow-hidden lg:flex-row lg:gap-2" href="/">
+        <a class="relative z-20 flex flex-row items-center gap-2 overflow-hidden" href="/">
             @if ($theme == 'alternative_header')
-                @svg('jol-logo-alt', 'lg:ml-0 h-10 lg:h-12 w-auto')
+                @svg('jol-logo-alt', ' h-12 w-auto')
             @else
-                @svg('jol-logo', 'lg:ml-0 h-10 lg:h-12 w-auto')
+                @svg('jol-logo', ' h-12 w-auto')
             @endif
 
             @if ($language)
-                <span class="font-logo text-2xl uppercase tracking-widest text-light-teal">
+                <span class="font-logo text-xl uppercase tracking-widest text-light-teal lg:text-2xl">
                     {{ $language->name }}</span>
             @endif
         </a>

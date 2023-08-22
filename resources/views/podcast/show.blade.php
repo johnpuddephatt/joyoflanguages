@@ -42,18 +42,19 @@
                 </div>
             </div>
 
-            <div class="mx-auto w-full max-w-xs rounded-3xl bg-blue text-center" x-data="{ playing: false, initialised: false, sliderActive: false, progress: 0 }"
+            <div class="mx-auto flex w-full flex-row rounded-3xl bg-blue text-center lg:max-w-xs lg:flex-col"
+                x-data="{ playing: false, initialised: false, sliderActive: false, progress: 0 }"
                 x-effect=" playing && !initialised ? visualiser() : null; playing == true ? ($refs.player.play(), initialised = true) : $refs.player.pause()">
-                <div class="p-6 pb-12">
+                <div class="p-2 lg:p-6 lg:pb-12">
 
-                    <div class="relative">
+                    <div class="relative pt-10 lg:pt-0">
                         @if ($podcast->episode_number)
                             <div
                                 class="absolute left-0 top-0 z-10 flex h-16 w-16 flex-row items-center justify-center rounded-full bg-yellow p-1 text-center font-bold leading-none">
                                 No.{{ $podcast->episode_number }}</div>
                         @endif
 
-                        <x-image-mask class="mb-3 block h-auto w-full">
+                        <x-image-mask class="mx-auto mb-6 block h-auto w-32 lg:mb-3 lg:w-full">
                             <x-library-image conversion="square" :image="\App\Models\Page::firstWhere(
                                 'template',
                                 'App\Nova\Templates\PodcastsPageTemplate',
@@ -61,10 +62,12 @@
                         </x-image-mask>
 
                     </div>
-                    <p class="mb-1 text-xl font-semibold">Listen to the episode:</p>
-                    <p class="mx-auto max-w-xs text-xl font-bold leading-none text-white">{{ $podcast->title }}</p>
+                    <p class="mb-1 text-xl font-semibold leading-none">Listen to the episode<span
+                            class="hidden lg:inline">:</span></p>
+                    <p class="mx-auto hidden max-w-xs text-xl font-bold leading-none text-white lg:block">
+                        {{ $podcast->title }}</p>
                 </div>
-                <div class="bg-white bg-opacity-20 p-6 pt-0">
+                <div class="bg-white bg-opacity-20 p-2 pb-6 pt-0 lg:p-6">
                     <audio id="player" x-ref="player" class="mt-12 w-full max-w-2xl" @ended="playing = false"
                         @timeupdate="!sliderActive ? (progress = $el.currentTime / $el.duration * 100) : null">
                         <source src="/podcast/{{ $podcast->slug }}/audio" type="audio/mpeg">
@@ -72,8 +75,8 @@
                     </audio>
                     <button @click="playing = !playing" class="">
 
-                        <svg class="group -mt-8 h-16 w-16" xmlns="http://www.w3.org/2000/svg" width="116.01" height="118.35"
-                            viewBox="0 0 116.01 118.35">
+                        <svg class="group mt-8 h-16 w-16 lg:-mt-8" xmlns="http://www.w3.org/2000/svg" width="116.01"
+                            height="118.35" viewBox="0 0 116.01 118.35">
 
                             <circle cx="56.19" cy="56.19" r="54.21" fill="#fff" opacity=".6"
                                 class="translate-x-1.5 translate-y-1.5 transition group-hover:translate-x-1 group-hover:translate-y-1 group-active:translate-x-0 group-active:translate-y-0" />

@@ -1,8 +1,8 @@
 <div
-    class="{{ $layout->background_colour }} @if (in_array($layout->background_colour, ['bg-teal'])) text-white @endif relative flex h-[150vh] flex-col items-center justify-center overflow-hidden lg:h-screen lg:flex-row">
+    class="{{ $layout->background_colour }} @if (in_array($layout->background_colour, ['bg-teal'])) text-white @endif relative flex h-screen flex-col items-center justify-center overflow-hidden pt-32 lg:h-screen lg:flex-row lg:pt-12">
 
     <div class="container-lg relative z-10 mx-auto w-full">
-        <div class="mt-16 lg:w-1/2">
+        <div class="lg:w-1/2">
             <h1 class="mb-6 text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">{!! nl2br($layout->title) !!}</h1>
             <p class="max-w-lg lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
             @if ($layout->button_url)
@@ -12,21 +12,19 @@
         </div>
     </div>
 
-    <div class="inset-0 mt-8 flex flex-row items-center lg:absolute lg:ml-auto lg:mt-0 lg:h-full lg:w-1/2">
+    <div class="bottom-0 right-0 top-0 w-full lg:absolute lg:h-full lg:w-[55%]">
 
         @if ($layout->show_shapes)
             <div class="absolute right-0 top-1/2 -z-10 w-[50%] -translate-y-1/2">
-                <div class="tk-blob" style="--time: 120s; --amount: 5;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.4 374.7">
-                        <path fill="#ffd800"
-                            d="M309.9 70.6c37.8 52.7 39.8 128.7 15.4 184.1-24.3 55.4-75 90.1-125.4 107.4-50.4 17.4-100.4 17.4-136.2-3.3-35.7-20.7-57.2-62-62.4-102.1-5.2-40.2 5.8-79 29.1-128.3C53.6 79.1 89.1 19.3 143.7 4.1 198.3-11.2 272 18 309.9 70.6z">
-                        </path>
-                    </svg>
-                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.4 374.7">
+                    <path fill="#ffd800"
+                        d="M309.9 70.6c37.8 52.7 39.8 128.7 15.4 184.1-24.3 55.4-75 90.1-125.4 107.4-50.4 17.4-100.4 17.4-136.2-3.3-35.7-20.7-57.2-62-62.4-102.1-5.2-40.2 5.8-79 29.1-128.3C53.6 79.1 89.1 19.3 143.7 4.1 198.3-11.2 272 18 309.9 70.6z">
+                    </path>
+                </svg>
             </div>
         @endif
 
-        <x-responsive-image class="h-[43rem] w-full object-contain object-center" :image="$layout->image" />
+        <x-responsive-image class="top-1/2 block h-auto w-full lg:absolute lg:-translate-y-1/2" :image="$layout->image" />
 
     </div>
 

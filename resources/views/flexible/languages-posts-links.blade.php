@@ -38,9 +38,9 @@
         </svg>
     </div>
 
-    <div class="mb-12 flex flex-row justify-center gap-12">
+    <div class="mb-12 flex flex-col justify-center gap-8 lg:flex-row lg:gap-12">
         @foreach ($layout->languages as $language)
-            <div class="flex w-1/3 flex-col rounded-3xl bg-beige p-8 text-center">
+            <div class="flex flex-col rounded-3xl bg-beige p-8 text-center lg:w-1/3">
 
                 <img class="mx-auto mb-4 h-32 w-32 2xl:h-36 2xl:w-36"
                     src="{{ Storage::disk('public')->url($language->image) }}" />

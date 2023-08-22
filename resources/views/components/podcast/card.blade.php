@@ -1,14 +1,14 @@
- <a class="flex flex-row items-center gap-8 py-8" href="{{ $podcast->url }}">
-     <x-image-mask class="h-auto w-48 rounded-3xl bg-yellow p-4"> <x-library-image conversion="square" :image="$page->image"
-             class="relative block h-auto w-full" />
+ <a class="flex flex-row items-center gap-4 py-8 lg:gap-8" href="{{ $podcast->url }}">
+     <x-image-mask class="hidden h-auto w-24 rounded-3xl bg-yellow p-4 lg:block lg:w-48"> <x-library-image
+             conversion="square" :image="$page->image" class="relative block h-auto w-full" />
      </x-image-mask>
 
      <div>
-         <p class="text-xl font-semibold">Episode {{ $podcast->episode_number }}</p>
-         <h3 class="mb-2 text-2xl font-semibold leading-tight">{{ $podcast->title }}</h3>
+         <p class="font-semibold lg:text-xl">Episode {{ $podcast->episode_number }}</p>
+         <h3 class="mb-2 text-xl font-semibold leading-tight lg:text-2xl">{{ $podcast->title }}</h3>
          <p class="mb-4 max-w-xl text-sm">{{ $podcast->introduction }}</p>
-         <div class="flex flex-row items-center gap-4 font-semibold">
-             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="46.93" height="46.93"
+         <div class="flex flex-row items-center gap-2 font-semibold lg:gap-4">
+             <svg class="h-4 w-4 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" width="46.93" height="46.93"
                  viewBox="0 0 46.93 46.93">
                  <circle fill="#4badb8" cx="23.46" cy="23.46" r="23.46" />
                  <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"

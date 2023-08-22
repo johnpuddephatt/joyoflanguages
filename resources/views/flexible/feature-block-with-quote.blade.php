@@ -1,19 +1,19 @@
-<div class="grid grid-cols-2 pb-12 pt-24">
+<div class="grid pb-12 lg:grid-cols-2 lg:pt-24">
 
     <x-responsive-image class="block w-full" :image="$layout->main_image" />
 
-    <div class="flex flex-col justify-center p-24">
+    <div class="container flex flex-col py-8 lg:justify-center lg:py-24">
         <h2 class="mb-8 text-4xl font-bold">{{ $layout->title }}</h2>
         <div class="max-w-md">@markdown($layout->description)
             @if ($layout->button_url)
-                <x-button-link class="mt-16 shadow-yellow"
+                <x-button-link class="mt-8 shadow-yellow lg:mt-16"
                     :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
     </div>
 </div>
 
-<div class="container mx-auto -mt-24 grid grid-cols-2 gap-16">
+<div class="container mx-auto -mt-24 grid lg:grid-cols-2 lg:gap-16">
     <div class="mx-auto my-auto max-w-xl py-24">
 
         @svg('quote-open', 'w-12 text-teal')
@@ -31,7 +31,7 @@
 
         <div class="relative">
 
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full"
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-auto w-full"
                 width="1015.31" height="721.76" viewBox="0 0 1015.31 721.76">
                 <defs>
                     <clipPath id="prefix__clip-path" transform="translate(-1209.42 -655.7)">

@@ -3,10 +3,10 @@
 @section('title', $page->title)
 @extends('layouts.default', ['language' => $page->language, 'theme' => $page->theme]) @section('content')
 
-    <div class="relative pt-48">
+    <div class="relative pt-24 lg:pt-48">
 
-        <svg class="pointer-events-none absolute left-0 right-0 top-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
-            width="2560" height="1297" viewBox="0 0 2560 1297">
+        <svg class="pointer-events-none absolute left-0 right-0 top-0 hidden h-auto w-screen lg:block"
+            xmlns="http://www.w3.org/2000/svg" width="2560" height="1297" viewBox="0 0 2560 1297">
             <path fill="#4caeb8"
                 d="M2793.46 126.11c-.14-5.6-.12-11.18-.06-16.78 1.35-108.61-211-318.68-388.15-253.15-103.81 38.4-180.95 65.26-218.92 205.48-17.92 66.18-11.37 229.07 150.26 317.1 0 0 212 134 380.55-31.36 74.07-72.64 77.16-187.25 76.32-221.29Z" />
             <path fill="#f4b6bb"
@@ -15,12 +15,13 @@
                 d="M2613.23 899.06c-.16-6.53-.14-13-.06-19.58 1.56-126.77-246.26-372-453-295.47-121.16 44.82-211.21 76.17-255.52 239.83-20.96 77.24-13.31 267.36 175.35 370.16 0 0 247.43 156.33 444.17-36.61 86.43-84.82 90.04-218.6 89.06-258.33Z" />
         </svg>
 
-        <div class="max-w-5wl container relative mx-auto flex flex-row items-center justify-between bg-blue py-12">
+        <div
+            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 bg-blue py-12 lg:flex-row">
             <div class="max-w-lg flex-1">
                 <h1 class="text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
-                <p class="mt-6 text-xl font-bold leading-tight text-white">{{ $page->introduction }}</p>
+                <p class="mt-6 max-w-md text-xl font-bold leading-tight text-white">{{ $page->introduction }}</p>
             </div>
-            <x-library-image :image="$page->image" class="relative block h-auto w-72 2xl:w-96" />
+            <x-library-image :image="$page->image" class="relative mx-auto block h-auto w-72 2xl:w-80" />
 
         </div>
 

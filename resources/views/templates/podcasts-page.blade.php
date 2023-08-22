@@ -5,9 +5,9 @@
 
     <div class="relative">
 
-        <svg class="pointer-events-none absolute left-0 right-0 top-0 h-auto w-screen" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" x="0" y="0"
-            enable-background="new 0 0 2563.4 1676.3" version="1.1" viewBox="0 0 2563.4 1676.3">
+        <svg class="pointer-events-none absolute left-0 right-0 top-0 hidden h-auto w-screen lg:block"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" x="0"
+            y="0" enable-background="new 0 0 2563.4 1676.3" version="1.1" viewBox="0 0 2563.4 1676.3">
             <defs>
                 <path id="a" d="M0 0H2563.4V1676.3H0z" />
             </defs>
@@ -25,14 +25,15 @@
                 clip-path="url(#b)" />
         </svg>
 
-        <div class="container relative mx-auto flex max-w-6xl flex-row items-center justify-between pt-48">
+        <div
+            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 pt-36 lg:flex-row lg:pt-48">
             <div class="max-w-lg flex-1">
 
                 <h1 class="bold-text-light-teal text-4xl font-bold !tracking-normal text-teal lg:text-5xl 2xl:text-6xl">
                     {!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="mt-6 text-xl font-bold leading-tight text-gray">{{ $page->introduction }}</p>
             </div>
-            <x-image-mask class="h-auto w-96"> <x-library-image conversion="square" :image="$page->image"
+            <x-image-mask class="mx-auto h-auto w-96 max-w-[80%]"> <x-library-image conversion="square" :image="$page->image"
                     class="relative block h-auto w-full" />
             </x-image-mask>
         </div>

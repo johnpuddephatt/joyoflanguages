@@ -1,4 +1,4 @@
-<div class="{{ $class ?? 'mx-auto max-w-6xl' }} container grid grid-cols-2 py-16">
+<div class="{{ $class ?? 'mx-auto max-w-6xl' }} container py-16 lg:grid lg:grid-cols-2">
     <div>
         <h2 class="bold-text-light-teal mb-8 text-3xl font-bold text-teal">{!! Str::inlineMarkdown($layout->title) !!}</h1>
             <div class="mb-12 max-w-lg">{!! $layout->description !!}</div>
@@ -27,7 +27,7 @@
             <x-button-link class="mt-16 shadow-light-teal"
                 :href="$layout->button_url ?? $language->podcasts_link">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
     </div>
-    <div class="">
+    <div class="hidden lg:block">
 
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="449.44"
             height="704.48" viewBox="170 0 429.44 704.48"

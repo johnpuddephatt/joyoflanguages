@@ -1,12 +1,12 @@
-<footer class="relative overflow-hidden bg-blue py-36 text-center lg:text-left">
+<footer class="relative overflow-hidden bg-blue pb-8 pt-36 lg:pb-36">
     <div class="container mx-auto max-w-none">
         @if (isset($settings['mission']))
             <p class="mx-auto max-w-lg text-gray lg:mx-0">{{ $settings['mission'] }}</p>
         @endif
 
-        <div class="mt-12 flex flex-col items-center gap-4 lg:flex-row lg:gap-6">
+        <div class="mt-12 flex flex-col gap-4 lg:flex-row lg:gap-6">
             @if (isset($settings['company_email']))
-                <a class="text-xl font-bold text-white lg:text-3xl"
+                <a class="text-2xl font-bold text-white lg:text-3xl"
                     href="mailto:{{ $settings['company_email'] }}">{{ $settings['company_email'] }}</a>
             @endif
             <div class="flex flex-row gap-1">

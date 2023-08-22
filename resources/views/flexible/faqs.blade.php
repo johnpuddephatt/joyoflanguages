@@ -10,7 +10,7 @@
                     <summary @click.prevent="current = (current == {{ $loop->index }}) ? null : {{ $loop->index }}"
                         class="cursor-pointer px-2 py-4 text-xl font-semibold transition hover:bg-light-teal hover:bg-opacity-10">
                         {{ $faq->question }}</summary>
-                    <div class="prose pb-4 pl-7 pr-4 pt-4">@markdown($faq->answer)</div>
+                    <div class="prose pb-12 pl-7 pr-4 pt-4">@markdown($faq->answer)</div>
                 </details>
             @endforeach
         </div>

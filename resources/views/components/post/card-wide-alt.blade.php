@@ -1,7 +1,9 @@
 @props(['post', 'hide_tags' => false, 'hide_date' => false])
-<a href="{{ $post->url }}" {{ $attributes->class(['relative w-full flex py-6 items-center flex-row gap-6']) }}>
+<a href="{{ $post->url }}"
+    {{ $attributes->class(['relative w-full flex py-6 items-center flex-row gap-3 lg:gap-6']) }}>
     @if ($post->image)
-        <x-library-image conversion="square" :image="$post->image" class="relative block h-auto w-40 flex-none rounded-3xl" />
+        <x-library-image conversion="square" :image="$post->image"
+            class="relative block h-auto w-24 flex-none rounded-xl lg:w-40 lg:rounded-3xl" />
     @else
         <div class="aspect-video w-40 rounded-3xl bg-teal bg-opacity-10"></div>
     @endif

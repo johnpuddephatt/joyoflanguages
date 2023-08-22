@@ -15,8 +15,8 @@
     <form action="{{ $layout->form_action }}" method="POST">
         @csrf
         <div>
-            <div class="relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden bg-yellow py-16">
-                <div class="container relative z-10 mx-auto text-center">
+            <div class="relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden bg-yellow">
+                <div class="container relative z-10 mx-auto pb-64 pt-36 text-center lg:py-16">
                     <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">{{ $layout->title }}</h2>
                     <div class="mx-auto mb-12 max-w-xl font-semibold">{!! $layout->description !!}</div>
 
@@ -25,7 +25,7 @@
 
                     <x-button class="after:!bg-light-teal" type="submit">{{ $layout->button_text }}</x-button>
                     @if ($layout->sticker)
-                        <div class="absolute bottom-0 right-24 z-10 w-48">
+                        <div class="absolute right-4 top-4 z-10 w-32 lg:bottom-0 lg:right-24 lg:top-auto lg:w-48">
                             <svg xmlns="http://www.w3.org/2000/svg" width="276.93" height="270.49"
                                 class="block h-auto w-full" viewBox="0 0 276.93 270.49">
                                 <path fill="#4ba7b2"
@@ -56,7 +56,8 @@
                 </svg>
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="487.84" height="528.68"
-                    class="absolute bottom-0 left-24 h-auto w-64 2xl:w-72" viewBox="0 0 487.84 528.68">
+                    class="absolute bottom-0 right-0 h-auto w-48 lg:left-24 lg:right-auto lg:w-64 2xl:w-72"
+                    viewBox="0 0 487.84 528.68">
                     <defs>
                         <style>
                             .prefix__newsletter__cls-1 {

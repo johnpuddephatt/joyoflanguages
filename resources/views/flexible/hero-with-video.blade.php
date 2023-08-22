@@ -1,7 +1,7 @@
-<div class="relative flex h-[150vh] flex-col items-center justify-center bg-white lg:h-screen lg:flex-row">
+<div class="relative flex flex-col items-center justify-center bg-white pt-48 lg:h-screen lg:flex-row lg:pt-16">
 
-    <div class="container relative z-10 mx-auto w-full max-w-7xl">
-        <div class="mt-16 lg:w-1/2">
+    <div class="container-lg relative z-10 w-full">
+        <div class="lg:w-1/2">
             <h1 class="type-xl mb-6">
                 {!! nl2br($layout->title) !!}</h1>
             <p class="max-w-xl lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
@@ -14,10 +14,10 @@
     </div>
 
     <div x-data="{ playing: false }"
-        class="inset-0 mt-8 flex translate-x-8 flex-row items-end lg:absolute lg:ml-auto lg:mt-0 lg:h-full lg:w-1/2">
+        class="right-0 top-1/2 -mb-16 ml-auto w-3/4 max-lg:overflow-hidden lg:absolute lg:w-1/2 lg:-translate-y-1/2">
 
-        <svg class="block aspect-square h-auto w-full lg:max-h-[85%] lg:translate-y-16" xmlns="http://www.w3.org/2000/svg"
-            width="1172.89" height="1107.97" viewBox="0 0 1172.89 1107.97">
+        <svg class="block h-auto w-[150%] max-w-none lg:max-h-[85vh] lg:w-full lg:translate-y-32"
+            xmlns="http://www.w3.org/2000/svg" width="1172.89" height="1107.97" viewBox="0 0 1172.89 1107.97">
             <defs>
                 <style>
                     .prefix__cls-70 {
@@ -98,7 +98,8 @@
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-        class="pointer-events-none absolute inset-0 left-0 right-0 top-0 w-full" viewBox="0 0 2730.7 1785.7">
+        class="pointer-events-none absolute inset-0 left-0 right-0 top-0 hidden w-full lg:block"
+        viewBox="0 0 2730.7 1785.7">
         <defs>
             <path id="a" d="M0 0h2730.7v1785.7H0z" />
         </defs>

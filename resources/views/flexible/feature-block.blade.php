@@ -1,12 +1,13 @@
     <div
-        class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb) !pb-24 lg:!pb-32 @endif relative flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12 lg:py-16">
+        class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb) !pb-24 lg:!pb-32 @endif container relative py-8 lg:py-16">
+
         <div
-            class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $layout->reverse ? 'mr-16' : 'ml-16' }} relative flex w-full flex-row items-center py-6">
-            <div class="{{ $layout->reverse ? '-mr-16' : '-ml-16' }} relative mx-auto -ml-16 w-full">
+            class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $layout->reverse ? 'lg:mr-16' : 'lg:ml-16' }} relative flex w-full flex-col lg:flex-row lg:items-center lg:py-6">
+            <div class="{{ $layout->reverse ? 'lg:-mr-16' : 'lg:-ml-16' }} relative w-full lg:w-1/2">
                 <x-responsive-image :image="$layout->image" class="h-auto w-full" />
                 @if ($layout->speech_bubble)
                     <svg xmlns="http://www.w3.org/2000/svg" width="192.89" height="201.61"
-                        class="absolute right-0 top-0 h-auto w-20 -translate-y-1/4 translate-x-1/3"
+                        class="absolute left-2 top-2 h-auto w-20 lg:right-0 lg:top-0 lg:-translate-y-1/3 lg:translate-x-1/3"
                         viewBox="0 0 192.89 201.61">
                         <path fill="#fff"
                             d="M189.43 105.93q10.14-39.69-9.44-69.37T120.71 1.15Q81.02-4.58 47.06 18.37T3.13 80.72q-10 39.4 11.83 68.59t61.85 35a106.38 106.38 0 0 0 28.28.46c40.29 28.31 61.89 15 49.49 3.14-4.21-4-4.67-12.61-3.36-22.38q28.56-21.96 38.21-59.6Z" />
@@ -16,32 +17,35 @@
                 @endif
 
             </div>
-            <div class="{{ $layout->reverse ? 'order-first' : null }} container relative pl-16">
+            <div class="{{ $layout->reverse ? 'lg:order-first lg:pr-16' : 'lg:pl-16' }} px-4 pb-8 pt-6 lg:px-8 lg:py-8">
                 <h2 class="mb-6 max-w-lg text-2xl font-bold leading-tight lg:text-3xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
-                    <div class="-mt-4 mb-6 max-w-sm text-lg font-bold leading-tight">{{ $layout->subtitle }}
+                    <div class="-mt-4 max-w-xs text-lg font-bold leading-tight">{{ $layout->subtitle }}
                     </div>
                 @endif
                 @if ($layout->description)
-                    <div class="mb-8 max-w-sm">@markdown($layout->description)</div>
+                    <div class="mb-8 mt-6 max-w-sm">@markdown($layout->description)</div>
                 @endif
 
-                <div class="flex flex-col gap-3 lg:flex-row lg:gap-6">
-                    @if ($layout->button_url)
-                        <x-button-link class="shadow-yellow"
-                            :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
-                    @endif
+                @if ($layout->button_url || $layout->button_2_url)
 
-                    @if ($layout->button_2_url)
-                        <x-button-link class="shadow-white"
-                            :href="$layout->button_2_url">{{ $layout->button_2_text ?? 'Read more' }}</x-button-link>
-                    @endif
-                </div>
+                    <div class="mt-6 flex flex-col items-start gap-3 lg:flex-row lg:gap-6">
+                        @if ($layout->button_url)
+                            <x-button-link class="flex-none shadow-yellow"
+                                :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
+                        @endif
+
+                        @if ($layout->button_2_url)
+                            <x-button-link class="flex-none shadow-white"
+                                :href="$layout->button_2_url">{{ $layout->button_2_text ?? 'Read more' }}</x-button-link>
+                        @endif
+                    </div>
+                @endif
             </div>
 
             @if ($layout->show_sun)
                 <svg xmlns="http://www.w3.org/2000/svg" width="648.05" height="519.42"
-                    class="absolute right-0 top-0 block w-72 -translate-y-1/4 lg:translate-x-1/3"
+                    class="absolute right-0 top-0 hidden w-72 -translate-y-1/3 lg:block lg:translate-x-1/3"
                     viewBox="0 0 648.05 519.42">
                     <defs>
                         <style>
