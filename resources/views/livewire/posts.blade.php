@@ -20,12 +20,15 @@
 
             @foreach (['asc' => 'Oldest first', 'desc' => 'Newest first'] as $orderValue => $orderLabel)
                 <x-button
-                    class="{{ $order == $orderValue ? ' !text-black border-opacity-90 ' : 'border-opacity-20' }} hidden flex-none border-light-teal !font-semibold text-gray lg:block"
+                    class="{{ $order == $orderValue ? ' !text-black border-opacity-90 ' : 'border-opacity-20' }} hidden flex-none border-light-teal !px-6 !font-semibold text-gray lg:block"
                     wire:click="$set('order', '{{ $orderValue }}')">
                     {{ $orderLabel }}
                 </x-button>
             @endforeach
         </div>
+        @if (!$posts->count())
+            <p class="py-16 text-center font-bold">No matching posts found</p>
+        @endif
         @foreach ($posts as $post)
             <x-post.card-wide-alt :post="$post" />
         @endforeach
