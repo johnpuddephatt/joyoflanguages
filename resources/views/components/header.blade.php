@@ -1,36 +1,62 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
-    class="{{ $theme == 'alternative_header' ? 'text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-white lg:py-12">
-    <div class="container mx-auto flex max-w-none flex-row items-start justify-center lg:justify-between">
-        <a class="relative z-20 flex flex-row items-center gap-2 overflow-hidden" href="/">
+    class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-teal lg:py-12">
+    <div class="container mx-auto flex max-w-none flex-row items-center justify-between lg:items-start">
+        <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden lg:gap-2" href="/">
             @if ($theme == 'alternative_header')
-                @svg('jol-logo-alt', ' h-12 w-auto')
+                @svg('jol-logo-alt', 'h-9 lg:h-12 w-auto')
             @else
-                @svg('jol-logo', ' h-12 w-auto')
+                @svg('jol-logo', ' h-9 lg:h-12 w-auto')
             @endif
 
             @if ($language)
-                <span class="font-logo text-xl uppercase tracking-widest text-light-teal lg:text-2xl">
+                <span class="font-logo text-lg uppercase tracking-widest text-light-teal lg:text-2xl">
                     {{ $language->name }}</span>
             @endif
         </a>
 
         @if ($primary_menu)
 
-            <div class="relative z-50 max-lg:absolute max-lg:right-4 max-lg:top-6 max-lg:hidden">
-                <x-button class="max-lg:px-2 lg:hidden" @click="menuOpen = !menuOpen">Menu</x-button>
-            </div>
+            <x-button aria-label="Open navigation menu" title="Open navigation menu"
+                class="!leading-0 -mr-1 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-yellow lg:hidden"
+                @click="menuOpen = true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-10" width="26.04" height="25.71"
+                    viewBox="0 0 26.04 25.71">
+                    <defs>
+                        <style>
+                            .prefix__cls-2djajs786 {
+                                fill: #fff;
+                                stroke: #12171e;
+                                stroke-linecap: round;
+                                stroke-linejoin: round;
+                                stroke-width: 1.17px
+                            }
+                        </style>
+                    </defs>
+                    <!-- <circle cx="14.44" cy="14.12" r="11.6" fill="#fff" /> -->
+                    <!-- <circle cx="12.18" cy="12.18" r="11.6" class="prefix__cls-2djajs786" /> -->
+                    <path d="M6.03 8.86h12.3M6.03 12.36h12.3M6.03 15.87h12.3" class="prefix__cls-2djajs786" />
+                </svg>
+
+            </x-button>
 
             <nav :class="!menuOpen && 'max-lg:translate-x-full'"
-                class="inset-0 z-10 flex flex-col items-start text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:justify-center max-lg:bg-orange max-lg:p-8 lg:flex-row lg:gap-6">
+                class="inset-0 z-10 flex flex-col items-start text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:justify-center max-lg:bg-yellow max-lg:p-8 lg:flex-row lg:gap-6">
 
+                <x-button aria-label="Close navigation menu" title="Close navigation menu"
+                    class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-white lg:hidden"
+                    @click="menuOpen = false">
+                    @svg('plus', 'h-auto rotate-45 w-10 p-2')
+
+                </x-button>
                 @foreach ($primary_menu['menuItems'] as $menu_item)
                     <div class="group relative">
 
                         @if (($menu_item['data']['type'] ?? false) == 'button')
-                            <x-button-link target="{{ $menu_item['target'] ?? '_self' }}" class="shadow-yellow"
+                            <x-button-link target="{{ $menu_item['target'] ?? '_self' }}"
+                                class="shadow-white max-lg:mt-6 lg:shadow-yellow"
                                 :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                         @else
-                            <a class="inline-block rounded px-6 py-2 transition group-hover:bg-white group-hover:bg-opacity-10"
+                            <a class="inline-block rounded px-2 py-2 transition group-hover:bg-white group-hover:bg-opacity-10 lg:px-2 2xl:px-6"
                                 href="{{ $menu_item['value'] }}" target="{{ $menu_item['target'] ?? '_self' }}">
                                 {{ $menu_item['name'] }}
                             </a>
