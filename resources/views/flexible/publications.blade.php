@@ -1,8 +1,8 @@
-    <div class="{{ $class ?? 'mx-auto max-w-5xl ' }} relative py-8 pb-48 lg:pb-16">
+    <div class="{{ $class ?? 'mx-auto max-w-5xl ' }} container relative py-8 pb-48 lg:pb-16">
 
         @foreach ($layout->publications as $publication)
             <div
-                class="relative mb-4 flex w-full max-w-[65ch] flex-row items-center gap-6 bg-light-teal p-6 lg:items-center lg:bg-opacity-80">
+                class="relative mb-4 flex w-full max-w-[65ch] flex-col gap-6 bg-light-teal p-6 lg:flex-row lg:items-center lg:items-center lg:bg-opacity-80">
                 @if ($publication->type == 'radio')
                     @svg('radio', 'flex-none w-16 lg:w-20 h-auto')
                 @endif
