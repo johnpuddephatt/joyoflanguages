@@ -40,10 +40,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Text::make("Company legal details", "company_legal"),
             ]),
             Panel::make("Social media", [
-                URL::make("Facebook"),
-                URL::make("Twitter"),
-                URL::make("Instagram"),
-                URL::make("LinkedIn"),
+                Text::make("Facebook"),
+                Text::make("Twitter"),
+                Text::make("Instagram"),
+                Text::make("LinkedIn"),
             ]),
             Panel::make("Newsletter signup", [
                 Text::make("Title", "newsletter_title"),
