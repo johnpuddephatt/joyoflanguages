@@ -21,7 +21,7 @@
                         @php($course = $course->attributes)
                     @endif
 
-                    <div @click="$refs.modal_course_{{ $course->number }}.showModal()"
+                    <div @click="console.log('clicked'),document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
                         class="swiper-slide !duration-250 group flex cursor-pointer flex-col border p-6 !transition hover:border-black hover:bg-beige hover:bg-opacity-20 hover:opacity-40 max-lg:items-start lg:w-1/4 lg:border-transparent lg:p-4"
                         x-data="{ modalOpen: false, shown: false }"
                         :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
@@ -42,7 +42,7 @@
                         <p class="prose mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 !text-sm shadow-yellow"
-                            @click.stop="console.log('hi', document); document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
+                            @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
 
                         <dialog
