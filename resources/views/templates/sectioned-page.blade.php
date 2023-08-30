@@ -11,7 +11,8 @@
     <div x-data="{ sectionMenuOpen: false, activeSection: null }">
 
         <div class="flex flex-col lg:flex-row">
-            <div class="2xl:container-lg top-0 flex-col justify-end px-6 py-6 transition lg:flex lg:w-[30%] lg:bg-yellow">
+            <div
+                class="2xl:container-lg top-0 flex-col justify-end px-6 py-6 !pr-4 transition lg:flex lg:w-[30%] lg:bg-yellow">
 
                 <div class="lg:sticky lg:bottom-12 lg:max-w-xl">
 
