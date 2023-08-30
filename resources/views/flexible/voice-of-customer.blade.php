@@ -40,7 +40,7 @@
 
                  </div>
                  <template x-if="shown">
-                     <div class="relative z-10 grid grid-cols-2 grid-rows-2 pt-6 lg:w-1/2">
+                     <div class="relative z-10 grid grid-cols-2 grid-rows-2 overflow-visible pt-6 lg:w-1/2">
                          @foreach ($quotes as $row => $quoteRow)
                              @php($bubbles = collect([1, 2, 3])->shuffle())
                              @foreach ($quoteRow->shuffle() as $key => $quote)
@@ -50,7 +50,7 @@
                                      x-transition:enter-end="opacity-100 scale-100"
                                      x-transition:leave="transition ease-out duration-[500ms] delay-[{{ $bubbles[$key] * 250 }}ms] -z-10"
                                      x-transition:leave-end="scale-0"
-                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex aspect-video items-center justify-center p-4 text-center text-xl font-bold !leading-none lg:text-2xl">
+                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex aspect-video items-center justify-center px-4 text-center text-xl font-bold !leading-none lg:text-2xl">
                                      {{ $quote->quote }}
                                      @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 left-0 right-0 h-auto top-1/2 -translate-y-1/2 max-w-none w-full')
                                  </div>
