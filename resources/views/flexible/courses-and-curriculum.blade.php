@@ -52,7 +52,7 @@
                             <form method="dialog">
                                 <button
                                     class="absolute right-4 top-4 block w-10 rounded-full before:fixed before:inset-0 before:-z-10"
-                                    @click="$refs.modal_course_{{ $course->number }}.close(); console.log('closing dialog {{ $course->number }}');"
+                                    @click.stop="$refs.modal_course_{{ $course->number }}.close(); console.log('closing dialog {{ $course->number }}');"
                                     aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
                                 <div>
                                     <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
