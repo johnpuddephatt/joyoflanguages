@@ -1,8 +1,8 @@
-<div class="pb-16 pt-20 lg:pt-32" x-data="{ showing: {{ $layout->number_shown ?? 5 }} }">
-    <div class="mx-auto max-w-2xl text-center">
+<div class="pb-16 pt-20 text-center lg:pt-32" x-data="{ showing: {{ $layout->number_shown ?? 5 }} }">
+    <div class="mx-auto max-w-2xl">
         @include('components.block-intro', ['layout' => $layout])
     </div>
-    <div class="mx-auto lg:container">
+    <div class="mx-auto text-left lg:container">
         <div class="mt-12 flex flex-col border-b border-teal lg:mt-16" x-data="{ current: null }">
             @foreach ($layout->faqs as $faq)
                 <details x-transition x-show="{{ $loop->index }} < showing"
@@ -17,6 +17,6 @@
     </div>
 
     <x-button @click="showing = showing + {{ $layout->number_shown ?? 5 }}"
-        x-show="showing < {{ count($layout->faqs) }}" class="mx-auto mt-12 !block after:!bg-light-teal">Show more
+        x-show="showing < {{ count($layout->faqs) }}" class="mx-auto mt-12 after:!bg-light-teal">Show more
         questions</x-button>
 </div>
