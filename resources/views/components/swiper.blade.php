@@ -17,7 +17,7 @@
     breakpoints: {
 
         1024: {
-            spaceBetween: 30,
+            spaceBetween: 15,
             centeredSlides: false,
 
             slidesPerView: {{ $item_count }},

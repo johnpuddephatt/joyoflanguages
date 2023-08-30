@@ -22,7 +22,7 @@
                     @endif
 
                     <div @click="$refs.modal_course_{{ $course->number }}.showModal()"
-                        class="swiper-slide !duration-250 group flex cursor-pointer flex-col items-start border p-6 !transition hover:border-black hover:bg-beige hover:bg-opacity-20 hover:opacity-40 lg:w-1/4 lg:border-transparent lg:p-4"
+                        class="swiper-slide !duration-250 group flex cursor-pointer flex-col border p-6 !transition hover:border-black hover:bg-beige hover:bg-opacity-20 hover:opacity-40 max-lg:items-start lg:w-1/4 lg:border-transparent lg:p-4"
                         x-data="{ modalOpen: false, shown: false }"
                         :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
                         x-intersect:enter.half="shown = true" x-intersect:leave.half="shown = false">
@@ -42,16 +42,17 @@
                         <p class="prose mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 !text-sm shadow-yellow"
-                            @click.stop="$refs.modal_course_{{ $course->number }}.showModal()">View
+                            @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
 
                         <dialog
+                            @close="document.body.classList.remove('overflow-hidden'); console.log('closing dialog')"
                             class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-blue backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
                             x-ref="modal_course_{{ $course->number }}">
                             <form method="dialog">
                                 <button
-                                    class="absolute right-4 top-4 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 before:overscroll-contain before:bg-white before:bg-opacity-50"
-                                    @click="$refs.modal_course_{{ $course->number }}.close()"
+                                    class="absolute right-4 top-4 block w-10 rounded-full before:fixed before:inset-0 before:-z-10"
+                                    @click="$refs.modal_course_{{ $course->number }}.close(); console.log('closing dialog {{ $course->number }}')')"
                                     aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
                                 <div>
                                     <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
