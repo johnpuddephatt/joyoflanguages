@@ -42,7 +42,7 @@
                         <p class="prose mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 !text-sm shadow-yellow"
-                            @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
+                            @click.stop="console.log('hi', document); document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
 
                         <dialog
