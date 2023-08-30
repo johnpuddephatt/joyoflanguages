@@ -43,7 +43,9 @@
 
             <div class="flex-grow py-8 lg:pb-16">
                 <div class="sticky top-0 z-20">
-                    <x-button class="!absolute right-2 top-2 !px-6 lg:hidden" @click="sectionMenuOpen = true">
+                    <x-button
+                        class="!absolute right-1 top-2 !px-3 !py-1 max-sm:text-sm lg:right-2 lg:hidden lg:!px-6 lg:!py-2"
+                        @click="sectionMenuOpen = true">
                         Jump to a section
                     </x-button>
                 </div>

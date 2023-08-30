@@ -10,7 +10,7 @@
 }
 
 .type-subtitle {
-    @apply lg:text-xl font-semibold;
+    @apply text-lg lg:text-xl font-semibold;
 }
 
 .bold-text-light-teal strong {
