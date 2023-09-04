@@ -7,8 +7,8 @@
                 @foreach ($layout->podcasts as $podcast)
                     <div class="relative flex max-w-lg justify-between gap-2 border-b border-light-teal pb-4 pt-2">
                         <div>
-                            <div class="mb-0.5 text-sm font-bold">Episode {{ $podcast->episode_number }}</div>
-                            <p class="font-semibold leading-tight">{{ $podcast->title }}</p>
+                            <div class="mb-0.5 font-bold">Episode {{ $podcast->episode_number }}</div>
+                            <p class="text-lg font-semibold leading-tight">{{ $podcast->title }}</p>
                         </div>
                         <x-button-link class="my-auto px-4 shadow-yellow after:absolute after:inset-0"
                             href="{{ $podcast->url }}">
