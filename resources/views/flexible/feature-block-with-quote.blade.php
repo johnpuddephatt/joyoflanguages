@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="container mx-auto -mt-24 grid lg:grid-cols-2 lg:gap-16">
+<div class="container mx-auto -mt-24 grid lg:grid-cols-2 lg:gap-8 2xl:gap-16">
     <div class="mx-auto my-auto max-w-xl py-24">
 
         @svg('quote-open', 'w-12 text-teal')

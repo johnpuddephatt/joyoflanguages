@@ -9,6 +9,10 @@
     letter-spacing: 0.01rem;
 }
 
+.prose-lg {
+    line-height: 1.5;
+}
+
 .type-xl {
     @apply text-balance text-5xl font-bold !leading-[0.95]  xl:text-6xl !tracking-tight;
 }
