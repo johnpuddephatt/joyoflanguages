@@ -12,10 +12,10 @@
                         d="M313.94 21.42c-27.07 20-30.39-22.14-47.82-17.05-12.12 3.54-19 15.94-25.2 26.91s-15.11 22.74-27.73 23.27c-16.63.71-26.43-17.53-38.06-29.44-24.43-25-57.23-35.25-70-2.72-8 20.32-1.46 30.54 5.88 64.7 0 0 15.93 62.77-54.75 21.89-17.07-9.65-13.56-35-1.05-27.45s-35.95 42-53.3 1" />
                 </svg>
             @endif
-            <img class="w-full lg:w-2/5" src="{{ Storage::url($layout->image) }}" />
+            <img class="w-full lg:w-1/3" src="{{ Storage::url($layout->image) }}" />
 
-            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 lg:px-8 lg:py-8">
-                <h2 class="type-lg max-w-lg">{!! $layout->title !!}</h2>
+            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 lg:py-8">
+                <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
                 @endif
