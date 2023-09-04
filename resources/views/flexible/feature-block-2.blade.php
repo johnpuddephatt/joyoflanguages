@@ -14,14 +14,13 @@
             @endif
             <img class="w-full lg:w-2/5" src="{{ Storage::url($layout->image) }}" />
 
-            <div
-                class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex flex-1 flex-col items-start justify-center lg:px-8 lg:py-8">
+            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 lg:px-8 lg:py-8">
                 <h2 class="type-lg max-w-lg">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
                 @endif
                 @if ($layout->description)
-                    <div class="prose prose-lg mt-4 max-w-sm lg:mt-8">@markdown($layout->description)</div>
+                    <div class="prose prose-lg mt-4 max-w-md lg:mt-8">@markdown($layout->description)</div>
                 @endif
 
                 <div class="flex flex-row gap-2">
