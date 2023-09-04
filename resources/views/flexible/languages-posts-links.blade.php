@@ -1,7 +1,7 @@
 <div class="container mx-auto my-16">
     <div class="mb-12 flex flex-row items-end justify-center">
         <div class="relative mb-24">
-            <h2 class="ml-auto block text-4xl font-bold"">{{ $layout->title }}
+            <h2 class="type-lg ml-auto">{{ $layout->title }}
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="749.33" height="4.21"
                     class="absolute mt-6 w-full -translate-x-1/3" viewBox="0 0 749.33 4.21">

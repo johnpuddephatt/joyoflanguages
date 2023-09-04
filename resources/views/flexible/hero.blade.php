@@ -3,8 +3,8 @@
 
     <div class="container-lg relative z-10 mx-auto w-full">
         <div class="lg:w-1/2">
-            <h1 class="mb-6 text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">{!! nl2br($layout->title) !!}</h1>
-            <p class="max-w-lg lg:text-lg">{!! nl2br($layout->subtitle) !!}</p>
+            <h1 class="type-xl mb-6">{!! nl2br($layout->title) !!}</h1>
+            <p class="prose prose-lg max-w-lg">{!! nl2br($layout->subtitle) !!}</p>
             @if ($layout->button_url)
                 <x-button-link class="mt-6 text-lg shadow-white"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>

@@ -17,13 +17,13 @@
         <div>
             <div class="relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden bg-yellow">
                 <div class="container relative z-10 mx-auto pb-64 pt-36 text-center lg:py-16">
-                    <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">{{ $layout->title }}</h2>
-                    <div class="mx-auto mb-12 max-w-xl font-semibold">{!! $layout->description !!}</div>
+                    <h2 class="type-lg mx-auto !mb-4 max-w-xl">{{ $layout->title }}</h2>
+                    <div class="type-subtitle mx-auto mb-12 max-w-xl">{!! $layout->description !!}</div>
 
                     <input class="mx-auto mb-8 block w-full max-w-sm rounded-full px-8 py-3 text-center" type="email"
                         placeholder="{{ $layout->placeholder }}">
 
-                    <x-button class="after:!bg-light-teal" type="submit">{{ $layout->button_text }}</x-button>
+                    <x-button class="shadow-light-teal" type="submit">{{ $layout->button_text }}</x-button>
                     @if ($layout->sticker)
                         <div class="absolute right-4 top-4 z-10 w-32 lg:bottom-0 lg:right-24 lg:top-auto lg:w-48">
                             <svg xmlns="http://www.w3.org/2000/svg" width="276.93" height="270.49"

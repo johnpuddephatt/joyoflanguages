@@ -11,9 +11,9 @@
                 @foreach ($layout->bullets as $bullet)
                     <div class="flex flex-row items-center gap-2 font-bold">
                         <div
-                            class="relative h-8 w-8 rounded-full border-2 after:absolute after:inset-0 after:-z-10 after:translate-x-0.5 after:translate-y-0.5 after:rounded-full after:bg-yellow">
+                            class="relative h-8 w-8 flex-none rounded-full border-2 after:absolute after:inset-0 after:-z-10 after:translate-x-0.5 after:translate-y-0.5 after:rounded-full after:bg-yellow">
                         </div>
-                        <p>{{ $bullet }}</p>
+                        <p class="prose prose-lg">{{ $bullet }}</p>
                     </div>
                 @endforeach
             </div>
