@@ -8,7 +8,7 @@
 
         </div>
         @if ($layout->button_url)
-            <x-button-link class="mt-8 shadow-yellow lg:mt-16"
+            <x-button-link class="mr-auto mt-8 shadow-yellow lg:mt-16"
                 :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
         @endif
     </div>
