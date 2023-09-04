@@ -7,7 +7,7 @@
                 <x-responsive-image :image="$layout->image" class="h-auto w-full" />
                 @if ($layout->speech_bubble)
                     <svg xmlns="http://www.w3.org/2000/svg" width="192.89" height="201.61"
-                        class="absolute left-2 top-2 h-auto w-20 lg:right-0 lg:top-0 lg:-translate-y-1/3 lg:translate-x-1/3"
+                        class="absolute left-2 top-2 h-auto w-20 lg:right-0 lg:top-0 lg:-translate-y-1/3 lg:translate-x-1/4"
                         viewBox="0 0 192.89 201.61">
                         <path fill="#fff"
                             d="M189.43 105.93q10.14-39.69-9.44-69.37T120.71 1.15Q81.02-4.58 47.06 18.37T3.13 80.72q-10 39.4 11.83 68.59t61.85 35a106.38 106.38 0 0 0 28.28.46c40.29 28.31 61.89 15 49.49 3.14-4.21-4-4.67-12.61-3.36-22.38q28.56-21.96 38.21-59.6Z" />
@@ -45,7 +45,7 @@
 
             @if ($layout->show_sun)
                 <svg xmlns="http://www.w3.org/2000/svg" width="648.05" height="519.42"
-                    class="absolute right-0 top-0 hidden w-72 -translate-y-1/3 lg:block lg:translate-x-1/3"
+                    class="absolute right-0 top-0 hidden w-64 -translate-y-1/3 lg:block lg:translate-x-1/3"
                     viewBox="0 0 648.05 519.42">
                     <defs>
                         <style>
