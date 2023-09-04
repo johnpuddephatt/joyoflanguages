@@ -24,7 +24,7 @@
                     </div>
                 @endif
                 @if ($layout->description)
-                    <div class="mb-8 mt-6 max-w-sm">@markdown($layout->description)</div>
+                    <div class="prose prose-lg mb-8 mt-6 max-w-sm">@markdown($layout->description)</div>
                 @endif
 
                 @if ($layout->button_url || $layout->button_2_url)
