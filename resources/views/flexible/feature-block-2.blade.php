@@ -21,7 +21,7 @@
                     <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
                 @endif
                 @if ($layout->description)
-                    <div class="prose mt-4 max-w-sm lg:mt-8">@markdown($layout->description)</div>
+                    <div class="prose prose-lg mt-4 max-w-sm lg:mt-8">@markdown($layout->description)</div>
                 @endif
 
                 <div class="flex flex-row gap-2">

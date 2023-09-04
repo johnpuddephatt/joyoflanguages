@@ -2,9 +2,12 @@
 
 namespace App\Nova\Flexible\Layouts;
 
+use App\Models\Language;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 
 class LatestPosts extends Layout
 {
@@ -32,7 +35,14 @@ class LatestPosts extends Layout
     // Define your accessors here
     public function getPostsAttribute()
     {
-        if ($this->model->language) {
+        if ($this->__get("post_ids")) {
+            $post_ids = array_column($this->__get("post_ids"), "post_id");
+            $post_ids_list = implode(",", $post_ids);
+            return \App\Models\Post::whereIn("id", $post_ids)
+                ->orderByRaw("FIELD(id, $post_ids_list)")
+                ->get();
+        }
+        if ($this->model?->language) {
             return $this->model->language->posts->take(
                 $this->__get("limit") ?? 9999
             );
@@ -48,6 +58,18 @@ class LatestPosts extends Layout
      */
     public function fields()
     {
-        return [Text::make("Title"), Number::make("Limit")];
+        return [
+            SimpleRepeatable::make("Posts", "post_ids", [
+                Select::make("Post", "post_id")
+                    ->options(\App\Models\Post::pluck("title", "id"))
+
+                    ->displayUsingLabels()
+                    ->stacked(),
+            ])->addRowLabel("Add post"),
+            Text::make("Title"),
+            Number::make("Limit")->help(
+                "Only applies if posts are not manually set."
+            ),
+        ];
     }
 }

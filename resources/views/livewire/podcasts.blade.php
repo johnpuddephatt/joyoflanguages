@@ -35,6 +35,7 @@
         @endforeach
 
         <div class="pt-16">
+
             {{ $podcasts->links() }}
         </div>
     </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="scroll-smooth leading-snug antialiased xl:text-lg xl:leading-snug 2xl:text-xl 2xl:leading-snug">
+<html class="tracking-loose scroll-smooth antialiased xl:text-lg 2xl:text-xl">
+<!-- leading-snug xl:leading-snug 2xl:leading-snug -->
 
 <head>
 

@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.tracking-loose {
+    letter-spacing: 0.01rem;
+}
+
 .type-xl {
     @apply text-balance text-5xl font-bold !leading-[0.95]  xl:text-6xl !tracking-tight;
 }
