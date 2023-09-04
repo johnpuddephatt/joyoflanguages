@@ -16,7 +16,7 @@
 
             <div
                 class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex flex-1 flex-col items-start justify-center lg:px-8 lg:py-8">
-                <h2 class="mb-3 max-w-lg text-3xl font-bold lg:mb-6 lg:text-4xl">{!! $layout->title !!}</h2>
+                <h2 class="type-lg max-w-lg">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
                 @endif

@@ -3,12 +3,12 @@
     <x-responsive-image class="block w-full" :image="$layout->main_image" />
 
     <div class="container flex flex-col py-8 lg:justify-center lg:py-24">
-        <h2 class="mb-8 text-4xl font-bold">{{ $layout->title }}</h2>
+        <h2 class="type-lg">{{ $layout->title }}</h2>
         <div class="prose prose-lg max-w-md">@markdown($layout->description)
 
         </div>
         @if ($layout->button_url)
-            <x-button-link class="mr-auto mt-8 shadow-yellow lg:mt-16"
+            <x-button-link class="mr-auto mt-8 shadow-yellow lg:mt-12"
                 :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
         @endif
     </div>

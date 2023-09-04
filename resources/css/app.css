@@ -13,6 +13,10 @@
     @apply text-balance text-5xl font-bold !leading-[0.95]  xl:text-6xl !tracking-tight;
 }
 
+.type-lg {
+    @apply mb-4  text-3xl font-bold lg:mb-8 lg:text-4xl;
+}
+
 .type-subtitle {
     @apply text-lg lg:text-xl font-semibold;
 }
