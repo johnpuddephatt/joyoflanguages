@@ -18,16 +18,17 @@
                          this.currentRow = ((this.currentRow + 1 < this.rowCount) ? this.currentRow + 1 : 0);
                      }, 6000)
                      document.addEventListener('visibilitychange', () => {
-                         if (document.hidden) {
-                             this.shown = false;
-                             clearInterval(quoteTimer);
-                         } else {
-                             this.shown = true;
-                             this.initialise();
-                         }
-                     });
-                 },
-             }" class="container mx-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-center"
+                             if (document.hidden) {
+                                 console.log(
+                                     this.shown = false; clearInterval(quoteTimer);
+                                 }
+                                 else {
+                                     this.shown = true;
+                                     this.initialise();
+                                 }
+                             });
+                     },
+                 }" class="container mx-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-center"
                  x-intersect="if(!initialised) { initialised = true; initialise()}">
 
                  <div class="flex-1 lg:w-1/2">
@@ -63,7 +64,7 @@
 
              <div class="container mx-auto max-w-3xl">
                  <div
-                     class="prose relative mb-16 mt-0 flex w-full translate-y-1/2 flex-row rounded-3xl bg-blue px-3 py-4 lg:items-center lg:px-8">
+                     class="prose relative mb-16 mt-0 flex w-full translate-y-1/2 flex-row rounded-3xl bg-pink px-4 py-6 lg:items-center lg:px-8">
 
                      <svg class="h-auto w-20 flex-none lg:w-32" xmlns="http://www.w3.org/2000/svg" width="104.23"
                          height="121.75" viewBox="0 0 104.23 121.75">
@@ -91,7 +92,7 @@
                          </g>
                      </svg>
 
-                     <div class="prose pl-2 !leading-tight max-lg:prose-sm lg:pl-6">
+                     <div class="prose pl-2 !leading-tight lg:pl-6">
                          @markdown($layout->outro)
                      </div>
                  </div>

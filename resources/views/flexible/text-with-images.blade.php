@@ -1,5 +1,5 @@
 <div class="relative">
-    <div class="{{ $class ?? 'container w-full max-w-6xl mx-auto' }}">
+    <div class="{{ $class ?? 'container w-full lg:max-w-6xl mx-auto' }}">
         <div class="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-12">
             <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-1/2">
                 @if ($layout->title)

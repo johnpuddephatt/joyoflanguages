@@ -1,8 +1,8 @@
-<div class="bg-{{ $layout->colour ?? 'teal-light' }} relative pt-8 lg:pt-16">
+<div class="bg-{{ $layout->colour ?? 'teal-light' }} relative overflow-hidden pt-8 lg:pt-16">
     <div class="left-0 right-0 top-0 lg:absolute lg:pt-36">
         <div class="container-lg relative mx-auto block">
 
-            <div class="{{ $layout->reverse ? 'order-first' : null }} max-w-xl py-8 lg:pb-64">
+            <div class="{{ $layout->reverse ? 'order-first' : null }} max-w-lg py-8 lg:pb-64 2xl:max-w-xl">
                 <h2 class="text-balance mb-8 text-2xl font-bold !leading-[0.95] lg:mb-12 lg:text-5xl">
                     {!! $layout->title !!}
                 </h2>

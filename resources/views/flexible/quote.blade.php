@@ -3,7 +3,7 @@
         <div class="{{ $layout->background_colour ?? null }} absolute bottom-0 right-0 top-0 z-10 w-screen"></div>
     @endif
     <div
-        class="{{ $class ?? 'max-w-4xl mx-auto' }} {{ $layout->background_colour ? 'z-20' : null }} container relative py-8 lg:py-16">
+        class="{{ $class ?? 'lg:max-w-4xl mx-auto' }} {{ $layout->background_colour ? 'z-20' : null }} container relative py-8 lg:py-16">
 
         @if ($layout->background_colour)
             @svg('quote-open', 'w-12 text-white')
@@ -11,7 +11,7 @@
             @svg('quote-open', 'w-12 text-light-teal')
         @endif
 
-        <div class="{{ $layout->large ? 'text-2xl lg:text-3xl' : 'text-lg lg:text-2xl' }} font-bold">
+        <div class="{{ $layout->large ? 'text-2xl lg:text-3xl' : 'text-xl lg:text-2xl' }} font-bold">
             {!! $layout->quote !!}
 
             @if ($layout->background_colour)

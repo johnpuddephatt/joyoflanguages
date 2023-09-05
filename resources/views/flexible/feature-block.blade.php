@@ -19,11 +19,11 @@
             <div class="{{ $layout->reverse ? 'lg:order-first lg:pr-16' : 'lg:pl-16' }} px-4 pb-8 pt-6 lg:px-8 lg:py-8">
                 <h2 class="type-lg max-w-lg">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
-                    <div class="-mt-4 max-w-xs text-lg font-bold leading-tight">{{ $layout->subtitle }}
+                    <div class="-mt-4 text-lg font-bold leading-tight lg:max-w-xs">{{ $layout->subtitle }}
                     </div>
                 @endif
                 @if ($layout->description)
-                    <div class="prose prose-lg mb-8 mt-6 max-w-md">@markdown($layout->description)</div>
+                    <div class="prose prose-lg mb-8 mt-6 lg:max-w-md">@markdown($layout->description)</div>
                 @endif
 
                 @if ($layout->button_url || $layout->button_2_url)

@@ -19,7 +19,7 @@
 
         </div>
         @if ($layout->checklist)
-            <div class="space-y-6 pl-16 max-lg:mt-16 2xl:pl-24">
+            <div class="space-y-6 max-lg:mt-16 lg:pl-16 2xl:pl-24">
                 @foreach ($layout->checklist as $checklistItem)
                     <div class="flex flex-row gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="flex-0 mt-1 h-12 w-12 lg:h-16 lg:w-16"
@@ -36,7 +36,7 @@
 
                         <div class="flex-1">
                             <h3 class="mb-1 text-lg font-bold leading-tight">{{ $checklistItem->title }}</h3>
-                            <div class="prose !leading-snug max-lg:prose-sm">@markdown($checklistItem->description)</div>
+                            <div class="prose !leading-snug tracking-normal">@markdown($checklistItem->description)</div>
                         </div>
                     </div>
                 @endforeach
