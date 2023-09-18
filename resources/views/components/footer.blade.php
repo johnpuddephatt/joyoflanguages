@@ -1,7 +1,7 @@
 <footer class="relative overflow-hidden bg-blue pb-8 pt-36 lg:pb-36">
     <div class="container mx-auto max-w-none">
         @if (isset($settings['mission']))
-            <div class="prose prose-lg mx-auto max-w-lg lg:mx-0">@markdown($settings['mission'])</div>
+            <div class="prose prose-lg mx-auto mb-4 max-w-lg lg:mx-0">@markdown($settings['mission'])</div>
         @endif
 
         @if (isset($settings['company_address']))
