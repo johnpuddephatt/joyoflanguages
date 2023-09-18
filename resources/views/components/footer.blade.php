@@ -4,10 +4,10 @@
             <div class="prose prose-lg mx-auto max-w-lg lg:mx-0">@markdown($settings['mission'])</div>
         @endif
 
-        @if (isset($settings['mission']))
+        @if (isset($settings['company_address']))
             <div class="prose mx-auto max-w-lg lg:mx-0">@markdown($settings['company_address'])</div>
         @endif
-        @if (isset($settings['legal']))
+        @if (isset($settings['company_legal']))
             <div class="prose mx-auto max-w-lg lg:mx-0">@markdown($settings['company_legal'])</div>
         @endif
 
