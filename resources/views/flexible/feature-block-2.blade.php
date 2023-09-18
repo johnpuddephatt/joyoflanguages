@@ -50,10 +50,10 @@
 
                 @foreach ($layout->images as $key => $image)
                     <div
-                        class="{{ match ($key) {0 => '-rotate-6 max-lg:mx-auto',1 => 'rotate-3 max-lg:ml-auto max-lg:-mt-[10em]',2 => '-rotate-3 max-lg:-mt-[20em]'} }} rotate relative w-1/2 flex-1 lg:w-auto">
+                        class="{{ match ($key) {0 => '-rotate-6 max-lg:mx-auto',1 => 'rotate-3 max-lg:ml-auto max-md:-mt-[4rem] max-lg:-mt-[10rem]',2 => '-rotate-3  max-md:-mt-[10rem] max-lg:-mt-[20rem]'} }} rotate relative w-1/2 flex-1 lg:w-auto">
                         <x-library-image class="w-full" conversion="portrait" :image="$image->image" :alt="'Photo of ' . $image->caption" />
                         <div
-                            class="{{ match ($key) {0 => 'top-1/2 -left-4',1 => '-right-4 -bottom-4 ',2 => '-right-4 top-1/4'} }} absolute z-10 flex h-24 w-24 items-center justify-center rounded-full p-4 text-center font-bold leading-none">
+                            class="{{ match ($key) {0 => 'top-1/2 -left-4',1 => '-right-4 -bottom-4 ',2 => '-right-4 top-1/2'} }} absolute z-10 flex h-20 w-20 items-center justify-center rounded-full p-4 text-center text-sm font-bold !leading-none sm:h-24 sm:w-24 sm:text-base">
 
                             <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                 xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
