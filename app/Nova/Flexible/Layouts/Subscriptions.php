@@ -47,6 +47,9 @@ class Subscriptions extends Layout
                     ->stacked(),
                 Text::make("URL", "url")->stacked(),
             ]),
+            Textarea::make("Small print")
+                ->help("Accepts Markdown")
+                ->stacked(),
             Textarea::make("Outro")
                 ->help("Accepts Markdown")
                 ->stacked(),

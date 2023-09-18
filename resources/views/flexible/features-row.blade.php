@@ -3,7 +3,7 @@
 
         @include('components.block-intro', ['layout' => $layout])
     </div>
-    <div class="lg:container-lg relative mx-auto pt-12 lg:pt-24">
+    <div class="relative pt-12 lg:pt-24">
 
         <x-swiper centered_slides="true" :item_count="count($layout->features)">
 
@@ -18,7 +18,7 @@
                     @endif
                     <div class="px-4 py-6">
                         @if ($feature->title)
-                            <h3 class="mb-4 mr-8 text-3xl font-bold !leading-none lg:text-3xl">
+                            <h3 class="mb-4 mr-8 text-2xl font-bold !leading-none">
                                 {{ $feature->title }}
                             </h3>
                         @endif

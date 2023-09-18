@@ -53,6 +53,12 @@
         </div>
     @endif
 
+    @if ($layout->small_print)
+        <div class="prose prose-sm mx-auto max-w-lg pt-12 text-center">
+            {!! Str::of($layout->small_print)->markdown()->replace('<a', '<a target="_blank"') !!}
+        </div>
+    @endif
+
     @if ($layout->outro)
         <x-hint>
             @markdown($layout->outro)
