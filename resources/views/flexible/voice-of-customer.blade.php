@@ -18,17 +18,16 @@
                          this.currentRow = ((this.currentRow + 1 < this.rowCount) ? this.currentRow + 1 : 0);
                      }, 6000)
                      document.addEventListener('visibilitychange', () => {
-                             if (document.hidden) {
-                                 console.log(
-                                     this.shown = false; clearInterval(quoteTimer);
-                                 }
-                                 else {
-                                     this.shown = true;
-                                     this.initialise();
-                                 }
-                             });
-                     },
-                 }" class="container mx-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-center"
+                         if (document.hidden) {
+                             this.shown = false;
+                             clearInterval(quoteTimer);
+                         } else {
+                             this.shown = true;
+                             this.initialise();
+                         }
+                     });
+                 },
+             }" class="container mx-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-center"
                  x-intersect="if(!initialised) { initialised = true; initialise()}">
 
                  <div class="flex-1 lg:w-1/2">
