@@ -7,7 +7,7 @@
          @if ($podcast->episode_number)
              <p class="font-semibold lg:text-xl">Episode {{ $podcast->episode_number }}</p>
          @endif
-         <h3 class="mb-2 mt-1 text-xl font-semibold leading-tight lg:text-2xl lg:leading-tight">{{ $podcast->title }}
+         <h3 class="mb-2 mt-0.5 text-xl font-semibold leading-tight lg:text-2xl lg:leading-tight">{{ $podcast->title }}
          </h3>
          <p class="mb-4 max-w-xl text-sm">{{ $podcast->introduction }}</p>
          <div class="flex flex-row items-center gap-2 font-semibold lg:gap-4">
