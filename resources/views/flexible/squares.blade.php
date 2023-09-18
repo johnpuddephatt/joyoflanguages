@@ -1,7 +1,7 @@
         @include('flexible.text-with-image', ['layout' => $layout])
         <div class="{{ $layout->background_colour ?? '' }}">
 
-            <div class="relative mx-auto w-full max-w-6xl pb-6 pt-12 xl:container">
+            <div class="container relative mx-auto w-full pb-6 pt-12">
                 @if ($layout->sticker)
                     <div
                         class="absolute -top-4 right-6 z-10 flex h-24 w-24 rotate-6 items-center justify-center rounded-full p-4 text-center font-bold leading-none lg:right-12 xl:right-28 xl:top-0">
@@ -15,20 +15,17 @@
 
                     </div>
                 @endif
-                <x-swiper :mobile_view_count="2.25" :item_count="count($layout->squares)" centered_slides="false">
 
+                <div class="grid grid-cols-1 gap-4 lg:grid-cols-5 lg:gap-6">
                     @foreach ($layout->squares as $square)
-                        <div class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} swiper-slide flex aspect-square flex-col items-center justify-center p-4 text-center !transition !duration-500 hover:opacity-40"
-                            @click="if(!shown) { swiper.slideTo({{ $loop->index }}); $event.preventDefault(); }"
-                            x-data="{ shown: false }"
-                            :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
-                            x-intersect:enter.half="shown = true" x-intersect:leave.half="shown = false">
+                        <div
+                            class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} !flex-0 flex flex-col items-center justify-center p-4 text-center lg:aspect-square">
                             <h3 class="mb-2 text-2xl font-bold">{{ $square->title }}</h3>
-                            <div class="prose prose-sm !leading-tight">{{ $square->description }}</div>
+                            <div class="prose prose-sm !leading-tight lg:h-12">{{ $square->description }}</div>
                         </div>
                     @endforeach
 
-                </x-swiper>
+                </div>
 
                 @if ($layout->addendum)
                     <p class="bold-badged mt-8 text-center">@inlineMarkdown($layout->addendum)</p>

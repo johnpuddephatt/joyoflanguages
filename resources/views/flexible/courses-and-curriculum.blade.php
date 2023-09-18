@@ -14,7 +14,7 @@
 
         <div class="">
 
-            <x-swiper :mobile_view_count="1.25" :item_count="count($layout->courses)" centered_slides="true">
+            <div class="container mx-auto grid gap-4 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4">
 
                 @foreach ($layout->courses as $course)
                     @if ($course instanceof stdClass)
@@ -22,10 +22,8 @@
                     @endif
 
                     <div @click="console.log('clicked'),document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
-                        class="swiper-slide !duration-250 group flex cursor-pointer flex-col border p-6 !transition hover:border-black hover:bg-beige hover:bg-opacity-20 hover:opacity-40 max-lg:items-start lg:w-1/4 lg:border-transparent lg:p-4"
-                        x-data="{ modalOpen: false, shown: false }"
-                        :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
-                        x-intersect:enter.half="shown = true" x-intersect:leave.half="shown = false">
+                        class="group flex cursor-pointer flex-col border border-black border-opacity-20 p-6 transition hover:border-opacity-100 hover:bg-beige hover:bg-opacity-20 max-lg:items-start lg:p-4"
+                        x-data="{ modalOpen: false, shown: false }">
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="43.78" height="40.29" class="mb-2 h-14 w-14"
                             viewBox="0 0 43.78 40.29">
@@ -103,7 +101,7 @@
                         </dialog>
                     </div>
                 @endforeach
-            </x-swiper>
+            </div>
 
             @if ($layout->outro)
                 <x-hint>

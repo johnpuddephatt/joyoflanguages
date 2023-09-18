@@ -4,15 +4,9 @@
         @include('components.block-intro', ['layout' => $layout])
     </div>
     <div class="relative pt-12 lg:pt-24">
-
-        <x-swiper centered_slides="true" :item_count="count($layout->features)">
-
+        <div class="container mx-auto grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             @foreach ($layout->features as $feature)
-                <div class="swiper-slide !h-auto cursor-default bg-beige !transition !duration-500 hover:opacity-40"
-                    @click="if(!shown) { swiper.slideTo({{ $loop->index }}); $event.preventDefault(); }"
-                    x-data="{ shown: false }"
-                    :class="{ 'flex-1': !swiper, 'max-lg:opacity-20': !shown, '!opacity-100': shown }"
-                    x-intersect:enter.half="shown = true" x-intersect:leave.half="shown = false">
+                <div class="!h-auto cursor-default bg-beige">
                     @if ($feature->image)
                         <x-library-image :image="$feature->image" conversion="3x2" class="mx-auto block w-full" />
                     @endif
@@ -28,7 +22,7 @@
                     </div>
                 </div>
             @endforeach
-        </x-swiper>
+        </div>
 
         <x-hint>
             @markdown($layout->outro)
@@ -51,7 +45,6 @@
                 <path d="m13.84 17.62 5.1 6.52L29.73 9.1" class="prefix__a7dh4hd__cls-2" />
                 <path d="M31.59 18.98a12.38 12.38 0 1 1-7.77-11.51" class="prefix__a7dh4hd__cls-2" />
             </svg>
-
         </x-hint>
 
     </div>
