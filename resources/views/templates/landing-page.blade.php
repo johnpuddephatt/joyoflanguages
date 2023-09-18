@@ -112,4 +112,6 @@
         </nav>
 
     </div>
+
+    <x-footer />
 @endsection
