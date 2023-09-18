@@ -1,5 +1,5 @@
 @php
-    if (!isset($layout)) {
+    if (!isset($layout) || !$layout->form_action) {
         $layout = (object) [
             'title' => nova_get_setting('newsletter_title', 'Subscribe to our newsletter'),
             'description' => nova_get_setting('newsletter_description', 'Get the latest news and updates from us, straight to your inbox.'),
@@ -15,7 +15,8 @@
     <form action="{{ $layout->form_action }}" method="POST">
         @csrf
         <div>
-            <div class="relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden bg-yellow">
+            <div
+                class="{{ $background ?? 'bg-yellow' }} relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden">
                 <div class="container relative z-10 mx-auto pb-64 pt-36 text-center lg:py-16">
                     <h2 class="type-lg mx-auto !mb-4 max-w-xl">{{ $layout->title }}</h2>
                     <div class="type-subtitle mx-auto mb-12 max-w-xl">{!! $layout->description !!}</div>

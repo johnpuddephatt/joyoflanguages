@@ -78,4 +78,6 @@
             </div>
         </div>
     </div>
+
+    @include('flexible.newsletter', ['background' => 'bg-pink'])
 @endsection
