@@ -1,7 +1,7 @@
 <footer class="relative overflow-hidden bg-blue pb-8 pt-36 lg:pb-36">
     <div class="container mx-auto max-w-none">
         @if (isset($settings['mission']))
-            <p class="prose prose-lg mx-auto max-w-lg lg:mx-0">{{ $settings['mission'] }}</p>
+            <div class="prose prose-lg mx-auto max-w-lg lg:mx-0">@markdown($settings['mission'])</div>
         @endif
 
         <div class="mt-12 flex flex-col gap-4 lg:flex-row lg:gap-6">
