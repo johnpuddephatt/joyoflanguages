@@ -23,6 +23,21 @@ class Posts extends Component
         "order" => ["except" => "desc"],
     ];
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingOrder()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingTags()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $posts = $this->language
