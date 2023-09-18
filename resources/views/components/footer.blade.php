@@ -4,6 +4,13 @@
             <div class="prose prose-lg mx-auto max-w-lg lg:mx-0">@markdown($settings['mission'])</div>
         @endif
 
+        @if (isset($settings['mission']))
+            <div class="prose mx-auto max-w-lg lg:mx-0">@markdown($settings['company_address'])</div>
+        @endif
+        @if (isset($settings['legal']))
+            <div class="prose mx-auto max-w-lg lg:mx-0">@markdown($settings['company_legal'])</div>
+        @endif
+
         <div class="mt-12 flex flex-col gap-4 lg:flex-row lg:gap-6">
             @if (isset($settings['company_email']))
                 <a class="text-2xl font-bold text-white lg:text-3xl"
