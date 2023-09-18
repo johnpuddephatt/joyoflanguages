@@ -16,7 +16,7 @@
                 class="mr-auto flex w-full max-w-sm flex-row items-center rounded-full border-2 border-light-teal border-opacity-20 py-2 pl-4 pr-6 ring-light-teal focus-within:ring-2">
                 @svg('search', 'w-5 h-5 inline-block align-middle mr-3')
                 <input class="flex-1 appearance-none focus:outline-none" wire:model="search" type="search"
-                    placeholder="Search podcasts by title...">
+                    placeholder="Search podcasts by title or episode number...">
             </div>
 
             @foreach (['asc' => 'Oldest first', 'desc' => 'Newest first'] as $orderValue => $orderLabel)

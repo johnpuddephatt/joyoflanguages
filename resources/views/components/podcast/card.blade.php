@@ -4,8 +4,10 @@
      </x-image-mask>
 
      <div>
-         <p class="font-semibold lg:text-xl">Episode {{ $podcast->episode_number }}</p>
-         <h3 class="mb-2 text-xl font-semibold leading-tight lg:text-2xl">{{ $podcast->title }}</h3>
+         @if ($podcast->episode_number)
+             <p class="font-semibold lg:text-xl">Episode {{ $podcast->episode_number }}</p>
+         @endif
+         <h3 class="mb-2.5 text-xl font-semibold leading-tight lg:text-2xl lg:leading-tight">{{ $podcast->title }}</h3>
          <p class="mb-4 max-w-xl text-sm">{{ $podcast->introduction }}</p>
          <div class="flex flex-row items-center gap-2 font-semibold lg:gap-4">
              <svg class="h-4 w-4 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" width="46.93" height="46.93"
