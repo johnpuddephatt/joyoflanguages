@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Language;
 use App\Casts\MyFlexibleCast;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
@@ -76,6 +77,16 @@ class Post extends Model
     public function language()
     {
         return $this->belongsTo(Language::class);
+    }
+
+    public function related_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            \App\Models\Post::class,
+            "related_posts",
+            "post_id",
+            "related_id"
+        );
     }
 
     public function getWordpressContentAttribute($content)

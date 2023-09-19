@@ -81,11 +81,13 @@ class Post extends Resource
                 Slug::make("Slug")
                     ->from("Title")
                     ->hideFromIndex(),
+
                 Text::make("Introduction")
                     ->rules("nullable", "string", "max:150")
                     ->hideFromIndex()
                     ->maxlength(150)
                     ->enforceMaxlength(),
+
                 Tags::make("Tags")->fillUsing(function (
                     $request,
                     $model,
@@ -118,6 +120,11 @@ class Post extends Resource
                     ],
                 ]),
                 BelongsTo::make("Author", "author", User::class)->nullable(),
+
+                Tag::make("Related posts", "related_posts", Post::class)
+
+                    ->displayAsList()
+                    ->hideFromIndex(),
 
                 Text::make("Visit", null, function () {
                     return "<a href='" .
