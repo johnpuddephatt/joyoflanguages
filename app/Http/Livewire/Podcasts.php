@@ -66,7 +66,7 @@ class Podcasts extends Component
         }
 
         return view("livewire.podcasts", [
-            "podcasts" => $podcasts->paginate(1),
+            "podcasts" => $podcasts->paginate(10),
         ]);
     }
 }

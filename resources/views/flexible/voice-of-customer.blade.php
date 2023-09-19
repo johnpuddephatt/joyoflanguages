@@ -4,64 +4,78 @@
              ->shuffle()
              ->chunk(3);
      @endphp
-     <section class="lg:pb-16">
-         <div class="bg-yellow">
+     <section class="">
+         <div class="bg-yellow py-16 xl:py-24">
+
              <div x-data="{
                  rowCount: {{ $quotes->count() }},
                  currentRow: -1,
                  shown: true,
+                 quoteTimer: null,
              
                  initialised: false,
                  initialise() {
+                     if (this.initialised) return;
+                     this.initialised = true;
+                     console.log('initialise');
                      this.currentRow = 0;
-                     let quoteTimer = setInterval(() => {
+                     quoteTimer = setInterval(() => {
                          this.currentRow = ((this.currentRow + 1 < this.rowCount) ? this.currentRow + 1 : 0);
                      }, 6000)
                      document.addEventListener('visibilitychange', () => {
                          if (document.hidden) {
+                             this.initialiased = false;
                              this.shown = false;
-                             clearInterval(quoteTimer);
+                             this.currentRow = 0;
+                             console.log('visibilitychange reset');
+                             clearInterval(this.quoteTimer);
                          } else {
                              this.shown = true;
                              this.initialise();
                          }
                      });
                  },
-             }" class="container mx-auto flex flex-col gap-8 pt-16 lg:flex-row lg:items-center"
-                 x-intersect="if(!initialised) { initialised = true; initialise()}">
+             }" class="container mx-auto !pr-4" x-intersect="if(!initialised) { initialise()}"
+                 x-intersect:leave="console.log('intersect reset');initialised = false; currentRow = 0;clearInterval(quoteTimer)">
 
-                 <div class="flex-1 lg:w-1/2">
-                     <h2 class="underline-bold type-xl">
-                         @inlineMarkdown($layout->title)
-                     </h2>
-                     @if ($layout->intro)
-                         <div class="type-subtitle mt-6 max-w-lg">@markdown($layout->intro)</div>
-                     @endif
+                 <div class="flex flex-col xl:flex-row xl:items-center">
+                     <div class="xl:w-3/5">
+                         <h2 class="underline-bold type-xl mb-12">
+                             @inlineMarkdown($layout->title)
+                         </h2>
+                         @if ($layout->intro)
+                             <div class="type-subtitle prose max-w-xl !text-black">@markdown($layout->intro)</div>
+                         @endif
+
+                         {{-- <div class="prose-lg mt-6 font-semibold !leading-tight">
+                             @markdown($layout->outro)
+                         </div> --}}
+
+                     </div>
+                     <template x-if="shown">
+                         <div class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 overflow-visible xl:w-2/5">
+                             @foreach ($quotes as $row => $quoteRow)
+                                 @php($bubbles = collect([1, 2, 3])->shuffle())
+                                 @foreach ($quoteRow->shuffle() as $key => $quote)
+                                     <div x-show="currentRow == {{ $row }}"
+                                         x-transition:enter="transition ease-out duration-[1500ms] delay-[{{ 750 + $bubbles[$key] * 250 }}ms]"
+                                         x-transition:enter-start="opacity-0 scale-75"
+                                         x-transition:enter-end="opacity-100 scale-100"
+                                         x-transition:leave="transition ease-out duration-[500ms] delay-[{{ $bubbles[$key] * 250 }}ms] -z-10"
+                                         x-transition:leave-end="scale-75 opacity-0"
+                                         class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex h-32 items-center justify-center px-4 text-center text-xl font-bold !leading-none lg:text-2xl">
+                                         {{ $quote->quote }}
+                                         @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 left-0 right-0 h-auto top-1/2 -translate-y-1/2 max-w-none w-full')
+                                     </div>
+                                 @endforeach
+                             @endforeach
+                         </div>
+                     </template>
 
                  </div>
-                 <template x-if="shown">
-                     <div class="relative z-10 grid grid-cols-2 grid-rows-2 overflow-visible pt-6 lg:w-1/2">
-                         @foreach ($quotes as $row => $quoteRow)
-                             @php($bubbles = collect([1, 2, 3])->shuffle())
-                             @foreach ($quoteRow->shuffle() as $key => $quote)
-                                 <div x-show="currentRow == {{ $row }}"
-                                     x-transition:enter="transition ease-out duration-[1500ms] delay-[{{ 750 + $bubbles[$key] * 250 }}ms]"
-                                     x-transition:enter-start="opacity-0 scale-0"
-                                     x-transition:enter-end="opacity-100 scale-100"
-                                     x-transition:leave="transition ease-out duration-[500ms] delay-[{{ $bubbles[$key] * 250 }}ms] -z-10"
-                                     x-transition:leave-end="scale-0"
-                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex aspect-video items-center justify-center px-4 text-center text-xl font-bold !leading-none lg:text-2xl">
-                                     {{ $quote->quote }}
-                                     @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 left-0 right-0 h-auto top-1/2 -translate-y-1/2 max-w-none w-full')
-                                 </div>
-                             @endforeach
-                         @endforeach
-                     </div>
-                 </template>
-
              </div>
 
-             <div class="container mx-auto max-w-3xl">
+             <div class="container mx-auto hidden max-w-3xl">
                  <div
                      class="prose relative mb-16 mt-0 flex w-full translate-y-1/2 flex-row rounded-3xl bg-pink px-4 py-6 lg:items-center lg:px-8">
 

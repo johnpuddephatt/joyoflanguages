@@ -1,9 +1,8 @@
 <div class="py-16">
     <div class="mx-auto max-w-2xl text-center">
-
         @include('components.block-intro', ['layout' => $layout])
     </div>
-    <div class="relative pt-12 lg:pt-24">
+    <div class="relative pt-12 lg:pt-16">
         <div class="container mx-auto grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             @foreach ($layout->features as $feature)
                 <div class="!h-auto cursor-default bg-beige">

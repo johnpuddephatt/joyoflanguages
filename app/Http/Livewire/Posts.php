@@ -55,7 +55,7 @@ class Posts extends Component
         }
 
         return view("livewire.posts", [
-            "posts" => $posts->paginate(8),
+            "posts" => $posts->paginate(10),
         ]);
     }
 }
