@@ -3,8 +3,8 @@
 @extends('layouts.default', ['language' => $podcast->language, 'theme' => null]) @section('content')
 
     <div class="container mx-auto">
-        <div class="flex flex-col items-end gap-12 pb-16 pt-40 lg:flex-row">
-            <div class="">
+        <div class="flex flex-col items-end gap-12 pt-40 lg:flex-row">
+            <div class="lg:pb-16">
                 <div class="mb-4 text-lg">
 
                     @foreach ($podcast->tags as $tag)
@@ -47,7 +47,7 @@
                 x-effect=" playing && !initialised ? visualiser() : null; playing == true ? ($refs.player.play(), initialised = true) : $refs.player.pause()">
                 <div class="p-2 lg:p-6 lg:pb-12">
 
-                    <div class="relative pt-10 lg:pt-0">
+                    <div class="relative pt-10 lg:mx-6 lg:pt-0">
                         @if ($podcast->episode_number)
                             <div
                                 class="absolute left-0 top-0 z-10 flex h-16 w-16 flex-row items-center justify-center rounded-full bg-yellow p-1 text-center font-bold leading-none">
@@ -67,7 +67,7 @@
                     <p class="mx-auto hidden max-w-xs text-xl font-bold leading-none text-white lg:block">
                         {{ $podcast->title }}</p>
                 </div>
-                <div class="bg-white bg-opacity-20 p-2 pb-6 pt-0 lg:p-6">
+                <div class="bg-white bg-opacity-20 p-2 !pt-0 pb-6 lg:p-6">
                     <audio id="player" x-ref="player" class="mt-12 w-full max-w-2xl" @ended="playing = false"
                         @timeupdate="!sliderActive ? (progress = $el.currentTime / $el.duration * 100) : null">
                         <source src="/podcast/{{ $podcast->slug }}/audio" type="audio/mpeg">
@@ -94,7 +94,7 @@
 
                     </button>
 
-                    <div class="-mt-6 h-24 w-full">
+                    <div class="-mt-6 h-20 w-full">
                         <canvas x-show="playing" class="block h-full w-full opacity-80" id="canvas"
                             x-ref="visualiser"></canvas>
 

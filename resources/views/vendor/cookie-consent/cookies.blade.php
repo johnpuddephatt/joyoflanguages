@@ -41,7 +41,7 @@
                                     <input type="checkbox" name="categories[]" value="{{ $category->key() }}"
                                         id="cookies-policy-check-{{ $category->key() }}" />
                                 @endif
-                                <span class="cookies__box">
+                                <span class="cookies__box after:!bg-light-teal">
                                     <strong class="cookies__label">{{ $category->title }}</strong>
                                 </span>
                                 @if ($category->description)
@@ -64,12 +64,12 @@
                                 </ul>
                             </div>
                             <a href="#cookies-policy-{{ $category->key() }}"
-                                class="cookies__details">@lang('cookieConsent::cookies.details.more')</a>
+                                class="cookies__details !text-teal">@lang('cookieConsent::cookies.details.more')</a>
                         </div>
                     @endforeach
                 </div>
                 <div class="cookies__save">
-                    <button type="submit" class="cookiesBtn__link">@lang('cookieConsent::cookies.save')</button>
+                    <button type="submit" class="cookiesBtn__link !border-none !bg-teal">@lang('cookieConsent::cookies.save')</button>
                 </div>
             </form>
         </div>

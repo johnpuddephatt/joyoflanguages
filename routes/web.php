@@ -56,6 +56,10 @@ Route::get("team/{user:slug}", [
     "show",
 ])->name("user.show");
 
+Route::get("cookies", function () {
+    return view("cookies");
+})->name("cookies");
+
 Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
     ->where("page", "^(?!nova).*")
     ->name("page.show");
