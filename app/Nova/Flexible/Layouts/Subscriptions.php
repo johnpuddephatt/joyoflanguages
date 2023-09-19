@@ -38,8 +38,8 @@ class Subscriptions extends Layout
             Text::make("Title", "title"),
             Text::make("Intro", "intro"),
             SimpleRepeatable::make("Benefits", "benefits", [
-                Text::make("Title", "title")->stacked(),  
-            ],
+                Text::make("Title", "title")->stacked(),
+            ]),
             SimpleRepeatable::make("Subscriptions", "subscriptions", [
                 Text::make("Short title", "pre_title")->stacked(),
                 Text::make("Title", "title")->stacked(),
