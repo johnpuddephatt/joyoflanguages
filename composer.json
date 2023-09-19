@@ -37,6 +37,7 @@
         "spatie/laravel-tags": "^4.4",
         "spatie/nova-tags-field": "^4.0",
         "trin4ik/nova-switcher": "^0.3.0",
+        "whitecube/laravel-cookie-consent": "^1.0",
         "whitecube/nova-flexible-content": "dev-master"
     },
     "require-dev": {
