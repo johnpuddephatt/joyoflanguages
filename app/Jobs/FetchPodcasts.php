@@ -52,6 +52,9 @@ class FetchPodcasts implements ShouldQueue
             \App\Models\Podcast::withoutGlobalScopes()->updateOrCreate(
                 ["guid" => $podcast->guid],
                 [
+                    "image_url" => (string) $feed->xpath(
+                        "channel/itunes:image/@href"
+                    )[0],
                     "language_id" => $language->id,
                     "synced" => true,
                     "published_at" => date(

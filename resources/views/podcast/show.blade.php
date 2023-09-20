@@ -1,5 +1,7 @@
-@section('image', $podcast->image?->getUrl('thumbnail'))
+@section('image', $podcast->image_url)
 @section('title', $podcast->title)
+@section('description', $podcast->introduction)
+
 @extends('layouts.default', ['language' => $podcast->language, 'theme' => null]) @section('content')
 
     <div class="container mx-auto">

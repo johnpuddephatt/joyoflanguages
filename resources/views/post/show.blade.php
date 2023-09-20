@@ -1,5 +1,7 @@
 @section('image', $post->image?->getUrl('thumbnail'))
 @section('title', $post->title)
+@section('description', $post->introduction)
+
 @extends('layouts.default', [
     'language' => $post->language,
     'theme' => null,

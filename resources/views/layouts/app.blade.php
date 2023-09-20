@@ -14,7 +14,7 @@
     <meta name="description" content="@yield('description', config('app.description'))" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="@yield('image', 'fallback')" />
+    <meta property="og:image" content="@yield('image', asset(Storage::url(nova_get_setting('og_fallback'))))" />
 
     <link rel="canonical" href="@yield('canonical', Request::url())" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -31,7 +31,6 @@
     </div>
     @stack('footer')
     @livewireScripts
-
 </body>
 
 </html>

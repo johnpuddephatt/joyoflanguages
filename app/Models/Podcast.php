@@ -44,6 +44,7 @@ class Podcast extends Model
         "synced",
         "language_id",
         "wp_id",
+        "image_url",
     ];
 
     /**

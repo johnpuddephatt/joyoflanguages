@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Fields\Avatar;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -40,6 +41,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Text::make("Company legal details", "company_legal"),
             ]),
             Panel::make("Social media", [
+                Image::make("OpenGraph fallback image", "og_fallback")->help(
+                    "This image will be used when sharing links to pages on the site that do not have an image set."
+                ),
                 Text::make("Facebook"),
                 Text::make("Twitter"),
                 Text::make("Instagram"),
