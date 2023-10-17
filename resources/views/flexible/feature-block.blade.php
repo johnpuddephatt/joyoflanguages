@@ -62,7 +62,7 @@
                 </svg>
             @elseif ($layout->speech_bubble)
                 <svg xmlns="http://www.w3.org/2000/svg" width="192.89" height="201.61"
-                    class="absolute -top-4 right-2 h-auto w-16 lg:w-20 xl:-right-6" viewBox="0 0 192.89 201.61">
+                    class="absolute -top-4 left-2 h-auto w-16 lg:w-20 xl:-left-6" viewBox="0 0 192.89 201.61">
                     <path fill="#ffd800"
                         d="M189.43 105.93q10.14-39.69-9.44-69.37T120.71 1.15Q81.02-4.58 47.06 18.37T3.13 80.72q-10 39.4 11.83 68.59t61.85 35a106.38 106.38 0 0 0 28.28.46c40.29 28.31 61.89 15 49.49 3.14-4.21-4-4.67-12.61-3.36-22.38q28.56-21.96 38.21-59.6Z" />
                     <text fill="#181919" font-family="Brandon Text" font-size="52.18" font-weight="800"

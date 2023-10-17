@@ -54,14 +54,16 @@
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
             @click="window.Beacon('close'), beaconOpen = false"></div>
         <x-button
-            class="!fixed bottom-4 right-4 z-30 flex hidden flex-row items-center !border-none !bg-light-teal !px-3 !text-white lg:block"
+            class="!fixed bottom-4 right-4 z-30 hidden flex-row items-center !border-none !bg-light-teal !pl-2 !pr-4 !text-white lg:flex"
             @click="window.Beacon('toggle'),beaconOpen = true">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="mr-1 inline-block h-6 w-6">
+                stroke="currentColor" class="mr-1 inline-block h-8 w-8">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
             </svg>
-            Have a question?</x-button>
+            <div>
+                Ask a question</div>
+        </x-button>
 
         <div class="-top-8 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
             <header :class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
@@ -103,14 +105,15 @@
                         </nav>
 
                         <x-button
-                            class="mt-20 flex flex-row items-center !border-none !bg-light-teal !px-3 !text-white lg:hidden"
+                            class="mt-20 flex flex-row items-center !border-none !bg-light-teal !pl-2 !pr-4 !leading-none !text-white lg:hidden"
                             @click="window.Beacon('toggle'),beaconOpen = true">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="mr-1 inline-block h-6 w-6">
+                                stroke="currentColor" class="mr-1 inline-block h-8 w-8">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
                             </svg>
-                            Have a question?</x-button>
+                            <div>Ask a question</div>
+                        </x-button>
 
                     </nav>
                 </div>

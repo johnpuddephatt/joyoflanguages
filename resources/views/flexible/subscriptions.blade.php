@@ -71,7 +71,7 @@
                         <div class="mb-6 text-lg font-bold">{{ $subscription->price }}</div>
                     @endif
                     @if ($subscription->description)
-                        <div class="prose">@markdown($subscription->description)</div>
+                        <div class="prose marker:text-white">@markdown($subscription->description)</div>
                     @endif
                     @if ($subscription->url)
                         <x-button-link class="mt-8 shadow-yellow" :href="$subscription->url">Subscribe</x-button-link>
