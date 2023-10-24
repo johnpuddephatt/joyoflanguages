@@ -24,6 +24,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
         "manogi/nova-tiptap": "^3.2",
+        "michielfb/laravel-nova-time-field": "^2.0",
         "norman-huth/nova-values-field": "^1.0",
         "outl1ne/nova-media-hub": "dev-main",
         "outl1ne/nova-menu-builder": "^7.1",

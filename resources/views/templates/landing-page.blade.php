@@ -36,6 +36,8 @@
         window.Beacon('config', {
             hideFABLabelOnMobile: true,
             color: '#4dacb7',
+            mode: 'askFirst',
+            docsEnabled: false,
             display: {
                 zIndex: '60',
                 style: 'iconAndText',

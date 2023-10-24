@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5121064e4ae533878bfab78db0379fc5",
+    "content-hash": "99e4c25f35c00ebbff8583c05810212f",
     "packages": [
         {
             "name": "advoor/nova-editor-js",
@@ -3439,6 +3439,55 @@
                 "source": "https://github.com/manogi/nova-tiptap/tree/v3.2.1"
             },
             "time": "2023-08-20T09:50:47+00:00"
+        },
+        {
+            "name": "michielfb/laravel-nova-time-field",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michielfb/laravel-nova-time-field.git",
+                "reference": "0d8e50f967e3a2a3f3152111f4077f747dad3a2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michielfb/laravel-nova-time-field/zipball/0d8e50f967e3a2a3f3152111f4077f747dad3a2e",
+                "reference": "0d8e50f967e3a2a3f3152111f4077f747dad3a2e",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Michielfb\\Time\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Michielfb\\Time\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A HTML5 time field for Laravel Nova.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/michielfb/laravel-nova-time-field/issues",
+                "source": "https://github.com/michielfb/laravel-nova-time-field/tree/2.0.0"
+            },
+            "time": "2023-02-09T18:34:38+00:00"
         },
         {
             "name": "monolog/monolog",

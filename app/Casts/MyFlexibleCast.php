@@ -11,6 +11,7 @@ class MyFlexibleCast extends FlexibleCast
         "hero-with-video" => \App\Nova\Flexible\Layouts\HeroWithVideo::class,
         "text-with-images" => \App\Nova\Flexible\Layouts\TextWithImages::class,
         "text-with-image" => \App\Nova\Flexible\Layouts\TextWithImage::class,
+        "timetable" => \App\Nova\Flexible\Layouts\Timetable::class,
         "quote" => \App\Nova\Flexible\Layouts\Quote::class,
         "latest-posts" => \App\Nova\Flexible\Layouts\LatestPosts::class,
         "podcast-link" => \App\Nova\Flexible\Layouts\PodcastLink::class,
