@@ -35,7 +35,7 @@
                         </svg>
 
                         <div class="flex-1">
-                            <h3 class="mb-1 text-lg font-bold leading-tight">{{ $checklistItem->title }}</h3>
+                            <h3 class="mb-1.5 text-lg font-bold leading-tight">{{ $checklistItem->title }}</h3>
                             <div class="prose !leading-snug tracking-normal !text-black">@markdown($checklistItem->description)</div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <div
-    class="{{ $layout->background_colour ?? '' }} {{ $layout->images ? 'pb-20' : 'pb-8 2xl:pb-16' }} relative overflow-hidden pt-16">
+    class="{{ $layout->background_colour ?? '' }} {{ $layout->images ? 'pb-16 2xl:pb-20' : 'pb-8 2xl:pb-16' }} relative overflow-hidden pt-16">
 
     <div class="{{ $class ?? 'mx-auto' }} container">
         <div
