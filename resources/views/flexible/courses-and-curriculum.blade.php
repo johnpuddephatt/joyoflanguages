@@ -3,7 +3,7 @@
         <div class="lg:text-center">
             @include('components.block-intro', ['layout' => $layout])
         </div>
-        <div class="container mx-auto flex-col items-center gap-16 pb-8 pt-4 lg:flex lg:flex-row lg:py-16">
+        <div class="container mx-auto flex-col items-center gap-16 pb-8 pt-4 lg:flex lg:flex-row lg:py-12 2xl:py-16">
             <div class="type-subtitle prose flex-1 lg:w-[60%]">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>

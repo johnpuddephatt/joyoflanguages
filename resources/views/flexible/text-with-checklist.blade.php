@@ -1,5 +1,5 @@
 <div class="{{ $layout->background_colour ?? null }} relative antialiased">
-    <div class="{{ $class ?? 'mx-auto' }} container pt-16 lg:grid lg:grid-cols-2 lg:pb-16 lg:pt-32">
+    <div class="{{ $class ?? 'mx-auto' }} container pt-16 lg:grid lg:grid-cols-2 lg:pb-8 lg:pt-16 2xl:pb-16 2xl:pt-32">
         <div class="flex flex-col">
             <h2 class="type-xl mb-6">{!! $layout->title !!}</h2>
             <div class="type-subtitle mb-12 max-w-lg lg:mb-16">
@@ -36,7 +36,7 @@
 
                         <div class="flex-1">
                             <h3 class="mb-1 text-lg font-bold leading-tight">{{ $checklistItem->title }}</h3>
-                            <div class="prose !leading-snug tracking-normal">@markdown($checklistItem->description)</div>
+                            <div class="prose !leading-snug tracking-normal !text-black">@markdown($checklistItem->description)</div>
                         </div>
                     </div>
                 @endforeach

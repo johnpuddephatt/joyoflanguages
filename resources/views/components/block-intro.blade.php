@@ -4,5 +4,4 @@
     @if ($layout->intro)
         <div class="type-subtitle mx-auto mt-6 max-w-lg">@markdown($layout->intro)</div>
     @endif
-
 </div>

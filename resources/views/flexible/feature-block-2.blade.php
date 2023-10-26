@@ -1,5 +1,5 @@
 <div
-    class="{{ $layout->background_colour ?? '' }} {{ $layout->images ? 'pb-20' : 'pb-8 lg:pb-16' }} relative overflow-hidden pt-16">
+    class="{{ $layout->background_colour ?? '' }} {{ $layout->images ? 'pb-20' : 'pb-8 2xl:pb-16' }} relative overflow-hidden pt-16">
 
     <div class="{{ $class ?? 'mx-auto' }} container">
         <div
@@ -14,7 +14,7 @@
             @endif
             <img class="mx-auto w-full max-w-md lg:w-2/5" src="{{ Storage::url($layout->image) }}" />
 
-            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 lg:py-8">
+            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 2xl:py-8">
                 <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
