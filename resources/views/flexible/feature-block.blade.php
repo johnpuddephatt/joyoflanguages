@@ -7,7 +7,7 @@
                 <x-responsive-image :image="$layout->image" class="h-auto w-full" />
 
             </div>
-            <div class="{{ $layout->reverse ? 'lg:order-first lg:pr-16' : 'lg:pl-16' }} px-4 pb-8 pt-6 lg:px-8 lg:py-8">
+            <div class="{{ $layout->reverse ? 'lg:order-first lg:pr-16' : 'lg:pl-16' }} px-4 py-4 lg:px-8 2xl:py-8">
                 <h2 class="type-lg max-w-lg">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="-mt-4 text-lg font-bold leading-tight lg:max-w-xs">{{ $layout->subtitle }}
