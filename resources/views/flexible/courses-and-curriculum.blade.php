@@ -4,7 +4,7 @@
             @include('components.block-intro', ['layout' => $layout])
         </div>
         <div class="container mx-auto flex-col items-center gap-16 pb-8 pt-4 lg:flex lg:flex-row lg:py-16">
-            <div class="prose flex-1 lg:prose-lg lg:w-1/2">
+            <div class="type-subtitle prose flex-1 lg:w-[60%]">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
             </div>
@@ -21,7 +21,7 @@
                         @php($course = $course->attributes)
                     @endif
 
-                    <div @click="console.log('clicked'),document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
+                    <div @click="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
                         class="group flex cursor-pointer flex-col border border-black border-opacity-20 p-6 transition hover:border-opacity-100 hover:bg-beige hover:bg-opacity-20 max-lg:items-start lg:p-4"
                         x-data="{ modalOpen: false, shown: false }">
 
