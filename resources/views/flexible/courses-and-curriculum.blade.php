@@ -15,7 +15,7 @@
 
         <div class="">
 
-            <div class="container mx-auto grid gap-4 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4">
+            <div class="container mx-auto grid gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:gap-6">
 
                 @foreach ($layout->courses as $course)
                     @if ($course instanceof stdClass)

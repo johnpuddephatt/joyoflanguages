@@ -4,7 +4,7 @@
 
 <div class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
-        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-16 lg:container lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
+        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-16 lg:container lg:flex-row lg:pb-32 xl:pt-40 2xl:pt-48">
         <div class="pb-4 max-lg:container md:pt-8 lg:w-1/2">
             @if ($layout->pretitle)
                 <div class="mb-4 text-2xl font-bold text-light-teal">{{ $layout->pretitle }}</div>
