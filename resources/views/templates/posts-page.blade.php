@@ -20,7 +20,7 @@
         <div
             class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 bg-blue py-12 lg:flex-row">
             <div class="max-w-lg flex-1">
-                <h1 class="text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
+                <h1 class="type-xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="type-subtitle mt-6 max-w-md text-white">{{ $page->introduction }}</p>
             </div>
             <x-library-image :image="$page->image" class="relative mx-auto block h-auto w-72 2xl:w-80" />
