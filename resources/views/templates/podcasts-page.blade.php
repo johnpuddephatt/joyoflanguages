@@ -33,7 +33,7 @@
 
                 <h1 class="bold-text-light-teal text-4xl font-bold !tracking-normal text-teal lg:text-5xl 2xl:text-6xl">
                     {!! Str::of($page->title)->inlineMarkdown() !!} </h1>
-                <p class="mt-6 text-xl font-bold leading-tight text-gray">{{ $page->introduction }}</p>
+                <p class="type-subtitle mt-6">{{ $page->introduction }}</p>
             </div>
             <x-image-mask class="mx-auto h-auto w-96 max-w-[80%]"> <x-library-image conversion="square" :image="$page->image"
                     class="relative block h-auto w-full" />
