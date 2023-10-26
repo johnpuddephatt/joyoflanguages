@@ -20,14 +20,11 @@
                     <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
                 @endif
                 @if ($layout->description)
-                    <div class="prose prose-lg mt-4 lg:mt-8 lg:max-w-md">@markdown($layout->description)</div>
+                    <div class="prose prose-lg mt-4 lg:mt-8">@markdown($layout->description)</div>
                 @endif
 
-                <div class="flex flex-row gap-2">
-                    <x-button @click="document.body.classList.add('overflow-hidden'); $refs.modal_timetable.showModal()"
-                        class="mt-4">View Timetable</x-button>
-
-                </div>
+                <x-button @click="document.body.classList.add('overflow-hidden'); $refs.modal_timetable.showModal()"
+                    class="mt-6">View Timetable</x-button>
 
                 <dialog @close="document.body.classList.remove('overflow-hidden'); console.log('closing dialog')"
                     class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-blue backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
@@ -40,7 +37,7 @@
                         <div>
                             <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
                                 <h2 class="mb-2 text-2xl font-bold !leading-none">{{ $layout->modal_title }}</h2>
-                                <p class="type-subtitle">{{ $layout->modal_subtitle }}</p>
+                                <p class="type-subtitle !leading-tight">{{ $layout->modal_subtitle }}</p>
                             </div>
 
                             <div class="p-8 pt-4" x-data="{
