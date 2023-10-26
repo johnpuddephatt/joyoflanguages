@@ -1,5 +1,5 @@
 @if ($layout->courses)
-    <div class="py-16 lg:pt-24">
+    <div class="py-12 lg:pt-24 2xl:pb-16">
         <div class="lg:text-center">
             @include('components.block-intro', ['layout' => $layout])
         </div>
@@ -38,7 +38,7 @@
 
                         {{-- <div class="font-semibold">Level {{ $course->number }}:</div> --}}
                         <h2 class="mb-2 text-lg font-bold">{{ $course->title }}</h2>
-                        <p class="prose mb-6">{{ $course->description }}</p>
+                        <p class="prose prose-lg mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 !text-sm shadow-yellow"
                             @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
