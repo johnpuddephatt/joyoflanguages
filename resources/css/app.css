@@ -30,7 +30,7 @@
 }
 
 .type-subtitle {
-    @apply text-lg !leading-normal lg:text-xl font-semibold;
+    @apply text-lg !leading-snug lg:text-xl font-semibold;
 }
 
 .bold-text-light-teal strong {
