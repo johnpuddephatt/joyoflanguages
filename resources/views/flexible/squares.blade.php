@@ -21,7 +21,7 @@
                         <div
                             class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} !flex-0 flex flex-col items-center justify-center p-4 text-center lg:aspect-square">
                             <h3 class="mb-2 text-2xl font-bold">{{ $square->title }}</h3>
-                            <div class="prose prose-sm !leading-tight lg:h-12">{{ $square->description }}</div>
+                            <div class="prose !leading-tight lg:h-12">{{ $square->description }}</div>
                         </div>
                     @endforeach
 
