@@ -1,5 +1,5 @@
 <div class="{{ $layout->background_colour ?? null }} relative antialiased">
-    <div class="{{ $class ?? 'mx-auto' }} container pt-16 lg:grid lg:grid-cols-2 lg:pb-8 lg:pt-16 2xl:pb-16 2xl:pt-32">
+    <div class="{{ $class ?? 'mx-auto' }} container pt-16 lg:grid lg:grid-cols-2 lg:pb-8 lg:pt-24 2xl:pb-16 2xl:pt-32">
         <div class="flex flex-col">
             <h2 class="type-xl mb-6">{!! $layout->title !!}</h2>
             <div class="type-subtitle mb-12 max-w-lg lg:mb-16">
