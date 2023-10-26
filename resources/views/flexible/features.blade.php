@@ -6,7 +6,7 @@
                 <div class="{{ $class ?? 'mx-auto max-w-6xl' }} container relative grid gap-6 md:grid-cols-2">
                     <div
                         class="{{ $loop->even ? 'lg:order-last' : null }} relative z-10 flex flex-col items-start justify-center pt-4 lg:px-8 lg:py-8">
-                        <h3 class="type-md max-w-lg">{!! $feature->title !!}</h3>
+                        <h3 class="type-lg max-w-lg">{!! $feature->title !!}</h3>
                         @if ($feature->description)
                             <div class="prose max-w-md lg:prose-lg lg:mb-8">@markdown($feature->description)</div>
                         @endif
