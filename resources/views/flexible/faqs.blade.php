@@ -1,4 +1,4 @@
-<div class="pb-16 pt-20 text-center lg:pt-32" x-data="{ showing: {{ $layout->number_shown ?? 5 }} }">
+<div class="pb-12 pt-20 text-center 2xl:pb-16 2xl:pt-32" x-data="{ showing: {{ $layout->number_shown ?? 5 }} }">
     <div class="mx-auto max-w-2xl">
         @include('components.block-intro', ['layout' => $layout])
     </div>

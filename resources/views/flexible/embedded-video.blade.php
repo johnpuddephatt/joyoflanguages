@@ -8,7 +8,7 @@
             d="M.02 214.91v2.56c-.21 16.55 32.15 48.56 59.14 38.58 15.82-5.85 27.58-9.95 33.37-31.31 2.73-10.09 1.73-34.91-22.9-48.33 0 0-32.31-20.41-58 4.78C.36 192.26-.11 209.73.02 214.91Z" />
     </svg>
 
-    <div class="{{ $class ?? 'mx-auto max-w-6xl' }} relative lg:container">
+    <div class="{{ $class ?? 'mx-auto max-w-6xl' }} relative z-30 lg:container">
         @if ($layout->sticker)
             <div class="absolute left-4 w-32 -translate-y-1/3 lg:right-full lg:w-48 lg:translate-x-1/4">
                 <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="129.27" height="123.5"
