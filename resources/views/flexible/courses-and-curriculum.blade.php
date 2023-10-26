@@ -3,13 +3,14 @@
         <div class="lg:text-center">
             @include('components.block-intro', ['layout' => $layout])
         </div>
-        <div class="container mx-auto flex-col items-center gap-16 pb-8 pt-4 lg:flex lg:flex-row lg:py-12 2xl:py-16">
-            <div class="type-subtitle prose flex-1 lg:w-[60%]">
+        <div
+            class="container mx-auto flex-col items-center gap-8 pb-8 pt-4 lg:flex lg:flex-row lg:py-12 2xl:gap-16 2xl:py-16">
+            <div class="type-subtitle prose flex-1 lg:w-[55%]">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
             </div>
             <img src="{{ Storage::disk('public')->url($layout->image) }}"
-                class="mx-auto hidden w-full flex-1 lg:block lg:w-1/2" />
+                class="mx-auto hidden w-full flex-1 lg:block lg:w-[45%]" />
         </div>
 
         <div class="">
