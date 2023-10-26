@@ -1,8 +1,8 @@
-<div class="grid pb-12 lg:grid-cols-2 lg:pt-24">
+<div class="grid lg:grid-cols-2 lg:pt-24">
 
     <x-responsive-image class="block w-full" :image="$layout->main_image" />
 
-    <div class="container flex flex-col py-8 lg:justify-center lg:py-24">
+    <div class="container flex flex-col py-8 lg:justify-center">
         <h2 class="type-lg">{{ $layout->title }}</h2>
         <div class="prose prose-lg max-w-md">@markdown($layout->description)
 
@@ -14,8 +14,8 @@
     </div>
 </div>
 
-<div class="container mx-auto -mt-24 grid lg:grid-cols-2 lg:gap-8 2xl:gap-16">
-    <div class="mx-auto my-auto max-w-xl py-24">
+<div class="container mx-auto grid gap-8 py-12 lg:grid-cols-2 2xl:gap-16">
+    <div class="mx-auto my-auto max-w-xl">
 
         @svg('quote-open', 'w-12 text-teal')
 

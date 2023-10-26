@@ -67,12 +67,12 @@
                 Ask a question</div>
         </x-button>
 
-        <div class="-top-8 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
+        <div class="-top-6 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
             <header :class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
-                class="w-full bg-white bg-opacity-0 pt-4 transition duration-500 lg:pt-8">
+                class="w-full bg-white bg-opacity-0 pt-3 transition duration-500 lg:pb-3 lg:pt-8">
                 <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center">
                     <a href="#home"
-                        class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'my-3 h-10 lg:h-12 w-auto')
+                        class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-10 lg:h-12 w-auto')
                         @if ($language)
                             <span class="font-logo text-xl uppercase tracking-widest text-light-teal lg:text-2xl">
                                 {{ $language->name }}</span>
@@ -99,7 +99,7 @@
                                     </x-button-link>
                                 @else
                                     <a @click="menuOpen = false" x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="sectionMenuOpen = false;"
-                                        class="border-b-[3px] border-transparent font-semibold text-teal"
+                                        class="border-b-[3px] border-transparent font-semibold text-teal transition duration-1000"
                                         :href="`#${section}`"
                                         :class="{ '!border-yellow': activeSection == section }">{{ $layout->pre_title ?? $layout->title }}</a>
                                 @endif

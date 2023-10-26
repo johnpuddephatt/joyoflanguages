@@ -1,10 +1,10 @@
 <div
-    class="{{ $layout->background_colour }} @if (in_array($layout->background_colour, ['bg-teal'])) text-white @endif relative flex h-screen flex-col items-center justify-center overflow-hidden pt-32 lg:h-screen lg:flex-row lg:pt-12">
+    class="{{ $layout->background_colour }} @if (in_array($layout->background_colour, ['bg-teal'])) text-white @endif relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-32 lg:h-screen lg:flex-row lg:pt-12">
 
     <div class="container-lg relative z-10 mx-auto w-full">
         <div class="lg:w-1/2">
             <h1 class="type-xl mb-6">{!! nl2br($layout->title) !!}</h1>
-            <p class="prose prose-lg max-w-lg">{!! nl2br($layout->subtitle) !!}</p>
+            <p class="prose prose-lg max-w-sm">{!! nl2br($layout->subtitle) !!}</p>
             @if ($layout->button_url)
                 <x-button-link class="mt-6 text-lg shadow-white"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
@@ -24,7 +24,7 @@
             </div>
         @endif
 
-        <x-responsive-image class="top-1/2 block h-auto w-full lg:absolute lg:-translate-y-1/2" :image="$layout->image" />
+        <x-responsive-image class="top-[55%] block h-auto w-full lg:absolute lg:-translate-y-1/2" :image="$layout->image" />
 
     </div>
 

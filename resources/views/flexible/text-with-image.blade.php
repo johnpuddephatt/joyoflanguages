@@ -1,25 +1,25 @@
 <div class="{{ $layout->background_colour ?? '' }} relative overflow-hidden py-16 lg:pt-24">
     <div class="{{ $class ?? 'container w-full  mx-auto' }}">
         <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
-            <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-1/2">
+            <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-[60%]">
                 @if ($layout->title)
                     <h2 class="type-xl mb-8">{{ $layout->title }}</h2>
                 @endif
 
                 @if ($layout->text)
-                    <div class="prose lg:prose-lg">
+                    <div class="type-subtitle prose">
                         @markdown($layout->text)
                     </div>
                 @endif
             </div>
 
             @if ($layout->image)
-                <div class="{{ $layout->reverse ? 'lg:-ml-16' : 'lg:-mr-16' }} relative flex-1">
+                <div class="{{ $layout->reverse ? 'lg:-ml-20' : 'lg:-mr-20' }} relative flex-1">
                     <x-library-image class="h-auto w-full" conversion="3x2" :image="$layout->image" />
 
                     @if ($layout->squiggle == 1)
                         <svg xmlns="http://www.w3.org/2000/svg" width="105.85" height="200.16"
-                            class="absolute -left-8 -top-4 h-auto w-1/4" viewBox="0 0 105.85 200.16">
+                            class="absolute -left-6 -top-4 h-auto w-1/4" viewBox="0 0 105.85 200.16">
                             <path fill="none" stroke="#ffce00" stroke-linecap="round" stroke-miterlimit="10"
                                 stroke-width="3.84"
                                 d="M103.94 30.2C82.57 2.55 51.18-11.43 34.74 19.4 24.46 38.66 62.35 97.13 65.69 131.91c0 0 17.83 51-47.64 2.18-15.84-11.55 5.13-24 16.69-15s-7.14 74-32.82 79.13" />

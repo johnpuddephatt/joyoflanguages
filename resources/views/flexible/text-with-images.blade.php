@@ -3,7 +3,7 @@
         <div class="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-12">
             <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-1/2">
                 @if ($layout->title)
-                    <h2 class="mb-4 text-2xl font-bold lg:text-4xl">{{ $layout->title }}</h2>
+                    <h2 class="type-lg">{{ $layout->title }}</h2>
                 @endif
 
                 @if ($layout->text)

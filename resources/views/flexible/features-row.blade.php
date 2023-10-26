@@ -2,8 +2,8 @@
     <div class="mx-auto max-w-2xl text-center">
         @include('components.block-intro', ['layout' => $layout])
     </div>
-    <div class="relative pt-12 lg:pt-16">
-        <div class="container mx-auto grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+    <div class="relative pt-12 2xl:pt-16">
+        <div class="container mx-auto grid max-w-none gap-4 sm:grid-cols-2 lg:gap-5 xl:grid-cols-4 2xl:gap-6">
             @foreach ($layout->features as $feature)
                 <div class="!h-auto cursor-default bg-beige">
                     @if ($feature->image)
@@ -11,12 +11,12 @@
                     @endif
                     <div class="px-4 py-6">
                         @if ($feature->title)
-                            <h3 class="mb-4 mr-8 text-2xl font-bold !leading-none">
+                            <h3 class="type-md">
                                 {{ $feature->title }}
                             </h3>
                         @endif
                         @if ($feature->description)
-                            <p class="prose">{{ $feature->description }}</p>
+                            <p class="prose prose-lg">{{ $feature->description }}</p>
                         @endif
                     </div>
                 </div>

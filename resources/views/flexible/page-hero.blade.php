@@ -4,10 +4,11 @@
 
 <div class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
-        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-24 lg:container lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
-        <div class="pb-4 max-lg:container lg:w-1/2">
-
-            <div class="mb-4 text-2xl font-bold text-light-teal">{{ $layout->pretitle }}</div>
+        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-16 lg:container lg:flex-row lg:pb-36 xl:pt-48 2xl:pt-64">
+        <div class="pb-4 max-lg:container md:pt-8 lg:w-1/2">
+            @if ($layout->pretitle)
+                <div class="mb-4 text-2xl font-bold text-light-teal">{{ $layout->pretitle }}</div>
+            @endif
             <h1 class="type-xl mb-4 lg:mb-8">
                 {!! nl2br($layout->title) !!}
             </h1>
@@ -17,7 +18,7 @@
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
-        <div class="relative w-full pb-12 max-lg:overflow-hidden lg:w-1/2 lg:pl-8">
+        <div class="relative w-full pb-5 max-lg:overflow-hidden lg:w-1/2 lg:pb-12 lg:pl-8">
 
             <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full" />
 

@@ -1,6 +1,6 @@
-  <div class="container-lg mx-auto flex flex-col items-start py-16 lg:flex-row lg:gap-8">
+  <div class="container-lg mx-auto flex flex-col items-start py-8 lg:flex-row lg:gap-8 lg:py-16">
       <div x-data="{ canPlay: false, playing: false }" class="relative flex-1 lg:w-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42" class="mb-16 h-auto w-full"
+          <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42" class="mb-8 h-auto w-full lg:mb-16"
               viewBox="0 0 1360.37 1301.42">
               <defs>
                   <clipPath id="prefix__clip-path" transform="translate(21.71 -3063.94)">
@@ -248,13 +248,13 @@
 
       </div>
       <div class="flex-1 lg:w-1/2">
-          <h2 class="type-lg mb-8 max-w-md">{!! $layout->title !!}</h2>
+          <h2 class="type-lg max-w-md">{!! $layout->title !!}</h2>
           @if ($layout->subtitle)
-              <div class="prose prose-lg mt-8 max-w-lg">{!! Str::of($layout->subtitle)->markdown() !!}</div>
+              <div class="prose prose-lg max-w-lg md:mt-8">{!! Str::of($layout->subtitle)->markdown() !!}</div>
           @endif
 
           @if ($layout->posts && $layout->posts->count())
-              <div class="my-16 flex flex-col gap-8">
+              <div class="my-8 flex flex-col gap-8 lg:my-16">
                   @foreach ($layout->posts as $post)
                       <x-post.card-wide class="" :post="$post" :hide_tags="true" :hide_date="true" />
                   @endforeach

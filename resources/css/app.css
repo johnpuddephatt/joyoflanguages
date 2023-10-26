@@ -18,15 +18,19 @@
 }
 
 .type-xl {
-    @apply text-balance text-5xl font-bold !leading-[0.95]  xl:text-6xl !tracking-tight;
+    @apply text-balance text-5xl font-bold !leading-[0.9] xl:!leading-[0.95]  xl:text-6xl !tracking-tight;
 }
 
 .type-lg {
     @apply mb-4  text-3xl font-bold lg:mb-8 lg:text-4xl;
 }
 
+.type-md {
+    @apply mb-4 !leading-[1.1] text-2xl font-bold 2xl:mb-6 lg:text-3xl;
+}
+
 .type-subtitle {
-    @apply text-lg lg:text-xl font-semibold;
+    @apply text-lg !leading-normal lg:text-xl font-semibold;
 }
 
 .bold-text-light-teal strong {

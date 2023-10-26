@@ -4,7 +4,7 @@
             <div class="container relative mx-auto w-full pb-6 pt-12">
                 @if ($layout->sticker)
                     <div
-                        class="absolute -top-4 right-6 z-10 flex h-24 w-24 rotate-6 items-center justify-center rounded-full p-4 text-center font-bold leading-none lg:right-12 xl:right-28 xl:top-0">
+                        class="absolute -top-4 right-2 z-10 flex h-24 w-24 rotate-6 items-center justify-center rounded-full p-4 text-center font-bold leading-none xl:right-0 xl:top-0 2xl:right-12">
 
                         <svg class="absolute inset-0 -z-10 h-full w-full max-w-none" xmlns="http://www.w3.org/2000/svg"
                             width="62.93" height="57.46" viewBox="0 0 62.93 57.46">

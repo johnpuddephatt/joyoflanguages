@@ -1,4 +1,5 @@
-<div class="{{ $class ?? 'mx-auto max-w-6xl' }} container py-16 lg:grid lg:grid-cols-2">
+<div
+    class="{{ $class ?? 'mx-auto max-w-6xl' }} container flex-row items-center justify-center gap-12 py-8 lg:flex lg:py-16">
     <div>
         <h2 class="bold-text-light-teal type-lg text-teal">{!! Str::inlineMarkdown($layout->title) !!}</h1>
             <div class="prose prose-lg mb-12 max-w-lg">{!! $layout->description !!}</div>

@@ -1,5 +1,5 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
-    class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-teal lg:py-12">
+    class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-12 py-6 text-teal 2xl:py-12">
     <div class="container mx-auto flex max-w-none flex-row items-center justify-between lg:items-start">
         <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden lg:gap-2" href="/">
             @if ($theme == 'alternative_header')
@@ -40,10 +40,10 @@
             </x-button>
 
             <nav :class="!menuOpen && 'max-lg:translate-x-full'"
-                class="inset-0 z-10 flex flex-col items-start text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:justify-center max-lg:bg-yellow max-lg:p-8 lg:flex-row lg:gap-6">
+                class="inset-0 z-10 flex flex-col items-start text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:justify-center max-lg:bg-yellow max-lg:p-8 max-md:p-4 lg:flex-row lg:gap-6">
 
                 <x-button aria-label="Close navigation menu" title="Close navigation menu"
-                    class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-white lg:hidden"
+                    class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-white md:right-5 lg:hidden"
                     @click="menuOpen = false">
                     @svg('plus', 'h-auto rotate-45 w-10 p-2')
 

@@ -2,7 +2,7 @@
     <div class="relative">
         <div class="container mx-auto py-16">
             <h2 class="type-lg">{{ $layout->title ?? 'Latest posts' }}</h2>
-            <div class="grid gap-16 pt-16 lg:grid-cols-2">
+            <div class="grid gap-16 pt-8 lg:grid-cols-2">
                 @foreach ($layout->posts as $post)
                     <x-post.card class="" :post="$post" />
                 @endforeach
