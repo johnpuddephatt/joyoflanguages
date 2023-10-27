@@ -28,7 +28,7 @@
                 </div>
 
                 @if ($layout->addendum)
-                    <p class="bold-badged mt-8 text-center">@inlineMarkdown($layout->addendum)</p>
+                    <p class="bold-badged prose prose-lg mt-8 text-center">@inlineMarkdown($layout->addendum)</p>
                 @endif
 
             </div>
