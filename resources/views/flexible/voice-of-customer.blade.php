@@ -27,17 +27,16 @@
                          if (document.hidden) {
                              this.initialiased = false;
                              this.shown = false;
-                             this.currentRow = 0;
-                             console.log('visibilitychange reset');
-                             clearInterval(this.quoteTimer);
+             
                          } else {
                              this.shown = true;
                              this.initialise();
                          }
                      });
                  },
-             }" class="container mx-auto !pr-4" x-intersect="if(!initialised) { initialise()}"
-                 x-intersect:leave="console.log(quoteTimer); console.log('intersect reset');initialised = false;  currentRow = 0;clearInterval(quoteTimer); console.log(quoteTimer)">
+             }" class="container mx-auto !pr-4"
+                 x-intersect="shown = true; if(!initialised) { initialise()}"
+                 x-intersect:leave="shown = false; initialised = false; ">
 
                  <div class="flex flex-col xl:flex-row xl:items-center">
                      <div class="xl:w-3/5">
