@@ -48,23 +48,21 @@
 
                 </button>
 
-                <template x-if="trailerOpen">
-                    <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
-                        <div class="w-full max-w-5xl">
+                <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
+                    <div class="w-full max-w-5xl">
 
-                            <div class="shadow-black-light relative shadow-2xl"
-                                style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
-                                {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'autoplay']) !!}
-                            </div>
-
+                        <div class="shadow-black-light relative shadow-2xl"
+                            style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
+                            {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'autoplay']) !!}
                         </div>
-                        <x-button x-on:click="trailerOpen = false"
-                            class="!absolute bottom-0.5 left-1/2 -translate-x-1/2 !pl-2 !pr-6">
-                            @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
-                        </x-button>
 
                     </div>
-                </template>
+                    <x-button x-on:click="trailerOpen = false"
+                        class="!absolute bottom-0.5 left-1/2 -translate-x-1/2 !pl-2 !pr-6">
+                        @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
+                    </x-button>
+
+                </div>
             @endif
 
         </div>
