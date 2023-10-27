@@ -5,7 +5,7 @@
         </div>
         <div
             class="container mx-auto flex-col items-center gap-8 pb-8 pt-4 lg:flex lg:flex-row lg:pb-12 2xl:gap-16 2xl:pb-16 2xl:pt-8">
-            <div class="type-xs prose lg:w-[55%]">
+            <div class="prose-standout prose lg:w-[55%]">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
             </div>
@@ -38,7 +38,7 @@
 
                         {{-- <div class="font-semibold">Level {{ $course->number }}:</div> --}}
                         <h2 class="type-xs">{{ $course->title }}</h2>
-                        <p class="prose-standout prose mb-6">{{ $course->description }}</p>
+                        <p class="prose mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
                             @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
