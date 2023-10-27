@@ -37,7 +37,7 @@
                      });
                  },
              }" class="container mx-auto !pr-4" x-intersect="if(!initialised) { initialise()}"
-                 x-intersect:leave="console.log('intersect reset');initialised = false; currentRow = 0;clearInterval(quoteTimer)">
+                 x-intersect:leave="console.log(quoteTimer); console.log('intersect reset');initialised = false;  currentRow = 0;clearInterval(quoteTimer); console.log(quoteTimer)">
 
                  <div class="flex flex-col xl:flex-row xl:items-center">
                      <div class="xl:w-3/5">
