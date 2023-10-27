@@ -19,10 +19,10 @@
 
         </div>
         @if ($layout->checklist)
-            <div class="space-y-6 max-lg:mt-16 lg:pl-16 2xl:pl-24">
+            <div class="space-y-6 max-lg:mt-16 lg:pl-12 2xl:pl-24">
                 @foreach ($layout->checklist as $checklistItem)
-                    <div class="flex flex-row gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="flex-0 mt-1 h-12 w-12 lg:h-16 lg:w-16"
+                    <div class="flex flex-row gap-2 2xl:gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="flex-0 mt-1 h-12 w-12 2xl:h-16 2xl:w-16"
                             width="43.29" height="40.16" viewBox="0 0 43.29 40.16">
                             <path fill="{{ $layout->background_colour == 'bg-yellow' ? '#ffffff' : '#ffce00' }}"
                                 d="M6.17 29.31c.13.32.24.65.36 1 2.18 6.42 19 14.34 28.09 6.8 5.31-4.42 9.28-7.61 8.59-16.64A18 18 0 0 0 27.77 4.95S12.52 1.49 6.05 14.73c-2.84 5.79-.64 12.59.12 14.58Z" />
@@ -35,8 +35,8 @@
                         </svg>
 
                         <div class="flex-1">
-                            <h3 class="mb-1.5 text-lg font-bold leading-tight">{{ $checklistItem->title }}</h3>
-                            <div class="prose !leading-snug tracking-normal !text-black">@markdown($checklistItem->description)</div>
+                            <h3 class="type-sm">{{ $checklistItem->title }}</h3>
+                            <div class="prose prose-lg !leading-snug tracking-normal">@markdown($checklistItem->description)</div>
                         </div>
                     </div>
                 @endforeach
