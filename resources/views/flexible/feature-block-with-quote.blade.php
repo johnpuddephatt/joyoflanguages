@@ -19,7 +19,7 @@
 
         @svg('quote-open', 'w-12 text-teal')
 
-        <div class="text-xl font-bold">{!! $layout->quote !!}</div>
+        <div class="type-sm">{!! $layout->quote !!}</div>
         @svg('quote-close', 'ml-auto text-teal block w-12')
 
         <div class="flex items-center gap-4">
