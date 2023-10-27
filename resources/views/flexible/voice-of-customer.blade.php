@@ -16,6 +16,7 @@
                  initialised: false,
                  initialise() {
                      if (this.initialised) return;
+                     clearInterval(this.quoteTimer);
                      this.initialised = true;
                      console.log('initialise');
                      this.currentRow = 0;
