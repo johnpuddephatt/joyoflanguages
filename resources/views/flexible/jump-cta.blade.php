@@ -1,6 +1,6 @@
 <div class="{{ $layout->background_colour ?? null }} border-b-[3px] pt-16 text-center lg:border-b-4">
     @if ($layout->title)
-        <h3 class="type-md">{{ $layout->title }}</h2>
+        <h3 class="type-md !mb-0">{{ $layout->title }}</h2>
     @endif
 
     <x-button-link target="{{ $layout->new_tab ? '_parent' : null }}" href="{{ $layout->button_link }}"
