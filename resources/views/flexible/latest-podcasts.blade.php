@@ -11,7 +11,7 @@
                             @if ($podcast->episode_number)
                                 <div class="mb-0.5 font-bold">Episode {{ $podcast->episode_number }}</div>
                             @endif
-                            <p class="text-lg font-semibold leading-tight">{{ $podcast->title }}</p>
+                            <p class="type-xs">{{ $podcast->title }}</p>
                         </div>
                         <x-button-link class="my-auto px-4 shadow-yellow after:absolute after:inset-0"
                             href="{{ $podcast->url }}">
