@@ -1,4 +1,4 @@
-<div class="{{ $layout->background_colour }} relative pb-12 pt-16 lg:pb-16 lg:pt-24 2xl:pt-32">
+<div class="{{ $layout->background_colour }} relative pb-8 pt-16 lg:pt-24 2xl:pb-16 2xl:pt-32">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="102.76" height="257.94"
         class="absolute -bottom-36 right-0 z-20 h-auto w-48 max-lg:hidden" viewBox="0 0 102.76 257.94">
