@@ -32,36 +32,38 @@
             @endif
 
             @if ($embed)
-                <button @click="trailerOpen = true" aria-label="Play video"
-                    class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65" class="block h-auto w-full"
-                        viewBox="0 0 72.41 66.65">
-                        <path fill="#e9abb0"
-                            d="M69.21 19.57c-.25-.6-.48-1.21-.7-1.83C64.17 5.82 32.3-8.35 15.65 6.13 5.9 14.61-1.42 20.73.23 37.61c.77 8 8.22 25.49 29.51 28.43 0 0 28.69 5.88 40.27-19.14 5.09-11 .7-23.64-.8-27.33Z" />
-                        <circle cx="38.5" cy="37.03" r="27.69" fill="#fff" opacity=".6" />
-                        <circle cx="35.64" cy="32.97" r="27.69" fill="none" stroke="#12171e"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2.03" />
-                        <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2.03"
-                            d="M49.56 29.75a3.38 3.38 0 0 1 0 5.49l-9.87 6.41-9.87 6.41c-1.88 1.22-4.23-.3-4.23-2.74V19.67c0-2.44 2.35-4 4.23-2.74l9.87 6.41Z" />
-                    </svg>
+                <div x-cloak>
+                    <button @click="trailerOpen = true" aria-label="Play video"
+                        class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65"
+                            class="block h-auto w-full" viewBox="0 0 72.41 66.65">
+                            <path fill="#e9abb0"
+                                d="M69.21 19.57c-.25-.6-.48-1.21-.7-1.83C64.17 5.82 32.3-8.35 15.65 6.13 5.9 14.61-1.42 20.73.23 37.61c.77 8 8.22 25.49 29.51 28.43 0 0 28.69 5.88 40.27-19.14 5.09-11 .7-23.64-.8-27.33Z" />
+                            <circle cx="38.5" cy="37.03" r="27.69" fill="#fff" opacity=".6" />
+                            <circle cx="35.64" cy="32.97" r="27.69" fill="none" stroke="#12171e"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2.03" />
+                            <path fill="#fff" stroke="#12171e" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2.03"
+                                d="M49.56 29.75a3.38 3.38 0 0 1 0 5.49l-9.87 6.41-9.87 6.41c-1.88 1.22-4.23-.3-4.23-2.74V19.67c0-2.44 2.35-4 4.23-2.74l9.87 6.41Z" />
+                        </svg>
 
-                </button>
+                    </button>
 
-                <div x-cloak x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
-                    <div class="w-full max-w-5xl">
+                    <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
+                        <div class="w-full max-w-5xl">
 
-                        <div class="shadow-black-light relative shadow-2xl"
-                            style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
-                            {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'autoplay']) !!}
+                            <div class="shadow-black-light relative shadow-2xl"
+                                style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
+                                {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'autoplay']) !!}
+                            </div>
+
                         </div>
+                        <x-button x-on:click="trailerOpen = false"
+                            class="!absolute bottom-0.5 left-1/2 -translate-x-1/2 !pl-2 !pr-6">
+                            @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
+                        </x-button>
 
                     </div>
-                    <x-button x-on:click="trailerOpen = false"
-                        class="!absolute bottom-0.5 left-1/2 -translate-x-1/2 !pl-2 !pr-6">
-                        @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
-                    </x-button>
-
                 </div>
             @endif
 
