@@ -17,7 +17,7 @@
     @apply invisible;
 }
 
-.prose-lg {
+.prose-standout {
     /* line-height: 1.5; */
     @apply !leading-snug font-semibold text-lg lg:text-xl;
 }

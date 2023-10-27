@@ -61,7 +61,7 @@
     </div>
 
     <article class="container mx-auto pb-16">
-        <div class="prose prose-lg prose-gray">
+        <div class="prose prose-lg">
             @svg('squiggle', 'mb-12 h-auto w-64')
 
             @if ($post->content)

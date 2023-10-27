@@ -321,7 +321,7 @@
     </article>
 @else
     <article class="container mx-auto pb-24 pt-8">
-        <div class="prose prose-lg prose-gray">
+        <div class="prose prose-lg">
             {!! $podcast->rss_content !!}
         </div>
     </article>
