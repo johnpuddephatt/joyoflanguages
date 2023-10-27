@@ -250,7 +250,7 @@
       <div class="flex-1 lg:w-1/2">
           <h2 class="type-lg max-w-md">{!! $layout->title !!}</h2>
           @if ($layout->subtitle)
-              <div class="prose prose-lg max-w-lg md:mt-8">{!! Str::of($layout->subtitle)->markdown() !!}</div>
+              <div class="prose-standout prose max-w-lg md:mt-8">{!! Str::of($layout->subtitle)->markdown() !!}</div>
           @endif
 
           @if ($layout->posts && $layout->posts->count())
