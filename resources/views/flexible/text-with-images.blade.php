@@ -1,7 +1,7 @@
 <div class="relative">
     <div class="{{ $class ?? 'container w-full lg:max-w-6xl mx-auto' }}">
         <div class="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-12">
-            <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-1/2">
+            <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:w-[55%]">
                 @if ($layout->title)
                     <h2 class="type-lg">{{ $layout->title }}</h2>
                 @endif
@@ -14,7 +14,7 @@
             </div>
 
             <div
-                class="@if (count($layout->images) > 1) aspect-square @endif {{ $layout->reverse ? 'lg:-ml-16' : 'lg:-mr-16' }} relative flex-1">
+                class="@if (count($layout->images) > 1) aspect-square @endif {{ $layout->reverse ? 'lg:-ml-16' : 'lg:-mr-16' }} relative flex-1 lg:w-[45%]">
 
                 @if (count($layout->images) == 1)
                     <x-library-image class="h-auto w-full" conversion="3x2" :image="$layout->images[0]" />
