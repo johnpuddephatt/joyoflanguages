@@ -23,7 +23,7 @@
         </div>
 
         @if ($layout->quote_author)
-            <div class="-mt-8 flex items-center gap-3 lg:mt-0 lg:gap-4">
+            <div class="-mt-8 flex items-center gap-3 lg:-mt-4 lg:gap-4">
                 @if ($layout->quote_image)
                     <x-responsive-image class="w-12 rounded-full lg:w-16" :image="$layout->quote_image" />
                 @endif
