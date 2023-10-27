@@ -48,7 +48,7 @@
 
                 </button>
 
-                <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
+                <div x-cloak x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
                     <div class="w-full max-w-5xl">
 
                         <div class="shadow-black-light relative shadow-2xl"
