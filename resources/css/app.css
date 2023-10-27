@@ -25,11 +25,11 @@
 }
 
 .type-lg {
-    @apply mb-4 leading-[1.0] text-3xl font-bold lg:mb-8 lg:text-4xl;
+    @apply mb-4 !leading-[1.0] text-3xl font-bold lg:mb-8 lg:text-4xl;
 }
 
 .type-md {
-    @apply mb-6 !leading-[1.1] text-2xl font-bold 2xl:mb-8 lg:text-3xl;
+    @apply mb-4 !leading-[1.1] text-2xl font-bold 2xl:mb-8 lg:text-3xl;
 }
 
 .type-sm {
