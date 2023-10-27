@@ -14,7 +14,7 @@
             </div>
 
             <div
-                class="@if (count($layout->images) > 1) aspect-square @endif {{ $layout->reverse ? 'lg:-ml-16' : 'lg:-mr-16' }} relative flex-1 lg:w-[45%]">
+                class="@if (count($layout->images) > 1) aspect-square @endif {{ $layout->reverse ? 'lg:-ml-16' : 'lg:-mr-16' }} relative lg:w-[45%]">
 
                 @if (count($layout->images) == 1)
                     <x-library-image class="h-auto w-full" conversion="3x2" :image="$layout->images[0]" />
