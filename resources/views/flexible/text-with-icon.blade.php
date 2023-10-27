@@ -1,4 +1,4 @@
-    <div class="relative pt-12 lg:pt-16">
+    <div class="relative mb-12 mt-12 lg:mt-16">
         <div class="{{ $class ?? 'max-w-4xl' }} container">
             <div class="relative flex max-w-[65ch] flex-col gap-4 lg:flex-row lg:items-center lg:gap-8">
                 <img src="{{ Storage::disk('public')->url($layout->image) }}"
