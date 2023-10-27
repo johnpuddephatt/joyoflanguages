@@ -17,11 +17,9 @@
     @apply invisible;
 }
 
-.prose p {
-}
-
 .prose-lg {
-    line-height: 1.5;
+    /* line-height: 1.5; */
+    @apply !leading-snug font-semibold text-lg lg:text-xl;
 }
 
 .type-xl {
