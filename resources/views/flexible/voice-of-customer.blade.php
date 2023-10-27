@@ -16,28 +16,22 @@
                  initialised: false,
                  initialise() {
                      if (this.initialised) return;
-                     clearInterval(this.quoteTimer);
                      this.initialised = true;
-                     console.log('initialise');
                      this.currentRow = 0;
                      quoteTimer = setInterval(() => {
                          this.currentRow = ((this.currentRow + 1 < this.rowCount) ? this.currentRow + 1 : 0);
                      }, 6000)
                      document.addEventListener('visibilitychange', () => {
                          if (document.hidden) {
-                             this.initialiased = false;
                              this.shown = false;
              
                          } else {
                              this.shown = true;
-                             this.initialise();
                          }
                      });
                  },
              }" class="container mx-auto !pr-4"
-                 x-intersect="shown = true; if(!initialised) { initialise()}"
-                 x-intersect:leave="shown = false; initialised = false; ">
-
+                 x-intersect="if(!initialised) {initialise()}; shown = true" x-intersect:leave="shown = false">
                  <div class="flex flex-col xl:flex-row xl:items-center">
                      <div class="xl:w-3/5">
                          <h2 class="underline-bold type-xl !mb-8">
