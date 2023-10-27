@@ -4,10 +4,10 @@
             <x-library-image conversion="3x2" class="mx-auto w-full lg:-ml-16 lg:max-w-xs" :image="$layout->post->image" />
 
             <div class="relative px-4 py-8 lg:px-8">
-                <h2 class="type-sm max-w-2xl"> {{ $layout->post->title }}
+                <h2 class="type-md max-w-2xl"> {{ $layout->post->title }}
                 </h2>
 
-                <x-button-link href="{{ $layout->post->url }}" class="mx-auto shadow-yellow">
+                <x-button-link href="{{ $layout->post->url }}" class="mx-auto mt-4 shadow-yellow">
                     Read more</x-button-link>
             </div>
         </div>
