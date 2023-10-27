@@ -3,16 +3,16 @@
         {!! $layout->main !!}
     </div>
     <div class="container order-first lg:order-none xl:pl-0">
-        <hr class="mb-4 w-48 max-w-full border-t-2 border-teal-light" />
+        <hr class="border-teal-light mb-4 w-48 max-w-full border-t-2" />
 
         @php($parent = $layout->sectionNavigation['parent'])
-        <h3 class="mb-4 text-3xl font-bold"><a
+        <h3 class="type-md mb-4"><a
                 class="@if (url($parent->url) == request()->url()) border-lilac @else border-transparent @endif border-b-4"
                 href="{{ $parent->url }}">{{ $parent->title }}</a></h3>
 
         <nav class="space-y-2">
             @foreach ($layout->sectionNavigation['children'] as $child)
-                <p class="text-2xl font-bold"><a
+                <p class="type-sm"><a
                         class="@if (url($child->url) == request()->url()) border-lilac @else border-transparent @endif border-b-4"
                         href="{{ url($child->url) }}">{{ $child->title }}</a></p>
             @endforeach

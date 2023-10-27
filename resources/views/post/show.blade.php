@@ -8,13 +8,13 @@
 ]) @section('content')
 
     <div
-        class="container mx-auto flex min-h-[65vmin] flex-col-reverse gap-8 pb-8 pt-36 lg:flex-row lg:items-center lg:gap-16">
+        class="container mx-auto flex min-h-[65vmin] flex-col-reverse gap-8 pb-8 pt-40 lg:flex-row lg:items-center 2xl:gap-16">
 
         <svg class="pointer-events-none absolute left-0 right-0 top-0 hidden h-auto w-screen lg:block"
             xmlns="http://www.w3.org/2000/svg" width="2560" height="1297" viewBox="0 0 2560 1297">
             <path fill="#4caeb8"
                 d="M2793.46 126.11c-.14-5.6-.12-11.18-.06-16.78 1.35-108.61-211-318.68-388.15-253.15-103.81 38.4-180.95 65.26-218.92 205.48-17.92 66.18-11.37 229.07 150.26 317.1 0 0 212 134 380.55-31.36 74.07-72.64 77.16-187.25 76.32-221.29Z" />
-            <path fill="#f4b6bb"
+            <path fill="#f4b6bb" class="-translate-x-36"
                 d="M329.24 465.82c-3.22-5.29-6.3-10.66-9.32-16.07-58.74-105-378.6-189.22-512.4-28.42C-270.88 515.55-330.07 584-289 739.51c19.38 73.42 115.69 226.11 319.46 221.26 0 0 277.47 11.38 347.87-240.41 30.91-110.64-29.47-222.36-49.09-254.54Z" />
             <path fill="#ffd802"
                 d="M2613.23 899.06c-.16-6.53-.14-13-.06-19.58 1.56-126.77-246.26-372-453-295.47-121.16 44.82-211.21 76.17-255.52 239.83-20.96 77.24-13.31 267.36 175.35 370.16 0 0 247.43 156.33 444.17-36.61 86.43-84.82 90.04-218.6 89.06-258.33Z" />
@@ -26,13 +26,13 @@
                         href="{{ \App\Models\Page::getTemplateUrl('App\Nova\Templates\PostsPageTemplate') }}?tags={{ $tag->slug }}">#{{ $tag->name }}</a>
                 @endforeach
             </div>
-            <h1 class="max-w-5xl text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">
+            <h1 class="type-xl">
                 {!! nl2br($post->title) !!}</h1>
             <div>
-                <p class="mt-4 text-lg text-gray lg:mt-6">{{ $post->published_at->format('jS F Y') }}
+                <p class="type-xs mt-4 lg:mt-6">{{ $post->published_at->format('jS F Y') }}
                 </p>
                 @if ($post->introduction)
-                    <p class="mt-12 max-w-xl text-xl font-semibold text-gray lg:mt-16">{{ $post->introduction }}
+                    <p class="type-sm mt-12 max-w-xl text-gray lg:mt-16">{{ $post->introduction }}
                     </p>
                 @endif
                 {{-- @if ($post->author)
@@ -55,7 +55,7 @@
                 @endif --}}
             </div>
         </div>
-        <div class="w-96 lg:ml-auto 2xl:w-[32rem]">
+        <div class="w-80 flex-none lg:ml-auto 2xl:w-96">
             <x-library-image conversion="square" :image="$post->image" class="relative block h-auto w-full rounded-2xl" />
         </div>
     </div>

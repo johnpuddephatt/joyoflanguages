@@ -48,6 +48,7 @@ module.exports = {
             typography: {
                 DEFAULT: {
                     css: {
+                        color: "#181919",
                         lineHeight: "1.3",
                     },
                 },

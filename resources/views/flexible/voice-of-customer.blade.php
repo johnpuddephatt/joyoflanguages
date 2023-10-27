@@ -40,11 +40,11 @@
 
                  <div class="flex flex-col xl:flex-row xl:items-center">
                      <div class="xl:w-3/5">
-                         <h2 class="underline-bold type-xl mb-12">
+                         <h2 class="underline-bold type-xl !mb-8">
                              @inlineMarkdown($layout->title)
                          </h2>
                          @if ($layout->intro)
-                             <div class="type-subtitle prose max-w-xl !text-black">@markdown($layout->intro)</div>
+                             <div class="type-xs prose max-w-xl !text-black">@markdown($layout->intro)</div>
                          @endif
 
                          {{-- <div class="prose-lg mt-6 font-semibold !leading-tight">
@@ -63,9 +63,9 @@
                                          x-transition:enter-end="opacity-100 scale-100"
                                          x-transition:leave="transition ease-out duration-[500ms] delay-[{{ $bubbles[$key] * 250 }}ms] -z-10"
                                          x-transition:leave-end="scale-75 opacity-0"
-                                         class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} relative col-span-1 flex h-32 items-center justify-center px-4 text-center text-xl font-bold !leading-none lg:text-2xl">
+                                         class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} type-sm relative col-span-1 flex h-32 items-center justify-center px-4 text-center !leading-none">
                                          {{ $quote->quote }}
-                                         @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 left-0 right-0 h-auto top-1/2 -translate-y-1/2 max-w-none w-full')
+                                         @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 -left-3 w-[calc(100%+1.5rem)] -right-3 h-auto top-1/2 -translate-y-1/2 max-w-none')
                                      </div>
                                  @endforeach
                              @endforeach

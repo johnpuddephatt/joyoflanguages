@@ -1,5 +1,5 @@
 <header id="main-header" x-data="{ menuOpen: false }" :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
-    class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-12 py-6 text-teal 2xl:py-12">
+    class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-teal 2xl:py-12">
     <div class="container mx-auto flex max-w-none flex-row items-center justify-between lg:items-start">
         <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden lg:gap-2" href="/">
             @if ($theme == 'alternative_header')

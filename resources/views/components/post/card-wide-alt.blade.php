@@ -9,9 +9,9 @@
     @endif
     <div class="flex flex-col items-start">
         @if (!$hide_date)
-            <div class="mb-1 font-semibold">{{ $post->created_at->format('M Y') }}</div>
+            <div class="type-xs">{{ $post->created_at->format('M Y') }}</div>
         @endif
-        <h3 class="mb-2 text-xl font-semibold leading-tight">{{ $post->title }}</h3>
+        <h3 class="type-sm max-w-lg">{{ $post->title }}</h3>
 
         @if (!$hide_tags && $post->tags)
             <div class="font-semibold">

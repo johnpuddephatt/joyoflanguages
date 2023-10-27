@@ -1,6 +1,6 @@
 {{-- Livewire requires exactly one root element --}}
 <div>
-    <div class="container mx-auto max-w-5xl divide-y divide-light-teal divide-opacity-70 pb-16 lg:py-24">
+    <div class="container mx-auto max-w-5xl divide-y divide-light-teal divide-opacity-70 pb-16 lg:pt-12 2xl:py-24">
         <div class="flex flex-row gap-1 py-6">
 
             <div

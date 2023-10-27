@@ -2,7 +2,7 @@
 
 <div class="bg-beige bg-opacity-20">
     <div class="container mx-auto py-16">
-        <h2 class="text-2xl font-bold lg:text-3xl">Comments</h2>
+        <h2 class="type-md">Comments</h2>
 
         @if (Cookies::hasConsentFor('commenting_enabled'))
             <div class="max-w-2xl">

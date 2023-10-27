@@ -2,7 +2,7 @@
 
         @foreach ($layout->publications as $publication)
             <div
-                class="relative mb-4 flex w-full max-w-[65ch] flex-col gap-6 bg-light-teal p-6 lg:flex-row lg:items-center lg:items-center lg:bg-opacity-80">
+                class="relative mb-4 flex w-full max-w-[65ch] flex-col gap-6 bg-light-teal p-6 lg:flex-row lg:items-center lg:bg-opacity-80">
                 @if ($publication->type == 'radio')
                     @svg('radio', 'flex-none w-16 lg:w-20 h-auto')
                 @endif
@@ -11,8 +11,8 @@
                 @endif
 
                 <div class="flex-1">
-                    <p class="mb-0 text-lg font-bold leading-tight">{{ $publication->publication_name }}</p>
-                    <h3 class="text-2xl font-bold leading-none">{{ $publication->title }}</h3>
+                    <p class="type-xs">{{ $publication->publication_name }}</p>
+                    <h3 class="type-sm">{{ $publication->title }}</h3>
                 </div>
                 <x-button-link class="shadow-yellow" target="_blank" href="{{ $publication->link }}">
                     {{ $publication->button_text ?? 'Read more' }}</x-button-link>

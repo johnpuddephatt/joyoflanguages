@@ -5,7 +5,7 @@
         </div>
         <div
             class="container mx-auto flex-col items-center gap-8 pb-8 pt-4 lg:flex lg:flex-row lg:py-12 2xl:gap-16 2xl:py-16">
-            <div class="type-subtitle prose lg:w-[55%]">
+            <div class="type-xs prose lg:w-[55%]">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
             </div>
@@ -37,10 +37,10 @@
                         </svg>
 
                         {{-- <div class="font-semibold">Level {{ $course->number }}:</div> --}}
-                        <h2 class="mb-2 text-lg font-bold">{{ $course->title }}</h2>
+                        <h2 class="type-xs">{{ $course->title }}</h2>
                         <p class="prose prose-lg mb-6">{{ $course->description }}</p>
 
-                        <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 !text-sm shadow-yellow"
+                        <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
                             @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
 
@@ -56,10 +56,10 @@
                                 <div>
                                     <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
                                         {{-- <h2>{{ $course->number }}</h2> --}}
-                                        <h2 class="mb-2 text-2xl font-bold !leading-none">{{ $course->title }}
+                                        <h2 class="type-sm">{{ $course->title }}
                                             curriculum</h2>
 
-                                        <p class="type-subtitle">{{ $course->description }}</p>
+                                        <p class="type-xs">{{ $course->description }}</p>
                                     </div>
 
                                     <div class="">
@@ -85,7 +85,7 @@
                                                     @endif
                                                     <div class="max-h-[24rem] overflow-y-auto p-8 pt-0"
                                                         x-show="tab == {{ $key }}">
-                                                        <h3 class="text-xl font-bold text-blue">Module
+                                                        <h3 class="type-sm text-blue">Module
                                                             {{ $module->title }}
                                                         </h3>
                                                         <div>@markdown($module->description)</div>

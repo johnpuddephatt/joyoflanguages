@@ -1,5 +1,5 @@
 <div>
-    <div class="container mx-auto max-w-5xl divide-y divide-light-teal divide-opacity-70 pb-16 pt-0 lg:py-24">
+    <div class="container mx-auto max-w-5xl divide-y divide-light-teal divide-opacity-70 pb-16 pt-0 lg:py-16 2xl:py-24">
         <div class="flex flex-row gap-1 py-6">
 
             <div

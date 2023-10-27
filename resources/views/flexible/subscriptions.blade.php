@@ -22,10 +22,10 @@
 
     @if ($layout->benefits)
         <div class="container mx-auto mt-12 max-w-2xl rounded border border-light-teal px-0">
-            <p class="type-subtitle flex-0 bg-light-teal py-2 text-center !leading-tight text-white">
-                <strong>Every</strong>
+            <p class="type-xs flex-0 bg-light-teal py-2 text-center !leading-tight text-white">
+                <strong class="underline">Every</strong>
                 subscription
-                includes
+                includes:
             </p>
             <ul class="columns-2 p-4">
                 @foreach ($layout->benefits as $benefit)
@@ -41,7 +41,7 @@
                                 <path d="M31.54 18.98a12.41 12.41 0 1 1-7.77-11.5" />
                             </g>
                         </svg>
-                        <p>{{ $benefit->benefit }}</p>
+                        <p class="text-lg leading-snug">{{ $benefit->benefit }}</p>
                     </li>
                 @endforeach
             </ul>
@@ -50,17 +50,17 @@
 
     @if ($layout->subscriptions)
         <div
-            class="container mx-auto flex max-w-3xl flex-col-reverse items-center justify-center gap-8 pt-16 lg:flex-row lg:gap-3">
+            class="container mx-auto flex max-w-4xl flex-col-reverse items-center justify-center gap-8 pt-16 lg:flex-row lg:gap-3">
             @foreach ($layout->subscriptions as $subscription)
                 <div
-                    class="@if ($subscription->sticker) lg:flex-[55%] @else lg:flex-[50%] @endif relative min-h-[12rem] w-full bg-beige p-8">
+                    class="@if ($subscription->sticker) lg:flex-[50%] @else lg:flex-[50%] @endif relative min-h-[12rem] w-full bg-beige p-8">
                     <div
-                        class="@if ($subscription->pre_title) bg-light-teal @endif mb-3 inline-block rounded-full px-3 py-0.5 text-sm font-semibold text-white">
+                        class="@if ($subscription->pre_title) bg-light-teal @endif mb-3 inline-block rounded-full px-3 py-0.5 font-semibold text-white">
                         {!! $subscription->pre_title ?? '&nbsp;' !!}
                     </div>
 
                     @if ($subscription->title)
-                        <h3 class="mb-6 text-3xl font-bold leading-tight">{{ $subscription->title }}</h3>
+                        <h3 class="type-lg !mb-4">{{ $subscription->title }}</h3>
                     @endif
                     @if ($subscription->sticker)
                         <div
@@ -68,10 +68,10 @@
                             {{ $subscription->sticker }}</div>
                     @endif
                     @if ($subscription->price)
-                        <div class="mb-6 text-lg font-bold">{{ $subscription->price }}</div>
+                        <div class="type-sm !mb-6">{{ $subscription->price }}</div>
                     @endif
                     @if ($subscription->description)
-                        <div class="prose marker:text-white">@markdown($subscription->description)</div>
+                        <div class="prose prose-lg marker:text-white">@markdown($subscription->description)</div>
                     @endif
                     @if ($subscription->url)
                         <x-button-link class="mt-8 shadow-yellow" :href="$subscription->url">Subscribe</x-button-link>

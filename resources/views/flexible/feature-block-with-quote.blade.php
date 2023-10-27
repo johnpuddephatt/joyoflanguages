@@ -24,7 +24,7 @@
 
         <div class="flex items-center gap-4">
             <x-responsive-image class="w-16 rounded-full" :image="$layout->quote_image" />
-            <p class="text-2xl font-bold text-blue">{{ $layout->quote_author }}</p>
+            <p class="type-md text-blue">{{ $layout->quote_author }}</p>
         </div>
     </div>
 

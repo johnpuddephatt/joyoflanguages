@@ -5,7 +5,7 @@
                     class="flex-0 block w-32 max-w-none object-cover lg:w-40" />
                 <div class="w-full">
                     @if ($layout->title)
-                        <h2 class="mb-0 mt-0 text-xl font-bold lg:text-2xl">{{ $layout->title }}</h2>
+                        <h2 class="type-sm my-0">{{ $layout->title }}</h2>
                     @endif
                     <div class="prose mt-4">
                         @markdown($layout->main)

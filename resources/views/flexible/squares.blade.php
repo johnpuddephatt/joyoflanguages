@@ -20,7 +20,7 @@
                     @foreach ($layout->squares as $square)
                         <div
                             class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} !flex-0 flex flex-col items-center justify-center p-4 text-center lg:aspect-square">
-                            <h3 class="mb-2 text-2xl font-bold">{{ $square->title }}</h3>
+                            <h3 class="type-sm">{{ $square->title }}</h3>
                             <div class="prose !leading-tight lg:h-16">{{ $square->description }}</div>
                         </div>
                     @endforeach

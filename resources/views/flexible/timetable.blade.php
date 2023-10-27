@@ -17,7 +17,7 @@
             <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 pt-4 2xl:py-8">
                 <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
-                    <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
+                    <div class="type-sm">{{ $layout->subtitle }}</div>
                 @endif
                 @if ($layout->description)
                     <div class="prose prose-lg mt-4 lg:mt-8">@markdown($layout->description)</div>
@@ -36,8 +36,8 @@
                             aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
                         <div>
                             <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
-                                <h2 class="mb-2 text-2xl font-bold !leading-none">{{ $layout->modal_title }}</h2>
-                                <p class="type-subtitle !leading-tight">{{ $layout->modal_subtitle }}</p>
+                                <h2 class="type-sm mb-2">{{ $layout->modal_title }}</h2>
+                                <p class="type-xs">{{ $layout->modal_subtitle }}</p>
                             </div>
 
                             <div class="p-8 pt-4" x-data="{

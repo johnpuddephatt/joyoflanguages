@@ -1,4 +1,4 @@
-<div class="not-prose {{ $class }} my-16 bg-beige py-16 px-4 text-2xl font-bold lg:px-8">
+<div class="not-prose {{ $class }} type-sm my-16 bg-beige px-4 py-16 lg:px-8">
     <blockquote class="mx-auto max-w-2xl">
         @foreach ($content as $quoteLine)
             @include('blocks.' . $quoteLine['type'], [

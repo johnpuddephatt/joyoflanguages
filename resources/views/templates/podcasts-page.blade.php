@@ -28,12 +28,12 @@
         </svg>
 
         <div
-            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 pt-36 lg:flex-row lg:pt-48">
+            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 pt-36 lg:flex-row 2xl:pt-48">
             <div class="max-w-lg flex-1">
 
                 <h1 class="bold-text-light-teal type-xl text-teal">
                     {!! Str::of($page->title)->inlineMarkdown() !!} </h1>
-                <p class="type-subtitle mt-6">{{ $page->introduction }}</p>
+                <p class="type-xs mt-6">{{ $page->introduction }}</p>
             </div>
             <x-image-mask class="mx-auto h-auto w-80 max-w-[80%]"> <x-library-image conversion="square" :image="$page->image"
                     class="relative block h-auto w-full" />

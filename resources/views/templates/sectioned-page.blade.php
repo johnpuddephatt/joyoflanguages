@@ -18,7 +18,7 @@
 
                 <div class="lg:sticky lg:bottom-12 lg:max-w-xl">
 
-                    <h2 class="hidden px-4 text-xl font-bold lg:block lg:pb-6 lg:pt-16">
+                    <h2 class="type-xs hidden px-4 lg:block lg:pb-6 lg:pt-16">
                         On this page
 
                     </h2>
@@ -34,8 +34,7 @@
                         </button>
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
                             <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" @click="sectionMenuOpen = false; activeSection = section"
-                                class="inline-block p-2 px-4 text-2xl font-bold lg:max-w-md 2xl:text-3xl"
-                                :href="`#${section}`"
+                                class="type-md !my-0 inline-block p-2 px-4 lg:max-w-md" :href="`#${section}`"
                                 :class="{ 'bg-white bg-opacity-30 rounded': activeSection == section }">{{ $layout->title }}
                             </a>
                         @endforeach
@@ -44,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="flex-grow py-8 lg:pb-16">
+            <div class="flex-grow py-8 lg:py-16">
                 <div class="sticky top-0 z-20">
                     <x-button
                         class="!absolute right-1 top-3 !px-3 !py-1 max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"

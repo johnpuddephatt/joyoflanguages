@@ -13,7 +13,7 @@
 
         <div class="mt-12 flex flex-col gap-4 lg:flex-row lg:gap-6">
             @if (isset($settings['company_email']))
-                <a class="text-2xl font-bold text-white lg:text-3xl"
+                <a class="type-md text-white"
                     href="mailto:{{ $settings['company_email'] }}">{{ $settings['company_email'] }}</a>
             @endif
             <div class="flex flex-row gap-1">

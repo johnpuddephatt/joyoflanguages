@@ -11,7 +11,7 @@
             @svg('quote-open', 'w-12 text-light-teal')
         @endif
 
-        <div class="{{ $layout->large ? 'text-2xl lg:text-3xl' : 'text-xl lg:text-2xl' }} font-bold">
+        <div class="{{ $layout->large ? 'type-md' : 'type-sm' }}">
             {!! $layout->quote !!}
 
             @if ($layout->background_colour)
@@ -27,7 +27,7 @@
                 @if ($layout->quote_image)
                     <x-responsive-image class="w-12 rounded-full lg:w-16" :image="$layout->quote_image" />
                 @endif
-                <p class="text-xl font-bold text-blue lg:text-2xl">{{ $layout->quote_author }}</p>
+                <p class="type-sm text-blue">{{ $layout->quote_author }}</p>
             </div>
         @endif
     </div>

@@ -17,7 +17,7 @@
             <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 2xl:py-8">
                 <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
-                    <div class="mt-4 text-xl font-bold lg:text-2xl">{{ $layout->subtitle }}</div>
+                    <div class="type-sm mt-4">{{ $layout->subtitle }}</div>
                 @endif
                 @if ($layout->description)
                     <div class="prose prose-lg mt-4 lg:mt-8 lg:max-w-md">@markdown($layout->description)</div>

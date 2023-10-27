@@ -7,7 +7,7 @@
                 @endif
 
                 @if ($layout->text)
-                    <div class="type-subtitle prose">
+                    <div class="type-xs prose">
                         @markdown($layout->text)
                     </div>
                 @endif

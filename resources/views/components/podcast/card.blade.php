@@ -5,11 +5,11 @@
 
      <div>
          @if ($podcast->episode_number)
-             <p class="font-semibold lg:text-xl">Episode {{ $podcast->episode_number }}</p>
+             <p class="type-xs">Episode {{ $podcast->episode_number }}</p>
          @endif
-         <h3 class="mb-2 mt-0.5 text-xl font-semibold leading-tight lg:text-2xl lg:leading-tight">{{ $podcast->title }}
+         <h3 class="type-sm">{{ $podcast->title }}
          </h3>
-         <p class="mb-4 max-w-xl text-sm">{{ $podcast->introduction }}</p>
+         <p class="mb-4 max-w-xl leading-snug">{{ $podcast->introduction }}</p>
          <div class="flex flex-row items-center gap-2 font-semibold lg:gap-4">
              <svg class="h-4 w-4 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" width="46.93" height="46.93"
                  viewBox="0 0 46.93 46.93">
@@ -21,7 +21,7 @@
              </svg>
 
              <div>{{ $podcast->published_at->format('d M Y') }}</div>
-             <span class="h-2 w-2 rounded-full bg-black"></span>
+             <span class="h-2 w-2 rounded-full bg-black bg-opacity-20"></span>
              <div>{{ explode(':', $podcast->duration)[0] }} min {{ explode(':', $podcast->duration)[1] }} sec</div>
          </div>
      </div>
