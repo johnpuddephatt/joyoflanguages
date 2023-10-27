@@ -1,6 +1,7 @@
 <div class="{{ $layout->background_colour ?? null }} relative antialiased">
-    <div class="{{ $class ?? 'mx-auto' }} container pt-16 lg:grid lg:grid-cols-2 lg:pb-8 lg:pt-24 2xl:pb-16 2xl:pt-32">
-        <div class="flex flex-col">
+    <div
+        class="{{ $class ?? 'mx-auto' }} container flex-row pt-16 lg:flex lg:grid-cols-2 lg:pb-8 lg:pt-24 2xl:pb-16 2xl:pt-32">
+        <div class="flex w-[45%] flex-col">
             <h2 class="type-xl mb-6">{!! $layout->title !!}</h2>
             <div class="type-xs !mb-12 max-w-lg lg:mb-16">
                 @markdown($layout->description)
@@ -19,7 +20,7 @@
 
         </div>
         @if ($layout->checklist)
-            <div class="space-y-6 max-lg:mt-16 lg:pl-8 2xl:pl-24">
+            <div class="w-[55%] space-y-6 max-lg:mt-16 lg:pl-12 2xl:pl-24">
                 @foreach ($layout->checklist as $checklistItem)
                     <div class="flex flex-row gap-2 2xl:gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="flex-0 mt-1 h-12 w-12 2xl:h-16 2xl:w-16"
