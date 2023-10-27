@@ -4,7 +4,7 @@
             @include('components.block-intro', ['layout' => $layout])
         </div>
         <div
-            class="container mx-auto flex-col items-center gap-8 pb-8 pt-4 lg:flex lg:flex-row lg:py-12 2xl:gap-16 2xl:py-16">
+            class="container mx-auto flex-col items-center gap-8 pb-8 pt-4 lg:flex lg:flex-row lg:pb-12 2xl:gap-16 2xl:pb-16 2xl:pt-8">
             <div class="type-xs prose lg:w-[55%]">
                 <div class="max-w-lg">
                     @markdown($layout->introduction)</div>
