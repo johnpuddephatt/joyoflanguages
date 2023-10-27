@@ -22,7 +22,7 @@
         <div class="type-sm">{!! $layout->quote !!}</div>
         @svg('quote-close', 'ml-auto text-teal block w-12')
 
-        <div class="flex items-center gap-4">
+        <div class="-mt-4 flex items-center gap-4">
             <x-responsive-image class="w-16 rounded-full" :image="$layout->quote_image" />
             <p class="type-md text-blue">{{ $layout->quote_author }}</p>
         </div>
