@@ -3,7 +3,7 @@
         <div class="container-lg relative mx-auto block">
 
             <div class="{{ $layout->reverse ? 'order-first' : null }} max-w-lg py-8 2xl:max-w-xl">
-                <h2 class="text-balance type-lg mb-8 lg:mb-12">
+                <h2 class="text-balance type-xl mb-8 lg:mb-12">
                     {!! $layout->title !!}
                 </h2>
                 <svg xmlns="http://www.w3.org/2000/svg" width="130.32" height="41.8" class="ml-auto mr-12 h-auto w-48"
