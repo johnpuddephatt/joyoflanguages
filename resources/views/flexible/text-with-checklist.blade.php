@@ -19,7 +19,7 @@
 
         </div>
         @if ($layout->checklist)
-            <div class="space-y-6 max-lg:mt-16 lg:pl-12 2xl:pl-24">
+            <div class="space-y-6 max-lg:mt-16 lg:pl-8 2xl:pl-24">
                 @foreach ($layout->checklist as $checklistItem)
                     <div class="flex flex-row gap-2 2xl:gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="flex-0 mt-1 h-12 w-12 2xl:h-16 2xl:w-16"
