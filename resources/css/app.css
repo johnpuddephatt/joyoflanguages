@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+    display: none;
+}
+
 .tracking-loose {
     letter-spacing: 0.01rem;
 }
