@@ -5,7 +5,7 @@
 <div class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
         class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-16 lg:container lg:flex-row lg:pb-24 xl:pt-40 2xl:pb-36 2xl:pt-48">
-        <div class="pb-4 max-lg:container lg:w-[55%]">
+        <div class="pt-4 max-lg:container lg:w-1/2">
             @if ($layout->pretitle)
                 <div class="type-sm text-light-teal">{{ $layout->pretitle }}</div>
             @endif
@@ -18,12 +18,12 @@
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
-        <div class="relative w-full max-lg:overflow-hidden lg:w-[45%] lg:pl-8">
+        <div class="relative w-full max-lg:overflow-hidden lg:w-1/2 lg:pl-8">
 
             <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full" />
 
             @if ($layout->show_squiggles)
-                <svg class="absolute -bottom-8 -left-12 -right-4 top-8 block h-auto w-[111%] max-w-none"
+                <svg class="absolute -bottom-4 -left-12 -right-4 top-4 block h-auto w-[111%] max-w-none"
                     xmlns="http://www.w3.org/2000/svg" width="367.14" height="223.72" viewBox="0 0 367.14 223.72">
                     <path
                         d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
