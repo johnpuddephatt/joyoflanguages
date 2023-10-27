@@ -1,4 +1,4 @@
-<div class="py-16">
+<div class="pb-12 pt-16 2xl:pb-16">
     <div class="mx-auto max-w-2xl text-center">
         @include('components.block-intro', ['layout' => $layout])
     </div>
