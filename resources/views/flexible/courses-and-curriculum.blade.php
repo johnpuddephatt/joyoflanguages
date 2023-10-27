@@ -38,7 +38,7 @@
 
                         {{-- <div class="font-semibold">Level {{ $course->number }}:</div> --}}
                         <h2 class="type-xs">{{ $course->title }}</h2>
-                        <p class="prose mb-6">{{ $course->description }}</p>
+                        <p class="prose prose-lg mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
                             @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
