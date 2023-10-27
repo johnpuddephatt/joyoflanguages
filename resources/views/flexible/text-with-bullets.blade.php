@@ -9,7 +9,7 @@
         @if (count($layout->bullets))
             <div class="space-y-4 max-lg:mt-12 2xl:space-y-6">
                 @foreach ($layout->bullets as $bullet)
-                    <div class="flex flex-row items-center gap-2 font-bold">
+                    <div class="flex flex-row items-center gap-2">
                         <div
                             class="relative h-8 w-8 flex-none rounded-full border-2 after:absolute after:inset-0 after:-z-10 after:translate-x-0.5 after:translate-y-0.5 after:rounded-full after:bg-yellow">
                         </div>

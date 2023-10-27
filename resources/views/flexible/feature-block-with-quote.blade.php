@@ -4,7 +4,7 @@
 
     <div class="container flex flex-col py-8 lg:justify-center">
         <h2 class="type-lg">{{ $layout->title }}</h2>
-        <div class="prose prose-lg max-w-md">@markdown($layout->description)
+        <div class="prose-standout prose max-w-md">@markdown($layout->description)
 
         </div>
         @if ($layout->button_url)
