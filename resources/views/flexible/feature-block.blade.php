@@ -8,7 +8,7 @@
 
             </div>
             <div class="{{ $layout->reverse ? 'lg:order-first lg:pr-16' : 'lg:pl-16' }} px-4 py-4 lg:px-8 2xl:py-8">
-                <h2 class="type-lg max-w-lg">{!! $layout->title !!}</h2>
+                <h2 class="type-lg !mt-4 max-w-lg">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="type-xs lg:max-w-xs">{{ $layout->subtitle }}
                     </div>
