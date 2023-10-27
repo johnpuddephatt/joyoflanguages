@@ -10,7 +10,7 @@
             <div class="{{ $layout->reverse ? 'lg:order-first lg:pr-16' : 'lg:pl-16' }} px-4 py-4 lg:px-8 2xl:py-8">
                 <h2 class="type-md max-w-lg">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
-                    <div class="type-xs -mt-4 lg:max-w-xs">{{ $layout->subtitle }}
+                    <div class="type-xs lg:max-w-xs">{{ $layout->subtitle }}
                     </div>
                 @endif
                 @if ($layout->description)
