@@ -2,7 +2,7 @@
     <div class="{{ $class ?? 'mx-auto max-w-7xl' }} container gap-x-24 py-8 md:grid md:grid-cols-2 lg:py-32">
         <div class="">
             <h2 class="mb-8 text-4xl font-bold">{!! $layout->title !!}</h2>
-            <div class="prose:emphasise-first prose-standout prose max-w-lg">
+            <div class="prose-standout prose max-w-lg">
                 @markdown($layout->description)
             </div>
         </div>
@@ -13,7 +13,7 @@
                         <div
                             class="relative h-8 w-8 flex-none rounded-full border-2 after:absolute after:inset-0 after:-z-10 after:translate-x-0.5 after:translate-y-0.5 after:rounded-full after:bg-yellow">
                         </div>
-                        <p class="prose-standout prose">{{ $bullet }}</p>
+                        <p class="prose prose-lg">{{ $bullet }}</p>
                     </div>
                 @endforeach
             </div>
