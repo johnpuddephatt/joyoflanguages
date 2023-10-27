@@ -7,7 +7,7 @@
                 <h2 class="type-md max-w-2xl"> {{ $layout->post->title }}
                 </h2>
 
-                <x-button-link href="{{ $layout->post->url }}" class="mx-auto mt-4 shadow-yellow">
+                <x-button-link href="{{ $layout->post->url }}" class="mx-auto mt-2 shadow-yellow">
                     Read more</x-button-link>
             </div>
         </div>
