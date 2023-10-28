@@ -12,7 +12,7 @@
             <h1 class="type-xl">
                 {!! nl2br($layout->title) !!}
             </h1>
-            <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
+            <div class="type-xs max-w-sm lg:max-w-lg">@markdown($layout->description)</div>
             @if ($layout->button_url)
                 <x-button-link class="mt-6 text-lg shadow-yellow"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
