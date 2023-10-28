@@ -26,7 +26,7 @@
 
                     <x-button class="shadow-light-teal" type="submit">{{ $layout->button_text }}</x-button>
                     @if ($layout->sticker)
-                        <div class="absolute right-4 top-4 z-10 w-32 lg:bottom-0 lg:right-24 lg:top-auto lg:w-48">
+                        <div class="absolute right-4 top-4 z-10 w-32 lg:bottom-4 lg:right-24 lg:top-auto lg:w-48">
                             <svg xmlns="http://www.w3.org/2000/svg" width="276.93" height="270.49"
                                 class="block h-auto w-full" viewBox="0 0 276.93 270.49">
                                 <path fill="#4ba7b2"
@@ -34,7 +34,7 @@
                             </svg>
 
                             <p
-                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/3 rotate-[10deg] text-lg font-bold leading-none text-white">
+                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[10deg] text-lg font-bold leading-none text-white">
                                 {{ $layout->sticker }}
                             </p>
 
