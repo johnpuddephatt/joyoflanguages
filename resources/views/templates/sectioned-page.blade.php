@@ -46,9 +46,9 @@
             <div class="flex-grow pb-8 lg:py-16">
                 <div class="sticky top-0 z-20">
                     <x-button
-                        class="!absolute right-1 top-3 !px-3 !py-1 max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"
+                        class="!absolute right-1 top-3.5 !py-1 !pl-3 !pr-1 align-sub max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"
                         @click="document.body.classList.add('overflow-hidden'); sectionMenuOpen = true">
-                        Jump to a section
+                        Jump to @svg('arrow-right', 'w-4 h-4 ml-1 inline-block')
                     </x-button>
                 </div>
                 @foreach ($page->content as $layout)
