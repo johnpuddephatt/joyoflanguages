@@ -28,7 +28,7 @@
         </svg>
 
         <div
-            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 pt-36 lg:flex-row 2xl:pt-48">
+            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 pt-24 lg:flex-row 2xl:pt-48">
             <div class="max-w-lg flex-1">
 
                 <h1 class="bold-text-light-teal type-xl text-teal">

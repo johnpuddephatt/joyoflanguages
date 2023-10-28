@@ -2,7 +2,5 @@
     <h2 id="{{ Str::of($layout->title)->kebab }}"
         class="{{ $class ?? 'mx-auto max-w-7xl' }} type-lg container !my-0 flex w-full flex-row items-center justify-between max-sm:!text-xl">
         {{ $layout->title }}
-
     </h2>
-
 </div>

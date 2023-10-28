@@ -9,7 +9,7 @@
          @endif
          <h3 class="type-sm">{{ $podcast->title }}
          </h3>
-         <p class="mb-4 max-w-xl leading-snug">{{ $podcast->introduction }}</p>
+         <p class="prose mb-4 max-w-xl leading-snug">{{ $podcast->introduction }}</p>
          <div class="flex flex-row items-center gap-2 font-semibold lg:gap-4">
              <svg class="h-4 w-4 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" width="46.93" height="46.93"
                  viewBox="0 0 46.93 46.93">
