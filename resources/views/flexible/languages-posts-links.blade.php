@@ -1,5 +1,5 @@
 <div class="container mx-auto my-16">
-    <div class="mb-12 flex flex-row items-end justify-center">
+    <div class="mb-8 flex flex-row items-end justify-center lg:mb-12">
         <div class="relative mb-12 lg:mb-24">
             <h2 class="type-lg ml-auto">{{ $layout->title }}
 
@@ -38,7 +38,7 @@
         </svg>
     </div>
 
-    <div class="mb-8 flex flex-col justify-center gap-8 lg:mb-12 lg:flex-row lg:gap-12">
+    <div class="mb-12 flex flex-col justify-center gap-8 lg:flex-row lg:gap-12">
         @foreach ($layout->languages as $language)
             <div class="flex flex-col rounded-3xl bg-beige p-8 text-center lg:w-1/3">
 
