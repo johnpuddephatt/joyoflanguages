@@ -17,7 +17,8 @@
         <div>
             <div
                 class="{{ $background ?? 'bg-yellow' }} relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden">
-                <div class="container relative z-10 mx-auto pb-64 pt-40 text-center lg:py-16">
+                <div
+                    class="{{ $layout->sticker ? 'pt-40' : 'pt-12' }} container relative z-10 mx-auto pb-64 text-center lg:py-16">
                     <h2 class="type-lg mx-auto !mb-4 max-w-xl">{{ $layout->title }}</h2>
                     <div class="type-xs mx-auto !mb-12 max-w-xl">{!! $layout->description !!}</div>
 
