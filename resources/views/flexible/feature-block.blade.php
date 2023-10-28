@@ -71,7 +71,7 @@
             @endif
 
             @if ($layout->show_thumb)
-                <svg class="absolute left-1/2 top-full h-auto w-32 -translate-x-3/4 -translate-y-16"
+                <svg class="absolute left-1/2 top-full h-auto w-32 -translate-x-[80%] -translate-y-12"
                     xmlns="http://www.w3.org/2000/svg" width="267.14" height="300.62" viewBox="0 0 267.14 300.62">
                     <defs>
                         <style>
