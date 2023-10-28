@@ -54,7 +54,7 @@
                         d="M389.01 227.66s-13 54.49 4 57.73 20.21-55.16 20.21-55.16m-43.12 66.51s32.85 23.44 50.66-.84"
                         style="fill:none;stroke:#12171e;stroke-linecap:round;stroke-linejoin:round;stroke-width:9.34px" />
                     @if ($layout->show_sun_speech_bubble)
-                        <g class="translate-y-6">
+                        <g class="-translate-x-2 translate-y-8">
                             <path fill="#629ce4"
                                 d="M189.52 105.98q10.15-39.7-9.44-69.4T120.77 1.15Q81.05-4.59 47.08 18.37t-44 62.39q-10 39.42 11.84 68.62t61.88 35a106.45 106.45 0 0 0 28.29.46c40.31 28.33 61.92 15 49.52 3.14-4.22-4-4.67-12.62-3.37-22.39q28.63-21.99 38.28-59.61Z" />
                             <text fill="#fff" font-family="Brandon Text" font-size="52.2" font-weight="800"
