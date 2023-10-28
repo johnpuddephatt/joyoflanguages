@@ -14,7 +14,7 @@
 
         <div class="flex flex-col lg:flex-row">
             <div
-                class="2xl:container-lg top-0 flex-col justify-end px-6 py-6 !pr-4 transition lg:flex lg:w-[30%] lg:bg-yellow">
+                class="2xl:container-lg top-0 flex-col justify-end px-6 !pr-4 transition lg:flex lg:w-[30%] lg:bg-yellow lg:py-6">
 
                 <div class="lg:sticky lg:bottom-12 lg:max-w-xl">
 
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="flex-grow py-8 lg:py-16">
+            <div class="flex-grow pb-8 lg:py-16">
                 <div class="sticky top-0 z-20">
                     <x-button
                         class="!absolute right-1 top-3 !px-3 !py-1 max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"

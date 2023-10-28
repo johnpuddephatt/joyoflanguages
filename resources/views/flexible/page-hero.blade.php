@@ -4,7 +4,7 @@
 
 <div class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
-        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-16 lg:container lg:flex-row lg:pb-24 xl:pt-40 2xl:pb-36 2xl:pt-48">
+        class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-20 lg:container lg:flex-row lg:pb-24 xl:pt-40 2xl:pb-36 2xl:pt-48">
         <div class="pt-4 max-lg:container lg:w-1/2">
             @if ($layout->pretitle)
                 <div class="type-sm text-light-teal">{{ $layout->pretitle }}</div>
@@ -12,7 +12,7 @@
             <h1 class="type-xl">
                 {!! nl2br($layout->title) !!}
             </h1>
-            <div class="type-xs max-w-sm lg:max-w-lg">@markdown($layout->description)</div>
+            <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
             @if ($layout->button_url)
                 <x-button-link class="mt-6 text-lg shadow-yellow"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
