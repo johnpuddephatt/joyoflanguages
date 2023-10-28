@@ -60,6 +60,10 @@ Route::get("cookies", function () {
     return view("cookies");
 })->name("cookies");
 
+Route::get("brand", function () {
+    return view("brand");
+})->name("brand");
+
 Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
     ->where("page", "^(?!nova).*")
     ->name("page.show");
