@@ -9,7 +9,7 @@
             </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="550.29" height="594.48"
-            class="absolute -top-32 right-0 -z-10 w-48 lg:top-0 lg:w-64" viewBox="0 0 550.29 594.48">
+            class="absolute -top-24 right-0 -z-10 w-48 lg:top-0 lg:w-64" viewBox="0 0 550.29 594.48">
             <defs>
                 <style>
                     .cls-1 {
