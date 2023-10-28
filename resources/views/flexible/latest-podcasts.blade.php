@@ -2,7 +2,7 @@
     class="{{ $class ?? 'mx-auto max-w-6xl' }} container flex-row items-center justify-center gap-12 py-8 lg:flex lg:py-16">
     <div>
         <h2 class="bold-text-light-teal type-lg text-teal">{!! Str::inlineMarkdown($layout->title) !!}</h1>
-            <div class="prose-standout prose mb-12 max-w-lg">{!! $layout->description !!}</div>
+            <div class="prose-standout prose mb-8 max-w-lg lg:mb-12">{!! $layout->description !!}</div>
 
             <div class="space-y-2">
                 @foreach ($layout->podcasts as $podcast)
