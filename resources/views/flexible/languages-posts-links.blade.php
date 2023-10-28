@@ -12,7 +12,7 @@
 
         </div>
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="-ml-12 h-auto w-72" width="613.79" height="627.19"
+        <svg xmlns="http://www.w3.org/2000/svg" class="-ml-12 h-auto w-48 lg:w-72" width="613.79" height="627.19"
             viewBox="0 0 613.79 627.19">
             <defs>
                 <style>
