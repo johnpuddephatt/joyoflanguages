@@ -23,7 +23,7 @@
 }
 
 .type-xl {
-    @apply text-balance text-5xl font-bold !leading-[0.9] xl:!leading-[0.975] mb-4 lg:mb-6 2xl:mb-8 xl:text-6xl !tracking-tight;
+    @apply text-balance text-5xl font-bold !leading-[0.95] xl:!leading-[0.975] mb-4 lg:mb-6 2xl:mb-8 xl:text-6xl !tracking-tight;
 }
 
 .type-lg {
