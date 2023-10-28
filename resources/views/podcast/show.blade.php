@@ -283,7 +283,8 @@
                             return $value;
                         })) > 1)
 
-                    <div class="flex flex-col items-center gap-4 lg:float-right lg:w-[calc(100%-42rem-4rem)] lg:px-4">
+                    <div
+                        class="mb-8 flex flex-col gap-4 lg:float-right lg:w-[calc(100%-42rem-4rem)] lg:items-center lg:px-4">
                         @foreach ($podcast->content as $tabName => $tab)
                             @if ($tab)
                                 <button
@@ -298,8 +299,7 @@
 
     @foreach ($podcast->content as $tabName => $tab)
         @if ($tab)
-            <div x-show="tab == '{{ $tabName }}'" class="prose prose-lg prose-gray" x-transition
-                id="{{ $tabName }}">
+            <div x-show="tab == '{{ $tabName }}'" class="prose prose-xl" x-transition id="{{ $tabName }}">
 
                 @foreach ($tab as $block)
                     @includeIf('blocks.' . $block['type'], [
