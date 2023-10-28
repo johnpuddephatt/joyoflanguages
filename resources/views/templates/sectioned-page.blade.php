@@ -28,8 +28,7 @@
                             sectionMenuOpen
                     }"
                         class="fixed inset-0 z-[999] flex flex-col justify-center bg-yellow text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
-                        <button class="lg:hidden"
-                            @click="document.body.classList.remove('overflow-hidden'); sectionMenuOpen = false">
+                        <button class="lg:hidden" @click="sectionMenuOpen = false">
                             @svg('plus', 'mb-8 rotate-45 w-6 h-6 ml-auto mr-4')
                         </button>
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
@@ -47,7 +46,7 @@
                 <div class="sticky top-0 z-20">
                     <x-button
                         class="!absolute right-1 top-3.5 !py-1 !pl-3 !pr-1 align-sub max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"
-                        @click="document.body.classList.add('overflow-hidden'); sectionMenuOpen = true">
+                        @click="sectionMenuOpen = true">
                         Jump to @svg('arrow-right', 'w-4 h-4 ml-1 inline-block')
                     </x-button>
                 </div>
