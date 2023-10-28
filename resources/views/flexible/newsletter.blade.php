@@ -21,7 +21,7 @@
                     <h2 class="type-lg mx-auto !mb-4 max-w-xl">{{ $layout->title }}</h2>
                     <div class="type-xs mx-auto !mb-12 max-w-xl">{!! $layout->description !!}</div>
 
-                    <input class="mx-auto mb-8 block w-full max-w-sm rounded-full px-8 py-3 text-center text-lg"
+                    <input class="mx-auto mb-6 block w-full max-w-sm rounded-full px-8 py-3 text-center text-lg"
                         type="email" placeholder="{{ $layout->placeholder }}">
 
                     <x-button class="shadow-light-teal" type="submit">{{ $layout->button_text }}</x-button>
