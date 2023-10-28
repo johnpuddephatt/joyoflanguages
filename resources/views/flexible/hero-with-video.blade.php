@@ -1,5 +1,5 @@
 <div
-    class="relative flex flex-col items-center justify-center gap-6 bg-white pt-48 lg:h-screen lg:flex-row lg:gap-0 lg:pt-16">
+    class="relative flex flex-col items-center justify-center gap-6 bg-white pt-36 lg:h-screen lg:flex-row lg:gap-0 lg:pt-16">
 
     <div class="container-lg relative z-10 w-full">
         <div class="lg:w-1/2">
