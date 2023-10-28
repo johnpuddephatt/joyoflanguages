@@ -1,5 +1,5 @@
 @extends('layouts.default', ['theme' => null])
-
+@section('title', 'Cookies')
 @section('content')
     <div class="container mx-auto my-48 max-w-4xl">
         <h2 class="type-lg">How this site uses cookies</h2>

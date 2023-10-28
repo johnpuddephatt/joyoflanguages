@@ -1,5 +1,5 @@
 @extends('layouts.default', ['theme' => null])
-
+@section('title', 'Brand')
 @section('content')
     <div class="container mx-auto my-48 max-w-4xl">
         <h1 class="type-xl">Heading 1</h1>
