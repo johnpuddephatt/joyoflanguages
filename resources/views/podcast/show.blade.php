@@ -5,8 +5,8 @@
 @extends('layouts.default', ['language' => $podcast->language, 'theme' => null]) @section('content')
 
     <div class="container mx-auto">
-        <div class="flex flex-col items-end gap-12 pt-40 lg:flex-row">
-            <div class="lg:pb-16">
+        <div class="flex flex-col items-end gap-8 pb-8 pt-28 lg:flex-row 2xl:gap-12 2xl:pt-40">
+            <div class="">
                 <div class="mb-4 text-lg">
 
                     @foreach ($podcast->tags as $tag)
@@ -14,13 +14,12 @@
                             href="{{ \App\Models\Page::getTemplateUrl('App\Nova\Templates\PodcastsPageTemplate') }}?tags={{ $tag->slug }}">#{{ $tag->name }}</a>
                     @endforeach
                 </div>
-                <h1 class="max-w-5xl text-4xl font-bold !tracking-normal lg:text-5xl 2xl:text-6xl">
+                <h1 class="type-xl">
                     {!! nl2br($podcast->title) !!}</h1>
                 <div>
-                    <p class="mt-4 text-lg text-gray lg:mt-6">{{ $podcast->published_at->format('jS F Y') }}
+                    <p class="type-xs mt-4 lg:mt-6">{{ $podcast->published_at->format('jS F Y') }}
                     </p>
-                    <p
-                        class="max-whttps://joyoflanguages.test/podcasts%20?tags=wow-xl mt-12 text-xl font-semibold text-gray lg:mt-16">
+                    <p class="type-sm mt-12 max-w-xl 2xl:mt-16">
                         {{ $podcast->introduction }}
                     </p>
                     @if ($podcast->author)
@@ -41,6 +40,8 @@
                             </div>
                         </a>
                     @endif
+                    @svg('squiggle', 'mt-8 h-auto w-64')
+
                 </div>
             </div>
 
@@ -64,9 +65,8 @@
                         </x-image-mask>
 
                     </div>
-                    <p class="mb-1 text-xl font-semibold leading-none">Listen to the episode<span
-                            class="hidden lg:inline">:</span></p>
-                    <p class="mx-auto hidden max-w-xs text-xl font-bold leading-none text-white lg:block">
+                    <p class="type-xs mb-1">Listen to the episode<span class="hidden lg:inline">:</span></p>
+                    <p class="type-xs none mx-auto hidden max-w-xs text-white lg:block">
                         {{ $podcast->title }}</p>
                 </div>
                 <div class="bg-white bg-opacity-20 p-2 !pt-0 pb-6 lg:p-6">
@@ -270,8 +270,6 @@
             };
         </script>
 
-        @svg('squiggle', 'mb-8 h-auto w-64')
-
     </div>
 
     @if (count(
@@ -321,7 +319,7 @@
     </article>
 @else
     <article class="container mx-auto pb-24 pt-8">
-        <div class="prose prose-lg">
+        <div class="prose prose-xl max-w-xl">
             {!! $podcast->rss_content !!}
         </div>
     </article>
