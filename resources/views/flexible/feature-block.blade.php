@@ -19,7 +19,7 @@
 
                 @if ($layout->button_url || $layout->button_2_url)
 
-                    <div class="mt-6 flex flex-col items-start gap-3 lg:flex-row lg:gap-6">
+                    <div class="mt-6 flex flex-col items-start gap-4 pb-2 lg:flex-row lg:gap-6">
                         @if ($layout->button_url)
                             <x-button-link class="flex-none shadow-yellow"
                                 :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
