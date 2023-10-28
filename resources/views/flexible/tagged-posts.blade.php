@@ -1,7 +1,7 @@
-  <div class="container-lg mx-auto flex flex-col items-start py-8 lg:flex-row lg:gap-8 lg:py-16">
+  <div class="container-lg mx-auto flex flex-col items-start overflow-hidden py-8 lg:flex-row lg:gap-8 lg:py-16">
       <div x-data="{ canPlay: false, playing: false }" class="relative flex-1 lg:w-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42" class="mb-8 h-auto w-full lg:mb-16"
-              viewBox="0 0 1360.37 1301.42">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42"
+              class="-mx-16 mb-8 h-auto w-[calc(100%+8rem)] md:mx-0 md:w-full lg:mb-16" viewBox="0 0 1360.37 1301.42">
               <defs>
                   <clipPath id="prefix__clip-path" transform="translate(21.71 -3063.94)">
                       <path d="M529.93 3079.69h844.4v965.39h-844.4z" class="prefix__cls-1" />
@@ -234,7 +234,7 @@
           </svg>
           @if ($layout->video)
               <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
-                  class="absolute left-[15%] top-[47.5%] w-[23%]">
+                  class="absolute left-[5%] top-[47.5%] w-1/3 md:left-[15%] md:w-[23%]">
                   <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
                       viewBox="0 0 291.37 282.94">
                       <path fill="#4badb8"
