@@ -1,7 +1,7 @@
 <div class="relative bg-beige bg-opacity-30">
     <div class="{{ $class ?? 'mx-auto max-w-7xl' }} container gap-x-24 py-12 md:grid md:grid-cols-2 lg:py-32">
         <div class="">
-            <h2 class="mb-8 text-4xl font-bold">{!! $layout->title !!}</h2>
+            <h2 class="text-4xl font-bold">{!! $layout->title !!}</h2>
             <div class="prose-standout prose max-w-lg">
                 @markdown($layout->description)
             </div>
