@@ -27,7 +27,7 @@
                         'translate-y-full': !
                             sectionMenuOpen
                     }"
-                        class="fixed inset-0 z-[999] flex flex-col justify-center bg-yellow text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
+                        class="fixed inset-0 z-[999] flex flex-col justify-center overscroll-contain bg-yellow text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
                         <button class="lg:hidden" @click="sectionMenuOpen = false">
                             @svg('plus', 'mb-8 rotate-45 w-6 h-6 ml-auto mr-4')
                         </button>
