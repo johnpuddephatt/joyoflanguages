@@ -1,6 +1,6 @@
 <div class="container mx-auto my-16">
     <div class="mb-12 flex flex-row items-end justify-center">
-        <div class="relative mb-24">
+        <div class="relative mb-12 lg:mb-24">
             <h2 class="type-lg ml-auto">{{ $layout->title }}
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="749.33" height="4.21"
@@ -44,7 +44,7 @@
 
                 <img class="mx-auto mb-4 h-32 w-32 2xl:h-36 2xl:w-36"
                     src="{{ Storage::disk('public')->url($language->image) }}" />
-                <h3 class="mb-auto pb-16 text-3xl font-bold">{{ $language->name }}</h3>
+                <h3 class="mb-auto pb-12 text-3xl font-bold lg:pb-16">{{ $language->name }}</h3>
 
                 <x-button-link href="{{ $language->blog_link }}" class="mx-auto max-w-sm shadow-white">Read
                     articles</x-button-link>
