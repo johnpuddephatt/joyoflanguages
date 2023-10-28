@@ -1,4 +1,5 @@
-<div class="relative flex flex-col items-center justify-center bg-white pt-48 lg:h-screen lg:flex-row lg:pt-16">
+<div
+    class="relative flex flex-col items-center justify-center gap-6 bg-white pt-48 lg:h-screen lg:flex-row lg:gap-0 lg:pt-16">
 
     <div class="container-lg relative z-10 w-full">
         <div class="lg:w-1/2">
@@ -14,7 +15,7 @@
     </div>
 
     <div x-data="{ playing: false }"
-        class="right-0 top-1/2 -mb-16 ml-auto w-3/4 max-lg:overflow-hidden lg:absolute lg:w-1/2 lg:-translate-y-1/2">
+        class="right-0 top-1/2 -mb-16 ml-auto w-[90%] max-lg:overflow-hidden lg:absolute lg:w-1/2 lg:-translate-y-1/2">
 
         <svg class="block h-auto w-[150%] max-w-none lg:max-h-[85vh] lg:w-full lg:translate-y-32"
             xmlns="http://www.w3.org/2000/svg" width="1172.89" height="1107.97" viewBox="0 0 1172.89 1107.97">
