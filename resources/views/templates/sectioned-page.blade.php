@@ -20,7 +20,6 @@
 
                     <h2 class="type-xs hidden px-4 lg:block lg:pb-6 lg:pt-16">
                         On this page
-
                     </h2>
 
                     <nav :class="{
@@ -29,7 +28,8 @@
                             sectionMenuOpen
                     }"
                         class="fixed inset-0 z-[999] flex flex-col justify-center bg-yellow text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
-                        <button class="lg:hidden" @click="sectionMenuOpen = false">
+                        <button class="lg:hidden"
+                            @click="document.body.classList.remove('overflow-hidden'); sectionMenuOpen = false">
                             @svg('plus', 'mb-8 rotate-45 w-6 h-6 ml-auto mr-4')
                         </button>
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
@@ -47,7 +47,7 @@
                 <div class="sticky top-0 z-20">
                     <x-button
                         class="!absolute right-1 top-3 !px-3 !py-1 max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"
-                        @click="sectionMenuOpen = true">
+                        @click="document.body.classList.add('overflow-hidden'); sectionMenuOpen = true">
                         Jump to a section
                     </x-button>
                 </div>

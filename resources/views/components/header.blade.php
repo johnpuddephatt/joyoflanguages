@@ -18,7 +18,7 @@
 
             <x-button aria-label="Open navigation menu" title="Open navigation menu"
                 class="!leading-0 -mr-1 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-yellow lg:hidden"
-                @click="menuOpen = true">
+                @click="document.body.classList.add('overflow-hidden'); menuOpen = true">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-10" width="26.04" height="25.71"
                     viewBox="0 0 26.04 25.71">
                     <defs>
@@ -44,7 +44,7 @@
 
                 <x-button aria-label="Close navigation menu" title="Close navigation menu"
                     class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-white md:right-5 lg:hidden"
-                    @click="menuOpen = false">
+                    @click="document.body.classList.remove('overflow-hidden'); menuOpen = false">
                     @svg('plus', 'h-auto rotate-45 w-10 p-2')
 
                 </x-button>
