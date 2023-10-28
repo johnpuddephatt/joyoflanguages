@@ -13,7 +13,7 @@
                             @endif
                             <p class="type-xs">{{ $podcast->title }}</p>
                         </div>
-                        <x-button-link class="my-auto px-4 shadow-yellow after:absolute after:inset-0"
+                        <x-button-link class="my-auto !px-4 shadow-yellow after:absolute after:inset-0"
                             href="{{ $podcast->url }}">
                             <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="53.66" height="66.6"
                                 viewBox="0 0 53.66 66.6">
