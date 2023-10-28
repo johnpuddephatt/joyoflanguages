@@ -27,7 +27,7 @@
                 @endforeach
             </div>
 
-            <x-button-link class="mt-16 shadow-light-teal"
+            <x-button-link class="mt-12 shadow-light-teal 2xl:mt-16"
                 :href="$layout->button_url ?? $language->podcasts_link">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
     </div>
     <div class="hidden lg:block">
