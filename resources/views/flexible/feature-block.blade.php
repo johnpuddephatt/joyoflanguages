@@ -2,7 +2,7 @@
         class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb) !pb-24 lg:!pb-32 @endif container relative py-8 lg:py-16">
 
         <div
-            class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $layout->reverse ? 'lg:mr-8' : 'lg:ml-8' }} relative flex w-full flex-col lg:flex-row lg:items-center lg:py-6">
+            class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $layout->reverse ? 'lg:mr-8' : 'lg:ml-8' }} relative flex w-full flex-col lg:flex-row lg:items-center lg:py-10">
             <div class="{{ $layout->reverse ? 'lg:-mr-16' : 'lg:-ml-16' }} relative w-full lg:w-1/2">
                 <x-responsive-image :image="$layout->image" class="h-auto w-full" />
 

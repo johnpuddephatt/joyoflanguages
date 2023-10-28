@@ -14,7 +14,7 @@
             @endif
             <img class="mx-auto w-full max-w-md lg:w-2/5" src="{{ Storage::url($layout->image) }}" />
 
-            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 2xl:py-8">
+            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 2xl:py-10">
                 <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="type-sm mt-4">{{ $layout->subtitle }}</div>
