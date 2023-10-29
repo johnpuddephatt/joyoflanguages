@@ -18,12 +18,12 @@
         </svg>
 
         <div
-            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-8 bg-blue py-12 lg:flex-row">
+            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-4 bg-blue py-12 lg:flex-row lg:gap-8">
             <div class="max-w-lg flex-1">
                 <h1 class="type-xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="type-xs mt-6 max-w-md text-white">{{ $page->introduction }}</p>
             </div>
-            <x-library-image :image="$page->image" class="relative block h-auto w-36 lg:mx-auto lg:w-72 2xl:w-80" />
+            <x-library-image :image="$page->image" class="relative mr-auto block h-auto w-36 lg:mx-auto lg:w-72 2xl:w-80" />
 
         </div>
 
