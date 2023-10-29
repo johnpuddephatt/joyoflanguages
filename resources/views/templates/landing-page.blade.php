@@ -98,7 +98,8 @@
                                         {{ $layout->pre_title ?? $layout->title }}
                                     </x-button-link>
                                 @else
-                                    <a @click="menuOpen = false" x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="sectionMenuOpen = false;"
+                                    <a @click="document.body.classList.remove('overflow-hidden'); menuOpen = false"
+                                        x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="sectionMenuOpen = false;"
                                         class="border-b-[3px] border-transparent font-semibold text-teal transition duration-1000"
                                         :href="`#${section}`"
                                         :class="{ '!border-yellow': activeSection == section }">{{ $layout->pre_title ?? $layout->title }}</a>
