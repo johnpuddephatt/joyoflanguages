@@ -1,4 +1,4 @@
-<div class="bg-{{ $layout->colour ?? 'teal-light' }} relative overflow-hidden pt-8 lg:pt-16">
+<div class="bg-{{ $layout->colour ?? 'teal-light' }} relative overflow-hidden lg:pt-16">
     <div class="bottom-0 left-0 right-0 top-0 lg:absolute lg:pt-36">
         <div class="container-lg relative mx-auto block">
 

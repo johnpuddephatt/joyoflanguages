@@ -6,8 +6,7 @@
         <div
             class="container mx-auto flex-col items-center gap-8 pb-8 pt-4 lg:flex lg:flex-row lg:pb-12 2xl:gap-16 2xl:pb-16 2xl:pt-8">
             <div class="prose-standout prose lg:w-[55%]">
-                <div class="max-w-lg">
-                    @markdown($layout->introduction)</div>
+                @markdown($layout->introduction)
             </div>
             <img src="{{ Storage::disk('public')->url($layout->image) }}"
                 class="mx-auto hidden w-full flex-1 lg:block lg:w-[45%]" />
@@ -23,7 +22,7 @@
                     @endif
 
                     <div @click="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
-                        class="group flex cursor-pointer flex-col border border-black border-opacity-20 p-6 transition hover:border-opacity-100 hover:bg-beige hover:bg-opacity-20 max-lg:items-start lg:p-4"
+                        class="group flex cursor-pointer flex-col border border-black border-opacity-20 p-4 transition hover:border-opacity-100 hover:bg-beige hover:bg-opacity-20 max-lg:items-start"
                         x-data="{ modalOpen: false, shown: false }">
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="43.78" height="40.29" class="mb-2 h-14 w-14"
@@ -37,7 +36,7 @@
                         </svg>
 
                         {{-- <div class="font-semibold">Level {{ $course->number }}:</div> --}}
-                        <h2 class="type-xs">{{ $course->title }}</h2>
+                        <h2 class="type-xs lg:min-h-[2.75em]">{{ $course->title }}</h2>
                         <p class="prose prose-lg mb-6">{{ $course->description }}</p>
 
                         <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"

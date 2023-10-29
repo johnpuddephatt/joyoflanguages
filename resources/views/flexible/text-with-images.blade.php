@@ -20,7 +20,7 @@
                     <x-library-image class="h-auto w-full" conversion="3x2" :image="$layout->images[0]" />
                 @else
                     @php
-                        $classes = ['-rotate-6 left-[40%] top-[25%] w-[65%] h-auto', 'rotate-12 left-[55%] top-[75%] w-[40%]', 'rotate-3 left-[80%] top-[45%] w-[40%]', '-rotate-6 left-[20%] top-[60%] w-[35%] z-10'];
+                        $classes = ['-rotate-6 left-[40%] top-[25%] w-[65%] h-auto', 'rotate-12 left-[55%] top-[78%] w-[40%]', 'rotate-3 left-[80%] top-[47%] w-[40%]', '-rotate-6 left-[20%] top-[58%] w-[35%] z-10'];
                     @endphp
 
                     @foreach ($layout->images as $key => $image)

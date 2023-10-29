@@ -1,6 +1,6 @@
 <div class="relative pb-16 pt-32 lg:pb-24 2xl:pb-32">
     <svg xmlns="http://www.w3.org/2000/svg" width="272.39" height="209.79"
-        class="absolute -top-px left-4 h-auto w-48 lg:left-16 lg:w-96" viewBox="0 0 272.39 209.79">
+        class="absolute -top-px left-4 h-auto w-40 lg:left-16 lg:w-96" viewBox="0 0 272.39 209.79">
 
         <path fill="#4ba3ae"
             d="M35.23.7c-.38 10.3 1 21.89 4.55 35.38 6.67 25.25 39.79 77.78 109.88 76.11 0 0 95.45 3.91 119.66-82.7A93 93 0 0 0 272.22 0" />
@@ -22,7 +22,7 @@
 
     @if ($layout->benefits)
         <div class="container mx-auto max-w-2xl">
-            <div class="mt-12 rounded border border-light-teal">
+            <div class="mt-6 rounded border border-light-teal lg:mt-12">
                 <p class="type-xs flex-0 bg-light-teal py-2 text-center !leading-tight text-white">
                     <strong class="underline">Every</strong>
                     subscription
@@ -55,9 +55,9 @@
             class="container mx-auto flex max-w-4xl flex-col-reverse items-center justify-center gap-8 pt-16 lg:flex-row lg:gap-3">
             @foreach ($layout->subscriptions as $subscription)
                 <div
-                    class="@if ($subscription->sticker) lg:flex-[50%] @else lg:flex-[50%] @endif relative min-h-[12rem] w-full bg-beige p-8">
+                    class="@if ($subscription->sticker) lg:flex-[50%] @else lg:flex-[50%] @endif relative min-h-[12rem] w-full bg-beige px-4 py-8 lg:px-8">
                     <div
-                        class="@if ($subscription->pre_title) bg-light-teal @endif mb-3 inline-block rounded-full px-3 py-0.5 font-semibold text-white">
+                        class="@if ($subscription->pre_title) bg-light-teal @else max-md:hidden @endif mb-3 inline-block rounded-full px-3 py-0.5 font-semibold text-white">
                         {!! $subscription->pre_title ?? '&nbsp;' !!}
                     </div>
 
@@ -84,7 +84,7 @@
     @endif
 
     @if ($layout->small_print)
-        <div class="prose prose-sm mx-auto max-w-lg pt-12 text-center">
+        <div class="prose prose-sm mx-auto max-w-lg pt-6 text-center lg:pt-12">
             {!! Str::of($layout->small_print)->markdown()->replace('<a', '<a target="_blank"') !!}
         </div>
     @endif

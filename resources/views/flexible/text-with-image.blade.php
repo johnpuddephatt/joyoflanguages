@@ -1,4 +1,4 @@
-<div class="{{ $layout->background_colour ?? '' }} relative overflow-hidden py-16 lg:pt-24">
+<div class="{{ $layout->background_colour ?? '' }} relative overflow-hidden py-12 lg:pb-16 lg:pt-24">
     <div class="{{ $class ?? 'container w-full  mx-auto' }}">
         <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
             <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-[60%]">
@@ -26,7 +26,7 @@
                         </svg>
                     @elseif($layout->squiggle == 2)
                         <svg xmlns="http://www.w3.org/2000/svg" width="307.32" height="119.97"
-                            class="absolute -bottom-16 -right-16 h-auto w-4/5" viewBox="0 0 307.32 119.97">
+                            class="absolute -bottom-8 -right-16 h-auto w-4/5 lg:-bottom-16" viewBox="0 0 307.32 119.97">
                             <path fill="none" stroke="#ffce00" stroke-linecap="round" stroke-miterlimit="10"
                                 stroke-width="3.84"
                                 d="M305.41 47.18c-6.87-16.81-14.11-30.1-32-27.06-12.45 2.11-20.67 13.64-28.15 23.81s-17.64 20.85-30.23 19.92c-16.61-1.22-24.23-20.48-34.41-33.65-21.37-27.65-52.76-41.63-69.2-10.8-10.27 19.26-5 30.16-1.65 64.95 0 0 8.56 64.19-56.91 15.41C37.02 88.2 43.44 63.38 55 72.37s-40.57 37.52-53.07-5.14" />

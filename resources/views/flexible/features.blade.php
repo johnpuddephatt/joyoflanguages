@@ -1,5 +1,5 @@
     @include('flexible.text-with-image', ['layout' => $layout])
-    <div class="{{ $layout->background_colour }} flex flex-col gap-12 pb-16 lg:gap-16">
+    <div class="{{ $layout->background_colour }} flex flex-col gap-8 pb-16 md:gap-12 lg:gap-16">
 
         @if ($layout->features)
             @foreach ($layout->features as $feature)
