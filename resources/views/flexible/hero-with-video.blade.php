@@ -49,7 +49,7 @@
                     :image="$layout->image" />
 
                 @if ($layout->video)
-                    <video x-ref="video" x-transition x-show="playing" @ended="playing = false"
+                    <video x-cloak x-ref="video" x-transition x-show="playing" @ended="playing = false"
                         class="absolute left-[25%] top-[2%] h-[72%] w-[32%] object-cover">
                         @if (isset($layout->video->mp4))
                             <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
