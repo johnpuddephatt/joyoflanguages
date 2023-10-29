@@ -1,13 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500"
-    viewBox="0 0 500 500" {{ $attributes }}">
+<svg style="width:0;height:0; position:absolute;" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500"
+    viewBox="0 0 500 500" ">
     <defs>
-        <clipPath id="clip-path">
+        <clipPath id="clip-path" clipPathUnits="objectBoundingBox">
             <path fill="none"
-                d="M50.46,73.53C90.83,27.18,163.54,3,215,2.92c69.33,0,141.15,12,195.28,57.69,64.86,54.78,86,128,88.56,174.27,3.89,70.15-19,129.1-63,174.11s-101,67.88-171,68.6A276,276,0,0,1,192,469c-113.31,59-164.24,17.28-128.29-9,12.21-8.92,16.36-30.77,16.37-56.31Q14.17,337.58,2.35,237.48C-5.94,167.15,10.1,119.9,50.46,73.53Z" />
-        </clipPath>
-    </defs>
-    <foreignObject clip-path="url(#clip-path)" x="0" y="0" width="500" height="500"
-        requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        {!! $slot !!}
-    </foreignObject>
+                d="M0.096,0.142 C0.177,0.049,0.323,0,0.426,0 C0.565,0,0.709,0.024,0.817,0.116 C0.947,0.227,0.99,0.374,0.995,0.468 C1,0.609,0.957,0.728,0.869,0.819 S0.666,0.955,0.526,0.957 A0.553,0.556,0,0,1,0.38,0.94 C0.153,1,0.051,0.974,0.123,0.921 C0.147,0.903,0.156,0.859,0.156,0.808 Q0.024,0.675,0,0.473 C-0.017,0.331,0.016,0.236,0.096,0.142"" />
+</clipPath>
+</defs>
+
 </svg>
+
+<div {{ $attributes }}>
+    <div style="clip-path:url(#clip-path)">
+        {!! $slot !!}
+    </div>
+</div>

@@ -211,21 +211,40 @@
               </g>
               <rect width="561.33" height="1150.89" x="380.84" y="42.48" fill="#fff" stroke="#12171e"
                   stroke-linecap="round" stroke-linejoin="round" stroke-width="3.51" rx="62.86" />
-              <g clip-path="url(#prefix__clip-path-2)">
-                  <foreignObject x="410" y="80" width="500" height="1070"
-                      requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                      <x-responsive-image class="absolute inset-0 h-full w-full object-cover" :image="$layout->image" />
 
-                      @if ($layout->video)
-                          <video x-ref="video" x-transition x-show="playing" loop
-                              class="absolute inset-0 h-full w-full object-cover">
-                              <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
-                              <source src="{{ Storage::disk('public')->url($layout->video->webm) }}"
-                                  type="video/webm">
-                          </video>
-                      @endif
-                  </foreignObject>
-              </g>
+          </svg>
+
+          <div class="absolute left-0 top-0 -mx-16 h-full w-[calc(100%+8rem)] md:mx-0 md:w-full">
+              <x-responsive-image class="absolute left-[31%] top-[5%] h-[69%] w-[35%] object-cover"
+                  :image="$layout->image" />
+
+              @if ($layout->video)
+                  <video x-ref="video" x-transition x-show="playing" loop
+                      class="absolute left-[25%] top-[2%] h-[72%] w-[32%] object-cover">
+                      <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
+                      <source src="{{ Storage::disk('public')->url($layout->video->webm) }}" type="video/webm">
+                  </video>
+              @endif
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42"
+              class="absolute left-0 top-0 -mx-16 mb-8 h-auto w-[calc(100%+8rem)] md:mx-0 md:w-full lg:mb-16"
+              viewBox="0 0 1360.37 1301.42">
+              <defs>
+                  <clipPath id="prefix__clip-path" transform="translate(21.71 -3063.94)">
+                      <path d="M529.93 3079.69h844.4v965.39h-844.4z" class="prefix__cls-1" />
+                  </clipPath>
+                  <clipPath id="prefix__clip-path-2" transform="translate(21.71 -3063.94)">
+                      <path
+                          d="M844.72 3146.63h-.37l-.56-.05h-61.07a6.84 6.84 0 0 0-6.46 6.14v.78a32.74 32.74 0 0 1-32.7 31.19H529.75a32.73 32.73 0 0 1-32.7-31.19v-.78a6.85 6.85 0 0 0-6.47-6.14h-61.1l-.55.05h-.37a41.15 41.15 0 0 0-38.42 41v985.11a41.34 41.34 0 0 0 37.88 41h1.14c.71 0 1.42.05 2.13.05H842c.72 0 1.43 0 2.14-.05h1.14a41.34 41.34 0 0 0 37.87-41v-985.06a41.14 41.14 0 0 0-38.43-41.05Z"
+                          class="prefix__cls-1" />
+                  </clipPath>
+                  <style>
+                      .prefix__cls-1 {
+                          fill: none
+                      }
+                  </style>
+              </defs>
               <circle cx="633.25" cy="87.72" r="15.51" fill="#4badb8" stroke="#0a0a0a"
                   stroke-miterlimit="10" stroke-width="3.5" />
               <circle cx="683.45" cy="87.72" r="15.51" fill="#ffd800" stroke="#0a0a0a"
