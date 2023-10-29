@@ -3,7 +3,7 @@
 
     <div class="{{ $class ?? 'mx-auto' }} container">
         <div
-            class="{{ $layout->colour ?? 'bg-teal-light' }} {{ $layout->images ? ' pb-24 lg:pb-48' : null }} relative flex flex-col gap-4 rounded-3xl p-8 lg:flex-row lg:p-16 2xl:gap-8">
+            class="{{ $layout->colour ?? 'bg-teal-light' }} {{ $layout->images ? ' pb-24 lg:pb-48' : null }} relative flex flex-col gap-4 rounded-3xl px-4 py-8 lg:flex-row lg:p-16 lg:py-8 2xl:gap-8">
             @if ($layout->squiggle == 1)
                 <svg xmlns="http://www.w3.org/2000/svg" width="315.85" height="124.74"
                     class="absolute -left-72 top-4 h-auto w-96" viewBox="0 0 315.85 124.74">
@@ -12,7 +12,7 @@
                         d="M313.94 21.42c-27.07 20-30.39-22.14-47.82-17.05-12.12 3.54-19 15.94-25.2 26.91s-15.11 22.74-27.73 23.27c-16.63.71-26.43-17.53-38.06-29.44-24.43-25-57.23-35.25-70-2.72-8 20.32-1.46 30.54 5.88 64.7 0 0 15.93 62.77-54.75 21.89-17.07-9.65-13.56-35-1.05-27.45s-35.95 42-53.3 1" />
                 </svg>
             @endif
-            <img class="mx-auto w-full max-w-md lg:w-2/5" src="{{ Storage::url($layout->image) }}" />
+            <img class="w-2/3 max-w-md lg:mx-auto lg:w-2/5" src="{{ Storage::url($layout->image) }}" />
 
             <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 pt-4 2xl:py-8">
                 <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
