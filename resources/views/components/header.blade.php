@@ -1,7 +1,7 @@
 <header id="main-header" x-data="{ menuOpen: false }" x-cloak :class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
     class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} absolute left-0 top-0 z-40 w-full py-6 text-teal 2xl:py-12">
     <div class="container mx-auto flex max-w-none flex-row items-center justify-between lg:items-start">
-        <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden lg:gap-2" href="/">
+        <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden max-sm:-ml-2 lg:gap-2" href="/">
             @if ($theme == 'alternative_header')
                 @svg('jol-logo-alt', 'h-9 lg:h-12 w-auto')
             @else
@@ -19,7 +19,7 @@
             <x-button aria-label="Open navigation menu" title="Open navigation menu"
                 class="!leading-0 -mr-1 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-yellow lg:hidden"
                 @click="document.body.classList.add('overflow-hidden'); menuOpen = true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-10" width="26.04" height="25.71"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-8 md:w-10" width="26.04" height="25.71"
                     viewBox="0 0 26.04 25.71">
                     <defs>
                         <style>
