@@ -1,5 +1,5 @@
 <div
-    class="relative flex flex-col items-center justify-center gap-6 bg-white pt-36 lg:h-screen lg:flex-row lg:gap-0 lg:pt-16">
+    class="relative flex flex-col items-center justify-center gap-6 bg-white pt-32 lg:h-screen lg:flex-row lg:gap-0 lg:pt-16">
 
     <div class="container-lg relative z-10 w-full">
         <div class="lg:w-1/2">
@@ -84,7 +84,7 @@
 
         @if ($layout->video)
             <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
-                class="absolute bottom-[10%] right-[5%] z-20 w-1/3 lg:w-1/5">
+                class="absolute bottom-[10%] right-[2%] z-20 w-1/3 lg:w-1/5">
                 <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
                     viewBox="0 0 291.37 282.94">
                     <path fill="#4badb8"
