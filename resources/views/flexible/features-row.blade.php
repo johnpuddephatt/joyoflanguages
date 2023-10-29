@@ -26,7 +26,8 @@
         <x-hint>
             @markdown($layout->outro)
             <svg xmlns="http://www.w3.org/2000/svg" width="45.46" height="43.01"
-                class="absolute right-0 top-0 h-auto w-16 -translate-y-1/3 translate-x-1/3" viewBox="0 0 45.46 43.01">
+                class="absolute right-0 top-0 h-auto w-16 -translate-y-1/3 lg:translate-x-1/3"
+                viewBox="0 0 45.46 43.01">
                 <defs>
                     <style>
                         .prefix__a7dh4hd__cls-2 {
