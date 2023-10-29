@@ -23,7 +23,7 @@
                 <h1 class="type-xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="type-xs mt-6 max-w-md text-white">{{ $page->introduction }}</p>
             </div>
-            <x-library-image :image="$page->image" class="relative mr-auto block h-auto w-36 lg:mx-auto lg:w-72 2xl:w-80" />
+            <x-library-image :image="$page->image" class="relative mr-auto block h-auto w-64 lg:mx-auto lg:w-72 2xl:w-80" />
 
         </div>
 
