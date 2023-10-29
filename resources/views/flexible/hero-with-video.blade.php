@@ -5,7 +5,7 @@
         <div class="lg:w-1/2">
             <h1 class="type-xl mb-6">
                 {!! nl2br($layout->title) !!}</h1>
-            <p class="type-xs max-w-xl">{!! nl2br($layout->subtitle) !!}</p>
+            <p class="type-xs max-w-lg">{!! nl2br($layout->subtitle) !!}</p>
 
             @if ($layout->button_url)
                 <x-button-link class="mt-6 text-lg shadow-yellow"
