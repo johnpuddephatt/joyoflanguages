@@ -71,7 +71,8 @@
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-        class="pointer-events-none absolute left-0 right-0 top-0 -z-10 h-auto" viewBox="0 0 2676.7 1530.2">
+        class="pointer-events-none absolute left-0 right-0 top-1/3 h-auto lg:top-0 lg:-z-10"
+        viewBox="0 0 2676.7 1530.2">
         @if ($layout->show_shape_1)
             <path fill="#f4af6b"
                 d="M2393 1047.2c-1.9-3.2-3.8-6.4-5.6-9.7-35.5-63.4-228.6-114.3-309.4-17.2-47.3 56.9-83.1 98.2-58.3 192.2 11.7 44.3 69.9 136.5 192.9 133.6 0 0 167.6 6.9 210.1-145.2 18.6-66.8-17.8-134.3-29.7-153.7z" />
