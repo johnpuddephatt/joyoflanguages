@@ -1,5 +1,5 @@
 <div
-    class="{{ $layout->background_colour }} @if (in_array($layout->background_colour, ['bg-teal'])) text-white @endif relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-32 lg:h-screen lg:flex-row lg:pt-12">
+    class="{{ $layout->background_colour }} @if (in_array($layout->background_colour, ['bg-teal'])) text-white @endif relative flex min-h-screen flex-col items-center justify-center gap-8 overflow-hidden pt-16 lg:h-screen lg:flex-row lg:pt-12">
 
     <div class="container-lg relative z-10 mx-auto w-full">
         <div class="lg:w-1/2">
