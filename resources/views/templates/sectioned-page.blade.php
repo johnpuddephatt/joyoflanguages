@@ -32,7 +32,7 @@
                             @svg('plus', 'mb-8 rotate-45 w-6 h-6 ml-auto mr-4')
                         </button>
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
-                            <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" @click="sectionMenuOpen = false; activeSection = section"
+                            <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" @click="sectionMenuOpen = false; activeSection = section;"
                                 class="type-sm !my-0 inline-block p-2 px-4 lg:max-w-md" :href="`#${section}`"
                                 :class="{ 'bg-white bg-opacity-30 rounded': activeSection == section }">{{ $layout->title }}
                             </a>
@@ -56,13 +56,13 @@
                     @endif
 
                     @if ($layout->name() === 'section')
-                        @include('flexible.' . $layout->name(), [
-                            'layout' => $layout,
-                            'class' => 'text-left max-w-4xl lg:pl-24 mx-auto lg:mx-0',
-                        ])
-
-                        <section
+                        <section class="pt-4" id="{{ Str::of($layout->title)->kebab }}"
                             x-intersect:enter="activeSection = '{{ Illuminate\Support\Str::of($layout->title)->kebab() }}'">
+
+                            @include('flexible.section', [
+                                'layout' => $layout,
+                                'class' => 'text-left max-w-4xl lg:pl-24 mx-auto lg:mx-0',
+                            ])
                         @else
                             @include('flexible.' . $layout->name(), [
                                 'layout' => $layout,
