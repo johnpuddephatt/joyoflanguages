@@ -92,14 +92,14 @@
                         <nav class="my-auto flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-start lg:gap-12">
                             @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu) as $layout)
                                 @if ($layout->show_as_button)
-                                    <x-button-link @click="menuOpen = false" x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
-                                        @click="document.body.classList.remove('overflow-hidden'); sectionMenuOpen = false;"
+                                    <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
+                                        @click="document.body.classList.remove('overflow-hidden'); menuOpen = false;"
                                         ::href="`#${section}`" class="px-16 shadow-white lg:shadow-yellow">
                                         {{ $layout->pre_title ?? $layout->title }}
                                     </x-button-link>
                                 @else
                                     <a @click="document.body.classList.remove('overflow-hidden'); menuOpen = false"
-                                        x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="sectionMenuOpen = false;"
+                                        x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
                                         class="border-b-[3px] border-transparent font-semibold text-teal transition duration-1000"
                                         :href="`#${section}`"
                                         :class="{ '!border-yellow': activeSection == section }">{{ $layout->pre_title ?? $layout->title }}</a>
@@ -149,7 +149,7 @@
 
         </section>
 
-        <section id="{{ Str::of($layout->title)->slug() }}" class=""
+        <section class="-scroll-mt-6" id="{{ Str::of($layout->title)->slug() }}" class=""
             x-intersect:enter.threshold.10="activeSection = '{{ Str::of($layout->title)->slug() }}'">
             @endif
 
@@ -184,7 +184,7 @@
                     Menu</button>
 
                 @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu && $layout->show_as_button) as $layout)
-                    <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="sectionMenuOpen = false;" ::href="`#${section}`"
+                    <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="menuOpen = false;" ::href="`#${section}`"
                         class="shadow-white">
                         {{ $layout->pre_title ?? $layout->title }}
                     </x-button-link>
