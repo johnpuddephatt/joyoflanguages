@@ -21,13 +21,13 @@
     </div>
 
     @if ($layout->benefits)
-        <div class="container mx-auto mt-12 max-w-2xl rounded border border-light-teal px-0">
+        <div class="container mx-auto mt-12 max-w-2xl rounded border border-light-teal lg:px-0">
             <p class="type-xs flex-0 bg-light-teal py-2 text-center !leading-tight text-white">
                 <strong class="underline">Every</strong>
                 subscription
                 includes:
             </p>
-            <ul class="columns-2 p-4">
+            <ul class="p-4 lg:columns-2">
                 @foreach ($layout->benefits as $benefit)
                     <li class="flex flex-row gap-1.5 py-2 !leading-tight">
                         <svg xmlns="http://www.w3.org/2000/svg" class="block h-7 w-7 flex-none text-yellow"
