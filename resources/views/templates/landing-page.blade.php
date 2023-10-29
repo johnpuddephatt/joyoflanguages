@@ -158,7 +158,7 @@
             @endforeach
         </section>
 
-        <nav class="sticky bottom-0 z-20 bg-yellow pb-2.5 pt-1 text-lg shadow-lg lg:hidden">
+        <nav class="sticky bottom-0 z-20 bg-yellow pb-1.5 pt-1 text-lg shadow-lg lg:hidden">
             <div class="container flex flex-row items-center gap-6">
                 <button @click="document.body.classList.add('overflow-hidden'); menuOpen = true"
                     class="mr-auto flex flex-row items-center gap-1 font-semibold">
