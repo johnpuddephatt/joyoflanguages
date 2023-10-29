@@ -56,7 +56,7 @@
                     @endif
 
                     @if ($layout->name() === 'section')
-                        <section class="pt-4" id="{{ Str::of($layout->title)->kebab }}"
+                        <section class="mb-4" id="{{ Str::of($layout->title)->kebab }}"
                             x-intersect:enter="activeSection = '{{ Illuminate\Support\Str::of($layout->title)->kebab() }}'">
 
                             @include('flexible.section', [
