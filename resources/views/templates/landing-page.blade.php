@@ -72,9 +72,9 @@
                 class="w-full bg-white bg-opacity-0 pt-3 transition duration-500 lg:pb-3 lg:pt-8">
                 <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center">
                     <a href="#home"
-                        class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-10 lg:h-12 w-auto')
+                        class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-9 lg:h-12 w-auto')
                         @if ($language)
-                            <span class="font-logo text-xl uppercase tracking-widest text-light-teal lg:text-2xl">
+                            <span class="font-logo text-lg uppercase tracking-widest text-light-teal lg:text-2xl">
                                 {{ $language->name }}</span>
                         @endif
                     </a>
