@@ -5,7 +5,7 @@
 
 @extends('layouts.default', ['language' => $page->language, 'theme' => $page->theme]) @section('content')
 
-    <div class="relative pt-24 lg:pt-36 2xl:pt-48">
+    <div class="relative pt-20 lg:pt-36 2xl:pt-48">
 
         <svg class="pointer-events-none absolute left-0 right-0 top-0 hidden h-auto w-screen lg:block"
             xmlns="http://www.w3.org/2000/svg" width="2560" height="1297" viewBox="0 0 2560 1297">
@@ -23,7 +23,7 @@
                 <h1 class="type-xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="type-xs mt-6 max-w-md text-white">{{ $page->introduction }}</p>
             </div>
-            <x-library-image :image="$page->image" class="relative mx-auto block h-auto w-72 2xl:w-80" />
+            <x-library-image :image="$page->image" class="relative ml-auto block h-auto w-48 lg:mx-auto lg:w-72 2xl:w-80" />
 
         </div>
 
