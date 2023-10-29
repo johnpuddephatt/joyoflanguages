@@ -1,6 +1,6 @@
 <div class="relative bg-beige bg-opacity-30">
     <div
-        class="{{ $class ?? 'mx-auto max-w-7xl' }} container gap-x-16 py-16 md:grid md:grid-cols-2 lg:py-32 2xl:gap-x-24">
+        class="{{ $class ?? 'mx-auto max-w-7xl' }} container gap-x-12 py-16 md:grid md:grid-cols-2 lg:py-32 2xl:gap-x-24">
         <div class="">
             <h2 class="type-lg">{!! $layout->title !!}</h2>
             <div class="prose-standout prose max-w-lg">
