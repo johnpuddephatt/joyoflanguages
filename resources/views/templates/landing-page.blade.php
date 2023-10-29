@@ -184,8 +184,8 @@
 
                 @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu && $layout->show_as_button) as $layout)
                     <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
-                        @click="document.body.classList.add('overflow-hidden'); sectionMenuOpen = false;" ::href="`#${section}`"
-                        class="shadow-white">
+                        @click="document.body.classList.remove('overflow-hidden'); sectionMenuOpen = false;"
+                        ::href="`#${section}`" class="shadow-white">
                         {{ $layout->pre_title ?? $layout->title }}
                     </x-button-link>
                 @endforeach
