@@ -71,8 +71,8 @@
 
                                 <template x-if="selectedTimezone">
                                     <div>
-                                        <p class="mb-3 leading-snug">Times are provided to indicate
-                                            frequency. While we do our best to keep times consistent, they are subject
+                                        <p class="mb-3 leading-snug">While we do our best to keep times consistent, they
+                                            are subject
                                             to change at any time – including due to daylight
                                             savings.</p>
                                         <button @click.prevent="selectedTimezone = null"
