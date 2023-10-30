@@ -71,7 +71,7 @@
 
                                 <template x-if="selectedTimezone">
                                     <div>
-                                        <p class="mb-3 leading-snug">While we do our best to keep times consistent, they
+                                        <p class="mb-3 leading-snug">We do our best to keep times consistent, but they
                                             are subject
                                             to change at any time – including due to daylight
                                             savings.</p>
