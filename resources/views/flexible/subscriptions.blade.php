@@ -21,25 +21,23 @@
     </div>
 
     @if ($layout->benefits)
-        <div class="container mx-auto max-w-2xl">
-            <div class="mt-6 rounded border border-light-teal lg:mt-12">
-                <p class="type-xs flex-0 bg-light-teal py-2 text-center !leading-tight text-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="mt-6 overflow-hidden rounded-3xl bg-yellow bg-opacity-10 lg:mt-12">
+                <p class="type-xs flex-0 bg-yellow py-2 text-center !leading-tight text-black text-opacity-80">
                     <strong class="underline">Every</strong>
                     subscription
                     includes:
                 </p>
-                <ul class="p-4 lg:columns-2">
+                <ul class="column gap-x-6 p-4 lg:columns-2">
                     @foreach ($layout->benefits as $benefit)
                         <li class="flex flex-row gap-1.5 py-2 !leading-tight">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="block h-7 w-7 flex-none text-yellow"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1.5 block h-4 w-4 flex-none text-yellow"
                                 width="43.29" height="40.16" viewBox="0 0 43.29 40.16">
                                 <path fill="currentColor"
                                     d="M6.17 29.31c.13.32.24.65.36 1 2.18 6.42 19 14.34 28.09 6.8 5.31-4.42 9.28-7.61 8.59-16.64A18 18 0 0 0 27.77 4.95S12.52 1.49 6.05 14.73c-2.84 5.79-.64 12.59.12 14.58Z" />
                                 <g fill="none" stroke="#151616" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.77px">
+                                    stroke-width="4px">
                                     <circle cx="19.08" cy="19.08" r="18.19" />
-                                    <path d="m13.84 17.62 5.1 6.52L29.73 9.1" />
-                                    <path d="M31.54 18.98a12.41 12.41 0 1 1-7.77-11.5" />
                                 </g>
                             </svg>
                             <p class="text-lg leading-snug">{{ $benefit->benefit }}</p>
