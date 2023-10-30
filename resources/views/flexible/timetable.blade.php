@@ -71,7 +71,8 @@
 
                                 <template x-if="selectedTimezone">
                                     <div>
-                                        <p class="mb-2">Times are provided here to give an indication of frequency.
+                                        <p class="mb-2 leading-snug">Times are provided here to give an indication of
+                                            frequency.
                                             While we do our best to offer classes at consistent times, they are subject
                                             to change at any time, including due to seasonal changes in daylight savings
                                             time</p>
