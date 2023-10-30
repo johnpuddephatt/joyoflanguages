@@ -71,11 +71,10 @@
 
                                 <template x-if="selectedTimezone">
                                     <div>
-                                        <p class="mb-2 leading-snug">Times are provided here to give an indication of
-                                            frequency.
-                                            While we do our best to offer classes at consistent times, they are subject
-                                            to change at any time, including due to seasonal changes in daylight savings
-                                            time</p>
+                                        <p class="mb-3 leading-snug">Times are provided to indicate
+                                            frequency. While we do our best to keep times consistent, they are subject
+                                            to change at any time – including due to daylight
+                                            savings.</p>
                                         <button @click.prevent="selectedTimezone = null"
                                             class="mb-4 ml-auto flex flex-row items-center gap-1 rounded bg-beige bg-opacity-20 p-1 hover:bg-opacity-50"><svg
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
