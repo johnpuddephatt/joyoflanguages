@@ -24,7 +24,7 @@
                 @endif
 
                 <x-button @click="document.body.classList.add('overflow-hidden'); $refs.modal_timetable.showModal()"
-                    class="mt-6">View Timetable</x-button>
+                    class="mt-6">View timetable</x-button>
 
                 <dialog @close="document.body.classList.remove('overflow-hidden'); console.log('closing dialog')"
                     class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-blue backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
@@ -71,7 +71,7 @@
 
                                 <template x-if="selectedTimezone">
                                     <div>
-                                        <p class="text-sm">Times are provided here to give an indication of frequency.
+                                        <p class="mb-2">Times are provided here to give an indication of frequency.
                                             While we do our best to offer classes at consistent times, they are subject
                                             to change at any time, including due to seasonal changes in daylight savings
                                             time</p>
