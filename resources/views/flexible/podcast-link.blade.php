@@ -5,7 +5,7 @@
             <x-image-mask class="hidden h-auto w-24 rounded-3xl bg-yellow p-4 lg:block lg:w-56">
                 <x-library-image conversion="square" class="relative block h-auto w-full" :image="\App\Models\Page::where('template', 'App\Nova\Templates\PodcastsPageTemplate')
                     ->where('language_id', $page->language?->id)
-                    ->first()->image" />
+                    ->first()->image ?? null" />
             </x-image-mask>
             <div class="relative">
                 <p class="bold-text-light-teal type-sm !mb-0.5 font-bold text-teal">Learn Italian
