@@ -7,11 +7,17 @@
             <div class="space-y-2">
                 @foreach ($layout->podcasts as $podcast)
                     <div class="relative flex max-w-lg justify-between gap-2 border-b border-light-teal pb-4 pt-2">
+                        <x-image-mask
+                            class="mb-auto block h-auto w-[5rem] flex-none rounded-xl bg-yellow p-1.5 lg:w-[5.5rem]">
+                            <x-library-image conversion="square" class="relative block h-auto w-full" :image="\App\Models\Page::where('template', 'App\Nova\Templates\PodcastsPageTemplate')
+                                ->where('language_id', $page->language?->id)
+                                ->first()->image ?? null" />
+                        </x-image-mask>
                         <div>
                             @if ($podcast->episode_number)
                                 <div class="mb-0.5 font-bold">Episode {{ $podcast->episode_number }}</div>
                             @endif
-                            <p class="type-xs">{{ $podcast->title }}</p>
+                            <p class="type-xs x !leading-tight">{{ $podcast->title }}</p>
                         </div>
                         <x-button-link class="my-auto !px-4 shadow-yellow after:absolute after:inset-0"
                             href="{{ $podcast->url }}">
