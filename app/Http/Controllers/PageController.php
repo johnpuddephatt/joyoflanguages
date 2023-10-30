@@ -34,6 +34,8 @@ class PageController extends Controller
         } else {
             if (\App\Models\Post::where("slug", $slug)->first()) {
                 return redirect()->route("post.show", ["post" => $slug]);
+            } elseif (\App\Models\Podcast::where("slug", $slug)->first()) {
+                return redirect()->route("podcast.show", ["podcast" => $slug]);
             } else {
                 $page = Page::doesntHave("language")
                     ->where("slug", end($slug_parts) ?: "/")

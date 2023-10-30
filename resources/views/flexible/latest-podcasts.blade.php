@@ -13,7 +13,7 @@
                                 ->where('language_id', $page->language?->id)
                                 ->first()->image ?? null" />
                         </x-image-mask>
-                        <div>
+                        <div class="flex-1">
                             @if ($podcast->episode_number)
                                 <div class="mb-0.5 font-bold">Episode {{ $podcast->episode_number }}</div>
                             @endif
