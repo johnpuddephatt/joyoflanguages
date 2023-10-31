@@ -6,7 +6,8 @@
                 <div class="relative bg-black" @mouseEnter="$refs.video.play(); playing= true"
                     @mouseLeave="$refs.video.pause(); $refs.video.currentTime = 0; playing= false"
                     x-data="{ playing: false }">
-                    <x-library-image x-show="!playing" :image="$member->photo" conversion="3x2" class="mx-auto block w-full" />
+                    <x-library-image x-transition x-show="!playing" :image="$member->photo" conversion="3x2"
+                        class="mx-auto block w-full" />
                     @if ($member->video)
                         <video x-ref="video" @ended="$refs.video.currentTime = 0; playing= false" muted
                             class="absolute inset-0 z-10 h-full w-full" x-show="playing">
