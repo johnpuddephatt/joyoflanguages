@@ -73,7 +73,7 @@
                                     <div>
                                         <p class="mb-3 leading-snug">We do our best to keep times consistent, but they
                                             are subject
-                                            to change at any time – including due to daylight
+                                            to change – including due to daylight
                                             savings.</p>
                                         <button @click.prevent="selectedTimezone = null"
                                             class="mb-4 ml-auto flex flex-row items-center gap-1 rounded bg-beige bg-opacity-20 p-1 hover:bg-opacity-50"><svg
