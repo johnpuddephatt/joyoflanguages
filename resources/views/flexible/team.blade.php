@@ -6,16 +6,17 @@
                 <div class="relative bg-black" @mouseEnter="$refs.video.play(); playing= true"
                     @mouseLeave="$refs.video.pause(); $refs.video.currentTime = 0; playing= false"
                     x-data="{ playing: false }">
-                    <x-library-image x-transition x-show="!playing" :image="$member->photo" conversion="3x2"
-                        class="mx-auto block w-full" />
+                    <div x-transition.opacity x-show="!playing">
+                        <x-library-image :image="$member->photo" conversion="3x2" class="mx-auto block w-full" />
+                    </div>
                     @if ($member->video)
                         <video x-ref="video" @ended="$refs.video.currentTime = 0; playing= false" muted
+                            x-transition:enter.duration.500ms.delay.250ms x-transition:leave.duration.1000ms
                             class="absolute inset-0 z-10 h-full w-full" x-show="playing">
                             <source src="{{ Storage::url($member->video->mp4) }}" type="video/mp4">
                             <source src="{{ Storage::url($member->video->webm) }}" type="video/webm">
 
                         </video>
-                        x-transition:enter.duration.500ms.delay.250ms x-transition:leave.duration.1000ms
                     @endif
                 </div>
                 <h3 class="mt-6 text-3xl font-bold text-blue">{{ $member->name }}</h3>
