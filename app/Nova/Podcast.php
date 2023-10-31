@@ -110,7 +110,6 @@ class Podcast extends Resource
                 ->hideFromIndex()
                 ->readonly(),
             Textarea::make("Introduction")
-                ->rules("required", "string", "max:250")
                 ->hideFromIndex()
                 ->maxlength(250)
                 ->enforceMaxlength()
