@@ -44,6 +44,7 @@
                                 selectedTimezoneName: null,
                                 selectedTimezone: null,
                                 timezones: {
+                                    'Rome': 0,
                                     'London': -1,
                                     'California': -9,
                                     'New York': -6,
