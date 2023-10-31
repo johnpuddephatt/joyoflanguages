@@ -92,14 +92,15 @@ class Podcast extends Resource
                 ->asHtml()
                 ->onlyOnIndex(),
 
-            Number::make("Episode", "episode_number")
-                ->default(\App\Nova\Podcast::max("episode_number") + 1)
-                ->readonly(),
+            Number::make("Episode", "episode_number")->default(
+                \App\Nova\Podcast::max("episode_number") + 1
+            ),
+            // ->readonly(),
             Text::make("Title")
                 ->rules("required", "string", "max:100")
                 ->maxlength(100)
                 ->enforceMaxlength()
-                ->readonly()
+                // ->readonly()
                 ->hideFromIndex(),
 
             Text::make("Title", function ($value) {
@@ -107,8 +108,7 @@ class Podcast extends Resource
             })->onlyOnIndex(),
             Slug::make("Slug")
                 ->from("Title")
-                ->hideFromIndex()
-                ->readonly(),
+                ->hideFromIndex(),
             Textarea::make("Introduction")
                 ->hideFromIndex()
                 ->maxlength(250)

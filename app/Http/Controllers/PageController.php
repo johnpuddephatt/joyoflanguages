@@ -27,15 +27,52 @@ class PageController extends Controller
         $slug_parts = explode("/", $slug);
 
         if ($language) {
-            $page = $language
-                ->pages()
-                ->where("slug", end($slug_parts) ?: "/")
-                ->firstOrFail();
+            if (
+                is_numeric($slug) &&
+                \App\Models\Podcast::where("episode_number", $slug)->first()
+            ) {
+                $slug = \App\Models\Podcast::where(
+                    "episode_number",
+                    $slug
+                )->first()->slug;
+                return redirect()->route("language.podcast.show", [
+                    "podcast" => $slug,
+                    "language" => $language,
+                ]);
+            } elseif (
+                !strpos($slug, "/") &&
+                \App\Models\Post::where("slug", $slug)->first()
+            ) {
+                return redirect()->route("language.post.show", [
+                    "post" => $slug,
+                    "language" => $language,
+                ]);
+            } else {
+                $page = $language
+                    ->pages()
+                    ->where("slug", end($slug_parts) ?: "/")
+                    ->firstOrFail();
+            }
         } else {
-            if (\App\Models\Post::where("slug", $slug)->first()) {
-                return redirect()->route("post.show", ["post" => $slug]);
-            } elseif (\App\Models\Podcast::where("slug", $slug)->first()) {
-                return redirect()->route("podcast.show", ["podcast" => $slug]);
+            if (
+                !strpos($slug, "/") &&
+                \App\Models\Post::where("slug", $slug)->first()
+            ) {
+                return redirect()->route("post.show", [
+                    "post" => $slug,
+                ]);
+            }
+            // This allows old URLs for podcasts to work.
+            elseif (
+                !strpos($slug, "/") &&
+                \App\Models\Podcast::where("slug", $slug)->first()
+            ) {
+                $language = \App\Models\Podcast::where("slug", $slug)->first()
+                    ->language;
+                return redirect()->route("language.podcast.show", [
+                    "podcast" => $slug,
+                    "language" => $language,
+                ]);
             } else {
                 $page = Page::doesntHave("language")
                     ->where("slug", end($slug_parts) ?: "/")
