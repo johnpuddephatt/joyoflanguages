@@ -72,26 +72,29 @@
 
                                 <template x-if="typeof(selectedTimezone) == 'number'">
                                     <div>
-                                        <p class="mb-3 leading-snug">We do our best to keep times consistent, but they
-                                            are subject
-                                            to change – including due to daylight
-                                            savings.</p>
-                                        <button @click.prevent="selectedTimezone = null"
-                                            class="mb-4 ml-auto flex flex-row items-center gap-1 rounded bg-beige bg-opacity-20 p-1 hover:bg-opacity-50"><svg
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            <span x-text="selectedTimezoneName"></span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" class="h-5 w-5">
-                                                <path fill-rule="evenodd"
-                                                    d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-
-                                        </button>
+                                        <div class="lg: mb-4 flex-row gap-2 lg:flex">
+                                            <p class="!leading-tight">We do our best to keep times consistent, but
+                                                they
+                                                are subject
+                                                to change – including due to daylight
+                                                savings.</p>
+                                            <button @click.prevent="selectedTimezone = null"
+                                                class="mb-4 flex flex-row items-center gap-1 rounded bg-beige bg-opacity-20 p-1 hover:bg-opacity-50 max-md:ml-auto"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="h-5 w-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <span x-text="selectedTimezoneName"></span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="currentColor" class="h-5 w-5">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
                                         <div class="">
                                             @foreach (collect($layout->timetable)->groupBy('level') as $level)
                                                 <div class="mb-2" x-data="{ levelCount: 0, open: false }" x-show="levelCount">
