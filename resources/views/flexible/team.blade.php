@@ -9,7 +9,8 @@
                     <x-library-image :image="$member->photo" conversion="3x2" class="mx-auto block w-full" />
                     @if ($member->video)
                         <video x-ref="video" @ended="$refs.video.currentTime = 0; playing= false" muted
-                            class="absolute inset-0 z-10 h-full w-full duration-1000" x-show="playing" x-transition>
+                            class="absolute inset-0 z-10 h-full w-full" x-show="playing"
+                            x-transition:enter.duration.500ms x-transition:leave.duration.1000ms>
                             <source src="{{ Storage::url($member->video->mp4) }}" type="video/mp4">
                             <source src="{{ Storage::url($member->video->webm) }}" type="video/webm">
 
