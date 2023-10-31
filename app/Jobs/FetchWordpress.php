@@ -84,6 +84,8 @@ class FetchWordpress implements ShouldQueue
                 } else {
                     $podcast->update([
                         "wp_id" => (string) $post->xpath("wp:post_id")[0],
+                        "slug" => last(explode("/", rtrim($post->link, "/"))),
+                        "title" => $post->title,
 
                         "wordpress_content" => $this->remove_cdata(
                             (string) $post->xpath("content:encoded")[0]
@@ -93,29 +95,30 @@ class FetchWordpress implements ShouldQueue
                         ),
                     ]);
                 }
-            } else {
-                Post::withoutGlobalScopes()->updateOrCreate(
-                    ["wp_id" => (string) $post->xpath("wp:post_id")[0]],
-                    [
-                        "wp_id" => (string) $post->xpath("wp:post_id")[0],
-                        // "author_id" => 1,
-                        // "image" => (string) $post->xpath(
-                        //     "wp:attachment_url"
-                        // )[0],
-                        "title" => $post->title,
-                        "slug" => last(explode("/", rtrim($post->link, "/"))),
-                        "introduction" => $this->remove_cdata(
-                            (string) $post->xpath("excerpt:encoded")[0]
-                        ),
-                        "wordpress_content" => $this->remove_cdata(
-                            (string) $post->xpath("content:encoded")[0]
-                        ),
-                        "published_at" => $this->remove_cdata(
-                            (string) $post->xpath("wp:post_date")[0]
-                        ),
-                    ]
-                );
             }
+            // else {
+            //     Post::withoutGlobalScopes()->updateOrCreate(
+            //         ["wp_id" => (string) $post->xpath("wp:post_id")[0]],
+            //         [
+            //             "wp_id" => (string) $post->xpath("wp:post_id")[0],
+            //             // "author_id" => 1,
+            //             // "image" => (string) $post->xpath(
+            //             //     "wp:attachment_url"
+            //             // )[0],
+            //             "title" => $post->title,
+            //             "slug" => last(explode("/", rtrim($post->link, "/"))),
+            //             "introduction" => $this->remove_cdata(
+            //                 (string) $post->xpath("excerpt:encoded")[0]
+            //             ),
+            //             "wordpress_content" => $this->remove_cdata(
+            //                 (string) $post->xpath("content:encoded")[0]
+            //             ),
+            //             "published_at" => $this->remove_cdata(
+            //                 (string) $post->xpath("wp:post_date")[0]
+            //             ),
+            //         ]
+            //     );
+            // }
 
             // \App\Models\Podcast::withoutGlobalScopes()->updateOrCreate(
             //     ["guid" => $podcast->guid],
