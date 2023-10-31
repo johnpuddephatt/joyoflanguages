@@ -10,8 +10,8 @@
                     @if ($member->video)
                         <video x-ref="video" @ended="$refs.video.currentTime = 0; playing= false" muted
                             class="absolute inset-0 z-10 h-full w-full" x-show="playing" x-transition>
-                            <source src="{{ $member->video->mp4 }}" type="video/mp4">
-                            <source src="{{ $member->video->webm }}" type="video/webm">
+                            <source src="{{ Storage::url($member->video->mp4) }}" type="video/mp4">
+                            <source src="{{ Storage::url($member->video->webm) }}" type="video/webm">
 
                         </video>
                     @endif
