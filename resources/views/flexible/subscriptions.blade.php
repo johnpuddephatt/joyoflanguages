@@ -82,7 +82,7 @@
     @endif
 
     @if ($layout->small_print)
-        <div class="prose prose-sm mx-auto max-w-lg px-4 pt-6 text-center leading-tight lg:pt-12">
+        <div class="prose prose-sm mx-auto max-w-md px-4 pt-6 text-center leading-tight lg:pt-12">
             {!! Str::of($layout->small_print)->markdown()->replace('<a', '<a target="_blank"') !!}
         </div>
     @endif
