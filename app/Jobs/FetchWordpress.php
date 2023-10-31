@@ -85,7 +85,11 @@ class FetchWordpress implements ShouldQueue
                     $podcast->update([
                         "wp_id" => (string) $post->xpath("wp:post_id")[0],
                         "slug" => last(explode("/", rtrim($post->link, "/"))),
-                        "title" => $post->title,
+                        "title" => \Illuminate\Support\Str::of(
+                            $post->title
+                        )->after(": "),
+
+                        "introduction" => "",
 
                         "wordpress_content" => $this->remove_cdata(
                             (string) $post->xpath("content:encoded")[0]
