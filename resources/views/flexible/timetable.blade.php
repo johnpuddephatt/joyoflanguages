@@ -60,7 +60,7 @@
                             
                             }">
 
-                                <div x-show="!selectedTimezone">
+                                <div x-show="typeof(selectedTimezone) != 'number'">
                                     <h3 class="mb-2 text-center font-semibold">Select a location:</h3>
                                     <template x-for="(offset, timezone) in timezones">
                                         <button
@@ -70,7 +70,7 @@
                                     </template>
                                 </div>
 
-                                <template x-if="selectedTimezone">
+                                <template x-if="typeof(selectedTimezone) == 'number'">
                                     <div>
                                         <p class="mb-3 leading-snug">We do our best to keep times consistent, but they
                                             are subject
