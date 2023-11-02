@@ -38,7 +38,7 @@
                              @inlineMarkdown($layout->title)
                          </h2>
                          @if ($layout->intro)
-                             <div class="type-xs prose max-w-xl !text-black">@markdown($layout->intro)</div>
+                             <div class="prose-standout prose max-w-xl !text-black">@markdown($layout->intro)</div>
                          @endif
 
                          {{-- <div class="prose-lg mt-6 font-semibold !leading-tight">

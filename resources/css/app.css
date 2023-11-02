@@ -19,7 +19,7 @@
 
 .prose-standout {
     /* line-height: 1.5; */
-    @apply !leading-tight lg:!leading-snug font-semibold text-lg lg:text-xl;
+    @apply !leading-tight lg:!leading-snug  text-lg lg:text-xl;
 }
 
 .type-xl {
