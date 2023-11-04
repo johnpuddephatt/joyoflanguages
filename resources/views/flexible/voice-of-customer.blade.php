@@ -24,9 +24,11 @@
                      document.addEventListener('visibilitychange', () => {
                          if (document.hidden) {
                              this.shown = false;
+                             this.currentRow = 0;
              
                          } else {
                              this.shown = true;
+                             this.currentRow = 0;
                          }
                      });
                  },
