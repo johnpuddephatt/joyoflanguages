@@ -299,7 +299,7 @@
 
     @foreach ($podcast->content as $tabName => $tab)
         @if ($tab)
-            <div x-show="tab == '{{ $tabName }}'" class="prose prose-xl" x-transition id="{{ $tabName }}">
+            <div x-show="tab == '{{ $tabName }}'" class="prose prose-lg" x-transition id="{{ $tabName }}">
 
                 @foreach ($tab as $block)
                     @includeIf('blocks.' . $block['type'], [
@@ -319,7 +319,7 @@
     </article>
 @else
     <article class="container mx-auto pb-24 pt-8">
-        <div class="prose prose-xl max-w-xl">
+        <div class="prose prose-lg max-w-xl">
             {!! $podcast->rss_content !!}
         </div>
     </article>
