@@ -49,11 +49,11 @@
                             x-ref="modal_course_{{ $course->number }}">
                             <form method="dialog">
                                 <button
-                                    class="absolute right-4 top-4 block w-10 rounded-full before:fixed before:inset-0 before:-z-10"
+                                    class="absolute right-2 top-2 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 lg:right-4 lg:top-4"
                                     @click.stop="$refs.modal_course_{{ $course->number }}.close(); console.log('closing dialog {{ $course->number }}');"
                                     aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
                                 <div>
-                                    <div class="bg-beige bg-opacity-50 p-8 pb-4 pr-16">
+                                    <div class="bg-beige bg-opacity-50 p-4 pb-4 pr-12 lg:p-8 lg:pr-16">
                                         {{-- <h2>{{ $course->number }}</h2> --}}
                                         <h2 class="type-sm">{{ $course->title }}
                                             curriculum</h2>
@@ -65,7 +65,7 @@
                                         @if ($course->modules && count($course->modules))
                                             <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden">
                                                 <div
-                                                    class="flex flex-row items-center gap-3 border-b-[3px] border-gray bg-beige bg-opacity-50 px-8 pb-4">
+                                                    class="flex flex-row items-center gap-1.5 border-b-[3px] border-gray bg-beige bg-opacity-50 px-4 pb-4 lg:gap-3 lg:px-8">
                                                     @foreach ($course->modules as $key => $module)
                                                         @if ($module instanceof stdClass)
                                                             @php($module = $module->attributes)
@@ -73,7 +73,7 @@
 
                                                         <button @click.prevent="tab = {{ $key }}"
                                                             :class="{ '!bg-yellow': tab == {{ $key }} }"
-                                                            class="rounded-full border-[3px] bg-white px-6 py-1.5 text-left font-semibold">
+                                                            class="rounded-full border-[3px] bg-white px-3 py-1.5 text-left font-semibold lg:px-6">
                                                             Module {{ $module->title }}</button>
                                                     @endforeach
                                                 </div>
@@ -82,7 +82,7 @@
                                                     @if ($module instanceof stdClass)
                                                         @php($module = $module->attributes)
                                                     @endif
-                                                    <div class="max-h-[24rem] overflow-y-auto p-8 pt-0"
+                                                    <div class="max-h-[24rem] overflow-y-auto p-4 pt-0 lg:p-8"
                                                         x-show="tab == {{ $key }}">
                                                         <h3 class="type-sm text-blue">Module
                                                             {{ $module->title }}
