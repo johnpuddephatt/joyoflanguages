@@ -65,7 +65,7 @@
                                         @if ($course->modules && count($course->modules))
                                             <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden">
                                                 <div
-                                                    class="flex flex-row items-center gap-1.5 border-b-[3px] border-gray bg-beige bg-opacity-50 px-4 pb-4 lg:gap-3 lg:px-8">
+                                                    class="flex flex-row items-center gap-1.5 border-b-[3px] border-gray bg-beige bg-opacity-50 px-3 pb-4 lg:gap-3 lg:px-8">
                                                     @foreach ($course->modules as $key => $module)
                                                         @if ($module instanceof stdClass)
                                                             @php($module = $module->attributes)
@@ -73,7 +73,7 @@
 
                                                         <button @click.prevent="tab = {{ $key }}"
                                                             :class="{ '!bg-yellow': tab == {{ $key }} }"
-                                                            class="rounded-full border-[3px] bg-white px-3 py-1.5 text-left font-semibold lg:px-6">
+                                                            class="rounded-full border-[3px] bg-white px-2 py-1.5 text-left font-semibold lg:px-6">
                                                             Module {{ $module->title }}</button>
                                                     @endforeach
                                                 </div>
