@@ -12,7 +12,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Panel;
 use Whitecube\NovaFlexibleContent\Flexible;
-use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -28,6 +28,7 @@ use ShuvroRoy\NovaTabs\Traits\HasTabs;
 use Naif\ToggleSwitchField\ToggleSwitchField;
 use Spatie\TagsField\Tags;
 use Laravel\Nova\Fields\Tag;
+use Laravel\Nova\Fields\URL;
 
 class Podcast extends Resource
 {
@@ -92,28 +93,59 @@ class Podcast extends Resource
                 ->asHtml()
                 ->onlyOnIndex(),
 
-            Number::make("Episode", "episode_number")->default(
-                \App\Nova\Podcast::max("episode_number") + 1
-            ),
-            // ->readonly(),
+            Number::make("Episode number", "episode_number")
+                ->default(\App\Nova\Podcast::max("episode_number") + 1)
+                ->required(),
+
             Text::make("Title")
                 ->rules("required", "string", "max:100")
                 ->maxlength(100)
                 ->enforceMaxlength()
-                // ->readonly()
+
                 ->hideFromIndex(),
 
             Text::make("Title", function ($value) {
                 return \Illuminate\Support\Str::limit($this->title, 50);
             })->onlyOnIndex(),
+
             Slug::make("Slug")
                 ->from("Title")
                 ->hideFromIndex(),
-            Textarea::make("Introduction")
+
+            Text::make("Duration", "duration")
+                ->help("Enter in the format MM:SS, e.g. 11:45")
+                ->rules("required", function ($attribute, $value, $fail) {
+                    if (!Str::of($value)->contains(":")) {
+                        return $fail(
+                            "Error. Duration should be written as [minutes:seconds]"
+                        );
+                    }
+                }),
+
+            URL::make("Podcast audio file", "file")
+                ->required()
+                ->help(
+                    "Provide the Direct Download URL shown in the Fireside 'Share' tab"
+                )
+                ->rules("required", function ($attribute, $value, $fail) {
+                    if (
+                        !Str::of($value)->startsWith(
+                            "https://aphid.fireside.fm"
+                        )
+                    ) {
+                        return $fail(
+                            "Error. URL should begin https://aphid.fireside.fm..."
+                        );
+                    }
+                })
+                ->hideFromIndex(),
+
+            Textarea::make("Episode summary/intro", "introduction")
                 ->hideFromIndex()
                 ->maxlength(250)
                 ->enforceMaxlength()
                 ->rows(2),
+
             Tags::make("Tags")->fillUsing(function (
                 $request,
                 $model,
@@ -128,10 +160,15 @@ class Podcast extends Resource
                 }
             }),
 
-            // Date::make("Date", "published_at")->readonly(),
+            DateTime::make("Publish date", "published_at")
+                ->default(now())
+                ->step(60),
 
-            \Trin4ik\NovaSwitcher\NovaSwitcher::make("Published"),
-
+            \Trin4ik\NovaSwitcher\NovaSwitcher::make("Enabled", "published")
+                ->default(true)
+                ->help(
+                    "Unchecking this option will prevent the podcast episode from displaying on the site, regardless of the publish date set above."
+                ),
             Tabs::make("Content", [
                 Tab::make(__("Article"), [
                     Gutentap::make(

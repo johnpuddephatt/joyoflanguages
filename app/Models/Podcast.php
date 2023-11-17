@@ -14,7 +14,9 @@ class Podcast extends Model
     protected static function booted()
     {
         static::addGlobalScope("published", function (Builder $builder) {
-            $builder->where("published", true);
+            $builder
+                ->where("published", true)
+                ->where("published_at", "<=", now());
         });
 
         static::addGlobalScope("episode_number", function (Builder $builder) {
