@@ -146,28 +146,51 @@ class Podcast extends Resource
                 ->enforceMaxlength()
                 ->rows(2),
 
-            Tags::make("Tags")->fillUsing(function (
-                $request,
-                $model,
-                $attribute,
-                $requestAttribute
-            ) {
-                if ($request->input($requestAttribute)) {
-                    $model->{$attribute} = explode(
-                        "-----",
-                        Str::of($request->input($requestAttribute))->lower()
-                    );
-                }
-            }),
+            Tags::make("Tags")
+                ->fillUsing(function (
+                    $request,
+                    $model,
+                    $attribute,
+                    $requestAttribute
+                ) {
+                    if ($request->input($requestAttribute)) {
+                        $model->{$attribute} = explode(
+                            "-----",
+                            Str::of($request->input($requestAttribute))->lower()
+                        );
+                    }
+                })
+                ->hideFromIndex(),
 
             DateTime::make("Publish date", "published_at")
                 ->default(now())
-                ->step(60),
+                ->step(60)
+                ->hideFromIndex(),
+
+            Badge::make("Status", "status", function () {
+                if (!$this->published) {
+                    return "draft";
+                }
+                if ($this->published_at > now()) {
+                    return "scheduled";
+                } else {
+                    return "published";
+                }
+            })->types([
+                "draft" => ["font-bold", "bg-yellow-100", "text-yellow-500"],
+                "scheduled" => [
+                    "font-bold",
+                    "bg-primary-100",
+                    "text-primary-600",
+                ],
+                "published" => ["font-bold", "bg-green-100", "text-green-600"],
+            ]),
 
             \Trin4ik\NovaSwitcher\NovaSwitcher::make("Enabled", "published")
+                ->hideFromIndex()
                 ->default(true)
                 ->help(
-                    "Unchecking this option will prevent the podcast episode from displaying on the site, regardless of the publish date set above."
+                    "Unchecking this option will mark this podcast episode as draft and prevent it from displaying on the site, regardless of the publish date set above."
                 ),
             Tabs::make("Content", [
                 Tab::make(__("Article"), [
