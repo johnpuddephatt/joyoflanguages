@@ -1,5 +1,5 @@
 <div class="pb-12 lg:pb-24">
-    <div class="{{ $class ?? 'mx-auto container-lg' }} grid gap-x-24 gap-y-16 lg:grid-cols-2">
+    <div class="{{ $class ?? 'mx-auto container 2xl:container-lg' }} grid gap-x-24 gap-y-16 lg:grid-cols-2">
 
         @foreach ($layout->team as $member)
             <div class="block">
