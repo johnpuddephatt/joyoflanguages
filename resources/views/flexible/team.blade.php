@@ -1,12 +1,12 @@
 <div class="pb-12 lg:pb-24">
-    <div class="{{ $class ?? 'mx-auto container 2xl:container-lg' }} grid gap-x-24 gap-y-16 lg:grid-cols-2">
+    <div class="{{ $class ?? 'mx-auto container 2xl:container-lg' }} grid gap-x-16 gap-y-16 lg:grid-cols-2 2xl:gap-x-24">
 
         @foreach ($layout->team as $member)
             <div class="block">
                 <div class="relative bg-black" @mouseEnter="$refs.video.play(); playing= true"
                     @mouseLeave="$refs.video.pause(); $refs.video.currentTime = 0; playing= false"
                     x-data="{ playing: false }">
-                    <div x-transition.opacity x-show="!playing">
+                    <div x-transition.opacity x-show="!playi    g">
                         <x-library-image :image="$member->photo" conversion="3x2" class="mx-auto block w-full" />
                     </div>
                     @if ($member->video)
