@@ -25,6 +25,7 @@ class Page extends Model
         "parent_id",
         "template",
         "theme",
+        "redirect",
     ];
 
     /**

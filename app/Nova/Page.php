@@ -90,6 +90,13 @@ class Page extends Resource
 
             Slug::make("Slug")->from("Title"),
 
+            Text::make("Redirect")
+                ->rules("nullable", "string", "max:200")
+                ->hideFromIndex()
+                ->help(
+                    'Redirects to another page. Can be relative or absolute, e.g.: "/blog" or "https://example.com"'
+                ),
+
             Textarea::make("Introduction")->rules("max:300"),
 
             MediaHubField::make("Image", "image"),

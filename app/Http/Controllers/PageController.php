@@ -87,6 +87,10 @@ class PageController extends Controller
             abort(404);
         }
 
+        if ($page->redirect) {
+            return redirect()->to($page->redirect);
+        }
+
         return view("templates." . (new $page->template())->name(), [
             "page" => $page->resolveContent(),
             "language" => $language,
