@@ -10,6 +10,7 @@ use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
 use Whitecube\NovaFlexibleContent\Flexible;
 
 class HeroWithVideo extends Layout
@@ -53,6 +54,7 @@ class HeroWithVideo extends Layout
         return [
             Textarea::make("Title")->rows(2),
             Textarea::make("Subtitle")->alwaysShow(),
+
             Image::make("Image")
                 ->store(new SaveAndResizeImage())
                 ->preview(function ($value, $disk) {
@@ -64,6 +66,7 @@ class HeroWithVideo extends Layout
             File::make("Video", "video")
                 ->store(new SaveAndResizeVideo())
                 ->acceptedTypes(".mp4"),
+            Boolean::make("Autoplay"),
 
             Text::make("Button URL"),
             Text::make("Button text"),

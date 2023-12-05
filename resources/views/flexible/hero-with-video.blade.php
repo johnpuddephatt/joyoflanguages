@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div x-data="{ playing: false }"
+    <div x-data="{ playing: {{ $layout->autoplay ? 'true' : 'false' }} }"
         class="relative right-0 top-1/2 -mb-16 ml-auto w-[90%] max-lg:overflow-hidden lg:absolute lg:w-1/2 lg:-translate-y-1/2">
         <div class="relative lg:translate-y-32">
             <svg class="block h-auto w-[150%] max-w-none lg:max-h-[85vh] lg:w-full" xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,8 @@
                     :image="$layout->image" />
 
                 @if ($layout->video)
-                    <video x-cloak x-ref="video" x-transition x-show="playing" @ended="playing = false"
+                    <video x-cloak x-ref="video" {{ $layout->autoplay ? 'autoplay' : null }} x-transition
+                        x-show="playing" @ended="playing = false"
                         class="absolute left-[25%] top-[2%] h-[72%] w-[32%] object-cover">
                         @if (isset($layout->video->mp4))
                             <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
@@ -105,7 +106,7 @@
 
         </div>
 
-        @if ($layout->video)
+        @if ($layout->video && !$layout->autoplay)
             <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
                 class="absolute bottom-[10%] right-[2%] z-20 w-1/3 lg:right-1/4 lg:w-1/4">
                 <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37" height="282.94"
