@@ -49,7 +49,7 @@
                     :image="$layout->image" />
 
                 @if ($layout->video)
-                    <video x-cloak x-ref="video" {{ $layout->autoplay ? 'autoplay' : null }} x-transition
+                    <video x-cloak x-ref="video" {{ $layout->autoplay ? 'autoplay muted' : null }} x-transition
                         x-show="playing" {!! $layout->autoplay ? null : '@ended="playing = false"' !!}
                         class="absolute left-[25%] top-[2%] h-[72%] w-[32%] object-cover">
                         @if (isset($layout->video->mp4))
