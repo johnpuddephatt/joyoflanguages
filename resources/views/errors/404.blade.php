@@ -1,4 +1,5 @@
 @extends('layouts.default', ['theme' => null])
+@section('title', 'Not found')
 
 @section('content')
     <div class="container mx-auto my-48 max-w-2xl rounded-xl bg-blue bg-opacity-20 p-8 text-center">
