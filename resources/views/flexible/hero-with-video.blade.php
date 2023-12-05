@@ -50,7 +50,7 @@
 
                 @if ($layout->video)
                     <video x-cloak x-ref="video" {{ $layout->autoplay ? 'autoplay' : null }} x-transition
-                        x-show="playing" @ended="playing = false"
+                        x-show="playing" {{ $layout->autoplay ? '@ended="playing = false"' : null }}
                         class="absolute left-[25%] top-[2%] h-[72%] w-[32%] object-cover">
                         @if (isset($layout->video->mp4))
                             <source src="{{ Storage::disk('public')->url($layout->video->mp4) }}" type="video/mp4">
