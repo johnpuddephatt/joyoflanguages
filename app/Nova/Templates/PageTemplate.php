@@ -31,6 +31,7 @@ class PageTemplate
                 Flexible::make("", "content")
                     ->addLayout(\App\Nova\Flexible\Layouts\PageHero::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Newsletter::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Team::class)
                     ->addLayout(
