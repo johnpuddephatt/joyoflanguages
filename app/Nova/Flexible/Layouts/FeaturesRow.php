@@ -49,7 +49,9 @@ class FeaturesRow extends Layout
 
             SimpleRepeatable::make("Features", "features", [
                 Text::make("Title")->stacked(),
-                Textarea::make("Description")->rows(2),
+                Textarea::make("Description")
+                    ->rows(2)
+                    ->stacked(),
                 MediaHubField::make("Image")->stacked(),
             ])->maxRows(4),
 
