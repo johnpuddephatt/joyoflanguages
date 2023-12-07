@@ -1,4 +1,5 @@
-  <div class="container-lg mx-auto flex flex-col items-start overflow-hidden py-8 lg:flex-row lg:gap-8 lg:py-16">
+  <div id="{{ $layout ? $layout->key() : null }}"
+      class="container-lg mx-auto flex flex-col items-start overflow-hidden py-8 lg:flex-row lg:gap-8 lg:py-16">
       <div x-data="{ canPlay: false, playing: false }" class="relative flex-1 lg:mb-16 lg:w-1/2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1360.37" height="1301.42"
               class="-mx-16 mb-8 h-auto w-[calc(100%+8rem)] md:mx-0 md:w-full" viewBox="0 0 1360.37 1301.42">

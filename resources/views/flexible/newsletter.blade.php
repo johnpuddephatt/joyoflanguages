@@ -10,7 +10,8 @@
 @endphp
 
 @if ($merged_layout->form_action)
-    <div x-data="{
+
+    <div id="{{ isset($layout) ? $layout->key() : null }}" x-data="{
         email: null,
         tags: [4280402],
         error: false,
@@ -78,11 +79,30 @@
                             placeholder="{{ $merged_layout->placeholder }}" />
                         <input type="hidden" name="tags[]" x-model="tags" value="4280402">
                         <div class="mb-3">
-                            <label for="4280400">
-                                <input id="4280400" type="checkbox" x-model="tags" name="tags[]" value="4280400">
+                            <label for="4280400"
+                                class="bold-badged flex items-center justify-center text-lg font-semibold">
+                                <p><strong class="!bg-teal !text-white">Plus!</strong> Also send me the free weekly
+                                    lesson</p>
+                                <div class="relative inline-flex h-12 w-12 cursor-pointer items-center rounded-full p-3"
+                                    for="checkbox-1" data-ripple-dark="true">
 
-                                Also send me the free weekly lesson
+                                    <input
+                                        class="before:content[''] checked:bg-pink-500 peer relative h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-black transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:bg-blue before:opacity-0 before:transition-opacity checked:border-teal checked:before:bg-teal hover:before:opacity-10"
+                                        id="4280400" type="checkbox" x-model="tags" name="tags[]" value="4280400">
+
+                                    <div
+                                        class="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-black opacity-0 transition-opacity peer-checked:opacity-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                            fill="currentColor" stroke="currentColor" stroke-width="1">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+
                             </label>
+
                         </div>
 
                         <x-button @click.prevent="submit()" ::class="{ 'opacity-50': working }" ::disabled="working"

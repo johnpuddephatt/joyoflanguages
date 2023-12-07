@@ -1,4 +1,4 @@
-<div class="relative">
+<div id="{{ $layout ? $layout->key() : null }}" class="relative">
     @if ($layout->background_colour)
         <div class="{{ $layout->background_colour ?? null }} absolute bottom-0 right-0 top-0 z-10 w-screen"></div>
     @endif

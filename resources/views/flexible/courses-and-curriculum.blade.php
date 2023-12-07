@@ -1,5 +1,5 @@
 @if ($layout->courses)
-    <div class="pb-6 pt-12 lg:pb-12 lg:pt-24 2xl:pb-16">
+    <div id="{{ $layout ? $layout->key() : null }}" class="pb-6 pt-12 lg:pb-12 lg:pt-24 2xl:pb-16">
         <div class="lg:text-center">
             @include('components.block-intro', ['layout' => $layout])
         </div>

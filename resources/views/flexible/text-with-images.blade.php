@@ -1,4 +1,4 @@
-<div class="relative">
+<div id="{{ $layout ? $layout->key() : null }}" class="relative">
     <div class="{{ $class ?? 'container w-full lg:max-w-6xl mx-auto' }}">
         <div class="flex flex-col-reverse gap-6 lg:flex-row lg:items-center lg:gap-12">
             <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:w-[55%]">

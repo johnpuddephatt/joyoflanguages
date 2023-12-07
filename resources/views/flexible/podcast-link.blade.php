@@ -1,5 +1,5 @@
 @if ($layout->podcast)
-    <div class="{{ $class ?? ' mx-auto max-w-4xl' }} container py-12">
+    <div id="{{ $layout ? $layout->key() : null }}" class="{{ $class ?? ' mx-auto max-w-4xl' }} container py-12">
 
         <div class="relative flex flex-row items-center gap-6 rounded-l-3xl bg-beige bg-opacity-30">
             <x-image-mask class="hidden h-auto w-24 rounded-3xl bg-yellow p-4 lg:block lg:w-56">

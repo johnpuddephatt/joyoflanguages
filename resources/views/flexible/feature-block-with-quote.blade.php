@@ -1,4 +1,4 @@
-<div class="grid lg:grid-cols-2 lg:pt-24">
+<div id="{{ $layout ? $layout->key() : null }}" class="grid lg:grid-cols-2 lg:pt-24">
 
     <x-responsive-image class="block w-full" :image="$layout->main_image" />
 

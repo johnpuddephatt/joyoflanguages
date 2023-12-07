@@ -1,4 +1,4 @@
-<div class="relative pb-16 pt-32 lg:pb-24 2xl:pb-32">
+<div id="{{ $layout ? $layout->key() : null }}" class="relative pb-16 pt-32 lg:pb-24 2xl:pb-32">
     <svg xmlns="http://www.w3.org/2000/svg" width="272.39" height="209.79"
         class="absolute -top-px left-4 h-auto w-40 lg:left-16 lg:w-96" viewBox="0 0 272.39 209.79">
 

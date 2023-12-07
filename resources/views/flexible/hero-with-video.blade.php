@@ -1,4 +1,4 @@
-<div
+<div id="{{ $layout ? $layout->key() : null }}"
     class="relative flex flex-col items-center justify-center gap-6 bg-white pt-32 lg:h-screen lg:flex-row lg:gap-0 lg:pt-16">
 
     <div class="container-lg relative z-10 w-full">

@@ -1,4 +1,4 @@
-<div class="{{ $layout->background_colour ?? null }} relative antialiased">
+<div id="{{ $layout ? $layout->key() : null }}" class="{{ $layout->background_colour ?? null }} relative antialiased">
     <div class="{{ $class ?? 'mx-auto' }} container flex-row pt-12 lg:flex lg:pb-8 lg:pt-24 2xl:pb-16 2xl:pt-32">
         <div class="flex flex-col lg:w-[45%]">
             <h2 class="type-xl mb-6">{!! $layout->title !!}</h2>

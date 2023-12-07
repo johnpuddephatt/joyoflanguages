@@ -2,7 +2,7 @@
     $embed = isset($layout->video_embed_url) ? OEmbed::get($layout->video_embed_url) : null;
 @endphp
 
-<div class="relative">
+<div id="{{ $layout ? $layout->key() : null }}" class="relative">
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
         class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-20 lg:container lg:flex-row lg:pb-24 xl:pt-40 2xl:pb-36 2xl:pt-48">
         <div class="pt-4 max-lg:container lg:w-1/2">

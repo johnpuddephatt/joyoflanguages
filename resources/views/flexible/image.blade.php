@@ -1,4 +1,4 @@
-<div class="relative py-8 lg:pb-32 lg:pt-16">
+<div id="{{ $layout ? $layout->key() : null }}" class="relative py-8 lg:pb-32 lg:pt-16">
 
     <svg class="pointer-events-none absolute -left-6 top-0 h-auto max-w-4xl" xmlns="http://www.w3.org/2000/svg"
         xml:space="preserve" viewBox="0 0 1913.7 1106.2">

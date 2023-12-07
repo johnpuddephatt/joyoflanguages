@@ -1,4 +1,5 @@
-<div class="{{ $layout->background_colour ?? '' }} relative overflow-hidden py-12 lg:pb-16 lg:pt-24">
+<div id="{{ $layout ? $layout->key() : null }}"
+    class="{{ $layout->background_colour ?? '' }} relative overflow-hidden py-12 lg:pb-16 lg:pt-24">
     <div class="{{ $class ?? 'container w-full  mx-auto' }}">
         <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
             <div class="{{ $layout->reverse ? 'order-last' : '' }} lg:flex-[0 0 50%] lg:w-[60%]">

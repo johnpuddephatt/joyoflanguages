@@ -1,4 +1,4 @@
-<div class="container mx-auto my-16">
+<div id="{{ $layout ? $layout->key() : null }}" class="container mx-auto my-16">
     <div class="mb-8 flex flex-row items-end justify-center lg:mb-12">
         <div class="relative mb-12 lg:mb-24">
             <h2 class="type-lg ml-auto">{{ $layout->title }}

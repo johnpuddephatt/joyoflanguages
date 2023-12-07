@@ -1,4 +1,4 @@
-<div
+<div id="{{ $layout ? $layout->key() : null }}"
     class="{{ $class ?? 'mx-auto max-w-6xl' }} container flex-row items-center justify-center gap-12 py-8 lg:flex lg:py-16">
     <div>
         <h2 class="bold-text-light-teal type-lg text-teal">{!! Str::inlineMarkdown($layout->title) !!}</h1>

@@ -1,4 +1,4 @@
-<div class="pb-8 pt-12 lg:pt-16 2xl:pb-12">
+<div id="{{ $layout ? $layout->key() : null }}" class="pb-8 pt-12 lg:pt-16 2xl:pb-12">
     <div class="mx-auto max-w-2xl text-center">
         @include('components.block-intro', ['layout' => $layout])
     </div>

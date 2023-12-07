@@ -1,4 +1,5 @@
-    <div class="{{ $class ?? 'mx-auto max-w-5xl ' }} container relative py-8 pb-24 lg:pb-16">
+    <div id="{{ $layout ? $layout->key() : null }}"
+        class="{{ $class ?? 'mx-auto max-w-5xl ' }} container relative py-8 pb-24 lg:pb-16">
 
         @foreach ($layout->publications as $publication)
             <div

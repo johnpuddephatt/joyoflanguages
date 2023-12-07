@@ -1,5 +1,5 @@
         @include('flexible.text-with-image', ['layout' => $layout])
-        <div class="{{ $layout->background_colour ?? '' }}">
+        <div id="{{ $layout ? $layout->key() : null }}" class="{{ $layout->background_colour ?? '' }}">
 
             <div class="container relative mx-auto w-full pb-6 pt-12">
                 @if ($layout->sticker)

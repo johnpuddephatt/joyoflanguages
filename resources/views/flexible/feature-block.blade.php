@@ -1,5 +1,5 @@
-    <div
-        class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb) !pb-24 lg:!pb-32 @endif container relative py-8 lg:py-16">
+    <div id="{{ $layout ? $layout->key() : null }}"
+        class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb)  @endif container relative py-8 !pb-24 lg:py-16 lg:!pb-32">
 
         <div
             class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $layout->reverse ? 'lg:mr-8' : 'lg:ml-8' }} relative flex w-full flex-col lg:flex-row lg:items-center lg:py-10">
