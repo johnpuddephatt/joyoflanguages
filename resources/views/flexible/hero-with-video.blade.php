@@ -45,9 +45,11 @@
 
             <div class="absolute left-0 top-0">
 
-                <x-responsive-image
-                    class="absolute left-[37.5%] top-[2%] h-[72%] w-[48%] object-cover lg:left-[25%] lg:w-[32%]"
-                    :image="$layout->image" />
+                @if (!$layout->autoplay && $layout->video)
+                    <x-responsive-image
+                        class="absolute left-[37.5%] top-[2%] h-[72%] w-[48%] object-cover lg:left-[25%] lg:w-[32%]"
+                        :image="$layout->image" />
+                @endif
 
                 @if ($layout->video)
                     <video x-cloak x-ref="video" {{ $layout->autoplay ? 'autoplay muted' : null }} x-transition
