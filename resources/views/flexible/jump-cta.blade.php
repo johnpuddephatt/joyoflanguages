@@ -1,5 +1,4 @@
-<div id="{{ $layout ? $layout->key() : null }}"
-    class="{{ $layout->background_colour ?? null }} border-b-[3px] pt-8 text-center lg:border-b-4 2xl:pt-16">
+<div class="{{ $layout->background_colour ?? null }} border-b-[3px] pt-8 text-center lg:border-b-4 2xl:pt-16">
     @if ($layout->title)
         <h3 class="type-sm !-mb-2">{{ $layout->title }}</h2>
     @endif
