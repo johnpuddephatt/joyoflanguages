@@ -13,22 +13,31 @@
 
     <div id="{{ isset($layout) ? $layout->key() : null }}" x-data="{
         email: null,
-        tags: [4280402],
+        tags: [4280400],
         error: false,
         success: false,
         working: false,
         submit() {
     
             this.working = true;
+    
+            let formData = new FormData();
+            formData.append('email', this.email);
+            formData.append('tags', this.tags);
+            formData.append('api_key', 'Z6eRFMKxM5iF6RcEQ2HoZg');
+    
+    
             fetch(this.$refs.signupForm.action, {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
+                    {{-- body: formData, --}}
+    
                     body: JSON.stringify({
                         api_key: 'Z6eRFMKxM5iF6RcEQ2HoZg',
-                        email_address: this.email,
+                        email: this.email,
                         tags: this.tags
                     })
                 })
@@ -62,8 +71,7 @@
             })
         },
     }" x-init="trackFormVisit()">
-        <div x-cloak x-show="error" x-text="error"></div>
-        <div x-cloak x-show="success" x-text="success"></div>
+
         <form x-ref="signupForm" action="https://api.convertkit.com/v3/forms/{{ $merged_layout->form_action }}/subscribe"
             method="POST">
             <div>
@@ -74,54 +82,68 @@
                         <h2 class="type-lg mx-auto !mb-4 max-w-xl">{{ $merged_layout->title }}</h2>
                         <div class="type-xs mx-auto !mb-12 max-w-xl">{!! $merged_layout->description !!}</div>
 
-                        <input class="mx-auto mb-4 block w-full max-w-sm rounded-full px-8 py-3 text-center text-lg"
-                            type="email" x-model="email" name="email"
-                            placeholder="{{ $merged_layout->placeholder }}" />
-                        <input type="hidden" name="tags[]" x-model="tags" value="4280402">
-                        <div class="mb-3">
-                            <label for="4280400"
-                                class="bold-badged flex items-center justify-center text-lg font-semibold">
-                                <p><strong class="!bg-teal !text-white">Plus!</strong> Also send me the free weekly
-                                    lesson</p>
-                                <div class="relative inline-flex h-12 w-12 cursor-pointer items-center rounded-full p-3"
-                                    for="checkbox-1" data-ripple-dark="true">
+                        <div x-show="!success">
+                            <div class="mx-auto mb-3 max-w-lg bg-pink bg-opacity-75 p-2" x-cloak x-show="error"
+                                x-text="error">
+                            </div>
 
-                                    <input
-                                        class="before:content[''] checked:bg-pink-500 peer relative h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-black transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:bg-blue before:opacity-0 before:transition-opacity checked:border-teal checked:before:bg-teal hover:before:opacity-10"
-                                        id="4280400" type="checkbox" x-model="tags" name="tags[]" value="4280400">
+                            <span x-text="tags"></span>
 
-                                    <div
-                                        class="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-black opacity-0 transition-opacity peer-checked:opacity-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
-                                            fill="currentColor" stroke="currentColor" stroke-width="1">
-                                            <path fill-rule="evenodd"
-                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
+                            <input class="mx-auto mb-4 block w-full max-w-sm rounded-full px-8 py-3 text-center text-lg"
+                                type="email" x-model="email" name="email"
+                                placeholder="{{ $merged_layout->placeholder }}" />
+                            <input type="hidden" name="tags[]" x-model="tags" value="4280400">
+                            <div class="mb-3">
+                                <label for="4280402"
+                                    class="bold-badged flex items-center justify-center text-lg font-semibold">
+                                    <p><strong class="!bg-teal !text-white">Plus!</strong> Also send me the free weekly
+                                        lesson</p>
+                                    <div class="relative inline-flex h-12 w-12 cursor-pointer items-center rounded-full p-3"
+                                        for="checkbox-1" data-ripple-dark="true">
+
+                                        <input
+                                            class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-black transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:bg-blue before:opacity-0 before:transition-opacity checked:border-teal checked:bg-white checked:before:bg-teal hover:before:opacity-10"
+                                            id="4280402" type="checkbox" x-model="tags" name="tags[]"
+                                            value="4280402">
+
+                                        <div
+                                            class="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-black opacity-0 transition-opacity peer-checked:opacity-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
+                                                viewBox="0 0 20 20" fill="currentColor" stroke="currentColor"
+                                                stroke-width="1">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </label>
+                                </label>
 
+                            </div>
+
+                            <x-button @click.prevent="submit()" ::class="{ 'opacity-50': working }" ::disabled="working"
+                                class="shadow-light-teal" type="submit">
+
+                                <!-- Loading spinner in the button (optional) -->
+                                <span x-cloak x-show="working"><svg
+                                        class="-ml-6 mr-2 inline-block h-5 w-5 animate-spin text-light-teal"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                    Loading...</span>
+                                <span x-show="!working">{{ $merged_layout->button_text }}</span>
+
+                            </x-button>
                         </div>
 
-                        <x-button @click.prevent="submit()" ::class="{ 'opacity-50': working }" ::disabled="working"
-                            class="shadow-light-teal" type="submit">
-
-                            <!-- Loading spinner in the button (optional) -->
-                            <span x-cloak x-show="working"><svg
-                                    class="-ml-1 mr-3 inline-block h-5 w-5 animate-spin text-white"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10"
-                                        stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor"
-                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                    </path>
-                                </svg>
-                                Working...</span>
-                            <span x-show="!working">{{ $merged_layout->button_text }}</span>
-
-                        </x-button>
+                        <div class="mx-auto mb-3 max-w-lg bg-white bg-opacity-75 p-2" x-cloak x-show="success"
+                            x-text="success">
+                        </div>
 
                         @if ($merged_layout->sticker)
                             <div class="absolute right-4 top-4 z-10 w-32 lg:bottom-4 lg:right-24 lg:top-auto lg:w-48">
