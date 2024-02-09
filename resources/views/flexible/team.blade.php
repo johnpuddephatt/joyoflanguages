@@ -6,7 +6,7 @@
                 x-init="document.location.hash == '#{{ $member->slug }}' ? $refs.modal_user_{{ $member->id }}.showModal() : null" class="" x-data="{ modalOpen: false, shown: false, playing: false }"
                 @if ($member->video) @mouseEnter="$refs.video.play(); playing= true"
                 @mouseLeave="$refs.video.pause(); $refs.video.currentTime = 0; playing= false" @endif>
-                <div class="relative aspect-video overflow-hidden rounded bg-black">
+                <div class="group relative aspect-video overflow-hidden rounded bg-black">
 
                     <x-library-image :image="$member->photo" conversion="3x2"
                         class="mx-auto block w-full transition duration-200 group-hover:scale-105 group-hover:duration-1000" />
