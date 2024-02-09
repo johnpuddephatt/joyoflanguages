@@ -1,4 +1,4 @@
-<div id="{{ $layout ? $layout->key() : null }}" class="pb-12">
+<div id="{{ $layout ? $layout->key() : null }}" class="py-12">
     <div class="{{ $class ?? 'mx-auto container 2xl:container-lg' }} grid gap-x-16 gap-y-16 lg:grid-cols-2 2xl:gap-x-24">
 
         @foreach ($layout->team as $member)
