@@ -1055,3 +1055,10 @@
 1707490221-3541-1734473184,1707490221.3464,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,25.708913803101,request
 1707498839-6175-1044137318,1707498839.4886,GET,/team,"App\Http\Controllers\PageController@show",200,940.88697433472,request
 1707498840-5430-1371201951,1707498840.5288,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,65.035104751587,request
+1707501900-5292-495844844,1707501900.4623,GET,/nova/dashboards/main,"Laravel\Nova\Http\Controllers\Pages\DashboardController",302,112.40410804749,request
+1707501900-5847-624228347,1707501900.5786,GET,/nova/login,"Laravel\Nova\Http\Controllers\LoginController@showLoginForm",200,472.60022163391,request
+1707501901-4691-40714846,1707501901.4602,GET,/favicon.ico,"App\Http\Controllers\PageController@show",404,149.78504180908,request
+1707501910-7990-848401429,1707501910.7768,GET,/team,"App\Http\Controllers\PageController@show",200,464.97297286987,request
+1707501911-2929-2042310288,1707501911.2865,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,16.885042190552,request
+1707501948-9934-64584599,1707501948.9731,GET,/team,"App\Http\Controllers\PageController@show",200,485.04900932312,request
+1707501949-5121-656225620,1707501949.5048,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,27.801036834717,request

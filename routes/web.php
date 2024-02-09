@@ -33,12 +33,6 @@ Route::domain(
         "audio",
     ])->name("language.podcast.audio");
 
-
-    Route::get("teachers/{user:slug}", [
-        \App\Http\Controllers\UserController::class,
-        "show",
-    ])->name("language.user.show");
-
     Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
         ->where("page", "^(?!nova).*")
         ->name("language.page.show");

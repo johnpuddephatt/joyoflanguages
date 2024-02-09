@@ -26,10 +26,12 @@
                         </video>
                     @endif
                 </div>
-                <h3 class="type-sm mt-6">{{ $member->name }}</h3>
-                <p class="text-gray-500 mt-2 text-lg">{{ $member->position }}</p>
-                <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
-                    @click.stop="document.body.classList.add('overflow-hidden');document.location.hash = '#{{ $member->slug }}';$refs.modal_user_{{ $member->id }}.showModal()">View</x-button>
+                <div class="flex flex-row items-center justify-between">
+                    <h3 class="type-sm mt-6">{{ $member->name }}</h3>
+
+                    <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
+                        @click.stop="document.body.classList.add('overflow-hidden');document.location.hash = '#{{ $member->slug }}';$refs.modal_user_{{ $member->id }}.showModal()">View</x-button>
+                </div>
                 <dialog @close="document.body.classList.remove('overflow-hidden');"
                     class="z-50 w-full max-w-lg overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
                     x-ref="modal_user_{{ $member->id }}">
@@ -64,7 +66,7 @@
                         <button
                             class="absolute right-2 top-2 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 focus:outline-none lg:right-4 lg:top-4"
                             @click.stop="$refs.modal_user_{{ $member->id }}.close(); console.log('closing dialog {{ $member->id }}');"
-                            aria-label="Close modal window">@svg('plus', ' rotate-45 stroke-3 rounded-full border-black  text-black border-[3px] p-2  w-10 h-10')</button>
+                            aria-label="Close modal window">@svg('plus', ' rotate-45 stroke-3 bg-white rounded-full border-black  text-black border-[3px] p-2  w-10 h-10')</button>
                         <div class="relative">
                             <svg class="absolute bottom-full right-0 h-auto w-full translate-x-[60%] translate-y-1/4"
                                 xmlns="http://www.w3.org/2000/svg" width="307.32" height="119.97"
