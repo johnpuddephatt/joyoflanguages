@@ -45,7 +45,7 @@
 
                         <dialog
                             @close="document.body.classList.remove('overflow-hidden'); console.log('closing dialog')"
-                            class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-blue backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
+                            class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
                             x-ref="modal_course_{{ $course->number }}">
                             <form method="dialog">
                                 <button

@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 Route::domain(
     "{language:slug}." . parse_url(config("app.url"), PHP_URL_HOST)
 )->group(function () {
+
     Route::get("posts/{post:slug}", [
         \App\Http\Controllers\PostController::class,
         "show",
@@ -31,6 +32,12 @@ Route::domain(
         \App\Http\Controllers\PodcastController::class,
         "audio",
     ])->name("language.podcast.audio");
+
+
+    Route::get("teachers/{user:slug}", [
+        \App\Http\Controllers\UserController::class,
+        "show",
+    ])->name("language.user.show");
 
     Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
         ->where("page", "^(?!nova).*")
@@ -51,10 +58,6 @@ Route::get("password/reset", function (Request $request) {
     return redirect("/nova/password/reset/" . $request->token);
 })->name("password.reset");
 
-Route::get("team/{user:slug}", [
-    \App\Http\Controllers\UserController::class,
-    "show",
-])->name("user.show");
 
 Route::get("cookies", function () {
     return view("cookies");

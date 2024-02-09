@@ -72,6 +72,17 @@ class User extends Authenticatable implements Sortable
 
     public function getUrlAttribute()
     {
-        return route("user.show", ["user" => $this->slug]);
+
+        if ($this->language && $this->show_in_staff_directory) {
+            return route("language.user.show", [
+                "user" => $this->slug,
+                "language" => $this->language?->slug,
+            ]);
+        }
+    }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
     }
 }

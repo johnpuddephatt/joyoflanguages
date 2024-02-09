@@ -15,31 +15,31 @@
         email: null,
         tags: [4280400],
         error: false,
+        showPrompt: false,
         success: false,
         working: false,
         submit() {
-    
             this.working = true;
-    
             let formData = new FormData();
             formData.append('email', this.email);
             formData.append('tags', this.tags);
             formData.append('api_key', 'Z6eRFMKxM5iF6RcEQ2HoZg');
-    
-    
             fetch(this.$refs.signupForm.action, {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
                     },
-                    {{-- body: formData, --}}
+    
     
                     body: JSON.stringify({
                         api_key: 'Z6eRFMKxM5iF6RcEQ2HoZg',
                         email: this.email,
                         tags: this.tags
                     })
+                })
+                .catch((error) => {
+                    console.log('Convertkit error: ', error);
                 })
                 .then((response) =>
                     response.json())
@@ -53,6 +53,9 @@
                             this.success = 'Looks like you are already subscribed, thank you!'
                         } else {
                             this.success = 'Success! Please check your email to confirm your subscription.'
+                            if (!this.tags.includes(4280402)) {
+                                this.showPrompt = true;
+                            }
                         }
                     }
                 })
@@ -63,17 +66,46 @@
     
         trackFormVisit() {
             fetch('https://app.convertkit.com/forms/{{ $merged_layout->form_action }}/visit', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            })
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .catch((error) => {
+                    console.log('Convertkit error: ', error);
+                })
         },
     }" x-init="trackFormVisit()">
 
-        <form x-ref="signupForm" action="https://api.convertkit.com/v3/forms/{{ $merged_layout->form_action }}/subscribe"
-            method="POST">
+        <div x-cloak x-show="showPrompt"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
+                <div class="w-2/5 flex-none bg-beige">
+
+                </div>
+                <div class="px-8 py-16">
+                    <div class="mb-4">
+                        <h2 class="type-md">Are you sure you want to miss out on the free weekly lesson?</h2>
+                        <p>I'll send you a free weekly lesson, plus occasional updates and new course
+                            announcements. Unsubscribe anytime.</p>
+                    </div>
+                    <div class="mt-8 flex justify-end">
+                        <button @click.prevent="showPrompt = false">
+                            No, thanks
+                        </button>
+                        <x-button @click.prevent="tags.push(4280402); showPrompt = false; submit()"
+                            class="ml-4 shadow-light-teal">
+                            Send me the free weekly lesson
+                        </x-button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form x-ref="signupForm"
+            action="https://api.convertkit.com/v3/forms/{{ $merged_layout->form_action }}/subscribe" method="POST">
             <div>
                 <div
                     class="{{ $background ?? 'bg-yellow' }} relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden">
@@ -87,8 +119,6 @@
                                 x-text="error">
                             </div>
 
-                            <span x-text="tags"></span>
-
                             <input class="mx-auto mb-4 block w-full max-w-sm rounded-full px-8 py-3 text-center text-lg"
                                 type="email" x-model="email" name="email"
                                 placeholder="{{ $merged_layout->placeholder }}" />
@@ -96,7 +126,8 @@
                             <div class="mb-3">
                                 <label for="4280402"
                                     class="bold-badged flex items-center justify-center text-lg font-semibold">
-                                    <p><strong class="!bg-teal !text-white">Plus!</strong> Also send me the free weekly
+                                    <p><strong class="!bg-teal !text-white">Plus!</strong> Also send me the free
+                                        weekly
                                         lesson</p>
                                     <div class="relative inline-flex h-12 w-12 cursor-pointer items-center rounded-full p-3"
                                         for="checkbox-1" data-ripple-dark="true">
@@ -141,8 +172,8 @@
                             </x-button>
                         </div>
 
-                        <div class="mx-auto mb-3 max-w-lg bg-white bg-opacity-75 p-2" x-cloak x-show="success"
-                            x-text="success">
+                        <div class="mx-auto mb-3 max-w-lg bg-white bg-opacity-75 p-2" x-cloak
+                            x-show="success && !showPrompt" x-text="success">
                         </div>
 
                         @if ($merged_layout->sticker)

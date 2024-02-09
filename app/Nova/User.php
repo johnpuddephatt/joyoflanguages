@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Storage;
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 use Outl1ne\NovaSortable\Traits\HasSortableRows;
 use App\Nova\Actions\SaveAndResizeVideo;
+use Laravel\Nova\Fields\BelongsTo;
 
 class User extends Resource
 {
@@ -61,7 +62,7 @@ class User extends Resource
     {
         return [
             ID::make()->hideFromIndex(),
-
+            BelongsTo::make("Language")->nullable(),
             Boolean::make("Enable login"),
             Boolean::make("Show in staff directory"),
 

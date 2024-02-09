@@ -23,6 +23,11 @@ class Language extends Model
         return $this->hasMany(\App\Models\Post::class);
     }
 
+    public function users()
+    {
+        return $this->hasMany(\App\Models\User::class);
+    }
+
     public function podcasts()
     {
         return $this->hasMany(\App\Models\Podcast::class);
@@ -37,8 +42,8 @@ class Language extends Model
             \App\Models\Page::getTemplateUrl(
                 \App\Nova\Templates\PostsPageTemplate::class
             ) .
-                "?language=" .
-                $this->slug;
+            "?language=" .
+            $this->slug;
     }
 
     public function getPodcastsLinkAttribute()
