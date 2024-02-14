@@ -81,8 +81,8 @@
         <div x-cloak x-show="showPrompt"
             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
-                <div class="w-2/5 flex-none bg-beige">
-
+                <div class="bg-beige relative w-2/5 flex-none">
+                    <img class="h-full w-full object-cover" src="/storage/katiematteo.jpg">
                 </div>
                 <div class="px-8 py-16">
                     <div class="mb-4">
@@ -90,16 +90,18 @@
                             lesson
                         </h2>
                         <p class="text-lg">Our free weekly lesson is a great introduction to learning Italian in a
-                            friendly, fun way. No
+                            fun and friendly way. No
                             boring grammar or lists of random words. It’s all about real Italian conversation!
-                        <p class="mt-6 text-lg font-semibold">What do you think?</p>
+                        <p class="mt-6 text-lg font-semibold">What do you think? You can unsubscribe any
+                            time.
+                        </p>
                     </div>
                     <div class="mt-8 flex justify-end">
                         <button @click.prevent="showPrompt = false">
-                            No, thanks
+                            I’m not interested
                         </button>
                         <x-button @click.prevent="tags.push(4280402); showPrompt = false; submit()"
-                            class="ml-4 shadow-light-teal">
+                            class="shadow-light-teal ml-4">
                             Yes, count me in
                         </x-button>
 
@@ -119,7 +121,7 @@
                         <div class="type-xs mx-auto !mb-12 max-w-xl">{!! $merged_layout->description !!}</div>
 
                         <div x-show="!success">
-                            <div class="mx-auto mb-3 max-w-lg bg-pink bg-opacity-75 p-2" x-cloak x-show="error"
+                            <div class="bg-pink mx-auto mb-3 max-w-lg bg-opacity-75 p-2" x-cloak x-show="error"
                                 x-text="error">
                             </div>
 
@@ -137,7 +139,7 @@
                                         for="checkbox-1" data-ripple-dark="true">
 
                                         <input
-                                            class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-black transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:bg-blue before:opacity-0 before:transition-opacity checked:border-teal checked:bg-white checked:before:bg-teal hover:before:opacity-10"
+                                            class="before:content[''] before:bg-blue checked:border-teal checked:before:bg-teal peer relative h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-black transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:bg-white hover:before:opacity-10"
                                             id="4280402" type="checkbox" x-model="tags" name="tags[]"
                                             value="4280402">
 
@@ -162,7 +164,7 @@
 
                                 <!-- Loading spinner in the button (optional) -->
                                 <span x-cloak x-show="working"><svg
-                                        class="-ml-6 mr-2 inline-block h-5 w-5 animate-spin text-light-teal"
+                                        class="text-light-teal -ml-6 mr-2 inline-block h-5 w-5 animate-spin"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle class="opacity-25" cx="12" cy="12" r="10"
                                             stroke="currentColor" stroke-width="4"></circle>
