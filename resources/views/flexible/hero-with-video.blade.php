@@ -8,7 +8,7 @@
             <p class="type-xs max-w-lg">{!! nl2br($layout->subtitle) !!}</p>
 
             @if ($layout->button_url)
-                <x-button-link class="mt-6 text-lg shadow-yellow"
+                <x-button-link class="shadow-yellow mt-6 text-lg"
                     :href="$layout->button_url">{{ $layout->button_text ?? 'Sign up' }}</x-button>
             @endif
         </div>
@@ -108,7 +108,7 @@
                 </svg>
 
                 @if ($layout->video && !$layout->autoplay)
-                    <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
+                    <button x-show="!playing" x-on:click="playing = true, $refs.video.play()" aria-label="Play video"
                         class="absolute bottom-[15%] right-[2%] z-20 w-1/3 lg:right-1/4 lg:w-1/4">
                         <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37"
                             height="282.94" viewBox="0 0 291.37 282.94">

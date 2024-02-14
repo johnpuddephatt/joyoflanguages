@@ -1,8 +1,11 @@
 <div id="{{ $layout ? $layout->key() : null }}" class="py-12">
+
+    <team-map></team-map>
+
     <div class="{{ $class ?? 'mx-auto container 2xl:container-lg' }} grid gap-x-16 gap-y-16 lg:grid-cols-2 2xl:gap-x-24">
 
         @foreach ($layout->team as $member)
-            <div @click="document.body.classList.add('overflow-hidden'); document.location.hash = '#{{ $member->slug }}'; $refs.modal_user_{{ $member->id }}.showModal()"
+            <div x-on:click="document.body.classList.add('overflow-hidden'); document.location.hash = '#{{ $member->slug }}'; $refs.modal_user_{{ $member->id }}.showModal()"
                 x-init="document.location.hash == '#{{ $member->slug }}' ? $refs.modal_user_{{ $member->id }}.showModal() : null" class="" x-data="{ modalOpen: false, shown: false, playing: false }"
                 @if ($member->video) @mouseEnter="$refs.video.play(); playing= true"
                 @mouseLeave="$refs.video.pause(); $refs.video.currentTime = 0; playing= false" @endif>
@@ -29,11 +32,11 @@
                 <div class="flex flex-row items-center justify-between">
                     <h3 class="type-sm mt-6">{{ $member->name }}</h3>
 
-                    <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
+                    <x-button class="shadow-yellow mt-auto !w-auto !border-2 !px-4 !py-1.5"
                         @click.stop="document.body.classList.add('overflow-hidden');document.location.hash = '#{{ $member->slug }}';$refs.modal_user_{{ $member->id }}.showModal()">View</x-button>
                 </div>
                 <dialog @close="document.body.classList.remove('overflow-hidden'); document.location.hash  = '';"
-                    class="z-50 w-full max-w-lg overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
+                    class="backdrop:bg-beige z-50 w-full max-w-lg overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
                     x-ref="modal_user_{{ $member->id }}">
                     <form method="dialog">
                         <div class="relative aspect-video overflow-hidden">
@@ -65,7 +68,6 @@
                         </div>
                         <button
                             class="absolute right-2 top-2 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 focus:outline-none lg:right-4 lg:top-4"
-                            <dialog
                             @close="document.body.classList.remove('overflow-hidden'); document.location.hash  = '';"
                             aria-label="Close modal window">@svg('plus', ' rotate-45 stroke-3 bg-white rounded-full border-black  text-black border-[3px] p-2  w-10 h-10')</button>
                         <div class="relative">

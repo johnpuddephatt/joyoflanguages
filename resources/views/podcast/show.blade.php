@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="mx-auto flex w-full flex-row rounded-3xl bg-blue text-center lg:max-w-xs lg:flex-col"
+            <div class="bg-blue mx-auto flex w-full flex-row rounded-3xl text-center lg:max-w-xs lg:flex-col"
                 x-data="{ playing: false, initialised: false, sliderActive: false, progress: 0 }"
                 x-effect=" playing && !initialised ? visualiser() : null; playing == true ? ($refs.player.play(), initialised = true) : $refs.player.pause()">
                 <div class="p-2 lg:p-6 lg:pb-12">
@@ -53,7 +53,7 @@
                     <div class="relative pt-10 lg:mx-6 lg:pt-0">
                         @if ($podcast->episode_number)
                             <div
-                                class="absolute left-0 top-0 z-10 flex h-16 w-16 flex-row items-center justify-center rounded-full bg-yellow p-1 text-center font-bold leading-none">
+                                class="bg-yellow absolute left-0 top-0 z-10 flex h-16 w-16 flex-row items-center justify-center rounded-full p-1 text-center font-bold leading-none">
                                 No.{{ $podcast->episode_number }}</div>
                         @endif
 
@@ -75,7 +75,7 @@
                         <source src="/podcast/{{ $podcast->slug }}/audio" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
-                    <button @click="playing = !playing" class="">
+                    <button x-on:click="playing = !playing" class="">
 
                         <svg class="group mt-8 h-16 w-16 lg:-mt-8" xmlns="http://www.w3.org/2000/svg" width="116.01"
                             height="118.35" viewBox="0 0 116.01 118.35">
@@ -173,7 +173,7 @@
                         @change="$refs.player.currentTime = $refs.player.duration * $el.value / 100"
                         @mousedown="sliderActive = true" @mouseup="sliderActive = false">
 
-                    <x-button-link class="mt-4 shadow-yellow">Subscribe</x-button-link>
+                    <x-button-link class="shadow-yellow mt-4">Subscribe</x-button-link>
                 </div>
             </div>
 
@@ -288,8 +288,8 @@
                         @foreach ($podcast->content as $tabName => $tab)
                             @if ($tab)
                                 <button
-                                    @click="tab = '{{ $tabName }}'; window.location.hash = '{{ $tabName }}'"
-                                    :class="{ 'bg-yellow': tab == '{{ $tabName }}' }"
+                                    x-on:click="tab = '{{ $tabName }}'; window.location.hash = '{{ $tabName }}'"
+                                    x-bind:class="{ 'bg-yellow': tab == '{{ $tabName }}' }"
                                     class="w-full max-w-[16rem] rounded-full border-4 px-6 py-2 text-left text-xl font-bold">{{ Str::of($tabName)->replace('_', ' ')->ucfirst() }}</button>
                             @endif
                         @endforeach

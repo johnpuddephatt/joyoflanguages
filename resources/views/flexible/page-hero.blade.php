@@ -14,7 +14,7 @@
             </h1>
             <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
             @if ($layout->button_url)
-                <x-button-link class="mt-6 text-lg shadow-yellow"
+                <x-button-link class="shadow-yellow mt-6 text-lg"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
@@ -33,7 +33,7 @@
 
             @if ($embed)
                 <div x-cloak>
-                    <button @click="trailerOpen = true" aria-label="Play video"
+                    <button x-on:click="trailerOpen = true" aria-label="Play video"
                         class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65"
                             class="block h-auto w-full" viewBox="0 0 72.41 66.65">

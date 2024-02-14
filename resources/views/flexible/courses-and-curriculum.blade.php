@@ -21,8 +21,8 @@
                         @php($course = $course->attributes)
                     @endif
 
-                    <div @click="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
-                        class="group flex cursor-pointer flex-col border border-black border-opacity-20 p-4 transition hover:border-opacity-100 hover:bg-beige hover:bg-opacity-20 max-lg:items-start"
+                    <div x-on:click="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()"
+                        class="hover:bg-beige group flex cursor-pointer flex-col border border-black border-opacity-20 p-4 transition hover:border-opacity-100 hover:bg-opacity-20 max-lg:items-start"
                         x-data="{ modalOpen: false, shown: false }">
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="43.78" height="40.29" class="mb-2 h-14 w-14"
@@ -39,13 +39,13 @@
                         <h2 class="type-xs lg:min-h-[2.75em]">{{ $course->title }}</h2>
                         <p class="prose prose-lg mb-6">{{ $course->description }}</p>
 
-                        <x-button class="mt-auto !w-auto !border-2 !px-4 !py-1.5 shadow-yellow"
+                        <x-button class="shadow-yellow mt-auto !w-auto !border-2 !px-4 !py-1.5"
                             @click.stop="document.body.classList.add('overflow-hidden'); $refs.modal_course_{{ $course->number }}.showModal()">View
                             curriculum</x-button>
 
                         <dialog
                             @close="document.body.classList.remove('overflow-hidden'); console.log('closing dialog')"
-                            class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-beige backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
+                            class="backdrop:bg-beige z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
                             x-ref="modal_course_{{ $course->number }}">
                             <form method="dialog">
                                 <button
@@ -65,14 +65,14 @@
                                         @if ($course->modules && count($course->modules))
                                             <div x-data="{ tab: 0 }" class="prose prose-gray overflow-hidden">
                                                 <div
-                                                    class="flex flex-row items-center gap-1.5 border-b-[3px] border-gray bg-beige bg-opacity-50 px-3 pb-4 lg:gap-3 lg:px-8">
+                                                    class="border-gray bg-beige flex flex-row items-center gap-1.5 border-b-[3px] bg-opacity-50 px-3 pb-4 lg:gap-3 lg:px-8">
                                                     @foreach ($course->modules as $key => $module)
                                                         @if ($module instanceof stdClass)
                                                             @php($module = $module->attributes)
                                                         @endif
 
                                                         <button @click.prevent="tab = {{ $key }}"
-                                                            :class="{ '!bg-yellow': tab == {{ $key }} }"
+                                                            x-bind:class="{ '!bg-yellow': tab == {{ $key }} }"
                                                             class="rounded-full border-[3px] bg-white px-2 py-1.5 text-left font-semibold lg:px-6">
                                                             Module {{ $module->title }}</button>
                                                     @endforeach

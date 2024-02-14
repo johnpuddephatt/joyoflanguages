@@ -87,7 +87,7 @@
                       </g>
                   </svg>
                   @if ($layout->video)
-                      <button x-show="!playing" @click="playing = true, $refs.video.play()" aria-label="Play video"
+                      <button x-show="!playing" x-on:click="playing = true, $refs.video.play()" aria-label="Play video"
                           class="absolute left-[5%] top-[47.5%] w-1/3 md:left-[15%] md:w-[23%]">
                           <svg class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg" width="291.37"
                               height="282.94" viewBox="0 0 291.37 282.94">

@@ -54,10 +54,10 @@
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            @click="window.Beacon('close'), beaconOpen = false"></div>
+            x-on:click="window.Beacon('close'), beaconOpen = false"></div>
         <x-button
-            class="!fixed bottom-4 right-4 z-30 hidden flex-row items-center !border-none !bg-light-teal !pl-2 !pr-4 !text-white lg:flex"
-            @click="window.Beacon('toggle'),beaconOpen = true">
+            class="!bg-light-teal !fixed bottom-4 right-4 z-30 hidden flex-row items-center !border-none !pl-2 !pr-4 !text-white lg:flex"
+            x-on:click="window.Beacon('toggle'),beaconOpen = true">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="mr-1 inline-block h-8 w-8">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,23 +68,23 @@
         </x-button>
 
         <div class="-top-6 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
-            <header :class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
+            <header x-bind:class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
                 class="w-full bg-white bg-opacity-0 py-6 transition duration-500 lg:pb-3 lg:pt-8">
                 <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center">
                     <a href="#home"
                         class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-9 lg:h-12 w-auto')
                         @if ($language)
-                            <span class="font-logo text-lg uppercase tracking-widest text-light-teal lg:text-2xl">
+                            <span class="font-logo text-light-teal text-lg uppercase tracking-widest lg:text-2xl">
                                 {{ $language->name }}</span>
                         @endif
                     </a>
 
-                    <nav :class="!menuOpen && 'max-lg:translate-x-full'"
-                        class="fixed z-30 ml-auto flex flex-col items-center gap-12 bg-yellow py-12 text-lg transition max-lg:inset-0 lg:relative lg:flex-row lg:justify-start lg:bg-transparent lg:py-0 2xl:gap-12">
+                    <nav x-bind:class="!menuOpen && 'max-lg:translate-x-full'"
+                        class="bg-yellow fixed z-30 ml-auto flex flex-col items-center gap-12 py-12 text-lg transition max-lg:inset-0 lg:relative lg:flex-row lg:justify-start lg:bg-transparent lg:py-0 2xl:gap-12">
 
                         <x-button aria-label="Close navigation menu" title="Close navigation menu"
-                            class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-yellow lg:hidden"
-                            @click="document.body.classList.remove('overflow-hidden'); menuOpen = false">
+                            class="!leading-0 shadow-yellow !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black lg:hidden"
+                            x-on:click="document.body.classList.remove('overflow-hidden'); menuOpen = false">
                             @svg('plus', 'h-auto rotate-45 w-10 p-2')
 
                         </x-button>
@@ -93,23 +93,23 @@
                             @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu) as $layout)
                                 @if ($layout->show_as_button)
                                     <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
-                                        @click="document.body.classList.remove('overflow-hidden'); menuOpen = false;"
-                                        ::href="`#${section}`" class="px-16 shadow-white lg:shadow-yellow">
+                                        x-on:click="document.body.classList.remove('overflow-hidden'); menuOpen = false;"
+                                        ::href="`#${section}`" class="lg:shadow-yellow px-16 shadow-white">
                                         {{ $layout->pre_title ?? $layout->title }}
                                     </x-button-link>
                                 @else
-                                    <a @click="document.body.classList.remove('overflow-hidden'); menuOpen = false"
+                                    <a x-on:click="document.body.classList.remove('overflow-hidden'); menuOpen = false"
                                         x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
-                                        class="border-b-[3px] border-transparent font-semibold text-teal transition duration-1000"
+                                        class="text-teal border-b-[3px] border-transparent font-semibold transition duration-1000"
                                         :href="`#${section}`"
-                                        :class="{ '!border-yellow': activeSection == section }">{{ $layout->pre_title ?? $layout->title }}</a>
+                                        x-bind:class="{ '!border-yellow': activeSection == section }">{{ $layout->pre_title ?? $layout->title }}</a>
                                 @endif
                             @endforeach
                         </nav>
 
                         <x-button
-                            class="mt-20 flex flex-row items-center !border-none !bg-light-teal !pl-2 !pr-4 !leading-none !text-white lg:hidden"
-                            @click="window.Beacon('toggle'),beaconOpen = true">
+                            class="!bg-light-teal mt-20 flex flex-row items-center !border-none !pl-2 !pr-4 !leading-none !text-white lg:hidden"
+                            x-on:click="window.Beacon('toggle'),beaconOpen = true">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="mr-1 inline-block h-8 w-8">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -159,32 +159,24 @@
             @endforeach
         </section>
 
-        <nav class="sticky bottom-0 z-20 bg-yellow pb-1.5 pt-1 text-lg shadow-lg lg:hidden">
+        <nav class="bg-yellow sticky bottom-0 z-20 pb-1.5 pt-1 text-lg shadow-lg lg:hidden">
             <div class="container flex flex-row items-center gap-6">
-                <button @click="document.body.classList.add('overflow-hidden'); menuOpen = true"
+                <button x-on:click="document.body.classList.add('overflow-hidden'); menuOpen = true"
                     class="mr-auto flex flex-row items-center gap-1 font-semibold">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-12" width="26.04" height="25.71"
                         viewBox="0 0 26.04 25.71">
                         <defs>
-                            <style>
-                                .prefix__cls-2djajs786 {
-                                    fill: #fff;
-                                    stroke: #12171e;
-                                    stroke-linecap: round;
-                                    stroke-linejoin: round;
-                                    stroke-width: 1.17px
-                                }
-                            </style>
+
                         </defs>
                         <circle cx="14.44" cy="14.12" r="11.6" fill="#fff" />
-                        <circle cx="12.18" cy="12.18" r="11.6" class="prefix__cls-2djajs786" />
-                        <path d="M6.03 8.86h12.3M6.03 12.36h12.3M6.03 15.87h12.3" class="prefix__cls-2djajs786" />
+                        <circle cx="12.18" cy="12.18" r="11.6" fill="#fff" stroke="#12171e" />
+                        <path d="M6.03 8.86h12.3M6.03 12.36h12.3M6.03 15.87h12.3" fill="#fff" stroke="#12171e" />
                     </svg>
 
                     Menu</button>
 
                 @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu && $layout->show_as_button) as $layout)
-                    <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" @click="menuOpen = false;" ::href="`#${section}`"
+                    <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }" x-on:click="menuOpen = false;" ::href="`#${section}`"
                         class="shadow-white">
                         {{ $layout->pre_title ?? $layout->title }}
                     </x-button-link>

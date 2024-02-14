@@ -14,7 +14,7 @@
 
         <div class="flex flex-col lg:flex-row">
             <div
-                class="2xl:container-lg top-0 flex-col justify-end px-6 !pr-4 transition lg:flex lg:w-[30%] lg:bg-yellow lg:py-6">
+                class="2xl:container-lg lg:bg-yellow top-0 flex-col justify-end px-6 !pr-4 transition lg:flex lg:w-[30%] lg:py-6">
 
                 <div class="lg:sticky lg:bottom-12 lg:max-w-xl">
 
@@ -22,19 +22,19 @@
                         On this page
                     </h2>
 
-                    <nav :class="{
+                    <nav x-bind:class="{
                         'translate-y-0': sectionMenuOpen,
                         'translate-y-full': !
                             sectionMenuOpen
                     }"
-                        class="fixed inset-0 z-[999] flex flex-col justify-center bg-yellow text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
-                        <button class="lg:hidden" @click="sectionMenuOpen = false">
+                        class="bg-yellow fixed inset-0 z-[999] flex flex-col justify-center text-center transition lg:static lg:translate-y-0 lg:bg-transparent lg:text-left">
+                        <button class="lg:hidden" x-on:click="sectionMenuOpen = false">
                             @svg('plus', 'mb-8 rotate-45 w-6 h-6 ml-auto mr-4')
                         </button>
                         @foreach ($page->content->filter(fn($layout) => $layout->name() === 'section') as $layout)
-                            <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" @click="sectionMenuOpen = false; activeSection = section;"
+                            <a x-data="{ section: '{{ Str::of($layout->title)->kebab }}' }" x-on:click="sectionMenuOpen = false; activeSection = section;"
                                 class="type-sm !my-0 inline-block p-2 px-4 lg:max-w-md" :href="`#${section}`"
-                                :class="{ 'bg-white bg-opacity-30 rounded': activeSection == section }">{{ $layout->title }}
+                                x-bind:class="{ 'bg-white bg-opacity-30 rounded': activeSection == section }">{{ $layout->title }}
                             </a>
                         @endforeach
 
@@ -46,7 +46,7 @@
                 <div class="sticky top-0 z-20">
                     <x-button
                         class="!absolute right-1 top-3.5 !py-1 !pl-3 !pr-1 align-sub max-sm:text-sm lg:right-2 lg:top-2 lg:hidden lg:!px-6 lg:!py-2"
-                        @click="sectionMenuOpen = true">
+                        x-on:click="sectionMenuOpen = true">
                         Jump to @svg('arrow-right', 'w-4 h-4 ml-1 inline-block')
                     </x-button>
                 </div>

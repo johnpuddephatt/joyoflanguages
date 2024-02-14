@@ -27,16 +27,16 @@
 })" class="relative mx-auto max-w-none overflow-hidden">
 
     <div class="swiper-container container mx-auto w-full" x-ref="container">
-        <div class="swiper-wrapper flex w-full flex-row" :class="{ 'gap-4': !swiper }">
+        <div class="swiper-wrapper flex w-full flex-row" x-bind:class="{ 'gap-4': !swiper }">
             {!! $slot !!}
         </div>
     </div>
 
-    <button :class="{ 'opacity-0': !showPreviousControl }" :disabled="!showPreviousControl" @click="swiper.slidePrev()"
-        class="absolute left-2 top-1/2 z-10 -translate-y-1/2">
+    <button x-bind:class="{ 'opacity-0': !showPreviousControl }" :disabled="!showPreviousControl"
+        x-on:click="swiper.slidePrev()" class="absolute left-2 top-1/2 z-10 -translate-y-1/2">
         @svg('arrow-right', 'rotate-180 h-10 w-10')
     </button>
-    <button :class="{ 'opacity-0': !showNextControl }" :disabled="!showNextControl" @click="swiper.slideNext()"
+    <button x-bind:class="{ 'opacity-0': !showNextControl }" :disabled="!showNextControl" x-on:click="swiper.slideNext()"
         class="absolute right-2 top-1/2 z-10 -translate-y-1/2">
         @svg('arrow-right', 'h-10 w-10')
     </button>

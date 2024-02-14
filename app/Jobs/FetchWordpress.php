@@ -89,7 +89,7 @@ class FetchWordpress implements ShouldQueue
                             $post->title
                         )->after(": "),
 
-                        "introduction" => "",
+                        // "introduction" => "",
 
                         "wordpress_content" => $this->remove_cdata(
                             (string) $post->xpath("content:encoded")[0]

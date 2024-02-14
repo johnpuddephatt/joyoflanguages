@@ -23,11 +23,11 @@
                     <div class="prose prose-lg mt-4 lg:mt-8">@markdown($layout->description)</div>
                 @endif
 
-                <x-button @click="document.body.classList.add('overflow-hidden'); $refs.modal_timetable.showModal()"
+                <x-button x-on:click="document.body.classList.add('overflow-hidden'); $refs.modal_timetable.showModal()"
                     class="mt-6">View timetable</x-button>
 
                 <dialog @close="document.body.classList.remove('overflow-hidden'); console.log('closing dialog')"
-                    class="z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-blue backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
+                    class="backdrop:bg-blue z-50 w-full max-w-xl overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
                     x-ref="modal_timetable">
                     <form method="dialog">
                         <button
@@ -64,7 +64,7 @@
                                     <h3 class="mb-2 text-center font-semibold">Select a location:</h3>
                                     <template x-for="(offset, timezone) in timezones">
                                         <button
-                                            class="mb-2 block w-full rounded bg-beige bg-opacity-30 px-4 py-2 text-center transition hover:bg-opacity-20"
+                                            class="bg-beige mb-2 block w-full rounded bg-opacity-30 px-4 py-2 text-center transition hover:bg-opacity-20"
                                             @click.prevent="selectedTimezoneName = timezone, selectedTimezone = offset"
                                             x-text="timezone"></button>
                                     </template>
@@ -79,7 +79,7 @@
                                                 to change – including due to daylight
                                                 savings.</p>
                                             <button @click.prevent="selectedTimezone = null"
-                                                class="mb-4 flex flex-row items-center gap-1 rounded bg-beige bg-opacity-20 p-1 hover:bg-opacity-50 max-md:ml-auto"><svg
+                                                class="bg-beige mb-4 flex flex-row items-center gap-1 rounded bg-opacity-20 p-1 hover:bg-opacity-50 max-md:ml-auto"><svg
                                                     xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                     class="h-5 w-5">
@@ -99,8 +99,8 @@
                                             @foreach (collect($layout->timetable)->groupBy('level') as $level)
                                                 <div class="mb-2" x-data="{ levelCount: 0, open: false }" x-show="levelCount">
                                                     <button @click.prevent="open = !open"
-                                                        class="flex w-full flex-row items-center rounded bg-beige bg-opacity-50 p-2 font-semibold transition hover:bg-opacity-80">
-                                                        <span :class="{ '-rotate-90': !open }"
+                                                        class="bg-beige flex w-full flex-row items-center rounded bg-opacity-50 p-2 font-semibold transition hover:bg-opacity-80">
+                                                        <span x-bind:class="{ '-rotate-90': !open }"
                                                             class="mr-2 inline-block transition">
                                                             @svg('chevron-down', 'inline-block w-3 h-3')
                                                         </span>
@@ -116,7 +116,7 @@
 
                                                     </button>
                                                     <div x-show="open" x-transition
-                                                        class="mb-4 divide-y divide-beige divide-opacity-50">
+                                                        class="divide-beige mb-4 divide-y divide-opacity-50">
                                                         @foreach ($level->groupBy('day') as $day)
                                                             <div x-data="{ count: 0, }" x-show="count"
                                                                 class="flex flex-row items-center gap-2 px-2 py-2">
@@ -131,7 +131,7 @@
                                                                     }" x-init=" myTime = updatedTime('{{ $session->start_time }}', selectedTimezone);
                                                                      shouldShow() ? (count++, levelCount++) : null"
                                                                         x-show="shouldShow()" x-text="myTime"
-                                                                        class="rounded bg-light-teal bg-opacity-30 px-2">
+                                                                        class="bg-light-teal rounded bg-opacity-30 px-2">
 
                                                                     </div>
                                                                 @endforeach

@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <div class="w-screen">
+    <div id="app" class="w-screen">
         @yield('templatecontent')
     </div>
     @stack('footer')

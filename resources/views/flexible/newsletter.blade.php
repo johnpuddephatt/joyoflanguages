@@ -86,9 +86,13 @@
                 </div>
                 <div class="px-8 py-16">
                     <div class="mb-4">
-                        <h2 class="type-md">Are you sure you want to miss out on the free weekly lesson?</h2>
-                        <p>I'll send you a free weekly lesson, plus occasional updates and new course
-                            announcements. Unsubscribe anytime.</p>
+                        <h2 class="type-md">Mama mia! You’ve signed up – but without our weekly free
+                            lesson
+                        </h2>
+                        <p class="text-lg">Our free weekly lesson is a great introduction to learning Italian in a
+                            friendly, fun way. No
+                            boring grammar or lists of random words. It’s all about real Italian conversation!
+                        <p class="mt-6 text-lg font-semibold">What do you think?</p>
                     </div>
                     <div class="mt-8 flex justify-end">
                         <button @click.prevent="showPrompt = false">
@@ -96,7 +100,7 @@
                         </button>
                         <x-button @click.prevent="tags.push(4280402); showPrompt = false; submit()"
                             class="ml-4 shadow-light-teal">
-                            Send me the free weekly lesson
+                            Yes, count me in
                         </x-button>
 
                     </div>
