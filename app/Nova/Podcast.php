@@ -129,12 +129,12 @@ class Podcast extends Resource
                 )
                 ->rules("required", function ($attribute, $value, $fail) {
                     if (
-                        !Str::of($value)->startsWith(
-                            "https://aphid.fireside.fm"
+                        !Str::of($value)->contains(
+                            "aphid.fireside.fm"
                         )
                     ) {
                         return $fail(
-                            "Error. URL should begin https://aphid.fireside.fm..."
+                            "Error. The URL should be a direct download link from Fireside"
                         );
                     }
                 })
