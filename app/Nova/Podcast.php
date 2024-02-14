@@ -211,12 +211,15 @@ class Podcast extends Resource
                         "content->bonus_materials"
                     )->hideFromIndex(),
                 ]),
-                Tab::make(__("RSS Content"), [
+                Tab::make(__("Auto content"), [
                     Heading::make(
                         "The content below was fetched automatically from the podcast RSS feed. If no article is provided this content will be shown on the podcast page. This is good for older podcast episodes."
                     )->asHtml(),
 
                     Trix::make("RSS Content")->readonly(),
+
+                    Trix::make("Wordpress Content")->readonly(),
+
                 ]),
             ]),
             BelongsToMany::make("Languages")->filterable(),
