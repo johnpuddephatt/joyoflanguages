@@ -1,45 +1,4 @@
 {
-  "_leaflet-src-8KDsyzZe.js": {
-    "file": "assets/leaflet-src-8KDsyzZe.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/leaflet/dist/images/layers-2x.png": {
-    "file": "assets/layers-2x-aZG4t-V7.png",
-    "src": "node_modules/leaflet/dist/images/layers-2x.png"
-  },
-  "node_modules/leaflet/dist/images/layers.png": {
-    "file": "assets/layers-VgQKdgmQ.png",
-    "src": "node_modules/leaflet/dist/images/layers.png"
-  },
-  "node_modules/leaflet/dist/images/marker-icon-2x.png": {
-    "file": "assets/marker-icon-2x-o_Mx9D0y.js",
-    "src": "node_modules/leaflet/dist/images/marker-icon-2x.png",
-    "isDynamicEntry": true,
-    "assets": [
-      "assets/marker-icon-2x-P2QNFhgn.png"
-    ]
-  },
-  "node_modules/leaflet/dist/images/marker-icon.png": {
-    "file": "assets/marker-icon-qxK6DBxy.js",
-    "src": "node_modules/leaflet/dist/images/marker-icon.png",
-    "isDynamicEntry": true,
-    "assets": [
-      "assets/marker-icon-ITd9PylV.png"
-    ]
-  },
-  "node_modules/leaflet/dist/images/marker-shadow.png": {
-    "file": "assets/marker-shadow--_8MbIeG.js",
-    "src": "node_modules/leaflet/dist/images/marker-shadow.png",
-    "isDynamicEntry": true,
-    "assets": [
-      "assets/marker-shadow-H-0mjwsU.png"
-    ]
-  },
-  "node_modules/leaflet/dist/leaflet-src.esm.js": {
-    "file": "assets/leaflet-src.esm-NPgqU0nd.js",
-    "src": "node_modules/leaflet/dist/leaflet-src.esm.js",
-    "isDynamicEntry": true
-  },
   "resources/css/app.css": {
     "file": "assets/app-NkjWM2p9.css",
     "src": "resources/css/app.css",
@@ -78,27 +37,11 @@
     "src": "resources/fonts/Labours-Regular.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-LAb4VdYk.js",
+    "file": "assets/app-K0km1szi.js",
     "src": "resources/js/app.js",
     "isEntry": true,
-    "dynamicImports": [
-      "node_modules/leaflet/dist/images/marker-icon-2x.png",
-      "node_modules/leaflet/dist/images/marker-icon.png",
-      "node_modules/leaflet/dist/images/marker-shadow.png",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "_leaflet-src-8KDsyzZe.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js"
-    ],
     "css": [
-      "assets/app-Td3uKDzo.css"
-    ],
-    "assets": [
-      "assets/layers-VgQKdgmQ.png",
-      "assets/layers-2x-aZG4t-V7.png",
-      "assets/marker-icon-ITd9PylV.png"
+      "assets/app-UWvKZ0YL.css"
     ]
   }
 }

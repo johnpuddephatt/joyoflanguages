@@ -1322,3 +1322,11 @@
 1707914198-3414-2105849118,1707914198.334,GET,/nova-api/languages/1/update-fields?editing=true&editMode=update&viaResource=&viaResourceId=&viaRelationship=,"Laravel\Nova\Http\Controllers\UpdateFieldController",200,51.074981689453,request
 1707914198-4124-1139905152,1707914198.4056,GET,/nova-api/nova-menus/soft-deletes,"Laravel\Nova\Http\Controllers\SoftDeleteStatusController",200,35.658121109009,request
 1707914198-4124-526354447,1707914198.4056,GET,/nova-api/languages/associatable/menu?current=3&first=false&search=&withTrashed=false&resourceId=1&viaResource=&viaResourceId=&viaRelationship=&component=belongsto.belongs-to-field.menu&dependsOn=eyJtZW51IjoiSXRhbGlhbiBoZWFkZXIgKGRlZmF1bHQpIn0%3D&editing=true&editMode=update,"Laravel\Nova\Http\Controllers\AssociatableController",200,44.687986373901,request
+1707914972-3760-1578162989,1707914972.3397,GET,/podcast,"App\Http\Controllers\PageController@show",404,245.07403373718,request
+1707914972-6895-1438883610,1707914972.6666,GET,/livewire/livewire.js?id=90730a3b0e7144480175,"Livewire\Controllers\LivewireJavaScriptAssets@source",200,50.267934799194,request
+1707914972-7438-1488173631,1707914972.7356,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,23.000001907349,request
+1707914972-9045-61348480,1707914972.8902,GET,/livewire/livewire.js.map,"Livewire\Controllers\LivewireJavaScriptAssets@maps",200,43.140888214111,request
+1707914976-2080-1622749974,1707914976.1944,GET,/,"App\Http\Controllers\PageController@show",200,685.8959197998,request
+1707914976-9251-1099372147,1707914976.9154,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,26.535034179688,request
+1707915015-4387-547423341,1707915015.4046,GET,/,"App\Http\Controllers\PageController@show",200,694.80895996094,request
+1707915016-1686-436998283,1707915016.1585,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,57.783842086792,request

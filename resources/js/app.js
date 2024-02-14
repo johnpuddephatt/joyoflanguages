@@ -8,9 +8,9 @@ import "swiper/css";
 import { createApp } from "vue";
 const app = createApp();
 
-import teamMap from "./components/teammap.vue";
-app.component("team-map", teamMap);
-app.mount("#app");
+// import teamMap from "./components/teammap.vue";
+// app.component("team-map", teamMap);
+// app.mount("#app");
 
 window.Swiper = Swiper;
 window.Alpine = Alpine;
