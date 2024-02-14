@@ -317,6 +317,12 @@
     @endforeach
 
     </article>
+@elseif($podcast->wordpress_content)
+    <article class="container mx-auto pb-24 pt-8">
+        <div class="prose prose-lg max-w-xl">
+            {!! $podcast->wordpress_content !!}
+        </div>
+    </article>
 @else
     <article class="container mx-auto pb-24 pt-8">
         <div class="prose prose-lg max-w-xl">
