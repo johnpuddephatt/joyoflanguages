@@ -82,18 +82,16 @@
             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
                 <div class="bg-beige relative w-2/5 flex-none">
-                    <img class="h-full w-full object-cover" src="/storage/katiematteo.jpg">
+                    <img class="h-full w-full object-cover" src="{{ Storage::url('katiematteo.jpg') }}">
                 </div>
                 <div class="px-8 py-16">
                     <div class="mb-4">
-                        <h2 class="type-md">Mama mia! You’ve signed up – but without our weekly free
+                        <h2 class="type-md">Mamma mia! You’ve signed up – but without our weekly free
                             lesson
                         </h2>
                         <p class="text-lg">Our free weekly lesson is a great introduction to learning Italian in a
                             fun and friendly way. No
                             boring grammar or lists of random words. It’s all about real Italian conversation!
-                        <p class="mt-6 text-lg font-semibold">What do you think? You can unsubscribe any
-                            time.
                         </p>
                     </div>
                     <div class="mt-8 flex justify-end">
