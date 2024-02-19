@@ -81,9 +81,11 @@
         <div x-cloak x-show="showPrompt"
             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
-                <div class="bg-beige relative w-2/5 flex-none">
-                    <img class="h-full w-full object-cover" src="{{ Storage::url('katiematteo.jpg') }}">
-                </div>
+                @if ($layout->popup_image)
+                    <div class="bg-beige relative w-2/5 flex-none">
+                        <x-responsive-image conversion="square" :image="$layout->popup_image" class="h-full w-full object-cover" />
+                    </div>
+                @endif
                 <div class="px-8 py-16">
                     <div class="mb-4">
                         <h2 class="type-md">Mamma mia! You’ve signed up – but without our weekly free

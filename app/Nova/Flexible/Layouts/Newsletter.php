@@ -2,10 +2,13 @@
 
 namespace App\Nova\Flexible\Layouts;
 
+use App\Nova\Actions\SaveAndResizeImage;
+use Illuminate\Support\Facades\Storage;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Heading;
 
 class Newsletter extends Layout
 {
@@ -30,6 +33,10 @@ class Newsletter extends Layout
      */
     protected $preview = true;
 
+    public static $imageSizes = [
+        "popup_image" => "square",
+    ];
+
     /**
      * Get the fields displayed by the layout.
      *
@@ -46,6 +53,15 @@ class Newsletter extends Layout
             Text::make("Form action"),
             Text::make("Button text"),
             Text::make("Sticker", "sticker")->help("Leave blank to hide"),
+            Heading::make("Pop-up settings"),
+            Image::make("Image", "popup_image")
+                ->store(new SaveAndResizeImage())
+                ->preview(function ($value, $disk) {
+                    return isset($value->image)
+                        ? Storage::disk($disk)->url($value->image)
+                        : null;
+                }),
+
         ];
     }
 }
