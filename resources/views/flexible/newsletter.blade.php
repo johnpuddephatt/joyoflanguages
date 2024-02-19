@@ -6,6 +6,7 @@
         'form_action' => $layout->form_action ?? nova_get_setting('newsletter_form_action'),
         'button_text' => $layout->button_text ?? nova_get_setting('newsletter_button_text', 'Subscribe'),
         'sticker' => $layout->sticker ?? nova_get_setting('newsletter_sticker'),
+        'popup_image' => $layout->popup_image ?? nova_get_setting('newsletter_popup_image'),
     ];
 @endphp
 
@@ -78,12 +79,15 @@
         },
     }" x-init="trackFormVisit()">
 
-        <div x-cloak x-show="showPrompt"
+        <div x-cloak x-show="showPrompt" @click.self="showPrompt = false"
             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <button
+                class="z-9 absolute right-2 top-2 block w-10 rounded-full bg-white before:fixed before:inset-0 before:-z-10 lg:right-4 lg:top-4"
+                @click.stop="showPrompt = false" aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
             <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
-                @if ($layout->popup_image)
+                @if ($merged_layout->popup_image)
                     <div class="bg-beige relative w-2/5 flex-none">
-                        <x-responsive-image conversion="square" :image="$layout->popup_image" class="h-full w-full object-cover" />
+                        <img src="{{ $merged_layout->popup_image }}" class="h-full w-full object-cover" />
                     </div>
                 @endif
                 <div class="px-8 py-16">

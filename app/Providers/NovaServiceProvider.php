@@ -60,6 +60,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Text::make("Sticker", "newsletter_sticker")->help(
                     "Leave blank to hide"
                 ),
+                Image::make("Pop-up image", "newsletter_popup_image")
+
             ]),
             Panel::make("Debug", [
                 File::make("Wordpress XML", "wordpress_xml")

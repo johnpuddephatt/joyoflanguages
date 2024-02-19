@@ -33,9 +33,6 @@ class Newsletter extends Layout
      */
     protected $preview = true;
 
-    public static $imageSizes = [
-        "popup_image" => "square",
-    ];
 
     /**
      * Get the fields displayed by the layout.
@@ -55,12 +52,7 @@ class Newsletter extends Layout
             Text::make("Sticker", "sticker")->help("Leave blank to hide"),
             Heading::make("Pop-up settings"),
             Image::make("Image", "popup_image")
-                ->store(new SaveAndResizeImage())
-                ->preview(function ($value, $disk) {
-                    return isset($value->image)
-                        ? Storage::disk($disk)->url($value->image)
-                        : null;
-                }),
+
 
         ];
     }
