@@ -592,3 +592,4 @@
 1708366516-1238-1643276093,1708366516.0883,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,77.354907989502,request
 1708366541-3368-640784775,1708366541.3177,GET,/,"App\Http\Controllers\PageController@show",200,749.70698356628,request
 1708366542-1131-167236038,1708366542.1047,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,28.251886367798,request
+1708367115-5045-1054540839,1708367115.452,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,217.30804443359,request

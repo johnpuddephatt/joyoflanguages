@@ -52,6 +52,9 @@ Route::get("password/reset", function (Request $request) {
     return redirect("/nova/password/reset/" . $request->token);
 })->name("password.reset");
 
+Route::get("wp-content/{path}", function ($path) {
+    return redirect('https://joyoflanguages-legacymedia.ams3.digitaloceanspaces.com/wp-content/' . $path);
+});
 
 Route::get("cookies", function () {
     return view("cookies");
