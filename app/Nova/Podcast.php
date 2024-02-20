@@ -18,6 +18,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Trix;
@@ -162,9 +163,13 @@ class Podcast extends Resource
                 })
                 ->hideFromIndex(),
 
+            Date::make("Date", "published_at")
+                ->exceptOnForms(),
+
             DateTime::make("Publish date", "published_at")
                 ->default(now())
-                ->step(60),
+                ->step(60)
+                ->hideFromIndex(),
 
             Badge::make("Status", "status", function () {
                 if (!$this->published) {
