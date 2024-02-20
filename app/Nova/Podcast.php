@@ -93,7 +93,7 @@ class Podcast extends Resource
                 ->asHtml()
                 ->onlyOnIndex(),
 
-            Number::make("Episode number", "episode_number")
+            Number::make("#", "episode_number")
                 ->default(\App\Nova\Podcast::max("episode_number") + 1)
                 ->required(),
 
@@ -164,8 +164,7 @@ class Podcast extends Resource
 
             DateTime::make("Publish date", "published_at")
                 ->default(now())
-                ->step(60)
-                ->hideFromIndex(),
+                ->step(60),
 
             Badge::make("Status", "status", function () {
                 if (!$this->published) {
