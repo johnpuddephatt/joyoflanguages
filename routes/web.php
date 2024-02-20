@@ -43,6 +43,11 @@ Route::get("posts/{post:slug}", [
     "show",
 ])->name("post.show");
 
+
+Route::get("wp-content/{path}", function (Request $request, $path) {
+    return redirect('https://joyoflanguages-legacymedia.ams3.digitaloceanspaces.com/wp-content/' . $path);
+})->where('path', '.*');
+
 // Route::get("podcast/{podcast:slug}", [
 //     \App\Http\Controllers\PodcastController::class,
 //     "show",
@@ -52,9 +57,6 @@ Route::get("password/reset", function (Request $request) {
     return redirect("/nova/password/reset/" . $request->token);
 })->name("password.reset");
 
-Route::get("wp-content/{path}", function ($path) {
-    return redirect('https://joyoflanguages-legacymedia.ams3.digitaloceanspaces.com/wp-content/' . $path);
-});
 
 Route::get("cookies", function () {
     return view("cookies");

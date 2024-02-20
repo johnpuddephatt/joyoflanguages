@@ -51,6 +51,12 @@ return [
     */
 
     'channels' => [
+        '404' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/404.log'),
+            'level' => 'error',
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],
@@ -85,7 +91,7 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
         ],
 
