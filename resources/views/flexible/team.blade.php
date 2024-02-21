@@ -3,40 +3,47 @@
     <div class="{{ $class ?? 'mx-auto container 2xl:container-lg' }} grid gap-x-16 gap-y-16 lg:grid-cols-2 2xl:gap-x-24">
 
         @foreach ($layout->team as $member)
-            <div x-on:click="document.body.classList.add('overflow-hidden'); document.location.hash = '#{{ $member->slug }}'; $refs.modal_user_{{ $member->id }}.showModal()"
-                x-init="document.location.hash == '#{{ $member->slug }}' ? $refs.modal_user_{{ $member->id }}.showModal() : null" class="" x-data="{ modalOpen: false, shown: false, playing: false }"
-                @if ($member->video) @mouseEnter="$refs.video.play(); playing= true"
+            <div x-init="document.location.hash == '#{{ $member->slug }}' ? (document.body.classList.add('overflow-hidden'), $refs.modal_user_{{ $member->id }}.showModal()) : null" class="" x-data="{ modalOpen: false, shown: false, playing: false }">
+                <div x-on:click="document.body.classList.add('overflow-hidden'); document.location.hash = '#{{ $member->slug }}'; $refs.modal_user_{{ $member->id }}.showModal()"
+                    @if ($member->video) @mouseEnter="$refs.video.play(); playing= true"
                 @mouseLeave="$refs.video.pause(); $refs.video.currentTime = 0; playing= false" @endif>
-                <div class="group relative aspect-video cursor-pointer overflow-hidden rounded bg-black">
+                    <div class="group relative aspect-video cursor-pointer overflow-hidden rounded bg-black">
 
-                    <x-library-image :image="$member->photo" conversion="3x2"
-                        class="mx-auto block w-full transition duration-200 group-hover:scale-105 group-hover:duration-1000" />
+                        <x-library-image :image="$member->photo" conversion="3x2"
+                            class="mx-auto block w-full transition duration-200 group-hover:scale-105 group-hover:duration-1000" />
 
-                    @if ($member->video)
-                        <video disableRemotePlayback x-ref="video" @ended="$refs.video.currentTime = 0; playing= false"
-                            muted x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="opacity-0 scale-105"
-                            x-transition:enter-end="opacity-100 scale-100"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="opacity-100 scale-100"
-                            x-transition:leave-end="opacity-0 scale-105"
-                            class="absolute inset-0 z-10 aspect-video h-full w-full object-cover transition duration-200"
-                            x-show="playing">
-                            <source src="{{ Storage::url($member->video->mp4) }}" type="video/mp4">
-                            <source src="{{ Storage::url($member->video->webm) }}" type="video/webm">
-                        </video>
-                    @endif
+                        @if ($member->video)
+                            <video disableRemotePlayback x-ref="video"
+                                @ended="$refs.video.currentTime = 0; playing= false" muted
+                                x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0 scale-105"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-300"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-105"
+                                class="absolute inset-0 z-10 aspect-video h-full w-full object-cover transition duration-200"
+                                x-show="playing">
+                                <source src="{{ Storage::url($member->video->mp4) }}" type="video/mp4">
+                                <source src="{{ Storage::url($member->video->webm) }}" type="video/webm">
+                            </video>
+                        @endif
+                    </div>
+                    <div class="flex flex-row items-center justify-between">
+                        <h3 class="type-sm mt-6">{{ $member->name }}</h3>
+
+                        <x-button class="shadow-yellow mt-auto !w-auto !border-2 !px-4 !py-1.5"
+                            @click.stop="document.body.classList.add('overflow-hidden');document.location.hash = '#{{ $member->slug }}';$refs.modal_user_{{ $member->id }}.showModal()">View</x-button>
+                    </div>
                 </div>
-                <div class="flex flex-row items-center justify-between">
-                    <h3 class="type-sm mt-6">{{ $member->name }}</h3>
-
-                    <x-button class="shadow-yellow mt-auto !w-auto !border-2 !px-4 !py-1.5"
-                        @click.stop="document.body.classList.add('overflow-hidden');document.location.hash = '#{{ $member->slug }}';$refs.modal_user_{{ $member->id }}.showModal()">View</x-button>
-                </div>
-                <dialog @close="document.body.classList.remove('overflow-hidden'); document.location.hash  = '';"
+                <dialog
                     class="backdrop:bg-beige z-50 w-full max-w-lg overscroll-contain rounded-3xl border-[3px] border-black backdrop:overscroll-contain backdrop:bg-opacity-50 backdrop:backdrop-blur-md"
-                    x-ref="modal_user_{{ $member->id }}">
-                    <form method="dialog">
+                    x-ref="modal_user_{{ $member->id }}"
+                    @click.stop="document.body.classList.remove('overflow-hidden'); $refs.modal_user_{{ $member->id }}.close()">
+                    <button
+                        class="absolute right-2 top-2 z-10 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 focus:outline-none lg:right-4 lg:top-4"
+                        x-on:click="document.body.classList.remove('overflow-hidden');  $refs.modal_user_{{ $member->id }}.close()"
+                        aria-label="Close modal window">@svg('plus', ' rotate-45 stroke-3 bg-white rounded-full border-black  text-black border-[3px] p-2  w-10 h-10')</button>
+                    <form method="dialog" class="overflow-hidden">
                         <div class="relative aspect-video overflow-hidden">
                             <x-library-image :image="$member->photo" conversion="3x2"
                                 class="mx-auto block w-full transition duration-200 group-hover:scale-105 group-hover:duration-1000" />
@@ -64,10 +71,7 @@
                                 </svg>
                             @endif
                         </div>
-                        <button
-                            class="absolute right-2 top-2 block w-10 rounded-full before:fixed before:inset-0 before:-z-10 focus:outline-none lg:right-4 lg:top-4"
-                            @close="document.body.classList.remove('overflow-hidden'); document.location.hash  = '';"
-                            aria-label="Close modal window">@svg('plus', ' rotate-45 stroke-3 bg-white rounded-full border-black  text-black border-[3px] p-2  w-10 h-10')</button>
+
                         <div class="relative">
                             <svg class="absolute bottom-full right-0 h-auto w-full translate-x-[60%] translate-y-1/4"
                                 xmlns="http://www.w3.org/2000/svg" width="307.32" height="119.97"
