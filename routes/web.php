@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 */
 
 Route::redirect('italianpodcast', 'https://italian.joyoflanguages.com/podcast');
+Route::redirect('learn-italian', 'https://italian.joyoflanguages.com');
 
 Route::domain(
     "{language:slug}." . parse_url(config("app.url"), PHP_URL_HOST)
