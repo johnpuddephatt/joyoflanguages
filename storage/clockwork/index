@@ -708,3 +708,4 @@
 1708528863-2755-1974663054,1708528863.2446,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,66.513061523438,request
 1708528881-4395-657532050,1708528881.4232,GET,/team,"App\Http\Controllers\PageController@show",200,579.56314086914,request
 1708528882-0567-708280870,1708528882.045,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,31.193971633911,request
+1708603441-9625-1604360512,1708603441.4202,GET,/italianpodcast,"\Illuminate\Routing\RedirectController",302,891.04914665222,request

@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::redirect('italianpodcast', 'https://italian.joyoflanguages.com/podcast');
+
 Route::domain(
     "{language:slug}." . parse_url(config("app.url"), PHP_URL_HOST)
 )->group(function () {
