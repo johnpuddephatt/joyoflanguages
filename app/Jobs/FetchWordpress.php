@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class FetchWordpress implements ShouldQueue
@@ -82,6 +83,7 @@ class FetchWordpress implements ShouldQueue
                 if (!$podcast) {
                     continue;
                 } else {
+                    Log::info('Updating' . $podcast->title);
                     $podcast->update([
                         "wp_id" => (string) $post->xpath("wp:post_id")[0],
                         "slug" => last(explode("/", rtrim($post->link, "/"))),

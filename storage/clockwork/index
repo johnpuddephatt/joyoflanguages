@@ -709,3 +709,7 @@
 1708528881-4395-657532050,1708528881.4232,GET,/team,"App\Http\Controllers\PageController@show",200,579.56314086914,request
 1708528882-0567-708280870,1708528882.045,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,31.193971633911,request
 1708603441-9625-1604360512,1708603441.4202,GET,/italianpodcast,"\Illuminate\Routing\RedirectController",302,891.04914665222,request
+1708705029-6945-192941021,1708705029.5705,GET,/,"App\Http\Controllers\PageController@show",200,967.93580055237,request
+1708705030-6521-1051691519,1708705030.6421,GET,/cookie-consent/script?id=a567ac88baf530cba8ff52c9877ebd50,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,24.687051773071,request
+1708705030-6444-1655265215,1708705030.6367,GET,/livewire/livewire.js?id=90730a3b0e7144480175,"Livewire\Controllers\LivewireJavaScriptAssets@source",200,28.848171234131,request
+1708705030-6476-108948658,1708705030.6358,GET,/storage/,"App\Http\Controllers\PageController@show",404,217.81587600708,request
