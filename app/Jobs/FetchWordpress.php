@@ -34,7 +34,7 @@ class FetchWordpress implements ShouldQueue
     public function handle()
     {
         $this->fetchPosts();
-        $this->fetchImages();
+        // $this->fetchImages();
     }
 
     public function remove_cdata($string)
