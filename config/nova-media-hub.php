@@ -13,7 +13,7 @@ return [
     "model" => \Outl1ne\NovaMediaHub\Models\Media::class,
     "file_namer" => \Outl1ne\NovaMediaHub\MediaHandler\Support\FileNamer::class,
     "file_validator" =>
-        \Outl1ne\NovaMediaHub\MediaHandler\Support\FileValidator::class,
+    \Outl1ne\NovaMediaHub\MediaHandler\Support\FileValidator::class,
 
     // This default PathMaker puts files in a /prefix/<mediaid>/* structure
     "path_maker" => \Outl1ne\NovaMediaHub\MediaHandler\Support\PathMaker::class,
@@ -46,6 +46,10 @@ return [
         "video/mp4",
         "text/csv",
         "application/pdf",
+        "application/x-zip",
+        "application/zip",
+        "application/apkg"
+
     ],
 
     // Job queue configuration
