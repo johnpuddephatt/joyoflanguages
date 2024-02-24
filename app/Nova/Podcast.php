@@ -163,12 +163,12 @@ class Podcast extends Resource
                 })
                 ->hideFromIndex(),
 
-            DateTime::make("Date", "published_at")
+            Date::make("Date", "published_at")
                 ->exceptOnForms(),
 
             DateTime::make("Publish date", "published_at")
                 ->default(now())
-
+                ->step(60)
                 ->hideFromIndex(),
 
             Badge::make("Status", "status", function () {

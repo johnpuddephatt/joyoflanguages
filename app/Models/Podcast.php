@@ -55,7 +55,7 @@ class Podcast extends Model
      * @var array
      */
     protected $casts = [
-        "published_at" => "date",
+        "published_at" => "datetime",
         "episode_number" => "integer",
         "language_id" => "integer",
         "content" => "json",
