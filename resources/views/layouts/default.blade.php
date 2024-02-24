@@ -9,7 +9,7 @@
 @section('templatecontent')
     <x-header :$language :$theme />
 
-    <main class="relative min-h-screen">
+    <main class="relative">
         @yield('content')
     </main>
 

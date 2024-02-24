@@ -87,7 +87,7 @@
             <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
                 @if ($merged_layout->popup_image)
                     <div class="bg-beige relative w-2/5 flex-none">
-                        <img src="{{ $merged_layout->popup_image }}" class="h-full w-full object-cover" />
+                        <img src="{{ Storage::url($merged_layout->popup_image) }}" class="h-full w-full object-cover" />
                     </div>
                 @endif
                 <div class="px-8 py-16">
@@ -118,7 +118,7 @@
             action="https://api.convertkit.com/v3/forms/{{ $merged_layout->form_action }}/subscribe" method="POST">
             <div>
                 <div
-                    class="{{ $background ?? 'bg-yellow' }} relative flex min-h-[50vh] w-full flex-col justify-center overflow-hidden">
+                    class="{{ $background ?? 'bg-yellow' }} relative flex w-full flex-col justify-center overflow-hidden">
                     <div
                         class="{{ $merged_layout->sticker ? 'pt-40' : 'pt-12' }} container relative z-10 mx-auto pb-64 text-center lg:py-16">
                         <h2 class="type-lg mx-auto !mb-4 max-w-xl">{{ $merged_layout->title }}</h2>

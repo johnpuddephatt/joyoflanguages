@@ -224,9 +224,14 @@ class Podcast extends Resource
 
                     Trix::make("Wordpress Content")->readonly(),
 
-                ]),
+                ])
             ]),
-            BelongsToMany::make("Languages")->filterable(),
+            Text::make('Custom Link', function () {
+                if ($this->id) {
+                    return '<iframe src="' . route('language.podcast.show', ['language' => $this->language->slug, 'podcast' => $this->slug]) . '" style="transform: scale(50%); transform-origin: top left" width="200%" height="4000px"  frameborder="0" scrolling="yes"></iframe>';
+                }
+            })->asHtml()->onlyOnDetail()->stacked(),
+            // BelongsToMany::make("Languages")->filterable(),
         ];
     }
 
