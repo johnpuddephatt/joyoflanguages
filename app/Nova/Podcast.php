@@ -228,9 +228,9 @@ class Podcast extends Resource
             ]),
             Text::make('Custom Link', function () {
                 if ($this->id) {
-                    return '<iframe src="' . route('language.podcast.show', ['language' => $this->language->slug, 'podcast' => $this->slug]) . '" style="transform: scale(50%); transform-origin: top left" width="200%" height="4000px"  frameborder="0" scrolling="yes"></iframe>';
+                    return '<iframe srcdoc="' . htmlentities(view('podcast.show', ['podcast' => \App\Models\Podcast::withoutGlobalScopes()->find($this->id)])) . '" style="transform: scale(50%); transform-origin: top left" width="200%" height="4000px"  frameborder="0" scrolling="yes"></iframe>';
                 }
-            })->asHtml()->onlyOnDetail()->stacked(),
+            })->asHtml()->onlyOnDetail()->stacked()->fullWidth(),
             // BelongsToMany::make("Languages")->filterable(),
         ];
     }

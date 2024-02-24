@@ -23,6 +23,6 @@
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
-        "gutentap": "^0.1.81"
+        "gutentap": "^0.1.85"
     }
 }
