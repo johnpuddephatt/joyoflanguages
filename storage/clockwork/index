@@ -2151,3 +2151,4 @@
 1708772126-7749-1517534464,1708772126.767,GET,/nova-vendor/media-hub/media?collection=default&page=1,"Outl1ne\NovaMediaHub\Http\Controllers\MediaHubController@getMedia",200,53.450107574463,request
 1708772131-8391-790380132,1708772131.8236,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,64.226150512695,request
 1708772139-2464-313333526,1708772139.2254,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,61.498880386353,request
+1708772333-0424-715041967,1708772332.9892,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,206.45904541016,request
