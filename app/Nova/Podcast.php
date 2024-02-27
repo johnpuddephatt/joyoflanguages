@@ -30,6 +30,7 @@ use Naif\ToggleSwitchField\ToggleSwitchField;
 use Spatie\TagsField\Tags;
 use Laravel\Nova\Fields\Tag;
 use Laravel\Nova\Fields\URL;
+use Laravel\Nova\Fields\FormData;
 
 class Podcast extends Resource
 {
@@ -82,6 +83,7 @@ class Podcast extends Resource
                         ->pluck("name", "id")
                         ->toArray()
                 )
+                ->default(1)
                 ->displayUsingLabels()
                 ->hideFromIndex()
                 ->nullable(),
@@ -109,9 +111,16 @@ class Podcast extends Resource
                 return \Illuminate\Support\Str::limit($this->title, 50);
             })->onlyOnIndex(),
 
-            Slug::make("Slug")
+            Slug::make("URL slug", "slug")
                 ->from("Title")
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->help(
+                    "URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target='_blank' href='{$this->url}'>{$this->url}</a>" . '<br>' .
+                        "Short URL:&nbsp;&nbsp;&nbsp;<a target='_blank' href='{$this->short_url}'>{$this->short_url}</a>" . '<br>'
+
+                ),
+
+
 
             Text::make("Duration", "duration")
                 ->help("Enter in the format MM:SS, e.g. 11:45")

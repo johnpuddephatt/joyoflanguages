@@ -65,8 +65,20 @@ class Podcast extends Model
 
     public function getUrlAttribute()
     {
+        if (!$this->language) return null;
+
         return route("language.podcast.show", [
             "podcast" => $this->slug,
+            "language" => $this->language?->slug,
+        ]);
+    }
+
+    public function getShortUrlAttribute()
+    {
+        if (!$this->language) return null;
+
+        return route("language.page.show", [
+            "page" => $this->episode_number,
             "language" => $this->language?->slug,
         ]);
     }
