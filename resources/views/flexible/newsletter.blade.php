@@ -51,7 +51,7 @@
                     } else {
                         this.error = false
                         if (json.subscription.state == 'active') {
-                            this.success = 'Looks like you are already subscribed, thank you!'
+                            this.success = 'You’re now subscribed, thank you!'
                         } else {
                             this.success = 'Success! Please check your email to confirm your subscription.'
                             if (!this.tags.includes(4280402)) {

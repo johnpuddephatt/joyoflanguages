@@ -173,7 +173,7 @@
                         @change="$refs.player.currentTime = $refs.player.duration * $el.value / 100"
                         @mousedown="sliderActive = true" @mouseup="sliderActive = false">
 
-                    <x-button-link class="shadow-yellow mt-4">Subscribe</x-button-link>
+                    {{-- <x-button-link class="shadow-yellow mt-4">Subscribe</x-button-link> --}}
                 </div>
             </div>
 

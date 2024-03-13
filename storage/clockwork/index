@@ -2583,3 +2583,4 @@
 1709044442-5467-271172437,1709044442.5426,GET,/nova-api/podcasts/lenses,"Laravel\Nova\Http\Controllers\LensController@index",200,48.54416847229,request
 1709044442-5584-467530448,1709044442.5534,GET,/nova-api/podcasts/actions?relationshipType=&display=index,"Laravel\Nova\Http\Controllers\ActionController@index",200,50.106048583984,request
 1709044442-5593-39693291,1709044442.5533,GET,/nova-api/podcasts?search=&filters=W10%3D&orderBy=&perPage=25&trashed=&page=1&relationshipType=,"Laravel\Nova\Http\Controllers\ResourceIndexController",200,232.96499252319,request
+1709044477-4442-63815741,1709044477.4165,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,108.7441444397,request
