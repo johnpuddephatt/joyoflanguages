@@ -31,6 +31,8 @@ use Spatie\TagsField\Tags;
 use Laravel\Nova\Fields\Tag;
 use Laravel\Nova\Fields\URL;
 use Laravel\Nova\Fields\FormData;
+use Laravel\Nova\Fields\Line;
+use Laravel\Nova\Fields\Stack;
 
 class Podcast extends Resource
 {
@@ -98,7 +100,8 @@ class Podcast extends Resource
 
             Number::make("#", "episode_number")
                 ->default(\App\Nova\Podcast::max("episode_number") + 1)
-                ->required(),
+                ->required()
+                ->hideFromIndex(),
 
             Text::make("Title")
                 ->rules("required", "string", "max:100")
@@ -107,9 +110,18 @@ class Podcast extends Resource
 
                 ->hideFromIndex(),
 
-            Text::make("Title", function ($value) {
-                return \Illuminate\Support\Str::limit($this->title, 50);
-            })->onlyOnIndex(),
+            // Text::make("Title", function ($value) {
+            //     return \Illuminate\Support\Str::limit($this->title, 50);
+            // })->onlyOnIndex(),
+
+            Stack::make('Episode', [
+                Line::make('Title', function ($value) {
+                    return  $this->episode_number . ': ' . \Illuminate\Support\Str::limit($this->title, 50);
+                })->asHeading(),
+                Line::make('Introduction', function ($value) {
+                    return \Illuminate\Support\Str::limit($this->introduction, 75);
+                })->asSmall()
+            ]),
 
             Slug::make("URL slug", "slug")
                 ->from("Title")
