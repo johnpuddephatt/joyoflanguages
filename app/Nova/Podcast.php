@@ -238,13 +238,10 @@ class Podcast extends Resource
                 ]),
                 Tab::make(__("Auto content"), [
                     Heading::make(
-                        "The content below was fetched automatically from the podcast RSS feed. If no article is provided this content will be shown on the podcast page. This is good for older podcast episodes."
+                        "The content below was fetched automatically from the podcast RSS feed and/or the old Joy of Languages website. If no article is provided this content will be shown on the podcast page. This is good for older podcast episodes."
                     )->asHtml(),
-
+                    Heading::make('<details><summary>Wordpress content</summary><div class="bg-gray-50 mt-4 p-8 rounded-lg">' . $this->wordpress_content . '</div></details>')->asHtml(),
                     Trix::make("RSS Content")->readonly(),
-
-                    Trix::make("Wordpress Content")->readonly(),
-
                 ])
             ]),
             Text::make('Custom Link', function () {
