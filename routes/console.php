@@ -21,3 +21,7 @@ Artisan::command("fetch:wordpress", function () {
 Artisan::command("fetch:podcasts", function () {
     dispatch(new \App\Jobs\FetchPodcasts());
 })->describe("Fetch Podcasts from RSS");
+
+Artisan::command("fetch:meta", function () {
+    dispatch(new \App\Jobs\UpdateIntrosWithMeta());
+})->describe("Update intros of posts/podcasts");
