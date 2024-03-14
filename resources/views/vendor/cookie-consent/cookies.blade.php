@@ -3,7 +3,7 @@
     <div class="cookies__alert">
         <div class="cookies__container">
             <div class="cookies__wrapper">
-                <h2 class="cookies__title">@lang('cookieConsent::cookies.title')</h2>
+                <div class="cookies__title">@lang('cookieConsent::cookies.title')</div>
                 <div class="cookies__intro">
                     <p>@lang('cookieConsent::cookies.intro')</p>
                     @if ($policy)
@@ -69,7 +69,7 @@
                     @endforeach
                 </div>
                 <div class="cookies__save">
-                    <button type="submit" class="cookiesBtn__link !border-none !bg-teal">@lang('cookieConsent::cookies.save')</button>
+                    <button type="submit" class="cookiesBtn__link !bg-teal !border-none">@lang('cookieConsent::cookies.save')</button>
                 </div>
             </form>
         </div>
