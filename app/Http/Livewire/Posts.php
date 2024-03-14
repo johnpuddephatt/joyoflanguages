@@ -14,11 +14,10 @@ class Posts extends Component
 
     public $search;
     public $tags;
-    public $language;
+    public $lang;
     public $order = "desc";
 
     protected $queryString = [
-        "language" => ["except" => ""],
         "search" => ["except" => ""],
         "tags" => ["except" => ""],
         "order" => ["except" => "desc"],
@@ -41,8 +40,8 @@ class Posts extends Component
 
     public function render()
     {
-        $posts = $this->language
-            ? $this->language->posts()
+        $posts = $this->lang
+            ? $this->lang->posts()
             : Post::query()->doesntHave("language");
 
         $posts->orderBy("published_at", $this->order);

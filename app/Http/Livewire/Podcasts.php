@@ -12,7 +12,7 @@ class Podcasts extends Component
 
     public $search;
     public $tags;
-    public $language;
+    public $lang;
 
     public $order = "desc";
     public $parentPage;
@@ -41,13 +41,13 @@ class Podcasts extends Component
     public function removeTag($tag)
     {
         $this->tags = collect(explode(",", $this->tags))
-            ->filter(fn($t) => $t !== $tag)
+            ->filter(fn ($t) => $t !== $tag)
             ->implode(",");
     }
 
     public function render()
     {
-        $podcasts = $this->language
+        $podcasts = $this->lang
             ->podcasts()
             ->orderBy("published_at", $this->order);
 

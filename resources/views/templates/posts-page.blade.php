@@ -18,7 +18,7 @@
         </svg>
 
         <div
-            class="container relative mx-auto flex flex-col-reverse items-center justify-between gap-4 bg-blue py-12 lg:flex-row lg:gap-8">
+            class="bg-blue container relative mx-auto flex flex-col-reverse items-center justify-between gap-4 py-12 lg:flex-row lg:gap-8">
             <div class="max-w-lg flex-1">
                 <h1 class="type-xl">{!! Str::of($page->title)->inlineMarkdown() !!} </h1>
                 <p class="type-xs mt-6 max-w-md text-white">{{ $page->introduction }}</p>
@@ -29,7 +29,7 @@
 
     </div>
 
-    <livewire:posts :language="$language" />
+    <livewire:posts :lang="$language" />
     @include('flexible.newsletter')
 
 @endsection

@@ -26,11 +26,13 @@ class PageController extends Controller
     {
         $slug_parts = explode("/", $slug);
 
+
         if ($language) {
             if (
                 is_numeric($slug) &&
                 \App\Models\Podcast::where("episode_number", $slug)->first()
             ) {
+
                 $slug = \App\Models\Podcast::where(
                     "episode_number",
                     $slug
@@ -40,14 +42,17 @@ class PageController extends Controller
                     "language" => $language,
                 ]);
             } elseif (
+
                 !strpos($slug, "/") &&
                 \App\Models\Post::where("slug", $slug)->first()
             ) {
+
                 return redirect()->route("language.post.show", [
                     "post" => $slug,
                     "language" => $language,
                 ]);
             } else {
+
                 $page = $language
                     ->pages()
                     ->where("slug", end($slug_parts) ?: "/")
@@ -88,6 +93,7 @@ class PageController extends Controller
         }
 
         if ($page->redirect) {
+
             return redirect()->to($page->redirect);
         }
 
