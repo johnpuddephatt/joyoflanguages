@@ -62,7 +62,7 @@ class Post extends Model
 
     public function getUrlAttribute()
     {
-        if ($this->language) {
+        if ($this->language && $this->language->is_active) {
             return route("language.post.show", [
                 "post" => $this->slug,
                 "language" => $this->language?->slug,
