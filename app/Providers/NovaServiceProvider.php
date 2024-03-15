@@ -31,6 +31,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         parent::boot();
 
         NovaSettings::addSettingsFields([
+            Panel::make("Settings", [
+                Text::make("Analytics", "google_analytics_id"),
+            ]),
             Panel::make("Brand", [
                 Avatar::make("Logo")->acceptedTypes(".svg"),
                 Textarea::make("Mission"),

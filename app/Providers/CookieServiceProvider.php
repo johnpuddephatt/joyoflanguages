@@ -31,8 +31,8 @@ class CookieServiceProvider extends ServiceProvider
             ->csrf();
 
         // Register all Analytics cookies at once using one single shorthand method:
-        if (env("GOOGLE_ANALYTICS_ID")) {
-            Cookies::analytics()->google(env("GOOGLE_ANALYTICS_ID"));
+        if (nova_get_setting("google_analytics_id")) {
+            Cookies::analytics()->google(nova_get_setting("google_analytics_id"));
         }
 
         // Register custom cookies under the pre-existing "optional" category:
