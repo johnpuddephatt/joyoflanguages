@@ -42,7 +42,7 @@ class Language extends Model
             \App\Models\Page::getTemplateUrl(
                 \App\Nova\Templates\PostsPageTemplate::class
             ) .
-            "?language=" .
+            "?lang=" .
             $this->slug;
     }
 
