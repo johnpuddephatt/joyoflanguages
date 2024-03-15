@@ -19,6 +19,7 @@ class Podcasts extends Component
 
     protected $queryString = [
         "search" => ["except" => ""],
+        "search" => ["except" => ""],
         "tags" => ["except" => ""],
         "order" => ["except" => "desc"],
     ];

@@ -18,6 +18,7 @@ class Posts extends Component
     public $order = "desc";
 
     protected $queryString = [
+        "lang" => ["except" => ""],
         "search" => ["except" => ""],
         "tags" => ["except" => ""],
         "order" => ["except" => "desc"],
