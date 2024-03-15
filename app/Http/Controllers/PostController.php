@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public static function show(Language $language = null, Post $post)
     {
-        if ($language && $post->language?->id !== $language->id) {
+        if ($language && $language->is_active && $post->language?->id !== $language->id) {
             return redirect()->route("language.post.show", [
                 "language" => $post->language,
                 "post" => $post,

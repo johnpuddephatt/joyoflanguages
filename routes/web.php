@@ -36,7 +36,7 @@ Route::domain(
         "audio",
     ])->name("language.podcast.audio");
 
-    Route::get("{page}", [\App\Http\Controllers\PageContr   oller::class, "show"])
+    Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
         ->where("page", "^(?!nova).*")
         ->name("language.page.show");
 });
