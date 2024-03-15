@@ -50,7 +50,7 @@ class Posts extends Component
 
         $posts = $this->language
             ? $this->language->posts()
-            : Post::query()->doesntHave("language");
+            : Post::query();
 
         $posts->orderBy("published_at", $this->order);
 
