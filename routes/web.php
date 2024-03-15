@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 */
 
 Route::redirect('italianpodcast', 'https://italian.joyoflanguages.com/podcast');
-Route::redirect('learn-italian', 'https://italian.joyoflanguages.com');
+Route::redirect('learn-italian', 'https://italian.joyoflanguages.com/join');
 
 Route::domain(
     "{language:slug}." . parse_url(config("app.url"), PHP_URL_HOST)
@@ -36,7 +36,7 @@ Route::domain(
         "audio",
     ])->name("language.podcast.audio");
 
-    Route::get("{page}", [\App\Http\Controllers\PageController::class, "show"])
+    Route::get("{page}", [\App\Http\Controllers\PageContr   oller::class, "show"])
         ->where("page", "^(?!nova).*")
         ->name("language.page.show");
 });
