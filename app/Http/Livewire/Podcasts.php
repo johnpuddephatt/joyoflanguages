@@ -12,13 +12,12 @@ class Podcasts extends Component
 
     public $search;
     public $tags;
-    public $lang;
+    public $language;
 
     public $order = "desc";
     public $parentPage;
 
     protected $queryString = [
-        "search" => ["except" => ""],
         "search" => ["except" => ""],
         "tags" => ["except" => ""],
         "order" => ["except" => "desc"],
@@ -48,7 +47,8 @@ class Podcasts extends Component
 
     public function render()
     {
-        $podcasts = $this->lang
+
+        $podcasts = $this->language
             ->podcasts()
             ->orderBy("published_at", $this->order);
 

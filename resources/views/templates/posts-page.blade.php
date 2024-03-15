@@ -29,7 +29,7 @@
 
     </div>
 
-    <livewire:posts :lang="$language" />
+    <livewire:posts :language="$language" />
     @include('flexible.newsletter')
 
 @endsection
