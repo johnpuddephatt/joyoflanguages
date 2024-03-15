@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Whitecube\LaravelCookieConsent\Consent;
 use Whitecube\LaravelCookieConsent\Facades\Cookies;
@@ -31,8 +32,8 @@ class CookieServiceProvider extends ServiceProvider
             ->csrf();
 
         // Register all Analytics cookies at once using one single shorthand method:
-        if (nova_get_setting("google_analytics_id")) {
-            Cookies::analytics()->google(nova_get_setting("google_analytics_id"));
+        if (Cache::get('settings')["google_analytics_id"] ?? false) {
+            Cookies::analytics()->google(Cache::get('settings')["google_analytics_id"]);
         }
 
         // Register custom cookies under the pre-existing "optional" category:

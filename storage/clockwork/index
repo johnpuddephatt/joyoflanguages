@@ -665,3 +665,6 @@
 1710504264-1885-1329921092,1710504264.1569,GET,/,"App\Http\Controllers\PageController@show",200,393.97692680359,request
 1710504264-6437-1072355564,1710504264.6054,GET,/cookie-consent/script?id=255896ccd64bd823da45d56ae5816738,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,77.07405090332,request
 1710504264-6441-1478596020,1710504264.6056,GET,/storage/,"App\Http\Controllers\PageController@show",404,235.02111434937,request
+1710504801-2270-803476981,1710504801.1579,GET,/,"App\Http\Controllers\PageController@show",200,464.08104896545,request
+1710504801-8287-1231777392,1710504801.7425,GET,/cookie-consent/script?id=255896ccd64bd823da45d56ae5816738,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,118.79301071167,request
+1710504801-8303-1991351653,1710504801.7428,GET,/storage/,"App\Http\Controllers\PageController@show",404,355.65209388733,request
