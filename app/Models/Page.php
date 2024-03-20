@@ -46,7 +46,7 @@ class Page extends Model
         if ($this->parent) {
             $path .= $this->parent->URL;
         } else {
-            $path .= "//";
+            $path .= "https://";
             $path .= $this->language ? $this->language->slug . "." : "";
             // $url = explode("://", config("app.url"));
             // $path .= end($url);
@@ -118,8 +118,8 @@ class Page extends Model
                 function ($template) {
                     return !$template::unique() ||
                         \App\Models\Page::where("template", $template)
-                            ->get()
-                            ->isEmpty();
+                        ->get()
+                        ->isEmpty();
                 },
                 ARRAY_FILTER_USE_BOTH
             );
