@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Sitemap;
 use Illuminate\Console\Command;
 use App\Models\Post;
 use App\Models\Page;
@@ -31,7 +31,7 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        $sitemap = SitemapGenerator::create(config('app.url'))->getSitemap();
+        $sitemap = Sitemap::create();
 
         Page::all()->each(function (Page $page) use ($sitemap) {
             $sitemap->add(Url::create($page->url));

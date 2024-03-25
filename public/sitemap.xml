@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>//italian.joyoflanguages.test</loc>
+        <loc>https://italian.joyoflanguages.test</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/podcasts</loc>
+        <loc>https://italian.joyoflanguages.test/podcasts</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/blog</loc>
+        <loc>https://italian.joyoflanguages.test/blog</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/about</loc>
+        <loc>https://italian.joyoflanguages.test/about</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/test</loc>
+        <loc>https://italian.joyoflanguages.test/test</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//joyoflanguages.test</loc>
+        <loc>https://joyoflanguages.test</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//joyoflanguages.test/blog</loc>
+        <loc>https://joyoflanguages.test/blog</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/test/meet-the-teachers</loc>
+        <loc>https://italian.joyoflanguages.test/test/meet-the-teachers</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/landing-page-test</loc>
+        <loc>https://italian.joyoflanguages.test/landing-page-test</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>//italian.joyoflanguages.test/team</loc>
+        <loc>https://italian.joyoflanguages.test/team</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
