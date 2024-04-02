@@ -32,6 +32,7 @@ class LandingPageTemplate
                     ->addLayout(\App\Nova\Flexible\Layouts\PageHero::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Text::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Quote::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\Reviews::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\TextWithImage::class)
                     ->addLayout(
                         \App\Nova\Flexible\Layouts\TextWithImages::class

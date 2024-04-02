@@ -94,8 +94,11 @@ class PageController extends Controller
 
         if ($page->redirect) {
 
-            return redirect()->to($page->redirect);
+            if (!isset($_GET['preview']) || ($_GET['preview'] !== dechex($page->id * 4001))) {
+                return redirect()->to($page->redirect);
+            }
         }
+
 
         return view("templates." . (new $page->template())->name(), [
             "page" => $page->resolveContent(),

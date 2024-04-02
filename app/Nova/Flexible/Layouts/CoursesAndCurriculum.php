@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Nova\Flexible\Layouts;
 
 use Laravel\Nova\Fields\Boolean;

@@ -94,7 +94,7 @@ class Page extends Resource
                 ->rules("nullable", "string", "max:200")
                 ->hideFromIndex()
                 ->help(
-                    'Redirects to another page. Can be relative or absolute, e.g.: "/blog" or "https://example.com"'
+                    'Redirects to another page. Can be relative or absolute, e.g.: "/blog" or "https://example.com".<br>This can be overridden by visiting ' . $this->url . '/?preview=' . dechex($this->id * 4001)
                 ),
 
             Textarea::make("Introduction")->rules("max:300"),

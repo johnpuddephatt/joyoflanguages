@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-L6HKrdTk.css",
+    "file": "assets/app-c9ir6pgL.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -37,7 +37,7 @@
     "src": "resources/fonts/Labours-Regular.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-K0km1szi.js",
+    "file": "assets/app-cVf2Tasy.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
