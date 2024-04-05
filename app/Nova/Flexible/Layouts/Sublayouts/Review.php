@@ -42,7 +42,7 @@ class Review extends Layout
             Text::make("Title")->stacked()->maxLength(16)->enforceMaxlength(),
             Textarea::make("Review")
                 ->help("Supports Markdown")
-                ->stacked()->maxlength(140)->enforceMaxlength(),
+                ->stacked()->maxlength(250)->enforceMaxlength(),
             Image::make("Image")->store(new SaveAndResizeImage48x48())->stacked(),
 
         ];
