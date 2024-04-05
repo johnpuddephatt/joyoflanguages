@@ -56,6 +56,7 @@ class LandingPageTemplate
                     ->addLayout(\App\Nova\Flexible\Layouts\SignOff::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\EmbeddedVideo::class)
                     ->addLayout(\App\Nova\Flexible\Layouts\Timetable::class)
+                    ->addLayout(\App\Nova\Flexible\Layouts\VideoFeedback::class)
                     ->enablePreview(
                         \Illuminate\Support\Facades\Vite::asset(
                             "resources/css/app.css"
