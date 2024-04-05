@@ -39,7 +39,7 @@ class Review extends Layout
     {
         return [
             Text::make("Name")->stacked()->maxlength(16)->enforceMaxlength(),
-            Text::make("Title")->stacked()->maxLength(16)->enforceMaxlength(),
+            Text::make("Title")->stacked()->maxLength(26)->enforceMaxlength(),
             Textarea::make("Review")
                 ->help("Supports Markdown")
                 ->stacked()->maxlength(250)->enforceMaxlength(),
