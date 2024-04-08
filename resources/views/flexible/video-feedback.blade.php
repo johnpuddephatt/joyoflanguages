@@ -30,7 +30,7 @@
                     <div x-show="currentLevel == level.name" class="mt-0 flex flex-row gap-3">
                         <div class="relative w-1/2">
                             <div
-                                class="absolute -top-4 right-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center font-bold leading-none lg:h-24 lg:w-24 lg:p-4 xl:-top-16 xl:left-1">
+                                class="absolute -top-4 right-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold leading-none md:text-base lg:h-24 lg:w-24 lg:p-4 xl:-top-16 xl:left-1">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
