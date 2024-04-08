@@ -46,9 +46,8 @@
                             <div class="relative aspect-[8/5]">
                                 <iframe disableRemotePlayback
                                     class="absolute inset-0 h-full w-full rounded-md border-4 border-black bg-black"
-                                    :src="`https://player.vimeo.com/video/${level.video}?wmode=opaque&pip=false&chromecast=false`"
-                                    frameborder="0" allow="autoplay" width="100%" height="100%"
-                                    data-ready="true"></iframe>
+                                    :src="`https://player.vimeo.com/video/${level.video}?wmode=opaque&pip=false&chromecast=false&speed=false&quality=540p`"
+                                    frameborder="0" allow="autoplay" width="100%" height="100%"></iframe>
                             </div>
                         </div>
                         <div class="relative mt-12 w-1/2">
@@ -70,8 +69,7 @@
                                 <iframe disableRemotePlayback
                                     class="absolute inset-0 h-full w-full rounded-md border-4 border-black bg-black"
                                     :src="`https://player.vimeo.com/video/${level.feedback_video}?wmode=opaque&pip=false&chromecast=false&speed=false&quality=540p`"
-                                    frameborder="0" allow="autoplay" width="100%" height="100%"
-                                    data-ready="true"></iframe>
+                                    frameborder="0" allow="autoplay" width="100%" height="100%"></iframe>
                             </div>
                         </div>
                     </div>
