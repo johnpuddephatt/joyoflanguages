@@ -23,8 +23,8 @@
                      <div class="swiper-slide aspect-square !h-auto flex-none rounded-lg bg-white p-4 lg:p-6">
                          <div class="mb-6 flex flex-row items-center gap-2">
                              @if (isset($myreview->image))
-                                 <img class="h-7 w-7 rounded-full object-cover" src="{{ Storage::url($myreview->image) }}"
-                                     alt="{{ $myreview->name }}">
+                                 <img class="h-10 w-10 rounded-full object-cover"
+                                     src="{{ Storage::url($myreview->image) }}" alt="{{ $myreview->name }}">
                              @else
                                  <div class="bg-blue h-7 w-7 rounded-full"></div>
                              @endif
