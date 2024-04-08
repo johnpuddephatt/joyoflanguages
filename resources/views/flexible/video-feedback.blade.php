@@ -1,7 +1,7 @@
 <div id="{{ $layout ? $layout->key() : null }}"
     class="{{ $layout->background_colour ?? '' }} {{ $layout->images ? 'pb-12 2xl:pb-20' : 'pb-8 2xl:pb-16' }} relative overflow-hidden pt-8 lg:pt-8">
 
-    <div class="{{ $class ?? 'mx-auto' }} container">
+    <div class="{{ $class ?? 'mx-auto' }} container max-w-6xl">
         <div
             class="{{ $layout->colour ?? 'bg-teal-light' }} {{ $layout->images ? ' pb-16 md:pb-24 lg:pb-48' : null }} relative flex flex-col-reverse items-center gap-2 rounded-3xl px-4 py-12 md:p-8 lg:flex-row lg:gap-4 lg:px-12 lg:py-16 xl:gap-8">
             @if ($layout->squiggle == 1)
