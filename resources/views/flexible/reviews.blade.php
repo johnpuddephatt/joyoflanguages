@@ -31,8 +31,8 @@
                              {{ $myreview->name }}
                          </div>
 
-                         <h3 class="type-xs mb-3">{{ $myreview->title }}</h3>
-                         <div class="prose">{{ $myreview->review }}</div>
+                         <h3 class="type-xs mb-4">{{ $myreview->title }}</h3>
+                         <div class="prose text-gray">{{ $myreview->review }}</div>
 
                      </div>
                  @endforeach
