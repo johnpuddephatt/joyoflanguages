@@ -30,7 +30,7 @@
                     <div x-show="currentLevel == level.name" class="mt-0 flex flex-row gap-3">
                         <div class="relative w-1/2">
                             <div
-                                class="lg: absolute -top-8 right-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none lg:-left-4 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16 xl:left-1">
+                                class="lg: absolute -left-2 -top-8 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none lg:-left-4 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16 xl:left-1">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
@@ -53,7 +53,7 @@
                         </div>
                         <div class="relative mt-12 w-1/2">
                             <div
-                                class="absolute -top-4 right-2 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none lg:-right-4 lg:-top-8 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
+                                class="absolute -right-2 -top-4 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none lg:-right-4 lg:-top-8 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
