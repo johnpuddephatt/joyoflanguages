@@ -20,7 +20,7 @@
                          @php($myreview = $myreview->attributes)
                      @endif
 
-                     <div class="swiper-slide aspect-square flex-none rounded-lg bg-white p-4">
+                     <div class="swiper-slide aspect-square !h-auto flex-none rounded-lg bg-white p-4">
                          <div class="mb-6 flex flex-row items-center gap-2">
                              @if (isset($myreview->image))
                                  <img class="h-7 w-7 rounded-full object-cover" src="{{ Storage::url($myreview->image) }}"

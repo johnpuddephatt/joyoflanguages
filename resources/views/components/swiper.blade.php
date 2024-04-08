@@ -29,7 +29,7 @@
             slidesPerView: 3.5,
         },
         1024: {
-            slidesPerView: 4.5,
+            slidesPerView: 3.5,
         },
         1600: {
             slidesPerView: 5.5,
