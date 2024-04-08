@@ -25,9 +25,7 @@
         768: {
             slidesPerView: 2.5,
         },
-        840: {
-            slidesPerView: 3.5,
-        },
+
         1024: {
             slidesPerView: 3.5,
         },
