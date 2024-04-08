@@ -6,7 +6,7 @@
             class="{{ $layout->colour ?? 'bg-teal-light' }} {{ $layout->images ? ' pb-16 md:pb-24 lg:pb-48' : null }} relative flex flex-col-reverse items-center gap-2 rounded-3xl px-4 py-12 md:p-8 lg:flex-row lg:gap-4 lg:px-12 lg:py-16 xl:gap-8">
             @if ($layout->squiggle == 1)
                 <svg xmlns="http://www.w3.org/2000/svg" width="315.85" height="124.74"
-                    class="absolute -left-72 -top-4 h-auto w-96 md:top-4" viewBox="0 0 315.85 124.74">
+                    class="absolute -left-72 -top-4 h-auto w-96 lg:top-4" viewBox="0 0 315.85 124.74">
                     <path fill="none" stroke="#ffce00" stroke-linecap="round" stroke-miterlimit="10"
                         stroke-width="3.84"
                         d="M313.94 21.42c-27.07 20-30.39-22.14-47.82-17.05-12.12 3.54-19 15.94-25.2 26.91s-15.11 22.74-27.73 23.27c-16.63.71-26.43-17.53-38.06-29.44-24.43-25-57.23-35.25-70-2.72-8 20.32-1.46 30.54 5.88 64.7 0 0 15.93 62.77-54.75 21.89-17.07-9.65-13.56-35-1.05-27.45s-35.95 42-53.3 1" />
@@ -17,7 +17,7 @@
                 levels: [{ 'name': 'Beginner', color: 'bg-yellow fill-yellow', text: 'text-black', student: 'Rick', video: 409666923, teacher: 'Katie', feedback_video: 409662749 }, { 'name': 'Intermediate', color: 'bg-light-teal fill-light-teal', text: 'text-white', student: 'Madelyn', video: 409662683, teacher: 'Stefano', feedback_video: 409662831 }, { 'name': 'Advanced', text: 'text-white', color: 'bg-blue fill-blue', student: 'Claire', video: 481288448, teacher: 'Blessy', feedback_video: 481288528 }],
             }" class="relative flex flex-col self-stretch py-12 lg:mx-auto lg:w-[55%]">
 
-                <h3 class="type-md text-teal relative z-10 mb-4 mt-2 text-center font-bold md:mb-0">See it
+                <h3 class="type-md text-teal relative z-10 mt-2 pb-4 text-center font-bold lg:pb-0">See it
                     in
                     action!</h3>
                 <svg class="absolute left-1/2 top-1/2 z-0 block h-auto w-[16rem] -translate-x-1/2 translate-y-[-50%] opacity-20"
