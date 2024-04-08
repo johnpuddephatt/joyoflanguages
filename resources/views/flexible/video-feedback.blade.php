@@ -17,7 +17,7 @@
                 levels: [{ 'name': 'Beginner', color: 'bg-yellow fill-yellow', text: 'text-black', student: 'Rick', video: 409666923, teacher: 'Katie', feedback_video: 409662749 }, { 'name': 'Intermediate', color: 'bg-light-teal fill-light-teal', text: 'text-white', student: 'Madelyn', video: 409662683, teacher: 'Stefano', feedback_video: 409662831 }, { 'name': 'Advanced', text: 'text-white', color: 'bg-blue fill-blue', student: 'Claire', video: 481288448, teacher: 'Blessy', feedback_video: 481288528 }],
             }" class="relative flex flex-col self-stretch py-12 lg:mx-auto lg:w-[55%]">
 
-                <h3 class="type-md text-teal relative z-10 mt-2 pb-4 text-center font-bold lg:pb-0">See it
+                <h3 class="type-md text-teal relative z-10 mt-2 pb-4 text-center font-bold xl:pb-0">See it
                     in
                     action!</h3>
                 <svg class="absolute left-1/2 top-1/2 z-0 block h-auto w-[16rem] -translate-x-1/2 translate-y-[-50%] opacity-20"
@@ -30,7 +30,7 @@
                     <div x-show="currentLevel == level.name" class="mt-0 flex flex-row gap-3">
                         <div class="relative w-1/2">
                             <div
-                                class="lg: absolute -top-4 -top-8 right-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none lg:left-1 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16">
+                                class="lg: absolute -top-8 right-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none lg:-left-4 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16 xl:left-1">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
@@ -53,7 +53,7 @@
                         </div>
                         <div class="relative mt-12 w-1/2">
                             <div
-                                class="absolute -top-4 right-2 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-right-4 xl:-top-8">
+                                class="absolute -top-4 right-2 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none lg:-right-4 lg:-top-8 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
