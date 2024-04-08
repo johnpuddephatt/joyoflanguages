@@ -31,7 +31,7 @@
                              {{ $myreview->name }}
                          </div>
 
-                         <h3 class="type-xs mb-2">{{ $myreview->title }}</h3>
+                         <h3 class="type-xs mb-3">{{ $myreview->title }}</h3>
                          <div class="prose">{{ $myreview->review }}</div>
 
                      </div>
