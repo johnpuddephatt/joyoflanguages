@@ -26,7 +26,7 @@
                                  <img class="h-10 w-10 rounded-full object-cover"
                                      src="{{ Storage::url($myreview->image) }}" alt="{{ $myreview->name }}">
                              @else
-                                 <div class="bg-blue h-7 w-7 rounded-full"></div>
+                                 <div class="bg-blue h-7 w-7 rounded-full bg-opacity-50"></div>
                              @endif
                              {{ $myreview->name }}
                          </div>
