@@ -20,9 +20,21 @@
         @include('components.block-intro', ['layout' => $layout])
     </div>
 
+    <div class="container mx-auto mt-16 max-w-4xl">
+
+        <div class="bg-blue mx-auto gap-6 rounded-3xl bg-opacity-10 p-6 text-center">
+            <h3 class="type-sm">⏰ Term starts soon!</h3>
+            <ul>
+                <li>Welcome event: Friday xxth</li>
+                <li>Teaching begins: Monday xxth</li>
+                <li><strong>Plus: immediate access to all bonus materials</strong></li>
+            </ul>
+        </div>
+    </div>
+
     @if ($layout->benefits)
         <div class="container mx-auto max-w-4xl">
-            <div class="mt-6 overflow-hidden rounded-3xl bg-yellow bg-opacity-10 lg:mt-12">
+            <div class="bg-yellow mt-6 overflow-hidden rounded-3xl bg-opacity-10">
                 <p class="type-xs flex-0 bg-yellow py-2 text-center !leading-tight text-black text-opacity-80">
                     <strong class="underline">Every</strong>
                     subscription
@@ -31,7 +43,7 @@
                 <ul class="column gap-x-6 p-4 lg:columns-2">
                     @foreach ($layout->benefits as $benefit)
                         <li class="flex flex-row gap-1.5 py-2 !leading-tight">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1.5 block h-4 w-4 flex-none text-yellow"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-yellow mt-1.5 block h-4 w-4 flex-none"
                                 width="43.29" height="40.16" viewBox="0 0 43.29 40.16">
                                 <path fill="currentColor"
                                     d="M6.17 29.31c.13.32.24.65.36 1 2.18 6.42 19 14.34 28.09 6.8 5.31-4.42 9.28-7.61 8.59-16.64A18 18 0 0 0 27.77 4.95S12.52 1.49 6.05 14.73c-2.84 5.79-.64 12.59.12 14.58Z" />
@@ -53,7 +65,7 @@
             class="container mx-auto flex max-w-4xl flex-col-reverse items-center justify-center gap-8 pt-16 lg:flex-row lg:gap-3">
             @foreach ($layout->subscriptions as $subscription)
                 <div
-                    class="@if ($subscription->sticker) lg:flex-[50%] @else lg:flex-[50%] @endif relative min-h-[12rem] w-full bg-beige px-4 py-8 lg:px-8">
+                    class="@if ($subscription->sticker) lg:flex-[50%] @else lg:flex-[50%] @endif bg-beige relative min-h-[12rem] w-full px-4 py-8 lg:px-8">
                     <div
                         class="@if ($subscription->pre_title) bg-light-teal @else max-md:hidden @endif mb-3 inline-block rounded-full px-3 py-0.5 font-semibold text-white">
                         {!! $subscription->pre_title ?? '&nbsp;' !!}
@@ -74,7 +86,7 @@
                         <div class="prose prose-lg marker:text-white">@markdown($subscription->description)</div>
                     @endif
                     @if ($subscription->url)
-                        <x-button-link class="mt-8 shadow-yellow" :href="$subscription->url">Subscribe</x-button-link>
+                        <x-button-link class="shadow-yellow mt-8" :href="$subscription->url">Subscribe</x-button-link>
                     @endif
                 </div>
             @endforeach

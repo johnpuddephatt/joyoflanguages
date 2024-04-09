@@ -6,13 +6,23 @@
     <div x-data="{ trailerOpen: false, trailerLoaded: false }"
         class="2xl:container-lg @if ($layout->image) lg:min-h-[80vh] @endif mx-auto flex flex-col-reverse items-center pb-12 pt-20 lg:container lg:flex-row lg:pb-24 xl:pt-40 2xl:pb-36 2xl:pt-48">
         <div class="pt-4 max-lg:container lg:w-1/2">
+
             @if ($layout->pretitle)
                 <div class="type-sm text-light-teal">{{ $layout->pretitle }}</div>
             @endif
+
+            <div>
+                <div class="bg-yellow border-yellow mb-6 mt-4 inline-block rounded-full border-2 bg-opacity-25 px-3">🔥
+                    Spaces
+                    are limited and get
+                    filled
+                    fast </div>
+            </div>
             <h1 class="type-xl">
                 {!! nl2br($layout->title) !!}
             </h1>
             <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
+
             @if ($layout->button_url)
                 <x-button-link class="shadow-yellow mt-6 text-lg"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
