@@ -19,7 +19,7 @@
             <div>
                 <div class="bg-yellow border-yellow mb-6 mt-4 inline-block rounded-full border-2 bg-opacity-25 px-3">🔥
                     Spaces
-                    are limited and will fill up
+                    are limited and do fill up
                     fast </div>
             </div>
             @if ($layout->button_url)
