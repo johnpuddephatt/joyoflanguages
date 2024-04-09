@@ -11,6 +11,11 @@
                 <div class="type-sm text-light-teal">{{ $layout->pretitle }}</div>
             @endif
 
+            <h1 class="type-xl">
+                {!! nl2br($layout->title) !!}
+            </h1>
+            <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
+
             <div>
                 <div class="bg-yellow border-yellow mb-6 mt-4 inline-block rounded-full border-2 bg-opacity-25 px-3">🔥
                     Spaces
@@ -18,11 +23,6 @@
                     filled
                     fast </div>
             </div>
-            <h1 class="type-xl">
-                {!! nl2br($layout->title) !!}
-            </h1>
-            <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
-
             @if ($layout->button_url)
                 <x-button-link class="shadow-yellow mt-6 text-lg"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
