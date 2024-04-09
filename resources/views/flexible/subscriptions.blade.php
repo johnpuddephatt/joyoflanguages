@@ -20,10 +20,10 @@
         @include('components.block-intro', ['layout' => $layout])
     </div>
 
-    <div class="container mx-auto mt-16 max-w-4xl">
+    <div class="container mx-auto mt-12 max-w-4xl">
 
         <div class="bg-blue mx-auto gap-6 rounded-3xl bg-opacity-10 p-6 text-center">
-            <h3 class="type-sm">⏰ Term starts soon!</h3>
+            <h3 class="type-xs">⏰ Term starts soon!</h3>
             <ul>
                 <li>Welcome event: Friday xxth</li>
                 <li>Teaching begins: Monday xxth</li>
