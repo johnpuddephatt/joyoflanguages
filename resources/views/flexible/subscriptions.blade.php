@@ -22,9 +22,9 @@
 
     <div class="container mx-auto mt-12 max-w-4xl">
 
-        <div class="bg-blue mx-auto gap-6 rounded-3xl bg-opacity-10 p-6 text-center">
-            <h3 class="type-xs">⏰ Term starts soon!</h3>
-            <ul>
+        <div class="bg-yellow mx-auto gap-6 overflow-hidden rounded-3xl bg-opacity-20 text-center">
+            <h3 class="bg-yellow type-xs !mb-0 py-2">⏰ Term starts soon!</h3>
+            <ul class="p-4">
                 <li>Welcome event: Friday xxth</li>
                 <li>Teaching begins: Monday xxth</li>
                 <li><strong>Plus: immediate access to all bonus materials</strong></li>
@@ -34,8 +34,8 @@
 
     @if ($layout->benefits)
         <div class="container mx-auto max-w-4xl">
-            <div class="bg-yellow mt-6 overflow-hidden rounded-3xl bg-opacity-10">
-                <p class="type-xs flex-0 bg-yellow py-2 text-center !leading-tight text-black text-opacity-80">
+            <div class="bg-light-teal mt-6 overflow-hidden rounded-3xl bg-opacity-10">
+                <p class="type-xs flex-0 bg-light-teal py-2 text-center !leading-tight text-black">
                     <strong class="underline">Every</strong>
                     subscription
                     includes:
@@ -43,8 +43,9 @@
                 <ul class="column gap-x-6 p-4 lg:columns-2">
                     @foreach ($layout->benefits as $benefit)
                         <li class="flex flex-row gap-1.5 py-2 !leading-tight">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-yellow mt-1.5 block h-4 w-4 flex-none"
-                                width="43.29" height="40.16" viewBox="0 0 43.29 40.16">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="text-light-teal mt-1.5 block h-4 w-4 flex-none" width="43.29" height="40.16"
+                                viewBox="0 0 43.29 40.16">
                                 <path fill="currentColor"
                                     d="M6.17 29.31c.13.32.24.65.36 1 2.18 6.42 19 14.34 28.09 6.8 5.31-4.42 9.28-7.61 8.59-16.64A18 18 0 0 0 27.77 4.95S12.52 1.49 6.05 14.73c-2.84 5.79-.64 12.59.12 14.58Z" />
                                 <g fill="none" stroke="#151616" stroke-linecap="round" stroke-linejoin="round"
