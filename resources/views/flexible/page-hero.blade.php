@@ -16,12 +16,12 @@
             </h1>
             <div class="type-xs max-w-md lg:max-w-lg">@markdown($layout->description)</div>
 
-            <div>
-                <div class="bg-yellow border-yellow mb-6 mt-4 inline-block rounded-full border-2 bg-opacity-25 px-3">🔥
-                    Spaces
-                    are limited and do fill up
-                    fast </div>
-            </div>
+            @if ($layout->badge)
+                <div>
+                    <div class="bg-yellow border-yellow mb-6 mt-4 inline-block rounded-full border-2 bg-opacity-25 px-3">
+                        {{ $layout->badge }}</div>
+                </div>
+            @endif
             @if ($layout->button_url)
                 <x-button-link class="shadow-yellow mt-6 text-lg"
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>

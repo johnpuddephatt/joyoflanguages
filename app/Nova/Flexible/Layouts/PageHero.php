@@ -73,6 +73,7 @@ class PageHero extends Layout
 
             Text::make("Button text")->nullable(),
             Text::make("Button URL")->nullable(),
+            Text::make("Badge")->nullable(),
             Text::make("Video embed URL", "video_embed_url"),
 
             Boolean::make("Show squiggles", "show_squiggles")->default(true),
