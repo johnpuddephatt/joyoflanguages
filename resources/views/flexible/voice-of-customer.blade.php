@@ -4,7 +4,7 @@
              ->shuffle()
              ->chunk(3);
      @endphp
-     <section id="{{ $layout ? $layout->key() : null }}" class="w-screen overflow-hidden">
+     <section id="{{ $layout ? $layout->key() : null }}" class="">
          <div class="bg-yellow py-16 xl:py-24">
 
              <div x-data="{
