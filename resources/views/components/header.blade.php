@@ -1,7 +1,7 @@
 <header id="main-header" x-data="{ menuOpen: false }" x-cloak
     x-bind:class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
     class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} text-teal absolute left-0 top-0 z-40 w-full py-6 2xl:py-12">
-    <div class="container mx-auto flex max-w-none flex-row items-center justify-between lg:items-start">
+    <div class="container mx-auto flex max-w-none flex-row items-center justify-between max-lg:!px-4 lg:items-start">
         <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden max-sm:-ml-2 lg:gap-2" href="/">
             @if ($theme == 'alternative_header')
                 @svg('jol-logo-alt', 'h-9 lg:h-12 w-auto')
@@ -33,7 +33,7 @@
             </x-button>
 
             <nav x-bind:class="menuOpen && 'max-lg:!translate-x-0'"
-                class="max-lg:bg-yellow inset-0 z-10 flex flex-col items-start text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:translate-x-full max-lg:justify-center max-lg:p-8 max-md:p-4 lg:flex-row lg:gap-6">
+                class="max-lg:bg-yellow inset-0 z-10 flex flex-col items-start gap-4 text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:translate-x-full max-lg:justify-center max-lg:p-8 max-md:p-4 lg:flex-row xl:gap-6">
 
                 <x-button aria-label="Close navigation menu" title="Close navigation menu"
                     class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-white md:right-5 lg:hidden"
@@ -49,7 +49,7 @@
                                 class="lg:shadow-yellow shadow-white max-lg:mt-6"
                                 :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                         @else
-                            <a class="inline-block rounded px-2 py-2 transition group-hover:bg-white group-hover:bg-opacity-10 lg:px-2 2xl:px-6"
+                            <a class="inline-block rounded py-2 transition group-hover:bg-white group-hover:bg-opacity-10 xl:px-2 2xl:px-6"
                                 href="{{ $menu_item['value'] }}" target="{{ $menu_item['target'] ?? '_self' }}">
                                 {{ $menu_item['name'] }}
                             </a>

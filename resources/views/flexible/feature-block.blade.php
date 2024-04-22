@@ -1,5 +1,5 @@
     <div id="{{ $layout ? $layout->key() : null }}"
-        class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb)  @endif container relative py-8 !pb-24 lg:py-16 lg:!pb-32">
+        class="{{ $class ?? 'mx-auto max-w-6xl' }} @if ($layout->show_thumb)  @endif container relative overflow-hidden py-8 !pb-24 lg:py-16 lg:!pb-32">
 
         <div
             class="bg-{{ $layout->colour ?? 'teal-light' }} {{ $layout->reverse ? 'lg:mr-8' : 'lg:ml-8' }} relative flex w-full flex-col lg:flex-row lg:items-center lg:py-10">
@@ -21,7 +21,7 @@
 
                     <div class="mt-6 flex flex-col items-start gap-4 pb-2 lg:flex-row lg:gap-6">
                         @if ($layout->button_url)
-                            <x-button-link class="flex-none shadow-yellow"
+                            <x-button-link class="shadow-yellow flex-none"
                                 :href="$layout->button_url">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
                         @endif
 
