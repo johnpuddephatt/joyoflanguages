@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <div id="app" class="w-screen overflow-hidden">
+    <div id="app" class="">
         @yield('templatecontent')
     </div>
     @stack('footer')

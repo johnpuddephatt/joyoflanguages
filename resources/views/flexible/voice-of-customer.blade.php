@@ -4,7 +4,7 @@
              ->shuffle()
              ->chunk(3);
      @endphp
-     <section id="{{ $layout ? $layout->key() : null }}" class="">
+     <section id="{{ $layout ? $layout->key() : null }}" class="w-screen overflow-hidden">
          <div class="bg-yellow py-16 xl:py-24">
 
              <div x-data="{
@@ -71,7 +71,7 @@
 
              <div class="container mx-auto hidden max-w-3xl">
                  <div
-                     class="prose relative mb-16 mt-0 flex w-full translate-y-1/2 flex-row rounded-3xl bg-pink px-4 py-6 lg:items-center lg:px-8">
+                     class="prose bg-pink relative mb-16 mt-0 flex w-full translate-y-1/2 flex-row rounded-3xl px-4 py-6 lg:items-center lg:px-8">
 
                      <svg class="h-auto w-20 flex-none lg:w-32" xmlns="http://www.w3.org/2000/svg" width="104.23"
                          height="121.75" viewBox="0 0 104.23 121.75">
