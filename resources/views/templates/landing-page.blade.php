@@ -70,11 +70,11 @@
         <div class="-top-6 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
             <header x-bind:class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
                 class="w-full bg-white bg-opacity-0 py-6 transition duration-500 lg:pb-3 lg:pt-8">
-                <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center">
+                <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center max-lg:px-4">
                     <a href="#home"
-                        class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-9 lg:h-12 w-auto')
+                        class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-9 lg:h-10 xl:h-12 w-auto')
                         @if ($language)
-                            <span class="font-logo text-light-teal text-lg uppercase tracking-widest lg:text-2xl">
+                            <span class="font-logo text-light-teal text-lg uppercase tracking-widest xl:text-2xl">
                                 {{ $language->name }}</span>
                         @endif
                     </a>
@@ -89,12 +89,13 @@
 
                         </x-button>
 
-                        <nav class="my-auto flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-start lg:gap-12">
+                        <nav
+                            class="my-auto flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-start lg:gap-4 xl:gap-12">
                             @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu) as $layout)
                                 @if ($layout->show_as_button)
                                     <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
                                         x-on:click="document.body.classList.remove('overflow-hidden'); menuOpen = false;"
-                                        ::href="`#${section}`" class="lg:shadow-yellow px-16 shadow-white">
+                                        ::href="`#${section}`" class="lg:shadow-yellow !px-8 shadow-white 2xl:!px-16">
                                         {{ $layout->pre_title ?? $layout->title }}
                                     </x-button-link>
                                 @else
@@ -160,7 +161,7 @@
         </section>
 
         <nav class="bg-yellow sticky bottom-0 z-20 pb-1.5 pt-1 text-lg shadow-lg lg:hidden">
-            <div class="container flex flex-row items-center gap-6">
+            <div class="container flex max-w-none flex-row items-center gap-6">
                 <button x-on:click="document.body.classList.add('overflow-hidden'); menuOpen = true"
                     class="mr-auto flex flex-row items-center gap-1 font-semibold">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-12" width="26.04" height="25.71"
