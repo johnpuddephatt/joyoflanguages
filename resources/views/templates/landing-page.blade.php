@@ -70,7 +70,7 @@
         <div class="-top-6 z-40 h-px lg:sticky" x-intersect:leave="stuck = true" x-intersect:enter="stuck = false">
             <header x-bind:class="{ '!bg-opacity-90 lg:shadow lg:shadow-[#f5f5f5] lg:backdrop-blur': stuck }"
                 class="w-full bg-white bg-opacity-0 py-6 transition duration-500 lg:pb-3 lg:pt-8">
-                <div class="container mx-auto flex max-w-none flex-row items-center max-lg:justify-center max-lg:px-4">
+                <div class="container mx-auto flex max-w-none flex-row items-center max-xl:!px-4 max-lg:justify-center">
                     <a href="#home"
                         class="relative z-20 flex flex-row items-center gap-2 overflow-hidden">@svg('jol-logo', 'h-9 lg:h-10 xl:h-12 w-auto')
                         @if ($language)
