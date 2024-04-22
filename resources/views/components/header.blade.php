@@ -1,7 +1,7 @@
 <header id="main-header" x-data="{ menuOpen: false }" x-cloak
     x-bind:class="menuOpen && 'max-lg:!translate-y-0 max-lg:!opacity-100'"
     class="{{ $theme == 'alternative_header' ? 'lg:text-white' : 'lg:text-teal' }} text-teal absolute left-0 top-0 z-40 w-full py-6 2xl:py-12">
-    <div class="container mx-auto flex max-w-none flex-row items-center justify-between max-lg:!px-4 lg:items-start">
+    <div class="container mx-auto flex max-w-none flex-row items-center justify-between max-xl:!px-4 lg:items-start">
         <a class="relative z-20 flex flex-row items-center gap-1 overflow-hidden max-sm:-ml-2 lg:gap-2" href="/">
             @if ($theme == 'alternative_header')
                 @svg('jol-logo-alt', 'h-9 lg:h-12 w-auto')
