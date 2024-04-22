@@ -37,6 +37,10 @@ class Subscriptions extends Layout
             Text::make("Short title", "pre_title"),
             Text::make("Title", "title"),
             Text::make("Intro", "intro"),
+
+            Text::make("Announcement title", "announcement_title")->stacked(),
+            Textarea::make("Announcement", "announcement_text")->help("Accepts Markdown")
+                ->stacked(),
             SimpleRepeatable::make("Benefits", "benefits", [
                 Text::make("Benefit", "benefit")->stacked(),
             ]),

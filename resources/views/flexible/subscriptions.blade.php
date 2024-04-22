@@ -23,12 +23,9 @@
     <div class="container mx-auto mt-12 max-w-4xl">
 
         <div class="bg-yellow mx-auto gap-6 overflow-hidden rounded-3xl bg-opacity-20 text-center">
-            <h3 class="bg-yellow type-xs !mb-0 py-2">⏰ Term starts soon!</h3>
-            <ul class="p-4">
-                <li>Welcome event: Friday xxth</li>
-                <li>Teaching begins: Monday xxth</li>
-                <li><strong>Plus: immediate access to all bonus materials</strong></li>
-            </ul>
+            <h3 class="bg-yellow type-xs !mb-0 py-2">{{ $layout->announcement_title }}</h3>
+            @markdown($layout->announcement_text)
+
         </div>
     </div>
 
