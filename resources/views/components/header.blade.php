@@ -46,7 +46,7 @@
 
                         @if (($menu_item['data']['type'] ?? false) == 'button')
                             <x-button-link target="{{ $menu_item['target'] ?? '_self' }}"
-                                class="lg:shadow-yellow shadow-white max-lg:mt-6"
+                                class="lg:shadow-yellow shadow-white max-xl:!px-6 max-lg:mt-6"
                                 :href="$menu_item['value']">{{ $menu_item['name'] }}</x-button-link>
                         @else
                             <a class="inline-block rounded py-2 transition group-hover:bg-white group-hover:bg-opacity-10 xl:px-2 2xl:px-6"
