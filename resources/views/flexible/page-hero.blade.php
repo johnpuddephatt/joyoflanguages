@@ -32,7 +32,7 @@
             <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full" />
 
             @if ($layout->show_squiggles)
-                <svg class="absolute -bottom-4 -left-12 -right-4 top-4 block h-auto w-[111%] max-w-none"
+                <svg class="absolute -bottom-4 -left-6 -right-4 top-4 block h-auto w-[111%] max-w-none xl:-left-12"
                     xmlns="http://www.w3.org/2000/svg" width="367.14" height="223.72" viewBox="0 0 367.14 223.72">
                     <path
                         d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
