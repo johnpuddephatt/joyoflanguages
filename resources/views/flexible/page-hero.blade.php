@@ -41,8 +41,16 @@
             @endif
 
             @if ($embed)
-                <div x-cloak>
-                    <button x-on:click="trailerOpen = true" aria-label="Play video"
+                <div x-cloak x-data="{ player: null }" x-init="this.player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
+                
+                this.player.on('play', function() {
+                    console.log('Played the video');
+                });
+                
+                this.player.getVideoTitle().then(function(title) {
+                    console.log('title:', title);
+                });">
+                    <button x-on:click="trailerOpen = true; player.play()" aria-label="Play video"
                         class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65"
                             class="block h-auto w-full" viewBox="0 0 72.41 66.65">
@@ -58,16 +66,7 @@
 
                     </button>
 
-                    <div x-data="{ player: null }" x-transition x-show="trailerOpen" x-init="this.player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
-                    
-                    this.player.on('play', function() {
-                        console.log('Played the video');
-                    });
-                    
-                    this.player.getVideoTitle().then(function(title) {
-                        console.log('title:', title);
-                    });"
-                        class="absolute inset-0 z-30 bg-black bg-opacity-80">
+                    <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
                         <div class="w-full max-w-5xl">
 
                             <div id="{{ $layout ? $layout->key() : null }}-video"class="shadow-black-light relative shadow-2xl"
@@ -80,7 +79,7 @@
 
                         </div>
                         <x-button x-on:click="trailerOpen = false"
-                            class="!absolute bottom-0.5 left-1/2 -translate-x-1/2 !pl-2 !pr-6">
+                            class="!absolute left-1/2 top-full mt-2 -translate-x-1/2 !pl-2 !pr-6">
                             @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
                         </x-button>
 
