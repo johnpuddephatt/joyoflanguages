@@ -65,6 +65,7 @@
                                 style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
                                 {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'true']) !!}
                             </div>
+                            <script src="https://player.vimeo.com/api/player.js"></script>
 
                             <script>
                                 var iframe = document.querySelector('{{ $layout ? $layout->key() : null }}-video');
