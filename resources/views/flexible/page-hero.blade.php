@@ -41,13 +41,13 @@
             @endif
 
             @if ($embed)
-                <div x-cloak x-data="{ player: null }" x-init="this.player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
+                <div x-cloak x-data="{ player: null }" x-init="player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
                 
-                this.player.on('play', function() {
+                player.on('play', function() {
                     console.log('Played the video');
                 });
                 
-                this.player.getVideoTitle().then(function(title) {
+                player.getVideoTitle().then(function(title) {
                     console.log('title:', title);
                 });">
                     <button x-on:click="trailerOpen = true; player.play()" aria-label="Play video"
