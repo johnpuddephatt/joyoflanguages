@@ -50,7 +50,7 @@
                 player.getVideoTitle().then(function(title) {
                     console.log('title:', title);
                 });">
-                    <button x-on:click="trailerOpen = true; player.play()" aria-label="Play video"
+                    <button x-on:click="trailerOpen = true" aria-label="Play video"
                         class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65"
                             class="block h-auto w-full" viewBox="0 0 72.41 66.65">
@@ -74,8 +74,6 @@
                                 {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'true']) !!}
                             </div>
                             <script src="https://player.vimeo.com/api/player.js"></script>
-
-                            <script></script>
 
                         </div>
                         <x-button x-on:click="trailerOpen = false"
