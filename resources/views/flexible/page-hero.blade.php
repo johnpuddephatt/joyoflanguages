@@ -68,7 +68,7 @@
                             <script src="https://player.vimeo.com/api/player.js"></script>
 
                             <script>
-                                var iframe = document.querySelector('{{ $layout ? $layout->key() : null }}-video');
+                                var iframe = document.querySelector('#{{ $layout ? $layout->key() : null }}-video');
                                 var player = new Vimeo.Player(iframe);
 
                                 player.on('play', function() {
