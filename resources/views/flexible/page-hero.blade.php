@@ -63,7 +63,7 @@
 
                             <div class="shadow-black-light relative shadow-2xl"
                                 style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
-                                {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'autoplay']) !!}
+                                {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'true']) !!}
                             </div>
 
                         </div>
