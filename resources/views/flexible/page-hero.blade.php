@@ -58,7 +58,16 @@
 
                     </button>
 
-                    <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
+                    <div x-data="{ player: null }" x-transition x-show="trailerOpen" x-init="this.player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
+                    
+                    this.player.on('play', function() {
+                        console.log('Played the video');
+                    });
+                    
+                    this.player.getVideoTitle().then(function(title) {
+                        console.log('title:', title);
+                    });"
+                        class="absolute inset-0 z-30 bg-black bg-opacity-80">
                         <div class="w-full max-w-5xl">
 
                             <div id="{{ $layout ? $layout->key() : null }}-video"class="shadow-black-light relative shadow-2xl"
@@ -67,18 +76,7 @@
                             </div>
                             <script src="https://player.vimeo.com/api/player.js"></script>
 
-                            <script>
-                                var iframe = document.querySelector('#{{ $layout ? $layout->key() : null }}-video');
-                                var player = new Vimeo.Player(iframe);
-
-                                player.on('play', function() {
-                                    console.log('Played the video');
-                                });
-
-                                player.getVideoTitle().then(function(title) {
-                                    console.log('title:', title);
-                                });
-                            </script>
+                            <script></script>
 
                         </div>
                         <x-button x-on:click="trailerOpen = false"
