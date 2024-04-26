@@ -61,10 +61,23 @@
                     <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
                         <div class="w-full max-w-5xl">
 
-                            <div class="shadow-black-light relative shadow-2xl"
+                            <div id="{{ $layout ? $layout->key() : null }}-video"class="shadow-black-light relative shadow-2xl"
                                 style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
                                 {!! $embed->html(['class' => 'inset-0 absolute w-full h-full', 'autoplay' => 'true']) !!}
                             </div>
+
+                            <script>
+                                var iframe = document.querySelector('{{ $layout ? $layout->key() : null }}-video');
+                                var player = new Vimeo.Player(iframe);
+
+                                player.on('play', function() {
+                                    console.log('Played the video');
+                                });
+
+                                player.getVideoTitle().then(function(title) {
+                                    console.log('title:', title);
+                                });
+                            </script>
 
                         </div>
                         <x-button x-on:click="trailerOpen = false"
