@@ -42,14 +42,7 @@
 
             @if ($embed)
                 <div x-cloak x-data="{ player: null }" x-init="player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
-                console.log(player);
-                player.on('play', function() {
-                    console.log('Played the video');
-                });
-                
-                player.getVideoTitle().then(function(title) {
-                    console.log('title:', title);
-                });">
+                console.log(player);">
                     <button x-on:click="trailerOpen = true" aria-label="Play video"
                         class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65"
