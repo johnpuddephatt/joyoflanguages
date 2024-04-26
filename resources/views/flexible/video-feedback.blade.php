@@ -14,7 +14,7 @@
             @endif
             <div x-data="{
                 currentLevel: 'Elementary',
-                levels: [{ 'name': 'Elementary', color: 'bg-yellow fill-yellow', text: 'text-black', student: 'Rick', video: 409666923, teacher: 'Katie', feedback_video: 409662749 }, { 'name': 'Intermediate', color: 'bg-light-teal fill-light-teal', text: 'text-white', student: 'Madelyn', video: 409662683, teacher: 'Stefano', feedback_video: 409662831 }, { 'name': 'Advanced', text: 'text-white', color: 'bg-blue fill-blue', student: 'Claire', video: 481288448, teacher: 'Blessy', feedback_video: 481288528 }],
+                levels: [{ 'name': 'Elementary', color: 'bg-yellow fill-yellow', text: 'text-black', student: 'Rick', video: 409666923, teacher: 'Katie', feedback_video: 409662749 }, { 'name': 'Intermediate', text: 'text-white', color: 'bg-light-teal fill-light-teal', student: 'Claire', video: 481288448, teacher: 'Blessy', feedback_video: 481288528 }, { 'name': 'Advanced', color: 'bg-blue fill-blue', text: 'text-white', student: 'Madelyn', video: 409662683, teacher: 'Stefano', feedback_video: 409662831 }],
             }"
                 class="relative flex flex-col self-stretch py-4 md:py-12 lg:mx-auto lg:w-[55%]">
 

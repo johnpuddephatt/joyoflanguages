@@ -994,3 +994,5 @@
 1714170103-0751-64381397,1714170103.0713,GET,/nova-vendor/media-hub/media?collection=default&page=1,"Outl1ne\NovaMediaHub\Http\Controllers\MediaHubController@getMedia",200,30.926942825317,request
 1714170103-1085-1114247094,1714170103.1046,GET,/nova-vendor/media-hub/media?collection=default&page=1,"Outl1ne\NovaMediaHub\Http\Controllers\MediaHubController@getMedia",200,32.75203704834,request
 1714170103-1453-119200808,1714170103.1414,GET,/nova-vendor/media-hub/media?collection=default&page=1,"Outl1ne\NovaMediaHub\Http\Controllers\MediaHubController@getMedia",200,45.883893966675,request
+1714170389-6533-176377387,1714170389.6088,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,221.48299217224,request
+1714170390-5321-73380310,1714170390.5198,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,49.547910690308,request
