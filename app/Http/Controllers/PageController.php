@@ -94,7 +94,7 @@ class PageController extends Controller
 
         if ($page->redirect) {
 
-            if (!isset($_GET['preview']) || ($_GET['preview'] !== dechex($page->id * 4001))) {
+            if (!$page->redirect_override_enabled || (!isset($_GET['preview']) || ($_GET['preview'] !== dechex($page->id * 4001)))) {
                 return redirect()->to($page->redirect);
             }
         }

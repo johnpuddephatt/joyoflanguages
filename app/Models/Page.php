@@ -26,6 +26,7 @@ class Page extends Model
         "template",
         "theme",
         "redirect",
+        "redirect_override_enabled"
     ];
 
     /**
@@ -37,6 +38,7 @@ class Page extends Model
         "id" => "integer",
         "content" => MyFlexibleCast::class,
         "image" => \App\Casts\NovaMediaLibraryCast::class,
+        "redirect_override_enabled" => "boolean"
     ];
 
     public function getURLAttribute()

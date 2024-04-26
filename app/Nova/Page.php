@@ -17,6 +17,7 @@ use App\Nova\Actions\SaveAndResizeImage;
 use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 use App\Nova\Traits\RedirectsToIndexOnSave;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Textarea;
 
 class Page extends Resource
@@ -90,12 +91,15 @@ class Page extends Resource
 
             Slug::make("Slug")->from("Title"),
 
+
             Text::make("Redirect")
                 ->rules("nullable", "string", "max:200")
                 ->hideFromIndex()
                 ->help(
-                    'Redirects to another page. Can be relative or absolute, e.g.: "/blog" or "https://example.com".<br>This can be overridden by visiting ' . $this->url . '/?preview=' . dechex($this->id * 4001)
+                    'Redirects to another page. Can be relative or absolute, e.g.: "/blog" or "https://example.com"'
                 ),
+
+            Boolean::make("Redirect override enabled", "redirect_override_enabled")->help('If enabled, the redirect can be overridden by visiting ' . $this->url . '/?preview=' . dechex($this->id * 4001))->hideFromIndex(),
 
             Textarea::make("Introduction")->rules("max:300"),
 
