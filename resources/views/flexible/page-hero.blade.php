@@ -42,7 +42,7 @@
 
             @if ($embed)
                 <div x-cloak x-data="{ player: null }" x-init="player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
-                
+                console.log(player);
                 player.on('play', function() {
                     console.log('Played the video');
                 });
