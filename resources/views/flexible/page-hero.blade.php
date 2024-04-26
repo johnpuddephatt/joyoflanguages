@@ -27,23 +27,21 @@
                     href="{{ $layout->button_url }}">{{ $layout->button_text ?? 'Read more' }}</x-button-link>
             @endif
         </div>
-        <div class="relative w-full max-lg:overflow-hidden lg:w-1/2 lg:pl-8">
+        <div class="relative w-full lg:w-1/2 lg:pl-8">
 
-            <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full" />
-
-            @if ($layout->show_squiggles)
-                <svg class="absolute -bottom-4 -left-6 -right-4 top-4 block h-auto w-[111%] max-w-none xl:-left-12"
-                    xmlns="http://www.w3.org/2000/svg" width="367.14" height="223.72" viewBox="0 0 367.14 223.72">
-                    <path
-                        d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
-                        style="fill:none;stroke:#ffce00;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3.84px" />
-                </svg>
-            @endif
+            <x-responsive-image conversion="landscape" :image="$layout->image" class="h-auto w-full transition duration-500"
+                x-bind:class="{ 'opacity-0 scale-75': trailerOpen }" />
 
             @if ($embed)
-                <div x-cloak x-data="{ player: null }" x-init="player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
-                console.log(player);">
-                    <button x-on:click="trailerOpen = true; player.play()" aria-label="Play video"
+                <div x-cloak x-data="{ player: null }" x-init="window.player = new Vimeo.Player(document.querySelector('#{{ $layout ? $layout->key() : null }}-video'));
+                window.player.on('ended', () => {
+                    setTimeout(() => {
+                        trailerOpen = false;
+                        window.player.setCurrentTime(0);
+                    }, 3500)
+                });
+                console.log(window.player);">
+                    <button x-on:click="trailerOpen = true; window.player.play()" aria-label="Play video"
                         class="absolute left-1/2 top-1/2 z-20 w-1/4 -translate-x-1/2 -translate-y-1/2 opacity-90 transition hover:opacity-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="72.41" height="66.65"
                             class="block h-auto w-full" viewBox="0 0 72.41 66.65">
@@ -58,24 +56,32 @@
                         </svg>
 
                     </button>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
 
-                    <div x-transition x-show="trailerOpen" class="absolute inset-0 z-30 bg-black bg-opacity-80">
-                        <div class="w-full max-w-5xl">
+                    <div x-bind:class="{ 'scale-100 opacity-100': trailerOpen, 'scale-75 opacity-0 pointer-events-none': !trailerOpen }"
+                        class="absolute left-1/2 top-1/2 z-30 w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 transition">
 
-                            <div id="{{ $layout ? $layout->key() : null }}-video"class="shadow-black-light relative shadow-2xl"
-                                style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
-                                {!! $embed->html(['class' => 'inset-0 absolute w-full h-full']) !!}
-                            </div>
-                            <script src="https://player.vimeo.com/api/player.js"></script>
-
+                        <div id="{{ $layout ? $layout->key() : null }}-video"class="overflow-hidden md:shadow-black-light relative shadow-2xl"
+                            style="padding-top: {{ ($embed->data()['height'] / $embed->data()['width']) * 100 }}%">
+                            {!! $embed->html(['class' => 'inset-0 absolute w-full h-full']) !!}
                         </div>
-                        <x-button x-on:click="trailerOpen = false"
-                            class="!absolute left-1/2 top-full mt-2 -translate-x-1/2 !pl-2 !pr-6">
-                            @svg('plus', 'inline-block rotate  rotate-45 text-black w-6 h-6 rounded-full') <span class="ml-2 inline-block">Close video</span>
+                        <x-button x-on:click="trailerOpen = false; window.player.pause()"
+                            class="!absolute left-1/2 top-full mt-2 hidden -translate-x-1/2 !py-1 !pl-2 !pr-4 !text-sm md:block">
+                            @svg('plus', 'inline-block rotate  rotate-45 text-black w-4 h-4 rounded-full') <span class="ml-1 inline-block">Close video</span>
                         </x-button>
-
                     </div>
+
                 </div>
+            @endif
+
+            @if ($layout->show_squiggles)
+                <svg x-bind:class="{ 'opacity-0': trailerOpen }"
+                    class="pointer-events-none absolute -bottom-4 -left-6 -right-4 top-4 z-50 block h-auto w-[111%] max-w-none transition duration-1000 xl:-left-12"
+                    xmlns="http://www.w3.org/2000/svg" width="367.14" height="223.72" viewBox="0 0 367.14 223.72">
+                    <path
+                        d="M79.88 43.01C33.01 52.67 43.43-1.93 54.98 7.06S14.41 44.58 1.91 1.92M363.53 221.8c-62.33-41.56 29.32-50.25-7.25-85.05"
+                        style="fill:none;stroke:#ffce00;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3.84px" />
+                </svg>
             @endif
 
         </div>

@@ -15,9 +15,11 @@
             <div x-data="{
                 currentLevel: 'Elementary',
                 levels: [{ 'name': 'Elementary', color: 'bg-yellow fill-yellow', text: 'text-black', student: 'Rick', video: 409666923, teacher: 'Katie', feedback_video: 409662749 }, { 'name': 'Intermediate', color: 'bg-light-teal fill-light-teal', text: 'text-white', student: 'Madelyn', video: 409662683, teacher: 'Stefano', feedback_video: 409662831 }, { 'name': 'Advanced', text: 'text-white', color: 'bg-blue fill-blue', student: 'Claire', video: 481288448, teacher: 'Blessy', feedback_video: 481288528 }],
-            }" class="relative flex flex-col self-stretch py-12 lg:mx-auto lg:w-[55%]">
+            }"
+                class="relative flex flex-col self-stretch py-4 md:py-12 lg:mx-auto lg:w-[55%]">
 
-                <h3 class="type-md text-teal relative z-10 mt-2 pb-4 text-center font-bold xl:pb-0">See it
+                <h3 class="type-md text-teal relative z-10 mt-2 text-center font-bold md:pb-4 xl:pb-0">See
+                    it
                     in
                     action!</h3>
                 <svg class="absolute left-1/2 top-1/2 z-0 block h-auto w-[16rem] -translate-x-1/2 translate-y-[-50%] opacity-20"
@@ -27,10 +29,10 @@
                     </path>
                 </svg>
                 <template x-for="level in levels">
-                    <div x-show="currentLevel == level.name" class="mt-0 flex flex-row gap-3">
-                        <div class="relative w-1/2">
+                    <div x-show="currentLevel == level.name" class="mt-0 flex flex-col md:flex-row md:gap-3">
+                        <div class="relative w-5/6 md:w-1/2">
                             <div
-                                class="lg: absolute -left-2 -top-8 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none lg:-left-4 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16 xl:left-1">
+                                class="absolute -right-16 -top-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none md:-left-2 md:-top-8 lg:-left-4 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16 xl:left-1">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
@@ -50,9 +52,9 @@
                                     frameborder="0" allow="autoplay" width="100%" height="100%"></iframe>
                             </div>
                         </div>
-                        <div class="relative mt-12 w-1/2">
+                        <div class="relative ml-auto mt-6 w-5/6 md:ml-0 md:mt-12 md:w-1/2">
                             <div
-                                class="absolute -right-2 -top-4 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none lg:-right-4 lg:-top-8 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
+                                class="absolute -left-16 -top-4 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none md:-right-2 md:left-auto lg:-right-4 lg:-top-8 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
@@ -74,10 +76,10 @@
                         </div>
                     </div>
                 </template>
-                <div class="relative z-10 -mb-4 mt-8 flex flex-row justify-center gap-2">
+                <div class="relative z-10 -mb-4 mt-8 flex flex-row justify-center gap-1 md:gap-2">
                     <template x-for="level in levels">
                         <button
-                            :class="`${level.color} ${level.name !== currentLevel ? 'bg-opacity-0 hover:bg-opacity-30' : 'hover:bg-opacity-100'} transition rounded-full border-[3px] px-2 py-1.5 text-left font-semibold hover:bg-opacity-30 lg:px-6`"
+                            :class="`${level.color} ${level.name !== currentLevel ? 'bg-opacity-0 hover:bg-opacity-30' : 'hover:bg-opacity-100'} transition rounded-full border-[3px] px-2 py-1.5 text-left max-md:text-sm font-semibold hover:bg-opacity-30 lg:px-6`"
                             x-text="level.name" @click="currentLevel = level.name"></button>
                     </template>
 
@@ -85,7 +87,7 @@
 
             </div>
 
-            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 px-4 md:px-0 2xl:py-10">
+            <div class="{{ $layout->reverse ? 'lg:order-first' : null }} relative z-10 flex-1 2xl:py-10">
                 <h2 class="type-lg max-w-xl">{!! $layout->title !!}</h2>
                 @if ($layout->subtitle)
                     <div class="type-sm mt-4">{{ $layout->subtitle }}</div>
