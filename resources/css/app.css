@@ -14,7 +14,7 @@
 }
 
 .BeaconFabButtonFrame {
-    @apply invisible;
+    @apply invisible hidden;
 }
 
 .prose-standout {
