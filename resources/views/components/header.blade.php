@@ -33,7 +33,7 @@
             </x-button>
 
             <nav x-bind:class="menuOpen && 'max-lg:!translate-x-0'"
-                class="max-lg:bg-yellow inset-0 z-10 flex flex-col items-start gap-4 text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:translate-x-full max-lg:justify-center max-lg:p-8 max-md:p-4 lg:flex-row xl:gap-6">
+                class="max-lg:bg-yellow inset-0 z-10 flex flex-col items-start gap-4 text-lg font-semibold transition max-lg:fixed max-lg:h-screen max-lg:translate-x-full max-lg:justify-center max-lg:p-8 max-md:p-4 lg:flex-row 2xl:gap-6">
 
                 <x-button aria-label="Close navigation menu" title="Close navigation menu"
                     class="!leading-0 !absolute right-3 top-6 flex flex-row items-center gap-1 !border-2 !px-0 !py-0 font-semibold text-black shadow-white md:right-5 lg:hidden"
