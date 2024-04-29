@@ -49,7 +49,7 @@
 
                      </div>
                      <div
-                         class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible pb-8 xl:w-2/5 xl:pb-0">
+                         class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-y-12 overflow-visible pb-8 lg:gap-y-0 xl:w-2/5 xl:pb-0">
                          @foreach ($quotes as $row => $quoteRow)
                              @php($bubbles = collect([1, 2, 3])->shuffle())
                              @foreach ($quoteRow->shuffle() as $key => $quote)
