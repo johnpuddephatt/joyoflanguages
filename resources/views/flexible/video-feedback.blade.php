@@ -18,7 +18,7 @@
             }"
                 class="relative flex flex-col self-stretch py-4 md:py-12 lg:mx-auto lg:w-[55%]">
 
-                <h3 class="type-md text-teal relative z-10 mt-2 text-center font-bold md:pb-4 xl:pb-0">See
+                <h3 class="type-md text-teal relative z-10 mt-2 text-center font-bold md:pb-4 lg:pb-8 xl:pb-0">See
                     it
                     in
                     action!</h3>
