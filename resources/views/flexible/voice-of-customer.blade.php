@@ -34,7 +34,7 @@
                  },
              }" class="container mx-auto !pr-4"
                  x-intersect="if(!initialised) {initialise()}; shown = true" x-intersect:leave="shown = false">
-                 <div class="flex flex-col gap-16 xl:flex-row xl:items-center xl:gap-0">
+                 <div class="flex flex-col gap-24 lg:gap-16 xl:flex-row xl:items-center xl:gap-0">
                      <div class="xl:w-3/5">
                          <h2 class="underline-bold type-xl !mb-8">
                              @inlineMarkdown($layout->title)
@@ -58,7 +58,7 @@
                                      x-transition:enter-end="opacity-100 scale-100"
                                      x-transition:leave="transition ease-out duration-[500ms] delay-[{{ $bubbles[$key] * 250 }}ms] -z-10"
                                      x-transition:leave-end="scale-75 opacity-0"
-                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} type-sm relative col-span-1 flex h-24 items-center justify-center px-1 text-center !leading-none lg:h-32 lg:px-4">
+                                     class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} type-sm relative col-span-1 flex aspect-[2] h-24 items-center justify-center px-1 text-center !leading-none lg:h-32 lg:px-4">
                                      {{ $quote->quote }}
                                      @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 -left-3 w-[calc(100%+1.5rem)] -right-3 h-auto top-1/2 -translate-y-1/2 max-w-none')
                                  </div>

@@ -16,7 +16,7 @@
                     </div>
                 @endif
 
-                <div class="grid grid-cols-1 gap-4 lg:grid-cols-5 2xl:gap-6">
+                <div class="grid grid-cols-1 gap-4 xl:grid-cols-5 2xl:gap-6">
                     @foreach ($layout->squares as $square)
                         <div
                             class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} !flex-0 flex flex-col items-center justify-center p-4 text-center lg:aspect-square">
