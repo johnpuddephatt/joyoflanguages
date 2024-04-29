@@ -3,7 +3,7 @@
 
     <div class="{{ $class ?? 'mx-auto' }} container max-w-6xl">
         <div
-            class="{{ $layout->colour ?? 'bg-teal-light' }} {{ $layout->images ? ' pb-16 md:pb-24 lg:pb-48' : null }} relative flex flex-col-reverse items-center gap-2 rounded-3xl px-4 py-12 md:p-8 lg:flex-row lg:gap-4 lg:px-12 lg:py-16 xl:gap-8">
+            class="{{ $layout->colour ?? 'bg-teal-light' }} {{ $layout->images ? ' pb-16 md:pb-24 lg:pb-48' : null }} relative flex flex-col-reverse items-center gap-2 rounded-3xl px-4 py-12 md:p-8 lg:flex-row lg:gap-4 xl:gap-8 xl:px-12 xl:py-16">
             @if ($layout->squiggle == 1)
                 <svg xmlns="http://www.w3.org/2000/svg" width="315.85" height="124.74"
                     class="absolute -left-72 -top-4 h-auto w-96 lg:top-4" viewBox="0 0 315.85 124.74">
