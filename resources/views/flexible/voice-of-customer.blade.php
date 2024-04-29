@@ -48,7 +48,8 @@
                          </div> --}}
 
                      </div>
-                     <div class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible xl:w-2/5">
+                     <div
+                         class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible pb-8 lg:pb-0 xl:w-2/5">
                          @foreach ($quotes as $row => $quoteRow)
                              @php($bubbles = collect([1, 2, 3])->shuffle())
                              @foreach ($quoteRow->shuffle() as $key => $quote)
