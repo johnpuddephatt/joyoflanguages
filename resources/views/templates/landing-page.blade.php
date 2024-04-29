@@ -1,7 +1,9 @@
 @section('image', $page->image?->getUrl('thumbnail'))
 @section('title', $page->title)
 @section('description', $page->introduction)
-
+@push('head')
+    <x-clarity::script />
+@endpush
 @extends('layouts.app', ['language' => $page->language, 'theme' => $page->theme]) @section('templatecontent')
 
     <script type="text/javascript">
