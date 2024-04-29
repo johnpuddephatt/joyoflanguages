@@ -84,7 +84,7 @@
                                                     @endif
                                                     <div class="max-h-[24rem] overflow-y-auto p-4 pt-0 lg:p-8"
                                                         x-show="tab == {{ $key }}">
-                                                        <h3 class="type-sm text-blue">Module
+                                                        <h3 class="type-sm text-blue !mt-0">Module
                                                             {{ $module->title }}
                                                         </h3>
                                                         <div>@markdown($module->description)</div>
