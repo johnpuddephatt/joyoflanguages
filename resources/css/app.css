@@ -42,6 +42,10 @@
     @apply text-lg mb-1 !leading-snug font-semibold lg:text-xl;
 }
 
+.type-xs {
+    @apply text-lg mb-1 !leading-none font-semibold lg:text-xl;
+}
+
 .prose-standout strong {
     @apply font-bold;
 }
