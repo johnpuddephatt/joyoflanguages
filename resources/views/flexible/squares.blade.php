@@ -19,7 +19,7 @@
                 <div class="grid grid-cols-1 gap-4 xl:grid-cols-5 2xl:gap-6">
                     @foreach ($layout->squares as $square)
                         <div
-                            class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} !flex-0 flex flex-col items-center justify-center p-4 text-center lg:aspect-square">
+                            class="{{ $layout->background_colour ? 'bg-white' : 'bg-beige' }} !flex-0 flex flex-col items-center justify-center p-4 text-center xl:aspect-square">
                             <h3 class="type-sm">{{ $square->title }}</h3>
                             <div class="prose !leading-tight lg:h-16">{{ $square->description }}</div>
                         </div>
