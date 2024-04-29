@@ -10,7 +10,7 @@
                     class="border-light-teal marker:text-light-teal border-t" :open="current == {{ $loop->index }}">
                     <summary
                         @click.prevent="current = (current == {{ $loop->index }}) ? null : {{ $loop->index }}; setTimeout(()=> $el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200)"
-                        class="hover:bg-light-teal cursor-pointer scroll-mt-24 px-2 py-4 text-xl font-semibold transition hover:bg-opacity-10">
+                        class="hover:bg-light-teal type-xs lg:type-sm cursor-pointer scroll-mt-24 px-2 py-4 transition hover:bg-opacity-10">
                         {{ $faq->question }}</summary>
                     <div class="prose prose-lg pb-12 pl-7 pr-4 pt-4">@markdown($faq->answer)</div>
                 </details>
