@@ -34,7 +34,7 @@
                  },
              }" class="container mx-auto !pr-4"
                  x-intersect="if(!initialised) {initialise()}; shown = true" x-intersect:leave="shown = false">
-                 <div class="flex flex-col gap-24 lg:gap-16 xl:flex-row xl:items-center xl:gap-0">
+                 <div class="flex flex-col gap-24 xl:flex-row xl:items-center xl:gap-0">
                      <div class="xl:w-3/5">
                          <h2 class="underline-bold type-xl !mb-8">
                              @inlineMarkdown($layout->title)
@@ -49,7 +49,7 @@
 
                      </div>
                      <div
-                         class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible pb-8 lg:pb-0 xl:w-2/5">
+                         class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible pb-8 xl:w-2/5 xl:pb-0">
                          @foreach ($quotes as $row => $quoteRow)
                              @php($bubbles = collect([1, 2, 3])->shuffle())
                              @foreach ($quoteRow->shuffle() as $key => $quote)
