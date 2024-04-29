@@ -48,8 +48,7 @@
                          </div> --}}
 
                      </div>
-                     <div
-                         class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible xl:w-2/5 xl:gap-0">
+                     <div class="relative z-10 grid max-w-xl grid-cols-2 grid-rows-2 gap-4 overflow-visible xl:w-2/5">
                          @foreach ($quotes as $row => $quoteRow)
                              @php($bubbles = collect([1, 2, 3])->shuffle())
                              @foreach ($quoteRow->shuffle() as $key => $quote)
@@ -61,7 +60,7 @@
                                      x-transition:leave-end="scale-75 opacity-0"
                                      class="{{ ($key % 2) - ($row % 2) ? 'col-start-2' : 'col-start-1' }} row-start-{{ $key + 1 }} type-xs lg:type-sm relative col-span-1 flex h-24 items-center justify-center px-1 text-center sm:!leading-none lg:h-32 lg:px-4">
                                      {{ $quote->quote }}
-                                     @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 left-0 lg:-left-3 w-full lg:w-[calc(100%+1.5rem)]  lg:-right-3 h-auto top-1/2 -translate-y-1/2 max-w-none')
+                                     @svg('bubble-' . $bubbles[$key], 'absolute  -z-10 -left-3 w-[calc(100%+1.5rem)]  -right-3 h-auto top-1/2 -translate-y-1/2 max-w-none')
                                  </div>
                              @endforeach
                          @endforeach
