@@ -90,7 +90,7 @@
                         </x-button>
 
                         <nav
-                            class="my-auto flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-start lg:gap-4 xl:gap-12">
+                            class="my-auto flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-start lg:gap-4 xl:gap-6 2xl:gap-12">
                             @foreach ($page->content->filter(fn($layout) => $layout->show_in_menu) as $layout)
                                 @if ($layout->show_as_button)
                                     <x-button-link x-data="{ section: '{{ Str::of($layout->title)->slug() }}' }"
