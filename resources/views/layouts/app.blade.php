@@ -23,6 +23,8 @@
     @stack('head')
     @livewireStyles
 
+    <x-clarity::script />
+
 </head>
 
 <body>

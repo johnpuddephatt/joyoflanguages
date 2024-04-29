@@ -996,3 +996,7 @@
 1714170103-1453-119200808,1714170103.1414,GET,/nova-vendor/media-hub/media?collection=default&page=1,"Outl1ne\NovaMediaHub\Http\Controllers\MediaHubController@getMedia",200,45.883893966675,request
 1714170389-6533-176377387,1714170389.6088,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,221.48299217224,request
 1714170390-5321-73380310,1714170390.5198,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,49.547910690308,request
+1714401910-9093-165783931,1714401910.4603,GET,/,"App\Http\Controllers\PageController@show",200,1839.1840457916,request
+1714401912-4232-1602661300,1714401912.4152,GET,/cookie-consent/script?id=8832f9afab8ead3f52657b001cc81dab,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,31.710147857666,request
+1714401912-4220-1233393165,1714401912.4148,GET,/livewire/livewire.js?id=90730a3b0e7144480175,"Livewire\Controllers\LivewireJavaScriptAssets@source",200,31.719923019409,request
+1714401912-4234-1642878028,1714401912.4144,GET,/storage/,"App\Http\Controllers\PageController@show",404,231.96792602539,request

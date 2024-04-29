@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "abr4xas/clarity-laravel": "^1.0",
         "advoor/nova-editor-js": "^3.1",
         "blade-ui-kit/blade-icons": "^1.5",
         "cohensive/oembed": "^0.17.0",
