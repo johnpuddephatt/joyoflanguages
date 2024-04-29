@@ -24,7 +24,7 @@
 
         <div class="bg-yellow mx-auto gap-6 overflow-hidden rounded-3xl bg-opacity-20 text-center">
             <h3 class="bg-yellow type-xs !mb-0 py-2">{{ $layout->announcement_title }}</h3>
-            <div class="p-4">
+            <div class="prose p-4">
                 @markdown($layout->announcement_text)
             </div>
 
