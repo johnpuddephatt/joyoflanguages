@@ -32,7 +32,7 @@
                     <div x-show="currentLevel == level.name" class="mt-0 flex flex-col md:flex-row md:gap-3">
                         <div class="relative w-5/6 md:w-1/2">
                             <div
-                                class="absolute -right-16 -top-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none md:-left-2 md:-top-8 lg:-left-4 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:-top-16 xl:left-1">
+                                class="absolute -right-16 -top-2 z-10 flex h-20 w-20 -rotate-6 items-center justify-center rounded-full p-2 text-center text-sm font-bold !leading-none md:-left-2 md:-top-8 lg:-left-4 lg:-top-16 lg:h-24 lg:w-24 lg:p-4 lg:text-base xl:left-1">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
@@ -54,7 +54,7 @@
                         </div>
                         <div class="relative ml-auto mt-6 w-5/6 md:ml-0 md:mt-12 md:w-1/2">
                             <div
-                                class="absolute -left-16 -top-4 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none md:-right-2 md:left-auto lg:-right-4 lg:-top-8 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
+                                class="absolute -left-16 -top-4 z-10 flex h-20 w-20 rotate-6 items-center justify-center rounded-full p-1 text-center text-sm font-bold !leading-none md:-right-2 md:left-auto lg:-right-4 lg:-top-16 lg:h-24 lg:w-24 lg:p-4 lg:text-base">
 
                                 <svg class="absolute inset-0 -z-10 h-full w-full max-w-none"
                                     xmlns="http://www.w3.org/2000/svg" width="62.93" height="57.46"
