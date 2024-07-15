@@ -35,8 +35,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with(
                 "primary_menu",
                 $view->language && $view->language->menu
-                    ? nova_get_menu_by_id($view->language->menu->id)
-                    : nova_get_menu_by_slug("primary")
+                    ?
+                    \Cache::rememberForever("primaryMenu" . $view->language->id, function () use ($view) {
+                        return nova_get_menu_by_id($view->language->menu->id);
+                    })
+                    :
+                    \Cache::rememberForever("primaryMenu", function () use ($view) {
+                        return nova_get_menu_by_slug("primary");
+                    })
             );
 
             $view->with(

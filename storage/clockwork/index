@@ -33,3 +33,9 @@
 1721069155-4640-1428844724,1721069155.4367,GET,/podcast/so-in-italian,"App\Http\Controllers\PodcastController@show",200,977.92911529541,request
 1721069156-5723-1630383765,1721069156.5613,GET,/cookie-consent/script?id=8832f9afab8ead3f52657b001cc81dab,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,78.901052474976,request
 1721070287-6319-431663572,1721070287.5043,GET,/livewire/livewire.js.map,"Livewire\Controllers\LivewireJavaScriptAssets@maps",200,215.80505371094,request
+1721074040-3942-1865301332,1721074040.2251,GET,/podcast/so-in-italian,"App\Http\Controllers\PodcastController@show",200,874.15289878845,request
+1721074041-3908-1521761897,1721074041.3357,GET,/livewire/livewire.js?id=90730a3b0e7144480175,"Livewire\Controllers\LivewireJavaScriptAssets@source",200,75.116157531738,request
+1721074041-4211-1085117189,1721074041.4118,GET,/cookie-consent/script?id=8832f9afab8ead3f52657b001cc81dab,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,42.652130126953,request
+1721074041-4911-541744371,1721074041.4706,GET,/livewire/livewire.js.map,"Livewire\Controllers\LivewireJavaScriptAssets@maps",200,145.68901062012,request
+1721078511-0531-964500925,1721078510.9063,GET,/podcast/so-in-italian,"App\Http\Controllers\PodcastController@show",200,716.60614013672,request
+1721078511-9003-7100851,1721078511.8703,GET,/cookie-consent/script?id=8832f9afab8ead3f52657b001cc81dab,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,90.787172317505,request
