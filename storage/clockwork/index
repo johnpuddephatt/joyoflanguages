@@ -39,3 +39,6 @@
 1721074041-4911-541744371,1721074041.4706,GET,/livewire/livewire.js.map,"Livewire\Controllers\LivewireJavaScriptAssets@maps",200,145.68901062012,request
 1721078511-0531-964500925,1721078510.9063,GET,/podcast/so-in-italian,"App\Http\Controllers\PodcastController@show",200,716.60614013672,request
 1721078511-9003-7100851,1721078511.8703,GET,/cookie-consent/script?id=8832f9afab8ead3f52657b001cc81dab,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,90.787172317505,request
+1722253377-1605-1058886757,1722253376.7734,GET,/admin,"App\Http\Controllers\PageController@show",404,1087.0499610901,request
+1722253378-0545-223876656,1722253378.0508,GET,/cookie-consent/script?id=8832f9afab8ead3f52657b001cc81dab,"Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController",200,10.571956634521,request
+1722253377-9816-799598632,1722253377.9773,GET,/livewire/livewire.js?id=90730a3b0e7144480175,"Livewire\Controllers\LivewireJavaScriptAssets@source",200,15.082120895386,request
