@@ -83,6 +83,40 @@ class Podcast extends Model
         ]);
     }
 
+    // WARNING: Podcasts and Posts each have this function
+    public function getWordpressContentAttribute($content)
+    {
+        // YouTube embeds
+        $search =
+            "/(?:http|https):\/\/(?:www.youtube\.com\/watch\?v=|youtu.be\/)([a-zA-Z0-9_&;-]+)/smi";
+        $replace =
+            "<iframe loading='lazy' class='w-full h-auto aspect-video' width='560' height='315' src='https://youtube.com/embed/$1' frameborder='0' allowfullscreen></iframe>";
+        $content = preg_replace($search, $replace, $content);
+
+
+        // Vimeo embeds
+        $search =
+            "/(?:http|https):\/\/(?:www\.)?vimeo\.com\/([a-zA-Z0-9_&;-]+)\/([a-zA-Z0-9_&;-]+)/smi";
+        $replace =
+            "<iframe loading='lazy' class='w-full h-auto aspect-video' width='560' height='315' src='https://player.vimeo.com/video/$1?h=$2' frameborder='0' allowfullscreen></iframe>";
+        $content = preg_replace($search, $replace, $content);
+
+        // Image links
+        $search = "/(?:src=\")(?:http|https):\/\/joyoflanguages\.com(.*?)/smi";
+        $replace =
+            "src=\"https://joyoflanguages-legacymedia.ams3.digitaloceanspaces.com";
+
+        $content = preg_replace($search, $replace, $content);
+
+        // [captions]
+        $search = "/\[(?:\/?)caption(.*?)\]/smi";
+        $replace = "<br/><br>";
+
+        $content = preg_replace($search, $replace, $content);
+
+        return $content;
+    }
+
     public function language()
     {
         return $this->belongsTo(Language::class);

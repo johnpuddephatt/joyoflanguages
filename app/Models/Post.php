@@ -89,6 +89,7 @@ class Post extends Model
         );
     }
 
+    // WARNING: Podcasts and Posts each have this function
     public function getWordpressContentAttribute($content)
     {
         // YouTube embeds
