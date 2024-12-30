@@ -93,10 +93,18 @@ class Post extends Model
     {
         // YouTube embeds
         $search =
-            "/(http|https):\/\/(?:www.youtube\.com\/watch\?v=|youtu.be\/)([a-zA-Z0-9_&;-]+)/smi";
+            "/(?:http|https):\/\/(?:www.youtube\.com\/watch\?v=|youtu.be\/)([a-zA-Z0-9_&;-]+)/smi";
         $replace =
             "<iframe loading='lazy' class='w-full h-auto aspect-video' width='560' height='315' src='https://youtube.com/embed/$1' frameborder='0' allowfullscreen></iframe>";
         $content = preg_replace($search, $replace, $content);
+
+
+        // Vimeo embeds
+        // $search =
+        //     "/(http|https):\/\/(?:www.vimeo\.com\/([a-zA-Z0-9_&;-]+)/smi";
+        // $replace =
+        // "<iframe loading='lazy' class='w-full h-auto aspect-video' width='560' height='315' src='https://youtube.com/embed/$1' frameborder='0' allowfullscreen></iframe>";
+        // $content = preg_replace($search, $replace, $content);
 
         // Image links
         $search = "/(?:src=\")(?:http|https):\/\/joyoflanguages\.com(.*?)/smi";
