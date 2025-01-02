@@ -13,9 +13,7 @@ class LibraryImage extends Component
      *
      * @return void
      */
-    public function __construct(public $image = null, public $conversion = null)
-    {
-    }
+    public function __construct(public $image = null, public $conversion = null) {}
 
     /**
      * Get the view / contents that represent the component.
@@ -24,6 +22,8 @@ class LibraryImage extends Component
      */
     public function render()
     {
+
+
         if (is_object($this->image)) {
             return view("components.library-image");
         } elseif (is_numeric($this->image)) {
@@ -33,6 +33,8 @@ class LibraryImage extends Component
             return view("components.library-image");
         }
     }
+
+
 
     public function getSrc($conversion = null)
     {

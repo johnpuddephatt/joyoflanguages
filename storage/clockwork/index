@@ -137,3 +137,7 @@
 1729505093-2478-554749570,1729505093.2405,GET,/favicon.ico,"App\Http\Controllers\PageController@show",404,110.06498336792,request
 1729505100-0969-2126732601,1729505100.0833,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,56.476831436157,request
 1729505135-1266-15324666,1729505135.1082,GET,/nova-api/nova-notifications,"Laravel\Nova\Http\Controllers\NotificationIndexController",200,68.824052810669,request
+1735853623-9574-1164092727,1735853623.53,GET,/landing-page-test,"App\Http\Controllers\PageController@show",302,1036.1320972443,request
+1735853636-6097-466109680,1735853636.6,GET,/favicon.ico,"App\Http\Controllers\PageController@show",404,197.30401039124,request
+1735853848-7564-1785282970,1735853848.7071,GET,/landing-page-test,"App\Http\Controllers\PageController@show",302,310.88900566101,request
+1735853861-8302-1195506209,1735853861.8172,GET,/landing-page-test,"App\Http\Controllers\PageController@show",302,181.21004104614,request
