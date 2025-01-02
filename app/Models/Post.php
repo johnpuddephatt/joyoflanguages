@@ -89,7 +89,7 @@ class Post extends Model
         );
     }
 
-    // WARNING: Podcasts and Posts each have this function
+    // WARNING: Podcasts and Posts each have this function; @todo move to trait
     public function getWordpressContentAttribute($content)
     {
         // YouTube embeds

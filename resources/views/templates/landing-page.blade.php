@@ -50,7 +50,7 @@
         window.Beacon('init', 'd665d709-87f7-427b-994a-9089787faf0c');
     </script>
 
-    <div x-cloak x-data="{ beaconOpen: false, menuOpen: false, activeSection: null, stuck: false }" x-init="window.Beacon('on', 'open', () => (beaconOpen = true));
+    <div x-data="{ beaconOpen: false, menuOpen: false, activeSection: null, stuck: false }" x-init="window.Beacon('on', 'open', () => (beaconOpen = true));
     window.Beacon('on', 'close', () => (beaconOpen = false));">
         <div class="fixed inset-0 z-50 hidden bg-black bg-opacity-25 lg:block" x-show="beaconOpen"
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
