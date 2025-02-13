@@ -8,7 +8,7 @@
                             $listItemContent['content'] ?? false,
                             'blocks.' . $listItemContent['type'],
                             [
-                                'content' => $listItemContent['content'],
+                                'content' => $listItemContent['content'] ?? '',
                             ]
                         )
                     @endforeach
