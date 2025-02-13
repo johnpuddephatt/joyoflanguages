@@ -3,7 +3,7 @@
         @foreach ($content as $listItem)
             <li>
                 @foreach ($listItem['content'] as $listItemContent)
-                    @include('blocks.' . $listItemContent['type'], [
+                    @includeWhen($listItemContent['content'] ?? false, 'blocks.' . $listItemContent['type'], [
                         'content' => $listItemContent['content'],
                     ])
                 @endforeach
