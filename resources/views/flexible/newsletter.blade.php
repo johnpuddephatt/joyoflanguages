@@ -54,9 +54,10 @@
                             this.success = 'You’re now subscribed, thank you!'
                         } else {
                             this.success = 'Success! Please check your email to confirm your subscription.'
-                            if (!this.tags.includes(4280402)) {
-                                this.showPrompt = true;
-                            }
+    
+                        }
+                        if (!this.tags.includes(4280402)) {
+                            this.showPrompt = true;
                         }
                     }
                 })
