@@ -19,6 +19,5 @@
         </figure>
     @endif
 @else
-    Video not found
-@endif
+    <!-- Video not found -->
 @endif
