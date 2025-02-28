@@ -1,5 +1,5 @@
 @if (isset($content))
-    <table class="{{ $class }} table">
+    <table class="{{ $class }} block overflow-x-auto">
         @foreach ($content as $tableRow)
             <tr class="border-b">
                 @foreach ($tableRow['content'] as $tableCell)
