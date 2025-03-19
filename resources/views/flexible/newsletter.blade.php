@@ -80,18 +80,19 @@
         },
     }" x-init="trackFormVisit()">
 
-        <div x-cloak x-show="showPrompt" @click.self="showPrompt = false"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div x-show="showPrompt" x-cloak @click.self="showPrompt = false"
+            class="fixed inset-0 z-[99999] flex items-center justify-center bg-black bg-opacity-80">
             <button
                 class="z-9 absolute right-2 top-2 block w-10 rounded-full bg-white before:fixed before:inset-0 before:-z-10 lg:right-4 lg:top-4"
                 @click.stop="showPrompt = false" aria-label="Close modal window">@svg('plus', ' rotate-45 rounded-full border-[3px] p-2  w-10 h-10')</button>
-            <div class="flex w-full max-w-4xl flex-row overflow-hidden rounded-lg bg-white">
+            <div class="mx-4 flex w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-white lg:flex-row">
                 @if ($merged_layout->popup_image)
-                    <div class="bg-beige relative w-2/5 flex-none">
-                        <img src="{{ Storage::url($merged_layout->popup_image) }}" class="h-full w-full object-cover" />
+                    <div class="bg-beige relative flex-none lg:w-2/5">
+                        <img src="{{ Storage::url($merged_layout->popup_image) }}"
+                            class="aspect-[2] h-full w-full object-cover object-top lg:aspect-square" />
                     </div>
                 @endif
-                <div class="px-8 py-16">
+                <div class="px-4 py-8 lg:px-8 lg:py-16">
                     <div class="mb-4">
                         <h2 class="type-md">Mamma mia! You’ve signed up – but without our weekly free
                             lesson
