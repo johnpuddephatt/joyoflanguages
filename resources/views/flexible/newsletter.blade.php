@@ -56,6 +56,7 @@
                             this.success = 'Success! Please check your email to confirm your subscription.'
     
                         }
+                        console.log('tags', this.tags);
                         if (!this.tags.includes(4280402)) {
                             this.showPrompt = true;
                         }
