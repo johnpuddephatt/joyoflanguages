@@ -1,11 +1,11 @@
-<footer class="relative overflow-hidden bg-blue pb-8 pt-36 lg:pb-24 2xl:pb-36">
+<footer class="bg-blue relative overflow-hidden pb-8 pt-36 lg:pb-24 2xl:pb-36">
     <div class="container mx-auto max-w-none">
         @if (isset($settings['mission']))
             <div class="prose-standout prose mx-auto mb-4 max-w-lg lg:mx-0">@markdown($settings['mission'])</div>
         @endif
 
         @if (isset($settings['company_legal']))
-            <div class="prose mx-auto max-w-lg lg:mx-0">@markdown($settings['company_legal'])</div>
+            <div class="prose mx-auto max-w-lg lg:mx-0">@markdown(str_replace('{YEAR}', date('Y'), $settings['company_legal']))</div>
         @endif
         @if (isset($settings['company_address']))
             <div class="prose mx-auto max-w-lg lg:mx-0">@markdown($settings['company_address'])</div>

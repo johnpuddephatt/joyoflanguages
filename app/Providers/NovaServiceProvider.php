@@ -41,7 +41,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             Panel::make("Contact details", [
                 Text::make("Email address", "company_email"),
                 Text::make("Address", "company_address"),
-                Text::make("Company legal details", "company_legal"),
+                Text::make("Company legal details", "company_legal")->help('Enter {YEAR} to automatically replace it with the current year.'),
             ]),
             Panel::make("Social media", [
                 Image::make("OpenGraph fallback image", "og_fallback")->help(
