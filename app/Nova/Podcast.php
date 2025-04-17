@@ -33,6 +33,7 @@ use Laravel\Nova\Fields\URL;
 use Laravel\Nova\Fields\FormData;
 use Laravel\Nova\Fields\Line;
 use Laravel\Nova\Fields\Stack;
+use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
 
 class Podcast extends Resource
 {
@@ -107,7 +108,6 @@ class Podcast extends Resource
                 ->rules("required", "string", "max:100")
                 ->maxlength(100)
                 ->enforceMaxlength()
-
                 ->hideFromIndex(),
 
             // Text::make("Title", function ($value) {

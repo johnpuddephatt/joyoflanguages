@@ -6,7 +6,19 @@
         :full-width-content="fullWidthContent"
     >
         <template #field>
+            <NMHChooseMediaModal
+                :show="mediaModalOpen"
+                @close="mediaModalOpen = null"
+                @confirm="mediaItemsSelected"
+                :field="{
+                    readonly: 'false',
+                    multiple: false,
+                    attribute: 'foo',
+                }"
+            />
+
             <GutenTap
+                :id="`editor-${field.attribute.replace('->', '_')}`"
                 editorClass="prose max-w-none min-h-40"
                 v-model="value"
                 mode="json"
@@ -40,6 +52,9 @@ export default {
 
     data() {
         return {
+            mediaModalOpen: null,
+            mediaModalEditor: null,
+
             blockWidthTypes: [
                 "horizontalRule",
                 "blockquote",
@@ -129,7 +144,17 @@ export default {
                             name: "replace",
                             icon: '<svg class="w-5 p-0.5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>',
                             command: (editor) => {
-                                Nova.$emit("open-media-hub-modal");
+                                console.log(
+                                    "media-hub-open",
+                                    editor.options.element.parentNode.id,
+                                    editor.state.selection.$head.pos - 1,
+                                );
+                                Nova.$emit(
+                                    "media-hub-open",
+                                    editor.options.element.parentNode.id,
+                                    editor.state.selection.$head.pos - 1,
+                                );
+                                // Nova.$emit("open-media-hub-modal");
                             },
                             isActiveTest: (editor) =>
                                 editor.isActive({ variant: "default" }),
@@ -154,9 +179,37 @@ export default {
         };
     },
 
-    mounted() {},
+    mounted() {
+        Nova.$on("media-hub-open", (editor, pos) => {
+            if (
+                !this.mediaModalOpen &&
+                editor == "editor-" + this.field.attribute.replace("->", "_")
+            ) {
+                this.mediaModalEditor = editor;
+                this.mediaModalOpen = pos;
+            }
+        });
+    },
 
     methods: {
+        mediaItemsSelected(mediaItems) {
+            console.log(
+                "EMIT: media-hub-selected-" +
+                    this.mediaModalEditor +
+                    "_" +
+                    this.mediaModalOpen,
+                mediaItems,
+            );
+            Nova.$emit(
+                "media-hub-selected-" +
+                    this.mediaModalEditor +
+                    "_" +
+                    this.mediaModalOpen,
+                mediaItems,
+            );
+            this.mediaModalOpen = null;
+            this.mediaModalEditor = null;
+        },
         /*
          * Set the initial, internal value for the field.
          */
@@ -171,7 +224,7 @@ export default {
         fill(formData) {
             formData.append(
                 this.field.attribute,
-                JSON.stringify(this.value) || "[]"
+                JSON.stringify(this.value) || "[]",
                 // this.value || ""
             );
         },

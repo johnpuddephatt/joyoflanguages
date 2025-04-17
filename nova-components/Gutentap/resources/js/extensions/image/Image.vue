@@ -4,18 +4,6 @@
         class="my-4 relative border border-gray-300 rounded overflow-hidden"
     >
         <div contenteditable="false">
-            <NMHChooseMediaModal
-                :initialSelectedMediaItems="media"
-                :show="showChooseModal"
-                @close="showChooseModal = false"
-                @confirm="mediaItemsSelected"
-                :field="{
-                    readonly: 'false',
-                    multiple: false,
-                    attribute: 'foo',
-                }"
-            />
-
             <div v-if="mediaItem">
                 <div v-if="processing">PROCESSING...</div>
                 <img
@@ -46,10 +34,10 @@
                         <option default value="">Default</option>
                         <option
                             v-for="conversion in Object.keys(
-                                mediaItem.conversions
+                                mediaItem.conversions,
                             ).filter(
                                 (conversion_name, conversion_path) =>
-                                    !conversion_name.includes('__')
+                                    !conversion_name.includes('__'),
                             )"
                             :value="conversion"
                         >
@@ -72,7 +60,7 @@
             <div class="bg-gray-100 p-4 text-center" v-else>
                 <button
                     class="bg-primary-500 hover:bg-primary-400 cursor-pointer rounded text-sm font-bold focus:outline-none focus:ring ring-primary-200 dark:ring-gray-600 inline-flex items-center justify-center h-9 px-3 shadow relative bg-primary-500 hover:bg-primary-400 text-white dark:text-gray-900"
-                    @click.prevent="showChooseModal = true"
+                    @click.prevent="openMediaModal"
                 >
                     Add media
                 </button>
@@ -91,10 +79,18 @@ export default {
         NodeViewContent,
     },
 
-    props: nodeViewProps,
+    props: {
+        editor: {
+            type: Object,
+        },
+        getPos: {
+            type: Function,
+        },
+    },
 
     data() {
         return {
+            editor_id: null,
             mediaItem: null,
             showChooseModal: false,
             processing: false,
@@ -102,15 +98,31 @@ export default {
     },
 
     mounted() {
+        this.editor_id = this.editor.options.element.parentNode.id;
+
         if (this.node.attrs.media) {
             this.fetchImage();
         }
-        Nova.$on("open-media-hub-modal", () => {
-            this.showChooseModal = true;
-        });
+
+        Nova.$on(
+            "media-hub-selected-" + this.editor_id + "_" + this.getPos(),
+            (mediaItem) => {
+                console.log("event heard...");
+                this.mediaItem = mediaItem;
+
+                this.updateAttributes({
+                    media: mediaItem.id,
+                });
+            },
+        );
     },
 
     methods: {
+        openMediaModal() {
+            console.log("media-hub-open", this.editor_id, this.getPos());
+            Nova.$emit("media-hub-open", this.editor_id, this.getPos());
+        },
+
         fetchImage() {
             Nova.request()
                 .get(`/nova-vendor/media-hub/media/${this.node.attrs.media}`)
@@ -134,14 +146,14 @@ export default {
                 conversion: event.target.value,
             });
         },
-        mediaItemsSelected(mediaItem) {
-            this.mediaItem = mediaItem;
-            this.updateAttributes({
-                media: mediaItem.id,
-            });
-            this.showChooseModal = false;
-            this.fetchImage();
-        },
+        // mediaItemsSelected(mediaItem) {
+        //     this.mediaItem = mediaItem;
+        //     this.updateAttributes({
+        //         media: mediaItem.id,
+        //     });
+        //     this.showChooseModal = false;
+        //     this.fetchImage();
+        // },
     },
 };
 </script>

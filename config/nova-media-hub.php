@@ -1,6 +1,7 @@
 <?php
 
-use Spatie\Image\Manipulations;
+use Spatie\Image\Enums\Fit;
+use Spatie\Image\Enums\CropPosition;
 
 return [
     // Table name
@@ -89,8 +90,8 @@ return [
                 "format" => "jpg",
                 "width" => 400,
                 "height" => 400,
-                "fit" => Manipulations::FIT_CROP,
-                "crop" => Manipulations::CROP_TOP,
+                "fit" => Fit::Crop,
+                "crop" => CropPosition::Top,
             ],
 
             "square__lg" => [
@@ -99,8 +100,8 @@ return [
                 "format" => "jpg",
                 "width" => 800,
                 "height" => 800,
-                "fit" => Manipulations::FIT_CROP,
-                "crop" => Manipulations::CROP_TOP,
+                "fit" => Fit::Crop,
+                "crop" => CropPosition::Top,
             ],
 
             "thumbnail" => [
@@ -109,69 +110,69 @@ return [
                 "format" => "jpg",
                 "width" => 1200,
                 "height" => 627,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
 
             "uncropped" => [
                 // "format" => "jpg",
                 "width" => 300,
                 "height" => 5000,
-                "fit" => Manipulations::FIT_CONTAIN,
+                "fit" => Fit::Contain,
             ],
             "uncropped__sm" => [
                 // "format" => "jpg",
                 "width" => 600,
                 "height" => 5000,
-                "fit" => Manipulations::FIT_CONTAIN,
+                "fit" => Fit::Contain,
             ],
             "uncropped__md" => [
                 // "format" => "jpg",
                 "width" => 1200,
                 "height" => 5000,
-                "fit" => Manipulations::FIT_CONTAIN,
+                "fit" => Fit::Contain,
             ],
 
             "3x2" => [
                 "format" => "jpg",
                 "width" => 300,
                 "height" => 200,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "3x2__sm" => [
                 "format" => "jpg",
                 "width" => 600,
                 "height" => 400,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "3x2__md" => [
                 "format" => "jpg",
                 "width" => 1200,
                 "height" => 800,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "3x2__lg" => [
                 "format" => "jpg",
                 "width" => 2400,
                 "height" => 1600,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "portrait" => [
                 "format" => "jpg",
                 "width" => 200,
                 "height" => 300,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "portrait__md" => [
                 "format" => "jpg",
                 "width" => 400,
                 "height" => 600,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "portrait__lg" => [
                 "format" => "jpg",
                 "width" => 600,
                 "height" => 900,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
         ],
         "users" => [
@@ -179,19 +180,19 @@ return [
                 "format" => "jpg",
                 "width" => 200,
                 "height" => 300,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "2x3-sm" => [
                 "format" => "jpg",
                 "width" => 400,
                 "height" => 600,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
             "2x3-md" => [
                 "format" => "jpg",
                 "width" => 800,
                 "height" => 1200,
-                "fit" => Manipulations::FIT_CROP,
+                "fit" => Fit::Crop,
             ],
         ],
     ],

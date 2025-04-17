@@ -2,16 +2,28 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
+
 use Illuminate\Validation\Rules;
-use Laravel\Nova\Fields\Gravatar;
+
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Panel;
+use Manogi\Tiptap\Tiptap;
+use App\Nova\Traits\RedirectsToIndexOnSave;
+use Outl1ne\NovaMediaHub\Nova\Fields\MediaHubField;
+use Outl1ne\NovaSortable\Traits\HasSortableRows;
+use App\Nova\Actions\SaveAndResizeVideo;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Boolean;
 
 class User extends Resource
 {
+    use HasSortableRows;
+    use RedirectsToIndexOnSave;
+
     /**
      * The model the resource corresponds to.
      *
@@ -32,8 +44,12 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
+        'name',
+        'email',
     ];
+
+    public static $clickAction = "edit";
 
     /**
      * Get the fields displayed by the resource.
@@ -44,9 +60,11 @@ class User extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->hideFromIndex(),
+            BelongsTo::make("Language")->nullable(),
+            Boolean::make("Enable login"),
+            Boolean::make("Show in staff directory"),
 
-            Gravatar::make()->maxWidth(50),
 
             Text::make('Name')
                 ->sortable()
@@ -62,6 +80,15 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
+
+            Panel::make("Profile", [
+                Text::make("Role"),
+                MediaHubField::make("Photo")->defaultCollection("users"),
+                Tiptap::make("Biography"),
+                File::make("Video", "video")
+                    ->store(new SaveAndResizeVideo())
+                    ->acceptedTypes(".mp4"),
+            ]),
         ];
     }
 

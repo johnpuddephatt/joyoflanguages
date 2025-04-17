@@ -2,7 +2,6 @@
 
 namespace App\Nova\Flexible\Layouts;
 
-use Advoor\NovaEditorJs\NovaEditorJsField;
 use Laravel\Nova\Fields\Boolean;
 use Whitecube\NovaFlexibleContent\Layouts\Layout;
 use Laravel\Nova\Fields\Text;
