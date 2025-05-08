@@ -26,7 +26,7 @@
                         href="{{ \App\Models\Page::getTemplateUrl('App\Nova\Templates\PostsPageTemplate') }}?tags={{ $tag->slug }}">#{{ $tag->name }}</a>
                 @endforeach
             </div>
-            <h1 class="type-lg lg:type-xl"> {!! nl2br($post->title) !!}</h1>
+            <h1 class="type-xl"> {!! nl2br($post->title) !!}</h1>
             <div>
                 <p class="type-xs mt-4 lg:mt-6">{{ $post->published_at->format('jS F Y') }}
                 </p>

@@ -14,7 +14,7 @@
                             href="{{ \App\Models\Page::getTemplateUrl('App\Nova\Templates\PodcastsPageTemplate') }}?tags={{ $tag->slug }}">#{{ $tag->name }}</a>
                     @endforeach
                 </div>
-                <h1 class="type-lg lg:type-xl">
+                <h1 class="type-xl">
                     {!! nl2br($podcast->title) !!}</h1>
                 <div>
                     <p class="type-xs mt-4 lg:mt-6">{{ $podcast->published_at->format('jS F Y') }}
