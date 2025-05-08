@@ -26,13 +26,12 @@
                         href="{{ \App\Models\Page::getTemplateUrl('App\Nova\Templates\PostsPageTemplate') }}?tags={{ $tag->slug }}">#{{ $tag->name }}</a>
                 @endforeach
             </div>
-            <h1 class="type-xl">
-                {!! nl2br($post->title) !!}</h1>
+            <h1 class="type-lg lg:type-xl"> {!! nl2br($post->title) !!}</h1>
             <div>
                 <p class="type-xs mt-4 lg:mt-6">{{ $post->published_at->format('jS F Y') }}
                 </p>
                 @if ($post->introduction)
-                    <p class="type-sm mt-12 max-w-xl text-gray lg:mt-16">{{ $post->introduction }}
+                    <p class="type-sm text-gray mt-12 max-w-xl lg:mt-16">{{ $post->introduction }}
                     </p>
                 @endif
                 {{-- @if ($post->author)
@@ -87,7 +86,7 @@
 
     <x-disqus :id="$post->wp_id ? $post->wp_id . ' http:\/\/joyoflanguages.com\/?p=' . $post->wp_id : 'jol_' . $post->id" />
 
-    <div class="clear-both bg-pink py-16">
+    <div class="bg-pink clear-both py-16">
         <div class="container-lg mx-auto">
             <div class="mb-12 flex flex-col justify-between lg:flex-row">
                 <h2 class="text-3xl font-bold">More of our latest news</h2>

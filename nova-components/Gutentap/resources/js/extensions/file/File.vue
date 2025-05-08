@@ -3,18 +3,6 @@
         :data-block-width="node.attrs.blockWidth"
         class="my-4 relative border border-gray-300 rounded overflow-hidden"
     >
-        <!-- <NMHChooseMediaModal
-            :initialSelectedMediaItems="media"
-            :show="showChooseModal"
-            @close="showChooseModal = false"
-            @confirm="mediaItemsSelected"
-            :field="{
-                readonly: 'false',
-                multiple: false,
-                attribute: 'foo',
-            }"
-        /> -->
-
         <div contenteditable="false">
             <div :key="mediaItem.id" v-if="mediaItem">
                 <div

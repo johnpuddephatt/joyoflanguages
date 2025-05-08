@@ -5491,3 +5491,4 @@
 1744899469-1893-997427175,1744899469.1171,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,139.09482955933,request
 1744899733-6393-626740598,1744899733.4928,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,488.91496658325,request
 1744900027-3169-524658986,1744900027.1607,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,516.81685447693,request
+1744900852-8594-2038878290,1744900852.6698,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,587.53395080566,request
