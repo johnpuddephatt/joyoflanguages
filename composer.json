@@ -28,7 +28,7 @@
         "norman-huth/nova-values-field": "^1.0",
         "outl1ne/nova-media-hub": "dev-main",
         "outl1ne/nova-menu-builder": "^7.1",
-        "outl1ne/nova-settings": "^5.2.1",
+        "outl1ne/nova-settings": "5.2.1",
         "outl1ne/nova-simple-repeatable": "2.2.0",
         "outl1ne/nova-sortable": "^3.4",
         "pbmedia/laravel-ffmpeg": "^8.3",

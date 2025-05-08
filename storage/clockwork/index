@@ -5492,3 +5492,7 @@
 1744899733-6393-626740598,1744899733.4928,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,488.91496658325,request
 1744900027-3169-524658986,1744900027.1607,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,516.81685447693,request
 1744900852-8594-2038878290,1744900852.6698,GET,/nova-api/nova-notifications,Laravel\Nova\Http\Controllers\NotificationIndexController,200,587.53395080566,request
+1746707656-0922-2075976167,1746707655.8119,GET,/,App\Http\Controllers\PageController@show,200,1105.9811115265,request
+1746707658-6365-1702596353,1746707658.6077,GET,/storage/,App\Http\Controllers\PageController@show,404,252.37989425659,request
+1746707659-3351-185648576,1746707659.3317,GET,/cookie-consent/script?id=61a7dfc1462318126a1a874d2d204e37,Whitecube\LaravelCookieConsent\Http\Controllers\ScriptController,200,10.140895843506,request
+1746707659-2912-1514714972,1746707659.2813,GET,/livewire/livewire.js?id=90730a3b0e7144480175,Livewire\Controllers\LivewireJavaScriptAssets@source,200,20.265102386475,request
