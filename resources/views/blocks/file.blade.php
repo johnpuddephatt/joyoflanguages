@@ -15,4 +15,8 @@
             </p>
         </a>
     </div>
+@else
+    <div class="{{ $class }}">
+        <p class="type-xs bg-beige my-0 rounded py-3 pl-8">File not found</p>
+    </div>
 @endif
