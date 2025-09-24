@@ -1,7 +1,7 @@
-@if (isset($attrs['media']))
+@if (isset($attrs['media']) && ($media = \Outl1ne\NovaMediaHub\Models\Media::find($attrs['media'])))
     <div class="{{ $class }}">
-        <a href="{{ \Outl1ne\NovaMediaHub\Models\Media::find($attrs['media'])->getUrl() }}"
-            class="bg-light-teal group !mb-4 block flex flex-row rounded-full bg-opacity-20 !no-underline transition hover:bg-opacity-80">
+        <a href="{{ $media->getUrl() }}"
+            class="bg-light-teal group !mb-4 flex flex-row rounded-full bg-opacity-20 !no-underline transition hover:bg-opacity-80">
 
             <p class="type-xs my-0 py-3 pl-8">{{ $attrs['title'] }}</p>
             <p
