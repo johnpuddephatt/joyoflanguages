@@ -1,7 +1,7 @@
 @if (isset($attrs['src']))
 
     @php
-        if (preg_match('/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i', $attrs['src'], $matches)) {
+        if (preg_match('/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_\-]+)/i', $attrs['src'], $matches)) {
             $youtube_id = $matches[count($matches) - 1];
         } elseif (preg_match('/youtu.be\/([a-zA-Z0-9_\-]+)\??/i', $attrs['src'], $matches)) {
             $youtube_id = $matches[count($matches) - 1];
