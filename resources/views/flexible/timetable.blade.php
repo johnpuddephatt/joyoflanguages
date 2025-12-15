@@ -95,7 +95,7 @@
                                             <p class="!leading-tight">We do our best to keep times consistent, but
                                                 they
                                                 are subject
-                                                to change – including due to daylight
+                                                to change – e.g. due to daylight
                                                 savings.</p>
                                             <button @click.prevent="selectedTimezone = null"
                                                 class="bg-beige mb-4 flex flex-row items-center gap-1 rounded bg-opacity-20 p-1 hover:bg-opacity-50 max-md:ml-auto"><svg
@@ -105,7 +105,7 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
-                                                <span x-text="selectedTimezoneName"></span>
+                                                <span class="whitespace-nowrap" x-text="selectedTimezoneName"></span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                     fill="currentColor" class="h-5 w-5">
                                                     <path fill-rule="evenodd"
@@ -143,9 +143,9 @@
                                                                 convertedDay: null
                                                             }" x-show="count"
                                                                 x-init="convertedDay = originalDay"
-                                                                class="flex flex-row items-center gap-2 px-2 py-2">
+                                                                class="flex flex-row flex-wrap items-center gap-2 py-2">
                                                                 <div class="mr-auto" x-text="convertedDay"></div>
-                                                                @foreach ($day as $session)
+                                                                @foreach ($day->sortBy('start_time') as $session)
                                                                     <div x-data="{
                                                                         converted: null,
                                                                         shouldShow() {
@@ -161,7 +161,7 @@
                                                                         $parent.convertedDay = converted.day;
                                                                     }"
                                                                         x-show="shouldShow()" x-text="converted?.time"
-                                                                        class="bg-light-teal rounded bg-opacity-30 px-2">
+                                                                        class="bg-light-teal rounded bg-opacity-30 px-2 text-sm">
 
                                                                     </div>
                                                                 @endforeach
