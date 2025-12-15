@@ -52,7 +52,7 @@
                                     'Sydney': 10,
                                     'Perth': 7,
                                 },
-                                dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                                dayNames: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                                 rawSessions: {{ Js::from(collect($layout->timetable)->values()) }},
                                 processedLevels: [],
                             
@@ -63,11 +63,15 @@
                                     baseDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
                                     baseDate.setHours(baseDate.getHours() + offset);
                             
+                                    // Map JS day (0=Sun, 1=Mon, ..., 6=Sat) to our custom order (Mon=0, ..., Sun=6)
+                                    const jsDayIndex = baseDate.getDay();
+                                    const customDayIndex = jsDayIndex === 0 ? 6 : jsDayIndex - 1;
+                            
                                     return {
-                                        day: this.dayNames[baseDate.getDay()],
+                                        day: this.dayNames[customDayIndex],
                                         time: baseDate.getHours().toString().padStart(2, '0') + ':' +
                                             baseDate.getMinutes().toString().padStart(2, '0'),
-                                        sortKey: baseDate.getDay() * 10000 + baseDate.getHours() * 100 + baseDate.getMinutes()
+                                        sortKey: customDayIndex * 10000 + baseDate.getHours() * 100 + baseDate.getMinutes()
                                     };
                                 },
                             
