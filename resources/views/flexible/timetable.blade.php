@@ -188,7 +188,7 @@
                                                                 class="flex flex-row flex-wrap items-center gap-2 py-2">
                                                                 <div class="mr-auto" x-text="dayGroup.day"></div>
                                                                 <template x-for="session in dayGroup.sessions"
-                                                                    :key="session.id">
+                                                                    :key="session.convertedTime">
                                                                     <div x-text="session.convertedTime"
                                                                         class="bg-light-teal rounded bg-opacity-30 px-2 text-sm">
                                                                     </div>
