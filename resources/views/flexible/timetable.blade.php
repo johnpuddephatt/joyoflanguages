@@ -184,16 +184,19 @@
                                                         class="divide-beige mb-4 divide-y divide-opacity-50">
                                                         <template x-for="dayGroup in levelGroup.dayGroups"
                                                             :key="dayGroup.day">
-                                                            <div
-                                                                class="flex flex-row flex-wrap items-center gap-2 py-2">
-                                                                <div class="mr-auto" x-text="dayGroup.day"></div>
-                                                                <template x-for="session in dayGroup.sessions"
-                                                                    :key="session.convertedTime">
-                                                                    <div x-text="session.convertedTime"
-                                                                        class="bg-light-teal rounded bg-opacity-30 px-2 text-sm">
-                                                                    </div>
-                                                                </template>
-                                                            </div>
+                                                            <template
+                                                                x-if="dayGroup.sessions && dayGroup.sessions.length > 0">
+                                                                <div
+                                                                    class="flex flex-row flex-wrap items-center gap-2 py-2">
+                                                                    <div class="mr-auto" x-text="dayGroup.day"></div>
+                                                                    <template x-for="session in dayGroup.sessions"
+                                                                        :key="session.convertedTime">
+                                                                        <div x-text="session.convertedTime"
+                                                                            class="bg-light-teal rounded bg-opacity-30 px-2 text-sm">
+                                                                        </div>
+                                                                    </template>
+                                                                </div>
+                                                            </template>
                                                         </template>
                                                     </div>
                                                 </div>
@@ -221,7 +224,8 @@
                     @foreach ($layout->images as $key => $image)
                         <div
                             class="{{ match ($key) {0 => '-rotate-6 max-lg:mx-auto',1 => 'rotate-3 max-lg:ml-auto max-md:-mt-[4rem] max-lg:-mt-[10rem]',2 => '-rotate-3  max-md:-mt-[10rem] max-lg:-mt-[20rem]'} }} rotate relative w-1/2 flex-1 lg:w-auto">
-                            <x-library-image class="w-full" conversion="portrait" :image="$image->image" :alt="'Photo of ' . $image->caption" />
+                            <x-library-image class="w-full" conversion="portrait" :image="$image->image"
+                                :alt="'Photo of ' . $image->caption" />
                             <div
                                 class="{{ match ($key) {0 => 'top-1/2 -left-4',1 => '-right-4 -bottom-4 ',2 => '-right-4 top-1/2'} }} absolute z-10 flex h-20 w-20 items-center justify-center rounded-full p-4 text-center text-sm font-bold !leading-none sm:h-24 sm:w-24 sm:text-base">
 
