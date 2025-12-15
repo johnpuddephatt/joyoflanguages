@@ -52,10 +52,29 @@
                                     'Sydney': 10,
                                     'Perth': 7,
                                 },
-                                updatedTime(time, offset) {
-                                    let hours = time.split(':')[0];
-                                    let minutes = time.split(':')[1];
-                                    return parseInt(hours) + offset + ':' + minutes;
+                                // Base day for reference (doesn't matter which, just needs to be consistent)
+                                baseDay: 'Monday',
+                                dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                            
+                                convertTime(originalDay, time, offset) {
+                                    // Map day names to numbers (Monday = 1, Sunday = 0)
+                                    const dayIndex = this.dayNames.indexOf(originalDay);
+                            
+                                    // Create a date object for the original time
+                                    // Use a fixed date (Jan 1, 2024 was a Monday) + day offset
+                                    const baseDate = new Date(2024, 0, 1 + dayIndex);
+                                    const [hours, minutes] = time.split(':');
+                                    baseDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+                            
+                                    // Apply timezone offset
+                                    baseDate.setHours(baseDate.getHours() + offset);
+                            
+                                    // Return new day and time
+                                    return {
+                                        day: this.dayNames[baseDate.getDay()],
+                                        time: baseDate.getHours().toString().padStart(2, '0') + ':' +
+                                            baseDate.getMinutes().toString().padStart(2, '0')
+                                    };
                                 }
                             
                             }">
@@ -118,19 +137,30 @@
                                                     <div x-show="open" x-transition
                                                         class="divide-beige mb-4 divide-y divide-opacity-50">
                                                         @foreach ($level->groupBy('day') as $day)
-                                                            <div x-data="{ count: 0, }" x-show="count"
+                                                            <div x-data="{
+                                                                count: 0,
+                                                                originalDay: '{{ $day->first()->day }}',
+                                                                convertedDay: null
+                                                            }" x-show="count"
+                                                                x-init="convertedDay = originalDay"
                                                                 class="flex flex-row items-center gap-2 px-2 py-2">
-                                                                <div class="mr-auto">{{ $day->first()->day }}</div>
+                                                                <div class="mr-auto" x-text="convertedDay"></div>
                                                                 @foreach ($day as $session)
                                                                     <div x-data="{
-                                                                        myTime: null,
+                                                                        converted: null,
                                                                         shouldShow() {
-                                                                            let hours = parseInt(this.myTime.split(':')[0]);
-                                                                            return (hours > 4 && hours < 22)
+                                                                            if (!this.converted) return false;
+                                                                            let hours = parseInt(this.converted.time.split(':')[0]);
+                                                                            return (hours >= 5 && hours < 22);
                                                                         }
-                                                                    }" x-init=" myTime = updatedTime('{{ $session->start_time }}', selectedTimezone);
-                                                                     shouldShow() ? (count++, levelCount++) : null"
-                                                                        x-show="shouldShow()" x-text="myTime"
+                                                                    }" x-init="converted = convertTime('{{ $session->day }}', '{{ $session->start_time }}', selectedTimezone);
+                                                                    if (shouldShow()) {
+                                                                        count++;
+                                                                        levelCount++;
+                                                                        // Update parent day to the converted day (they should all be the same within a group)
+                                                                        $parent.convertedDay = converted.day;
+                                                                    }"
+                                                                        x-show="shouldShow()" x-text="converted?.time"
                                                                         class="bg-light-teal rounded bg-opacity-30 px-2">
 
                                                                     </div>
@@ -164,7 +194,8 @@
                     @foreach ($layout->images as $key => $image)
                         <div
                             class="{{ match ($key) {0 => '-rotate-6 max-lg:mx-auto',1 => 'rotate-3 max-lg:ml-auto max-md:-mt-[4rem] max-lg:-mt-[10rem]',2 => '-rotate-3  max-md:-mt-[10rem] max-lg:-mt-[20rem]'} }} rotate relative w-1/2 flex-1 lg:w-auto">
-                            <x-library-image class="w-full" conversion="portrait" :image="$image->image" :alt="'Photo of ' . $image->caption" />
+                            <x-library-image class="w-full" conversion="portrait" :image="$image->image"
+                                :alt="'Photo of ' . $image->caption" />
                             <div
                                 class="{{ match ($key) {0 => 'top-1/2 -left-4',1 => '-right-4 -bottom-4 ',2 => '-right-4 top-1/2'} }} absolute z-10 flex h-20 w-20 items-center justify-center rounded-full p-4 text-center text-sm font-bold !leading-none sm:h-24 sm:w-24 sm:text-base">
 
