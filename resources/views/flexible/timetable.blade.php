@@ -85,7 +85,7 @@
                                             convertedDay: result.day,
                                             convertedTime: result.time,
                                             sortKey: result.sortKey,
-                                            visible: hours >= 5 && hours < 22
+                                            visible: hours > 5 && hours < 22
                                         };
                                     });
                             
