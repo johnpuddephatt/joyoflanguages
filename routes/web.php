@@ -17,6 +17,19 @@ use Illuminate\Http\Request;
 Route::redirect('italianpodcast', 'https://italian.joyoflanguages.com/podcast');
 Route::redirect('learn-italian', 'https://italian.joyoflanguages.com/join');
 
+// First-party proxy for ConvertKit newsletter signup. Registered without a
+// domain constraint so it works on every language subdomain. See
+// App\Http\Controllers\NewsletterController for why this is server-side.
+Route::post("newsletter/subscribe", [
+    \App\Http\Controllers\NewsletterController::class,
+    "subscribe",
+])->name("newsletter.subscribe");
+
+Route::post("newsletter/visit", [
+    \App\Http\Controllers\NewsletterController::class,
+    "visit",
+])->name("newsletter.visit");
+
 Route::domain(
     "{language:slug}." . parse_url(config("app.url"), PHP_URL_HOST)
 )->group(function () {

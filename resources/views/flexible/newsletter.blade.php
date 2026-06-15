@@ -21,20 +21,14 @@
         working: false,
         submit() {
             this.working = true;
-            let formData = new FormData();
-            formData.append('email', this.email);
-            formData.append('tags', this.tags);
-            formData.append('api_key', 'Z6eRFMKxM5iF6RcEQ2HoZg');
-            fetch(this.$refs.signupForm.action, {
+            fetch('{{ route('newsletter.subscribe') }}', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
                     },
-    
-    
                     body: JSON.stringify({
-                        api_key: 'Z6eRFMKxM5iF6RcEQ2HoZg',
+                        form_id: '{{ $merged_layout->form_action }}',
                         email: this.email,
                         tags: this.tags
                     })
@@ -66,12 +60,15 @@
         },
     
         trackFormVisit() {
-            fetch('https://app.convertkit.com/forms/{{ $merged_layout->form_action }}/visit', {
+            fetch('{{ route('newsletter.visit') }}', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
                     },
+                    body: JSON.stringify({
+                        form_id: '{{ $merged_layout->form_action }}'
+                    })
                 })
                 .catch((error) => {
                     console.log('Convertkit error: ', error);
@@ -115,8 +112,8 @@
             </div>
         </div>
 
-        <form x-ref="signupForm"
-            action="https://api.convertkit.com/v3/forms/{{ $merged_layout->form_action }}/subscribe" method="POST">
+        <form x-ref="signupForm" @submit.prevent="submit()"
+            action="{{ route('newsletter.subscribe') }}" method="POST">
             <div>
                 <div
                     class="{{ $background ?? 'bg-yellow' }} relative flex w-full flex-col justify-center overflow-hidden">

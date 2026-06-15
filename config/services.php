@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'convertkit' => [
+        'api_key' => env('CONVERTKIT_API_KEY'),
+    ],
+
 ];

@@ -12,6 +12,9 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        // Public newsletter proxy endpoints. The pages they're posted from are
+        // full-page response-cached (no per-user CSRF token is rendered).
+        "newsletter/subscribe",
+        "newsletter/visit",
     ];
 }
